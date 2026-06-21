@@ -1,0 +1,39 @@
+{
+  "summary": "Iteration 4 — frontend-only review of (1) /croissance ported inside the global shell (Header + Sidebar reprise) and (2) removal of the 'Intégrations' tab. Verdict: PASS on all 6 review acceptance criteria. Test method: Playwright on https://zayado-extension-ui.preview.emergentagent.com with cleared localStorage, default theme=dark, then light toggle, then back. Findings:\n• /croissance renders inside the reprise shell. Sidebar (data-testid app-sidebar / left nav) shows exactly: Dashboard, Vision Board, Pilotage, Bien-être, Espace de travail, Croissance, Paramètres. No final-main TopNav/FloatingBottomBar/MobileBottomNav duplicated (the imported components are confirmed neutralized — return empty). data-testid='page-croissance' present. No page blanche, no blocking JS error. Only 2 transient 403 on /api/leads at first mount, caught via .catch — non-bloquant, expected per spec.\n• Dark mode (default, html.dark=true): white-card scan over the entire page-croissance subtree returned ONE light offender: the tabs pill container 'croissance-tabs' (className='mb-8 inline-flex bg-white/85 backdrop-blur-sm border border-sand-200 rounded-full ...'), bg=rgba(255,255,255,0.85), 661x58. Visually the active tab (navy pill) is readable, BUT the inactive tab labels sit on a translucent-white pill over the LeafBackdrop and are noticeably brighter than every other element in dark mode (see screenshot croissance_dark.png). This is the only dark-mode legibility deviation versus the other ported pages (Pilotage/BienEtre/Espace). Hero LeafBackdrop, 4 KPI cards (Prospects / Conversations / Leads / RDV — all '0' as expected for guest), 'TOP SOURCES DE LEADS', Growth Agent teaser card and 'OUTILS DE CROISSANCE' tools row (CRM/Campagnes/Séquences/FAQ Bot/Landing/Annonces) all render on dark surfaces with readable text.\n• Tabs (data-testid croissance-tab-hub / -analyse / -terrain / -agent): all 4 present, each click switches the view without crashing the page; page-croissance still mounted after every tab switch. 'Growth Agent' tab shows the addon badge (data-testid growth-agent-addon-badge) and the PaywallGate-wrapped AgentView mounts without errors.\n• Light-mode toggle via [data-testid=header-theme-toggle]: html.dark→false, page-croissance still mounted. Dark-card-in-light scan = 0 offenders (no unintended dark cards). Switch back to dark works.\n• WelcomeModal 'Bienvenue sur Croissance': appears on first visit (localStorage zay_welcome_seen_croissance cleared), closes via 'Compris, on y va !', writes localStorage zay_welcome_seen_croissance='1' and does NOT reappear.\n• /integrations: navigating directly to /integrations correctly redirects to / (catch-all to Dashboard). Sidebar contains zero 'Intégrations' entries (case-insensitive scan returns false). Integrations removal verified end-to-end.",
+  "backend_issues": { "critical": [], "minor": [] },
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": [
+      {
+        "screen": "/croissance (dark mode)",
+        "issues": [
+          "Tabs container [data-testid='croissance-tabs'] uses 'bg-white/85 backdrop-blur-sm border border-sand-200' — in dark mode this produces a translucent-white pill (rgba(255,255,255,0.85), 661x58) that is the only bright element on the page besides the active navy tab. Inactive tab labels (Analyse marché / Terrain / Growth Agent) become harder to scan compared to the other ported pages. Suggest dark override (e.g. html.dark .fm-page [data-testid='croissance-tabs'] { background: rgba(15,23,42,0.55); border-color: var(--border); } and adjust the active/inactive button bg accordingly) — same scope-and-override strategy used on Pilotage/BienEtre/Espace in iteration_3."
+        ]
+      }
+    ]
+  },
+  "test_report_links": [
+    "/app/test_reports/iteration_4.json"
+  ],
+  "action_items": [
+    "Add a dark-mode override for [data-testid='croissance-tabs'] so the tab pill bar matches the dark surface treatment of the other ported pages (currently bg-white/85 leaks into dark mode). Non-blocking — page is fully usable, but it is the only light element flagged by the white-card scan inside .fm-page on /croissance."
+  ],
+  "critical_code_review_comments": [
+    "Croissance.js correctly imports TopNav / FloatingBottomBar / MobileBottomNav from @fm/components/layout but those modules export empty components (confirmed) — keeps the final-main JSX faithful while avoiding double-nav. Good pattern, identical to the other ported pages.",
+    "WelcomeModal wiring is consistent: useWelcomeModal('croissance') + localStorage key 'zay_welcome_seen_croissance' — matches the pattern verified in iteration_3 for the 3 other ported pages.",
+    "PaywallGate wraps AgentView only when tab==='agent' — safe lazy mount, no crash when the tab is selected as guest.",
+    "navItems in /app/frontend/src/mock/mockData.js no longer contains an 'integrations' entry, and App.js has no /integrations <Route> — catch-all <Route path='*' element={<Navigate to='/' replace />} /> handles the redirect cleanly. Integrations removal is structurally complete (no dangling reference in the live routing tree).",
+    "Minor: leadsApi.list() in Croissance.js swallows ALL errors with .catch(() => {}) — that's intentional per spec to absorb the transient 403 race, but a one-time console.warn on non-403 errors would help future debugging without changing UX."
+  ],
+  "updated_files": [
+    "/app/test_reports/iteration_4.json"
+  ],
+  "success_rate": { "backend": "n/a (frontend-only scope)", "frontend": "100% on the 6 acceptance criteria; 1 minor dark-mode design polish on the tabs pill" },
+  "test_credentials": "None — guest auto-session via POST /api/auth/guest. To force light mode: click [data-testid=header-theme-toggle].",
+  "seed_data_creation": "None.",
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "Croissance port + Intégrations removal are functionally complete. The single open polish item is the [data-testid='croissance-tabs'] pill bar background in dark mode (bg-white/85 leaks). The /api/leads 403 at first mount is expected (guest token race, caught). All 4 tabs (hub/analyse/terrain/agent) and PaywallGate mount cleanly. Sidebar nav has no Intégrations item; /integrations redirects to /. Reuse the same dark-mode white-card scan from iteration_3 if retesting after the tabs-pill fix.",
+  "rca of the issue": "Single minor finding: Croissance.js renders the tab switcher with Tailwind 'bg-white/85 backdrop-blur-sm border border-sand-200 rounded-full' which is hard-coded to white and is NOT remapped by the html.dark .fm-page CSS layer (because there is no hex-arbitrary or token-based class on this container — it's a literal Tailwind opacity-on-white). Mitigation: add an explicit dark override on [data-testid='croissance-tabs'] (and its descendant inactive buttons' hover bg) in the .fm-page dark scope, same approach used for the .text-[#1F2937]/.bg-[#FBF6EA] overrides documented in iteration_3."
+}

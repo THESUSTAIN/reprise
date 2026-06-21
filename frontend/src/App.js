@@ -15,6 +15,7 @@ import FmShell from '@fm/FmShell';
 import FmPilotage from '@fm/pages/Pilotage';
 import FmBienEtre from '@fm/pages/BienEtre';
 import FmEspace from '@fm/pages/EspaceDeTravail';
+import FmCroissance from '@fm/pages/Croissance';
 import StubPage from './pages/StubPage';
 
 /**
@@ -61,33 +62,10 @@ function App() {
                 <Route path="/pilotage" element={<FmShell><FmPilotage /></FmShell>} />
                 <Route path="/bien-etre" element={<FmShell><FmBienEtre /></FmShell>} />
                 <Route path="/espace" element={<FmShell><FmEspace /></FmShell>} />
+                <Route path="/croissance" element={<FmShell><FmCroissance /></FmShell>} />
                 <Route path="/parametres" element={<Settings />} />
                 <Route path="/settings" element={<Navigate to="/parametres" replace />} />
 
-                <Route
-                  path="/croissance"
-                  element={
-                    <StubPage
-                      title="Croissance"
-                      description="Leads détectés, pipeline, Expansion Agent — votre acquisition pilotée"
-                      testId="page-croissance"
-                      sourceFile="final-main/frontend/src/pages/Croissance.js"
-                      status="porting"
-                    />
-                  }
-                />
-                <Route
-                  path="/integrations"
-                  element={
-                    <StubPage
-                      title="Intégrations"
-                      description="Google Drive, OneDrive, Notion, Trello — connectez vos outils"
-                      testId="page-integrations"
-                      sourceFile="final-main/frontend/src/pages/Integrations.js"
-                      status="porting"
-                    />
-                  }
-                />
                 <Route
                   path="/wordpress"
                   element={

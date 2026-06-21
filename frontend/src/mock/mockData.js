@@ -19,7 +19,6 @@ export const navItems = [
   { id: 'bienetre',    label: 'Bien-être',          icon: 'HeartPulse',        path: '/bien-etre' },
   { id: 'espace',      label: 'Espace de travail',  icon: 'Briefcase',         path: '/espace' },
   { id: 'croissance',  label: 'Croissance',         icon: 'TrendingUp',        path: '/croissance' },
-  { id: 'integrations',label: 'Intégrations',       icon: 'Plug',              path: '/integrations' },
   { id: 'wordpress',   label: 'WordPress',          icon: 'Globe',             path: '/wordpress',  adminOnly: true },
   { id: 'admin',       label: 'Admin',              icon: 'ShieldCheck',       path: '/admin',      adminOnly: true },
   { id: 'parametres',  label: 'Paramètres',         icon: 'SlidersHorizontal', path: '/parametres' },
