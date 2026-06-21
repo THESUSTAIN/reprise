@@ -271,8 +271,8 @@ const Pilotage = () => {
           <div
             className="rounded-2xl p-6 text-center"
             style={{
-              background: frozen ? "var(--navy)" : "#FBF6EA",
-              color: frozen ? "var(--bg)" : "var(--navy)",
+              background: frozen ? "var(--navy)" : "var(--cream-soft)",
+              color: frozen ? "var(--cream)" : "var(--navy)",
               transition: "all 300ms",
             }}
           >
@@ -295,7 +295,7 @@ const Pilotage = () => {
                 }
               }}
               data-testid="freeze-roadmap"
-              className={frozen ? "btn-ghost !text-[var(--bg)] !border-white/30" : "btn-cta"}
+              className={frozen ? "btn-ghost !text-[var(--cream)] !border-white/30" : "btn-cta"}
             >
               {frozen ? "Reprendre" : "Geler la roadmap"}
             </button>
@@ -356,7 +356,7 @@ const Pilotage = () => {
                   <XAxis dataKey="mois" tick={{ fill: "#5C6B7B", fontSize: 12 }} axisLine={false} tickLine={false} />
                   <YAxis tick={{ fill: "#5C6B7B", fontSize: 12 }} axisLine={false} tickLine={false} />
                   <Tooltip
-                    contentStyle={{ background: "#fff", border: "1px solid #E8E2D9", borderRadius: 12 }}
+                    contentStyle={{ background: "var(--bg-card)", border: "1px solid var(--border)", borderRadius: 12, color: "var(--ink)" }}
                     formatter={(v) => [`${v} €`, "CA"]}
                   />
                   <Bar dataKey="ca" fill="#1F3A6A" radius={[6, 6, 0, 0]} />

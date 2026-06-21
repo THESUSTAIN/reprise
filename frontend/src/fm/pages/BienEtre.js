@@ -155,7 +155,7 @@ const BienEtre = () => {
 
         {/* Overload alert */}
         <div className="card-z p-5 flex items-center gap-4 border-l-4 border-l-[var(--gold)]" data-testid="overload-alert">
-          <div className="w-10 h-10 rounded-full grid place-items-center" style={{ background: "#FBF6EA", color: "#1F3B73" }}>
+          <div className="w-10 h-10 rounded-full grid place-items-center" style={{ background: "var(--cream-soft)", color: "var(--gold)" }}>
             <AlertTriangle size={16} />
           </div>
           <div className="flex-1">
@@ -192,7 +192,7 @@ const BienEtre = () => {
                 <XAxis dataKey="jour" tick={{ fill: "#5C6B7B", fontSize: 10 }} axisLine={false} tickLine={false} interval={4} />
                 <YAxis domain={[0, 10]} tick={{ fill: "#5C6B7B", fontSize: 11 }} axisLine={false} tickLine={false} />
                 <Tooltip
-                  contentStyle={{ background: "#fff", border: "1px solid #E8E2D9", borderRadius: 12 }}
+                  contentStyle={{ background: "var(--bg-card)", border: "1px solid var(--border)", borderRadius: 12, color: "var(--ink)" }}
                 />
                 <Line type="monotone" dataKey="energie" stroke="#1F3A6A" strokeWidth={2.5} dot={false} />
                 <Line type="monotone" dataKey="stress" stroke="#8B0000" strokeWidth={2} dot={false} strokeDasharray="4 4" />
@@ -212,7 +212,7 @@ const BienEtre = () => {
               <div className="flex items-center gap-2 text-[11px] tracking-[0.22em] uppercase opacity-75 mb-3" style={{ color: "var(--gold)" }}>
                 <Lock size={11} /> Bilan trimestriel · privé
               </div>
-              <h2 className="text-[26px] md:text-[32px] leading-tight mb-4 font-bold" style={{ color: "var(--bg)", letterSpacing: "-0.02em" }}>
+              <h2 className="text-[26px] md:text-[32px] leading-tight mb-4 font-bold" style={{ color: "var(--cream)", letterSpacing: "-0.02em" }}>
                 90 jours de toi, en 2 pages.
               </h2>
               <p className="text-[14px] leading-relaxed max-w-[560px] mb-5" style={{ color: "rgba(253,251,247,0.82)" }}>
@@ -250,7 +250,7 @@ const BienEtre = () => {
                     onClick={() => { setTrimQuarter(b.id); setTrimOpen(true); }}
                     data-testid={`trim-history-${b.id}`}
                     className="w-full flex items-center justify-between gap-3 px-3 py-2.5 rounded-lg transition group"
-                    style={{ color: "var(--bg)" }}
+                    style={{ color: "var(--cream)" }}
                     onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(255,255,255,0.08)")}
                     onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
                   >

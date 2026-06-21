@@ -590,3 +590,51 @@ html.dark .fm-page .border-cream-dark { border-color: rgba(255, 255, 255, 0.08) 
 html.dark .fm-page .text-gray-400,
 html.dark .fm-page .text-gray-500,
 html.dark .fm-page .text-gray-600 { color: #9aa7bd !important; }
+
+/* ─── DARK : pages final-main (Pilotage / Bien-être / Espace) ───────────────
+   Remappe les variables ambiguës + neutralise les classes Tailwind couleur
+   "en dur" (hex) afin que tout le contenu bascule proprement en sombre. */
+html.dark .fm-page {
+  --bg: #0e1a36;            /* fond carte (jamais texte : voir cream pour le texte clair) */
+  --surface: #142243;
+  --border: rgba(255, 255, 255, 0.10);
+  --cream-soft: #15233f;
+  --cream-dark: #15233f;
+}
+
+/* Cartes encore manquantes */
+html.dark .fm-page .card-soft {
+  background: #122036 !important;
+  border-color: rgba(255, 255, 255, 0.07) !important;
+}
+
+/* Textes sombres → clairs */
+html.dark .fm-page .text-\[\#1F2937\],
+html.dark .fm-page .text-\[\#264653\] { color: #eaf1fb !important; }
+html.dark .fm-page .text-\[\#6B6358\],
+html.dark .fm-page .text-\[\#6B7280\],
+html.dark .fm-page .text-\[\#9CA3AF\],
+html.dark .fm-page .text-\[\#4A4538\] { color: #9aa7bd !important; }
+html.dark .fm-page .text-\[var\(--navy\)\] { color: #8fb0e6 !important; }
+html.dark .fm-page .text-\[\#9C7D40\] { color: #e7c992 !important; }
+
+/* Fonds clairs (hex) → sombres */
+html.dark .fm-page .bg-\[\#FBF6EA\],
+html.dark .fm-page .bg-\[\#F3E9D0\] { background-color: #15233f !important; }
+
+/* Bordures claires (hex) → translucides */
+html.dark .fm-page .border-\[\#E8E2D8\] { border-color: rgba(255, 255, 255, 0.10) !important; }
+
+/* Hover borders navy → bleu clair */
+html.dark .fm-page .hover\:border-navy\/40:hover,
+html.dark .fm-page .hover\:border-navy\/30:hover { border-color: rgba(143, 176, 230, 0.40) !important; }
+
+/* Recharts : axes & grille lisibles en sombre */
+html.dark .fm-page .recharts-text { fill: #9aa7bd !important; }
+html.dark .fm-page .recharts-cartesian-grid line,
+html.dark .fm-page .recharts-polar-grid line { stroke: rgba(255, 255, 255, 0.10) !important; }
+html.dark .fm-page .recharts-default-tooltip {
+  background: #142243 !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+  color: #f0ecde !important;
+}

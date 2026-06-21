@@ -1,0 +1,42 @@
+{
+  "summary": "Iteration 3 — focused review of DARK MODE (default) on the 3 final-main pages (/pilotage, /bien-etre, /espace) plus light-mode toggle and WelcomeModal regression. Verdict: PASS on all primary requirements. Test method: Playwright on the live preview URL https://zayado-extension-ui.preview.emergentagent.com, auto guest-session, html.dark=true by default. For each .fm-page tree we scanned every descendant's computed backgroundColor and flagged any element with rgb≈white-ish (r>220,g>215,b>200), alpha>0.5, and visible size >80x40 — this is the exact 'white card not flipped to dark' check the request asks for. RESULTS: \n• /pilotage (dark): 0 light/white elements detected. data-testid present and rendered inside the global shell (Header + left Sidebar): page-pilotage ✓, weekly-verdict ✓, score-card ✓, ca-chart ✓, csv-import-section ✓. 'Verdict hebdomadaire IA / Ralentir pour décider juste' panel renders on navy, 'Score Business' + 'CA Mensuel' cards on dark surface, all readable.\n• /bien-etre (dark): 0 light/white elements. data-testid page-bien-etre ✓, overload-alert ✓, energy-history ✓, trim-card ✓ (page-wellness missing — minor, see below). WelcomeModal 'Compris, on y va' now appears on first visit (regression from iter2 FIXED). 'Verdict du co-pilote', 3 sliders, 'Tu as validé 11 tâches en 3 jours' alert, energy/stress 30 days chart and 'Bilan trimestriel' navy card all render properly with cream/gold text.\n• /espace (dark): 0 light elements on default tab AND on tabs Missions, Processus, Documents. WelcomeModal works first-visit. Note: review mentioned a 4th tab 'Tâches' — only 3 tabs exist in the UI (Missions / Processus / Documents).\n• Light-mode toggle (header sun/moon, data-testid=header-theme-toggle): switches html.dark→false correctly. On /pilotage light: 0 unintended dark cards. On /espace light: 0 unintended dark cards. On /bien-etre light: 1 deliberately-dark card (.card-navy 'Bilan trimestriel') — expected by design, not a bug. No re-render glitches.\n• Global shell: Header top bar + left Sidebar (4 icons) visible on all 3 routes, NO double TopNav/SideNav/BottomBar from final-main (correctly neutralized). No page-blank, no JS error in console.\n• WelcomeModal: appears on first visit for /pilotage, /bien-etre, /espace; closes via 'Compris, on y va !' and persists dismissal via localStorage zay_welcome_seen_<key>.",
+  "backend_issues": { "critical": [], "minor": [] },
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": [
+      {
+        "screen": "/bien-etre",
+        "issues": ["data-testid 'page-wellness' is absent (only 'page-bien-etre' exists). Review request lists both — pick one canonical id for consistency with other pages (page-pilotage, page-espace pattern)."]
+      },
+      {
+        "screen": "/espace",
+        "issues": ["Only 3 tabs (Missions / Processus / Documents) — review request mentions a 4th 'Tâches' tab that does not exist. Either add the tab or correct the spec. Tab order in UI: Missions, Processus, Documents (review listed Missions, Documents, Tâches, Processus)."]
+      }
+    ]
+  },
+  "test_report_links": [
+    "/app/backend/tests/test_iter2_review.py"
+  ],
+  "action_items": [
+    "Optional: add data-testid='page-wellness' alongside 'page-bien-etre' on the wellness page root, or remove the alias from the spec — current code uses only 'page-bien-etre'.",
+    "Optional: clarify the /espace tabs spec — UI has Missions/Processus/Documents (3 tabs) while the review lists 4 tabs incl. 'Tâches'. If 'Tâches' is required, add the tab + content; otherwise update docs.",
+    "Carry-over from iter2 (still applicable, non-blocking for dark-mode review): clean up routes/finance.py double-prefix and missing SQLAlchemy text import; remove stray AppLogsTab.js/ChatInterface.js from backend/routes/."
+  ],
+  "critical_code_review_comments": [
+    "fm.css dark-mode layer is well-structured: html.dark .fm-page remaps tokens (--bg/--surface/--border/--cream-soft/--cream-dark) AND neutralizes hex-in-class Tailwind escapes (.text-[#1F2937], .bg-[#FBF6EA], .border-[#E8E2D8], etc.) — this is the right approach for the imported final-main pages and gives full dark coverage without touching component JSX.",
+    "Recharts dark theming is wired (.recharts-text fill, .recharts-cartesian-grid line stroke, default tooltip bg) — energy/stress chart and CA chart render correctly in dark.",
+    ".card-navy is deliberately dark in BOTH modes (Bilan trimestriel) — this is design-intent, not a bug; confirmed visually that text on navy uses var(--cream) for AA contrast.",
+    "WelcomeModal pattern (useWelcomeModal hook + localStorage 'zay_welcome_seen_<page>') is now consistently wired on all 3 pages — regression from iter2 confirmed fixed."
+  ],
+  "updated_files": [
+    "/app/test_reports/iteration_3.json"
+  ],
+  "success_rate": { "backend": "n/a (frontend-only scope)", "frontend": "100% on dark-mode primary requirements; 2 minor spec/UI discrepancies (testid alias, tabs count)" },
+  "test_credentials": "None — guest auto-session via POST /api/auth/guest. To force light mode: click header sun/moon toggle (data-testid=header-theme-toggle) or localStorage.setItem('zayado-theme','light') + remove 'dark' class from <html>.",
+  "seed_data_creation": "None.",
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "Dark-mode fix is complete and verified end-to-end on /pilotage, /bien-etre, /espace including all Espace tabs (Missions/Processus/Documents). Light-mode toggle does NOT break any of the 3 pages. WelcomeModal is wired on all 3 pages (the iter2 BienEtre gap is now fixed). The .fm-page CSS scope-and-override strategy (html.dark .fm-page) is robust — any future white-card regression should re-use the same selectors. Only minor open items are spec alignment (testid 'page-wellness' alias and the 4th 'Tâches' tab on /espace). If retesting, hit the 3 routes with cleared localStorage (zay_welcome_seen_*) and run the same JS background-color scan (see iteration_3 summary).",
+  "rca of the issue": "N/A — no critical bug found in this iteration. Dark-mode coverage is achieved by remapping CSS variables and overriding Tailwind hex-arbitrary classes inside the .fm-page scope (html.dark .fm-page .text-[#1F2937], .bg-[#FBF6EA], .card-soft, recharts, etc.). The single 'dark card detected in light mode' on /bien-etre is the intentional .card-navy 'Bilan trimestriel' surface and is by design."
+}
