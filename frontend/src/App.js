@@ -51,17 +51,16 @@ function App() {
                 }
               />
 
-              {/* Pages portées fidèlement de final-main — autonomes (TopNav propre) */}
-              <Route path="/pilotage" element={<FmShell><FmPilotage /></FmShell>} />
-              <Route path="/bien-etre" element={<FmShell><FmBienEtre /></FmShell>} />
-              <Route path="/espace" element={<FmShell><FmEspace /></FmShell>} />
-
               {/* Vision Board — page autonome (sa propre top-nav, sans Layout global) */}
               <Route path="/vision-board" element={<VisionBoardPage />} />
 
               {/* Routes app avec Layout (Sidebar + Header) */}
               <Route element={<Layout />}>
                 <Route path="/" element={<Dashboard />} />
+                {/* Contenu final-main inséré DANS la coquille reprise (Header + Sidebar) */}
+                <Route path="/pilotage" element={<FmShell><FmPilotage /></FmShell>} />
+                <Route path="/bien-etre" element={<FmShell><FmBienEtre /></FmShell>} />
+                <Route path="/espace" element={<FmShell><FmEspace /></FmShell>} />
                 <Route path="/parametres" element={<Settings />} />
                 <Route path="/settings" element={<Navigate to="/parametres" replace />} />
 
