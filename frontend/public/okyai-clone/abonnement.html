@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#7a4aff">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="referrer" content="no-referrer-when-downgrade">
+<meta name="application-name" content="OkyAi">
+<link rel="shortcut icon" href="images/logo-sm.png" type="image/png">
+
+<title>Abonnement — Zayado · MyExtension AI</title>
+
+<meta name="description" content="OkyAi is an AI-powered SaaS dashboard HTML template with a chatbot UI, analytics views, content tools, and settings. Built with Tailwind CSS and Gulp.">
+<meta name="keywords" content="OkyAi, AI dashboard template, AI chatbot UI, SaaS dashboard, Tailwind CSS, Gulp, analytics dashboard, admin template, HTML template">
+<link rel="canonical" href="https://okyai-html.com/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://okyai-html.com/">
+<meta property="og:title" content="OkyAi - Premium AI Dashboard &amp; AI Chatbot HTML Template">
+<meta property="og:description" content="OkyAi is a modern AI SaaS dashboard template with chatbot UI, analytics, content tools, and settings. Built with Tailwind CSS and Gulp.">
+<meta property="og:site_name" content="OkyAi">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://okyai-html.com/">
+<meta name="twitter:title" content="OkyAi - Premium AI Dashboard &amp; AI Chatbot HTML Template">
+<meta name="twitter:description" content="Modern AI SaaS dashboard HTML template with chatbot UI, analytics, content tools, and settings. Built with Tailwind CSS and Gulp.">
+
+    <!-- main css (Tailwind compiled) -->
+<link href="https://okyai-html.mantrakshdevs.com/css/input.min.css" rel="stylesheet" type="text/css" id="main-style">
+
+<link rel="stylesheet" href="/okyai-clone/zayado-palette.css"></head>
+<body>
+    <div class="drawer xl:drawer-horizontal">
+        <input id="my-drawer" type="checkbox" class="drawer-toggle">
+        <div class="drawer-content flex flex-col" style="min-height: 100vh;">
+            <div class="relative z-10">
+                <div class="group/sidebar-wrapper has-data-[variant=inset]:bg-sidebar flex min-h-svh w-full" style="--sidebar-width: 6rem; --sidebar-width-icon: 6rem;">
+                    <!-- XL+ Fixed Sidebar -->
+<div class="group peer hidden xl:block">
+    <div class="fixed inset-y-0 z-10 w-(--sidebar-width) transition-[left,right,width] duration-200 ease-linear left-0 group-data-[collapsible=offcanvas]:-left-(--sidebar-width) group-data-[collapsible=icon]:w-(--sidebar-width-icon) group-data-[side=right]:border-l"
+        style="--sidebar-width: 6rem; --sidebar-width-icon: 6rem;">
+        <div
+            class="group-data-[variant=floating]:border-sidebar-border flex min-h-svh justify-between items-center w-full flex-col group-data-[variant=floating]:rounded-lg group-data-[variant=floating]:border group-data-[variant=floating]:shadow-sm">
+            <div data-slot="sidebar-header" data-sidebar="header" class="flex flex-col gap-2 p-2">
+                <div class="hidden xl:flex items-center gap-2 px-2 py-3"><img width="60" src="assets/logo-myextension-256.png"
+                        alt="OkyAi Logo"></div>
+            </div>
+            <div class="flex-1 flex flex-col gap-2 w-full justify-center">
+                <div class="relative flex w-full min-w-0 flex-col justify-center">
+                    <div class="w-full text-sm relative h-full">
+                        <ul
+                            class="flex justify-center relative xl:items-center xl:bg-linear-to-b from-primary to-sidebar-primary h-full rounded-r-3xl w-full min-w-0 flex-col gap-3 p-4 py-6">
+
+                            
+                            
+                            <li class="group/menu-item relative flex justify-center">
+                                <div class="tooltip tooltip-right tooltip-custom" data-tip="Dashboard">
+                                    <a href="index.html" class="peer/menu-button sidebar-menu-link zy-sidebar-link">
+                                        <i data-lucide="layout-dashboard" class="size-5 shrink-0"></i>
+                                    </a>
+                                </div>
+                            </li>
+
+                            <li class="group/menu-item relative flex justify-center">
+                                <div class="tooltip tooltip-right tooltip-custom" data-tip="Vision Board">
+                                    <a href="/vision-board" class="peer/menu-button sidebar-menu-link zy-sidebar-link" target="_top">
+                                        <i data-lucide="eye" class="size-5 shrink-0"></i>
+                                    </a>
+                                </div>
+                            </li>
+
+                            <li class="group/menu-item relative flex justify-center">
+                                <div class="tooltip tooltip-right tooltip-custom" data-tip="Espace de travail">
+                                    <a href="workspace.html" class="peer/menu-button sidebar-menu-link zy-sidebar-link">
+                                        <i data-lucide="briefcase" class="size-5 shrink-0"></i>
+                                    </a>
+                                </div>
+                            </li>
+
+                            <li class="group/menu-item relative flex justify-center">
+                                <div class="tooltip tooltip-right tooltip-custom" data-tip="Co-pilote IA">
+                                    <a href="copilote.html" class="peer/menu-button sidebar-menu-link zy-sidebar-link">
+                                        <i data-lucide="sparkles" class="size-5 shrink-0"></i>
+                                    </a>
+                                </div>
+                            </li>
+
+                            <li class="group/menu-item relative flex justify-center">
+                                <div class="tooltip tooltip-right tooltip-custom" data-tip="Pilotage">
+                                    <a href="pilotage.html" class="peer/menu-button sidebar-menu-link zy-sidebar-link">
+                                        <i data-lucide="line-chart" class="size-5 shrink-0"></i>
+                                    </a>
+                                </div>
+                            </li>
+
+                            <li class="group/menu-item relative flex justify-center">
+                                <div class="tooltip tooltip-right tooltip-custom" data-tip="Expansion Agent">
+                                    <a href="expansion.html" class="peer/menu-button sidebar-menu-link zy-sidebar-link">
+                                        <i data-lucide="radar" class="size-5 shrink-0"></i>
+                                    </a>
+                                </div>
+                            </li>
+
+                            <li class="group/menu-item relative flex justify-center">
+                                <div class="tooltip tooltip-right tooltip-custom" data-tip="Bien-être">
+                                    <a href="bienetre.html" class="peer/menu-button sidebar-menu-link zy-sidebar-link">
+                                        <i data-lucide="heart-pulse" class="size-5 shrink-0"></i>
+                                    </a>
+                                </div>
+                            </li>
+
+                            <li class="group/menu-item relative flex justify-center" data-zayado-more-host>
+                                <div class="tooltip tooltip-right tooltip-custom" data-tip="Plus">
+                                    <button type="button" class="peer/menu-button sidebar-menu-link zy-sidebar-link" data-zayado-more-btn aria-haspopup="true" aria-expanded="false">
+                                        <i data-lucide="more-horizontal" class="size-5 shrink-0"></i>
+                                    </button>
+                                </div>
+                            </li>
+
+
+                            <li class="absolute xl:block hidden w-full h-full  top-0 left-0 pointer-events-none">
+                                <svg class="absolute left-0 bottom-[-30px] svg-corner svg-pink" width="30" height="30"
+                                    viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#sidebar-clip_2)">
+                                        <path d="M30 0H0V30C0 13.431 13.431 0 30 0Z"></path>
+                                    </g>
+                                    <defs>
+                                        <clipPath id="sidebar-clip_2">
+                                            <rect width="30" height="30" fill="white"></rect>
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                                <svg class="absolute left-0 top-[-30px] -rotate-90 svg-corner " width="30" height="30"
+                                    viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#sidebar-clip_3)">
+                                        <path d="M30 0H0V30C0 13.431 13.431 0 30 0Z"></path>
+                                    </g>
+                                    <defs>
+                                        <clipPath id="sidebar-clip_3">
+                                            <rect width="30" height="30" fill="white"></rect>
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="flex flex-col gap-2 p-2">
+
+                <div class="hidden xl:flex justify-center px-2">
+                    <div class="dropdown dropdown-right dropdown-top">
+                        <div tabindex="0" role="button"
+                            class="inline-flex items-center justify-center size-10 rounded-full bg-sidebar-foreground hover:bg-sidebar-accent transition-all duration-300 cursor-pointer">
+                            <i data-lucide="gem" class="size-5 shrink-0"></i>
+                        </div>
+                        <div tabindex="-1"
+                            class="dropdown-content z-50 mb-2 ml-2 w-64 rounded-xl border border-white/10 bg-popover backdrop-blur-xl text-popover-foreground shadow-xl overflow-hidden p-1">
+                            <div class="px-3 py-2 border-b border-white/10">
+                                <p class="text-sm font-semibold">Account User</p>
+                                <p class="text-xs text-white/50"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="d0a5a3b5a290bfbba9b1b9feb3bfbd">[email&#160;protected]</a></p>
+                            </div>
+                            <div class="p-3">
+                                <div
+                                    class="bg-linear-to-br from-orange-500/10 to-amber-500/10 border border-orange-500/20 rounded-xl p-4 text-center">
+                                    <img alt="Update" class="h-16 mx-auto mb-3 animate-float block"
+                                        src="https://okyai-html.mantrakshdevs.com/images/update1.svg">
+                                    <h5 class="font-semibold text-sm mb-1">Update Pro Plan</h5>
+                                    <p class="text-xs text-white/50 mb-3">Enhance your experience with the Pro version.
+                                    </p>
+                                    <a href="subscription.html"
+                                        class="inline-flex items-center justify-center w-full h-9 rounded-lg px-3 text-sm font-medium text-white bg-linear-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 transition-all duration-300">
+                                        Upgrade Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+                    <main class="relative flex w-full flex-1 flex-col xl:ml-(--sidebar-width) xl:peer-data-[variant=inset]:m-2 xl:peer-data-[variant=inset]:rounded-xl xl:peer-data-[variant=inset]:shadow-sm xl:peer-data-[variant=inset]:peer-data-[state=collapsed]:ml-2">
+                        <header class="sticky top-0 z-50 flex h-16 items-center gap-4 bg-linear-to-r from-primary to-sidebar-primary mx-5 md:mx-10 rounded-b-2xl px-4 md:px-6">
+    <div class="absolute w-full h-full rounded-l-2xl top-0 left-0 pointer-events-none">
+        <svg class="absolute left-[-30px] top-0 svg-corner rotate-90" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#header-clip_2)">
+                <path d="M30 0H0V30C0 13.431 13.431 0 30 0Z"></path>
+            </g>
+            <defs>
+                <clipPath id="header-clip_2">
+                    <rect width="30" height="30" fill="white"></rect>
+                </clipPath>
+            </defs>
+        </svg>
+        <svg class="absolute right-[-30px] top-0 svg-corner svg-pink rotate-0" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#header-clip_3)"><path d="M30 0H0V30C0 13.431 13.431 0 30 0Z"></path></g>
+            <defs>
+                <clipPath id="header-clip_3"><rect width="30" height="30" fill="white"></rect></clipPath>
+            </defs>
+        </svg>
+    </div>
+    <div class="flex items-center gap-4 flex-1">
+        <label for="my-drawer" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all duration-300 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-popover hover:text-accent-foreground dark:hover:bg-accent/50 size-7 xl:hidden">
+            <i data-lucide="panel-left" class="size-4" aria-hidden="true"></i>
+            <span class="sr-only">Toggle Sidebar</span>
+        </label>
+        <div class="relative w-full max-w-md hidden md:block">
+            <i data-lucide="search" class="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" aria-hidden="true"></i>
+            <input data-slot="input" class="file:text-foreground placeholder:text-white/40 selection:bg-primary selection:text-primary-foreground w-full min-w-0 rounded-md border border-border bg-input px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive [&amp;::-webkit-search-cancel-button]:appearance-none pl-9 h-9" placeholder="Search..." type="search">
+        </div>
+    </div>
+    <div class="flex items-center gap-2">
+        <button type="button" data-demo-mobile-search class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all duration-300 disabled:pointer-events-none disabled:opacity-50 size-9 md:hidden hover:bg-popover hover:text-accent-foreground" aria-label="Search">
+            <i data-lucide="search" class="size-5" aria-hidden="true"></i>
+        </button>
+        <div class="dropdown dropdown-end">
+            <button type="button" tabindex="0" data-demo-bell class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all duration-300 size-9 relative group hover:bg-popover hover:text-accent-foreground" aria-label="Notifications">
+                <i data-lucide="bell" class="size-5 transition-all duration-300 group-hover:scale-110 group-hover:rotate-12" aria-hidden="true"></i>
+                <span class="absolute top-1.5 right-1.5 size-2 bg-destructive rounded-full animate-pulse"></span>
+            </button>
+            <div tabindex="0" class="dropdown-content z-100 mt-2 w-72 rounded-xl border border-white/10 bg-popover backdrop-blur-xl shadow-xl p-2">
+                <p class="px-3 py-2 text-xs font-semibold text-white/50 uppercase tracking-wider">Notifications</p>
+                <ul class="space-y-1">
+                    <li><button type="button" class="w-full text-left px-3 py-2 rounded-lg text-sm text-slate-200 hover:bg-sidebar-accent border border-transparent hover:border-sidebar-accent transition-colors">API rate limit warning</button></li>
+                    <li><button type="button" class="w-full text-left px-3 py-2 rounded-lg text-sm text-slate-200 hover:bg-sidebar-accent border border-transparent hover:border-sidebar-accent transition-colors">Payment received — $49.00</button></li>
+                    <li><button type="button" class="w-full text-left px-3 py-2 rounded-lg text-sm text-slate-200 hover:bg-sidebar-accent border border-transparent hover:border-sidebar-accent transition-colors">GPT-4 Turbo model updated</button></li>
+                </ul>
+                <a href="settings.html" class="block mt-2 text-center text-xs text-primary hover:underline py-2">Notification settings</a>
+            </div>
+        </div>
+        <div class="dropdown dropdown-end dropdown-bottom">
+            <div tabindex="0" role="button" class="flex items-center justify-center size-8 rounded-full bg-sidebar-accent border border-sidebar-accent transition-all duration-300 hover:shadow-lg cursor-pointer">
+                <i data-lucide="circle-user" class="size-5 text-white" aria-hidden="true"></i>
+            </div>
+            <div tabindex="-1" class="dropdown-content z-90 mt-2 w-56 rounded-xl border border-white/10 bg-popover backdrop-blur-xl text-popover-foreground shadow-xl overflow-hidden p-1">
+                <div class="px-3 py-2">
+                    <p class="text-sm font-semibold">Account User</p>
+                    <p class="text-xs text-muted-foreground"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="3045435542705f5b4951591e535f5d">[email&#160;protected]</a></p>
+                </div>
+                <div class="bg-white/10 -mx-1 my-1 h-px"></div>
+                <ul>
+                    <li>
+                        <a href="settings.html" class="relative flex items-center gap-2 rounded-md px-3 py-2 text-sm border border-transparent hover:bg-sidebar-accent hover:text-white hover:border-sidebar-accent transition-colors duration-200 cursor-pointer">
+                            <i data-lucide="user" class="size-4 shrink-0"></i> <span>Profile</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="settings.html" class="relative flex items-center gap-2 rounded-md px-3 py-2 text-sm border border-transparent hover:bg-sidebar-accent hover:text-white hover:border-sidebar-accent transition-colors duration-200 cursor-pointer">
+                            <i data-lucide="settings" class="size-4 shrink-0"></i> <span>Settings</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="subscription.html" class="relative flex items-center gap-2 rounded-md px-3 py-2 text-sm border border-transparent hover:bg-sidebar-accent hover:text-white hover:border-sidebar-accent transition-colors duration-200 cursor-pointer">
+                            <i data-lucide="circle-help" class="size-4 shrink-0"></i> <span>Billing &amp; Plans</span>
+                        </a>
+                    </li>
+                </ul>
+                <div class="bg-white/10 -mx-1 my-1 h-px"></div>
+                <ul>
+                    <li>
+                        <a href="login.html" class="relative flex items-center gap-2 rounded-md px-3 py-2 text-sm border border-transparent text-destructive hover:bg-destructive/10 hover:border-destructive/30 transition-colors duration-200 cursor-pointer">
+                            <i data-lucide="log-out" class="size-4 shrink-0"></i> <span>Log out</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+
+                        <div class="p-5 md:p-10 space-y-6">
+                            <!-- Page header -->
+                            <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+                                <div>
+                                    <h1 class="text-2xl md:text-3xl font-bold text-foreground tracking-tight">Abonnement</h1>
+                                    <p class="text-sm text-muted-foreground mt-1">Choisis ton plan MyExtension AI · sans engagement.</p>
+                                </div>
+                                <span class="self-start inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.18em] text-muted-foreground border border-border rounded-full px-3 py-1">
+                                    <i data-lucide="sparkles" class="size-3.5"></i> mockup
+                                </span>
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-5"><div data-slot="card" class="relative bg-card text-card-foreground rounded-2xl border border-border p-6 shadow-sm">
+            
+            <p class="text-xs uppercase tracking-[0.18em] text-muted-foreground">START</p>
+            <p class="text-3xl font-bold mt-2">29 &euro;/mois</p>
+            <p class="text-xs text-muted-foreground">Pour d&eacute;marrer</p>
+            <ul class="mt-5 space-y-2"><li class="flex items-center gap-2 text-sm"><i data-lucide="check" class="size-4 text-emerald-500"></i> Vision Board IA</li><li class="flex items-center gap-2 text-sm"><i data-lucide="check" class="size-4 text-emerald-500"></i> Co-pilote IA</li><li class="flex items-center gap-2 text-sm"><i data-lucide="check" class="size-4 text-emerald-500"></i> Pilotage basique</li></ul>
+            <button class="mt-6 w-full inline-flex items-center justify-center gap-2 h-10 rounded-md bg-primary text-white text-sm font-medium hover:bg-primary/90 transition">Choisir START</button>
+        </div><div data-slot="card" class="relative bg-card text-card-foreground rounded-2xl border border-primary ring-2 ring-primary/30 p-6 shadow-sm">
+            <span class="absolute -top-3 left-1/2 -translate-x-1/2 text-[10px] uppercase tracking-wider bg-primary text-white px-3 py-1 rounded-full">Recommand&eacute;</span>
+            <p class="text-xs uppercase tracking-[0.18em] text-muted-foreground">GROW</p>
+            <p class="text-3xl font-bold mt-2">79 &euro;/mois</p>
+            <p class="text-xs text-muted-foreground">Expansion compl&egrave;te</p>
+            <ul class="mt-5 space-y-2"><li class="flex items-center gap-2 text-sm"><i data-lucide="check" class="size-4 text-emerald-500"></i> Tout START</li><li class="flex items-center gap-2 text-sm"><i data-lucide="check" class="size-4 text-emerald-500"></i> Expansion Agent</li><li class="flex items-center gap-2 text-sm"><i data-lucide="check" class="size-4 text-emerald-500"></i> Pilotage avanc&eacute;</li><li class="flex items-center gap-2 text-sm"><i data-lucide="check" class="size-4 text-emerald-500"></i> Bien-&ecirc;tre</li></ul>
+            <button class="mt-6 w-full inline-flex items-center justify-center gap-2 h-10 rounded-md bg-primary text-white text-sm font-medium hover:bg-primary/90 transition">Choisir GROW</button>
+        </div><div data-slot="card" class="relative bg-card text-card-foreground rounded-2xl border border-border p-6 shadow-sm">
+            
+            <p class="text-xs uppercase tracking-[0.18em] text-muted-foreground">SERENITY</p>
+            <p class="text-3xl font-bold mt-2">149 &euro;/mois</p>
+            <p class="text-xs text-muted-foreground">70% IA + 30% humain</p>
+            <ul class="mt-5 space-y-2"><li class="flex items-center gap-2 text-sm"><i data-lucide="check" class="size-4 text-emerald-500"></i> Tout GROW</li><li class="flex items-center gap-2 text-sm"><i data-lucide="check" class="size-4 text-emerald-500"></i> Accompagnement humain</li><li class="flex items-center gap-2 text-sm"><i data-lucide="check" class="size-4 text-emerald-500"></i> Supervision compta</li><li class="flex items-center gap-2 text-sm"><i data-lucide="check" class="size-4 text-emerald-500"></i> DAF &agrave; la carte</li></ul>
+            <button class="mt-6 w-full inline-flex items-center justify-center gap-2 h-10 rounded-md bg-primary text-white text-sm font-medium hover:bg-primary/90 transition">Choisir SERENITY</button>
+        </div></div>
+    <div data-slot="card" class="bg-card text-card-foreground rounded-2xl border p-5 md:p-6 shadow-sm">
+    <div class="mb-4">
+        <h3 class="text-base font-semibold">Engagement</h3>
+        <p class="text-xs text-muted-foreground mt-0.5">Sans engagement, 14 jours d&rsquo;essai</p>
+    </div>
+    <p class="text-sm text-muted-foreground">Annulation possible &agrave; tout moment depuis cet &eacute;cran. Reprise des donn&eacute;es export possibles 30 jours.</p>
+</div>
+                        </div>
+
+                    </main>
+                </div>
+            </div>
+        </div>
+        <div class="drawer-side z-100">
+            <label for="my-drawer" class="drawer-overlay fixed inset-0 z-50 bg-gray-100/10 backdrop-blur-xl"></label>
+            <div class="fixed z-50 flex flex-col gap-4 transition ease-in-out inset-y-0 left-0 h-full sm:max-w-sm w-(--sidebar-width) p-0 [&>button]:hidden" style="--sidebar-width: 18rem;">
+                <div class="flex h-svh relative rounded-r-3xl justify-between bg-linear-to-b from-primary to-sidebar-primary my-3 xl:items-center w-full flex-col">
+                    <div class="flex flex-col gap-2 p-2">
+                        <div class="hidden xl:flex items-center gap-2 px-2 py-3"><img width="60" src="assets/logo-myextension-256.png" alt="OkyAi"></div>
+                        <div class="xl:hidden flex items-center justify-center gap-2 px-2 py-3"><img width="200" src="assets/logo-myextension-256.png" alt="OkyAi"></div>
+                    </div>
+                    <div class="absolute xl:hidden block w-full h-full rounded-l-2xl top-0 left-0 pointer-events-none"><svg class="absolute left-0 bottom-[-30px] svg-corner svg-pink" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#dash-clip_2)"><path d="M30 0H0V30C0 13.431 13.431 0 30 0Z"></path></g><defs><clipPath id="dash-clip_2"><rect width="30" height="30" fill="white"></rect></clipPath></defs></svg><svg class="absolute left-0 top-[-30px] -rotate-90 svg-corner" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#dash-clip_3)"><path d="M30 0H0V30C0 13.431 13.431 0 30 0Z"></path></g><defs><clipPath id="dash-clip_3"><rect width="30" height="30" fill="white"></rect></clipPath></defs></svg></div>
+                    <div class="flex flex-col gap-2">
+                        <!-- Mobile drawer navigation -->
+<div class="relative flex w-full min-w-0 flex-col">
+    <div class="w-full text-sm relative">
+        <ul class="flex justify-center relative h-full w-full min-w-0 flex-col gap-3 p-4 py-6">
+            
+            
+            <li class="group/menu-item relative">
+                <a href="index.html" class="drawer-menu-link zy-sidebar-link">
+                    <i data-lucide="layout-dashboard" class="size-5 shrink-0"></i><span>Dashboard</span>
+                </a>
+            </li>
+            <li class="group/menu-item relative">
+                <a href="/vision-board" class="drawer-menu-link zy-sidebar-link" target="_top">
+                    <i data-lucide="eye" class="size-5 shrink-0"></i><span>Vision Board</span>
+                </a>
+            </li>
+            <li class="group/menu-item relative">
+                <a href="workspace.html" class="drawer-menu-link zy-sidebar-link">
+                    <i data-lucide="briefcase" class="size-5 shrink-0"></i><span>Espace de travail</span>
+                </a>
+            </li>
+            <li class="group/menu-item relative">
+                <a href="copilote.html" class="drawer-menu-link zy-sidebar-link">
+                    <i data-lucide="sparkles" class="size-5 shrink-0"></i><span>Co-pilote IA</span>
+                </a>
+            </li>
+            <li class="group/menu-item relative">
+                <a href="pilotage.html" class="drawer-menu-link zy-sidebar-link">
+                    <i data-lucide="line-chart" class="size-5 shrink-0"></i><span>Pilotage</span>
+                </a>
+            </li>
+            <li class="group/menu-item relative">
+                <a href="expansion.html" class="drawer-menu-link zy-sidebar-link">
+                    <i data-lucide="radar" class="size-5 shrink-0"></i><span>Expansion Agent</span>
+                </a>
+            </li>
+            <li class="group/menu-item relative">
+                <a href="bienetre.html" class="drawer-menu-link zy-sidebar-link">
+                    <i data-lucide="heart-pulse" class="size-5 shrink-0"></i><span>Bien-être</span>
+                </a>
+            </li>
+            <li class="px-3 pt-3 pb-1 text-[10px] uppercase tracking-[0.18em] text-white/40">Plus</li>
+            <li class="group/menu-item relative">
+                <a href="thesustain.html" class="drawer-menu-link zy-sidebar-link">
+                    <i data-lucide="leaf" class="size-5 shrink-0"></i><span>TheSustain</span>
+                </a>
+            </li>
+            <li class="group/menu-item relative">
+                <a href="abonnement.html" class="drawer-menu-link zy-sidebar-link">
+                    <i data-lucide="credit-card" class="size-5 shrink-0"></i><span>Abonnement</span>
+                </a>
+            </li>
+
+
+        </ul>
+    </div>
+</div>
+
+                    </div>
+                    <div class="flex flex-col gap-2 p-2">
+                        <div class="px-3 pb-3">
+                            <div data-slot="card" class="bg-card text-card-foreground flex flex-col gap-4 rounded-xl md:rounded-3xl border sm:p-5 lg:p-6 shadow-sm p-4 text-center"><img alt="Update" class="h-20 mx-auto mb-3 animate-float block" src="https://okyai-html.mantrakshdevs.com/images/update1.svg"><div><p class="font-semibold text-sm mb-1">Update Pro Plan</p><p class="text-xs text-muted-foreground mb-3">Enhance your experience with the Pro version.</p></div><a data-slot="button" class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium transition-all duration-300 disabled:pointer-events-none disabled:opacity-50 bg-primary hover:bg-primary/90 h-8 rounded-md gap-1.5 px-3 w-full bg-linear-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white border-0" href="subscription.html">Upgrade Now</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://okyai-html.mantrakshdevs.com/plugins/gsap/gsap.min.js"></script>
+<script src="https://okyai-html.mantrakshdevs.com/plugins/lucide/umd/lucide.min.js"></script>
+<script>
+    lucide.createIcons();
+</script>
+<script src="https://okyai-html.mantrakshdevs.com/plugins/chart.js/chart.umd.min.js"></script>
+<script src="https://okyai-html.mantrakshdevs.com/js/combined.min.js"></script>
+<script src="https://okyai-html.mantrakshdevs.com/js/demo-utils.js"></script>
+
+    <script src="https://okyai-html.mantrakshdevs.com/js/pages/home.js"></script>
+<script src="/okyai-clone/zayado-header.js" defer></script></body>
+</html>

@@ -1,0 +1,198 @@
+/* Zayado clone - global App overrides */
+.App {
+  min-height: 100vh;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.2);
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.4);
+}
+
+html,
+body,
+.zy-themed {
+  transition: background-color 280ms ease, color 280ms ease, border-color 280ms ease;
+}
+
+/* Page background — dark mode near-black navy, light mode soft cream */
+.zy-page-bg {
+  background-color: #04081a;
+  background-image:
+    radial-gradient(circle at 30% 20%, rgba(30, 58, 138, 0.18), transparent 55%),
+    radial-gradient(circle at 80% 80%, rgba(41, 82, 163, 0.12), transparent 55%);
+}
+html:not(.dark) .zy-page-bg {
+  background-color: #F6F3EE;
+  background-image:
+    radial-gradient(circle at 30% 20%, rgba(26, 58, 110, 0.05), transparent 55%),
+    radial-gradient(circle at 80% 80%, rgba(184, 152, 85, 0.18), transparent 55%);
+}
+
+/* Sidebar — floating dark card with thin accent stripe on right */
+.zy-sidebar {
+  background: linear-gradient(180deg, #06112c 0%, #0a1f4e 100%);
+  border: 1px solid rgba(148, 163, 184, 0.08);
+  box-shadow: 0 14px 40px -16px rgba(0, 0, 0, 0.6);
+}
+html:not(.dark) .zy-sidebar {
+  background: linear-gradient(180deg, #0a1f4e 0%, #1e3a8a 100%);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 14px 40px -16px rgba(15, 23, 42, 0.25);
+}
+.zy-sidebar-stripe {
+  background: linear-gradient(180deg, transparent 0%, #d4b78c 25%, #2952a3 60%, transparent 100%);
+}
+
+/* Header band — navy uniforme (référence okyai-clone) : #142b45 → #1B3A5B → #0c1d31 */
+.zy-header-band {
+  background: linear-gradient(to right, #142b45 0%, #1B3A5B 60%, #0c1d31 100%);
+  background-color: #142b45;
+  border: 1px solid rgba(148, 163, 184, 0.06);
+  box-shadow: 0 12px 36px -18px rgba(0, 0, 0, 0.5);
+}
+
+/* Header scoops — coins concaves qui prolongent le header dans la page.
+   Le fill DOIT correspondre à la couleur du header (navy) pour créer
+   l'effet de "flare" comme dans la référence (et non la couleur du fond). */
+.zy-header-scoop {
+  fill: #142b45;
+}
+html:not(.dark) .zy-header-scoop {
+  fill: #142b45;
+}
+html:not(.dark) .zy-header-band {
+  background: linear-gradient(to right, #142b45 0%, #1B3A5B 60%, #0c1d31 100%);
+  background-color: #142b45;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 12px 36px -18px rgba(15, 23, 42, 0.2);
+}
+
+/* Search bar inside header — navy band dans les deux thèmes → texte clair */
+.zy-search {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+.zy-search::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+.zy-search:focus {
+  outline: none;
+  border-color: rgba(212, 183, 140, 0.6);
+  box-shadow: 0 0 0 3px rgba(212, 183, 140, 0.15);
+}
+
+/* Card with subtle radial gradient */
+.zy-card {
+  background:
+    radial-gradient(circle at top left, rgba(30, 58, 138, 0.16), transparent 55%),
+    linear-gradient(180deg, rgba(15, 23, 42, 0.7), rgba(8, 14, 32, 0.85));
+  border: 1px solid rgba(148, 163, 184, 0.1);
+  backdrop-filter: blur(6px);
+}
+html:not(.dark) .zy-card {
+  background:
+    radial-gradient(circle at top left, rgba(26, 58, 110, 0.04), transparent 60%),
+    linear-gradient(180deg, #FBF6EA, #F6F3EE);
+  border: 1px solid rgba(26, 58, 110, 0.1);
+  box-shadow: 0 8px 24px -16px rgba(12, 29, 51, 0.18);
+}
+
+/* Primary action button (navy gradient) */
+.zy-btn-primary {
+  background: linear-gradient(135deg, #1e3a8a 0%, #2952a3 100%);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 18px -10px rgba(30, 58, 138, 0.65);
+}
+.zy-btn-primary:hover {
+  background: linear-gradient(135deg, #25458f 0%, #2f5dac 100%);
+}
+
+/* Accent gold button */
+.zy-btn-accent {
+  background: linear-gradient(135deg, #d4b78c 0%, #c4a374 100%);
+  color: #0a1f4e;
+}
+.zy-btn-accent:hover {
+  filter: brightness(1.05);
+}
+
+/* Soft input */
+.zy-input {
+  background: rgba(15, 23, 42, 0.4);
+  border: 1px solid rgba(148, 163, 184, 0.15);
+  color: inherit;
+}
+html:not(.dark) .zy-input {
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+}
+.zy-input:focus {
+  outline: none;
+  border-color: #2952a3;
+  box-shadow: 0 0 0 3px rgba(41, 82, 163, 0.18);
+}
+
+/* Section icon tile */
+.zy-tile {
+  background: linear-gradient(135deg, rgba(30, 58, 138, 0.4), rgba(41, 82, 163, 0.22));
+  border: 1px solid rgba(148, 163, 184, 0.15);
+}
+html:not(.dark) .zy-tile {
+  background: linear-gradient(135deg, rgba(30, 58, 138, 0.1), rgba(212, 183, 140, 0.18));
+  border: 1px solid rgba(15, 23, 42, 0.08);
+}
+.zy-tile-green {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.18), rgba(5, 150, 105, 0.1));
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+.zy-tile-gold {
+  background: linear-gradient(135deg, rgba(212, 183, 140, 0.3), rgba(196, 163, 116, 0.18));
+  border: 1px solid rgba(212, 183, 140, 0.32);
+}
+
+/* Danger zone */
+.zy-danger {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.08), transparent);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+/* Hover lift */
+.zy-lift {
+  transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+}
+.zy-lift:hover {
+  transform: translateY(-1px);
+  border-color: rgba(212, 183, 140, 0.3);
+}
+
+/* Logo wordmark */
+.zy-logo {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+.zy-heading {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  letter-spacing: -0.03em;
+}
+.zy-serif {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+}
+
+/* Mini sparkline placeholder */
+.zy-spark {
+  background: linear-gradient(180deg, rgba(212, 183, 140, 0.18), transparent);
+}

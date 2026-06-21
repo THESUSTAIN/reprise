@@ -1,0 +1,1621 @@
+/* ==========================================================================
+   ZAYADO PALETTE OVERRIDE — v2
+   - Header / entête : navy pur (#102a5e → #1f4490) — pas de violet
+   - Beige UNIQUEMENT pour : badges du header, accents légers d'avatars
+   - Les charts utilisent navy + bleu clair (pas de beige)
+   - Les boutons outline utilisent navy (pas de beige)
+   ========================================================================== */
+
+:root, .dark, html {
+  --primary: oklch(0.42 0.16 250) !important;
+  --primary-foreground: oklch(0.98 0.003 247) !important;
+
+  --sidebar: oklch(0.13 0.04 250) !important;
+  --sidebar-foreground: oklch(0.95 0.01 250) !important;
+  --sidebar-primary: oklch(0.28 0.13 250) !important;
+  --sidebar-primary-foreground: oklch(0.78 0.10 250 / 0.45) !important;
+  --sidebar-accent: oklch(1 0 0 / 0.1) !important;
+  --sidebar-accent-foreground: oklch(0.97 0 0 / 0.6) !important;
+  --sidebar-border: oklch(1 0 0 / 0.1) !important;
+  --sidebar-ring: oklch(0.55 0.027 250) !important;
+
+  /* Charts — navy + bleu clair (pas de beige) */
+  --chart-1: oklch(0.50 0.18 250) !important;   /* navy primary */
+  --chart-2: oklch(0.72 0.13 230) !important;   /* light blue */
+  --chart-3: oklch(0.60 0.16 245) !important;   /* mid navy */
+  --chart-4: oklch(0.42 0.16 250) !important;   /* navy deep */
+  --chart-5: oklch(0.78 0.10 220) !important;   /* sky blue */
+
+  --accent: oklch(0.28 0.04 250) !important;
+  --ring: oklch(0.55 0.12 250) !important;
+}
+
+/* ============================================================
+   Header (HORIZONTAL) + Sidebar inner box (VERTICAL)
+   Même 3-stops navy → couleurs identiques → aucune ligne visible
+   ============================================================ */
+
+/* HEADER : gradient HORIZONTAL (left → right) navy 3 stops */
+header.sticky.bg-linear-to-r,
+header.sticky[class*="from-primary"][class*="to-sidebar-primary"] {
+  background-image: linear-gradient(to right, #142b45 0%, #1B3A5B 60%, #0c1d31 100%) !important;
+  background-color: #142b45 !important;
+}
+
+/* SIDEBAR INNER BOX : même 3 stops navy mais VERTICAL (top → bottom)
+   → la sidebar inner a la même couleur que le header */
+[class*="bg-linear-to-b"][class*="from-primary"][class*="to-sidebar-primary"],
+.bg-linear-to-b.from-primary.to-sidebar-primary {
+  background-image: linear-gradient(180deg, #142b45 0%, #1B3A5B 60%, #0c1d31 100%) !important;
+  background-color: #142b45 !important;
+}
+
+/* Scoops : SOLID #142b45 = exactement la couleur du bord GAUCHE du header
+   (qui est uniforme verticalement car le gradient est horizontal)
+   → aucune ligne visible entre scoop et header */
+header svg.svg-corner,
+header svg.svg-corner.svg-pink,
+.svg-corner,
+.svg-corner *,
+.svg-corner path,
+.svg-pink,
+.svg-pink path {
+  fill: #142b45 !important;
+  stroke: none !important;
+  outline: none !important;
+}
+
+/* Boutons gradient (étaient violets) — navy pur */
+.btn-gradient,
+[class*="from-primary"],
+[class*="to-primary"] {
+  background-image: linear-gradient(135deg, #102a5e 0%, #1f4490 100%) !important;
+  color: #ffffff !important;
+}
+.btn-gradient:hover {
+  background-image: linear-gradient(135deg, #14336e 0%, #244ea0 100%) !important;
+}
+
+/* "Upgrade" pills (orange/amber) → navy maintenant */
+[class*="from-orange-500"] {
+  --tw-gradient-from: #1f4490 !important;
+}
+[class*="to-amber-500"] {
+  --tw-gradient-to: #2a5bb8 !important;
+}
+[class*="from-orange-600"] { --tw-gradient-from: #14336e !important; }
+[class*="to-amber-600"] { --tw-gradient-to: #1f4490 !important; }
+
+/* Toutes les nuances violet/magenta/rose → navy */
+[class*="bg-pink-"],
+[class*="text-pink-"],
+[class*="from-pink-"],
+[class*="to-pink-"],
+[class*="from-fuchsia-"],
+[class*="to-fuchsia-"],
+[class*="from-purple-"],
+[class*="to-purple-"],
+[class*="from-violet-"],
+[class*="to-violet-"] {
+  --tw-gradient-from: #1f4490 !important;
+  --tw-gradient-to: #2a5bb8 !important;
+}
+
+/* ============================================================
+   HEADER ENHANCEMENTS (badges beige + icônes ajoutées via JS)
+   ============================================================ */
+
+.zy-header-icon-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  color: #ffffff;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.0);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.zy-header-icon-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+.zy-header-icon-btn .zy-badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  border-radius: 9999px;
+  background: #e6d4a8;            /* beige badge */
+  color: #0a1f4e;                 /* dark navy text */
+  font-size: 10px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #0a1f4e;      /* dark navy ring */
+  line-height: 1;
+}
+
+/* Override the small red dot on the existing bell to be a beige "3" badge */
+header [data-demo-bell] .absolute.top-1\.5.right-1\.5.size-2.bg-destructive {
+  display: none !important;
+}
+header [data-demo-bell]::after {
+  content: '3';
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  border-radius: 9999px;
+  background: #e6d4a8;
+  color: #0a1f4e;
+  font-size: 10px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #0a1f4e;
+  line-height: 1;
+  pointer-events: none;
+}
+
+/* Avatar AU (replaces circle-user icon) — beige circle with navy initials */
+header [data-lucide="circle-user"] {
+  display: none !important;
+}
+header .dropdown > [role="button"] {
+  background: linear-gradient(135deg, #e6d4a8 0%, #d4c099 100%) !important;
+  position: relative;
+}
+header .dropdown > [role="button"]::after {
+  content: 'AU';
+  color: #0a1f4e;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.02em;
+}
+
+/* Light theme override — when .dark is removed, apply light vars */
+html:not(.dark) {
+  color-scheme: light;
+  --background: oklch(0.985 0.008 85) !important;     /* lighter warm cream bg */
+  --foreground: oklch(0.16 0.04 250) !important;
+  --card: oklch(1 0 0) !important;
+  --card-foreground: oklch(0.16 0.04 250) !important;
+  --popover: oklch(1 0 0) !important;
+  --popover-foreground: oklch(0.16 0.04 250) !important;
+  --muted: oklch(0.96 0.008 85) !important;
+  --muted-foreground: oklch(0.40 0.04 250) !important;
+  --border: oklch(0.90 0.015 85) !important;
+  --input: oklch(0.96 0.008 85) !important;
+  --sidebar: oklch(0.13 0.04 250) !important;          /* sidebar stays dark navy */
+}
+
+/* ============================================================
+   BODY BACKGROUND OVERRIDE
+   - Remove default saas-bg.png (which carries purple/violet hues)
+   - Light : warm cream beige (lighter than reference)
+   - Dark  : deep navy with subtle BLUE radial blooms (no purple)
+   - Sidebar & header gradients are untouched (handled separately)
+   ============================================================ */
+
+/* Force-remove the OkyAI saas-bg image everywhere */
+body {
+  background-image: none !important;
+}
+
+/* LIGHT — soft, lighter cream beige */
+html:not(.dark) body {
+  background-color: #fbf6ea !important;
+  background-image:
+    radial-gradient(circle at 22% 18%, rgba(31, 68, 144, 0.06), transparent 55%),
+    radial-gradient(circle at 82% 78%, rgba(230, 212, 168, 0.30), transparent 60%) !important;
+  background-attachment: fixed !important;
+}
+
+/* DARK — deep navy + blue blooms (replace the violet vibe with blue) */
+html.dark body {
+  background-color: #07122a !important;
+  background-image:
+    radial-gradient(circle at 22% 22%, rgba(31, 68, 144, 0.34), transparent 55%),
+    radial-gradient(circle at 78% 78%, rgba(42, 91, 184, 0.22), transparent 58%),
+    radial-gradient(circle at 50% 110%, rgba(20, 51, 110, 0.40), transparent 65%) !important;
+  background-attachment: fixed !important;
+}
+
+/* Make sure the inner main column does NOT re-add a violet wash */
+main.relative.flex.w-full.flex-1 {
+  background-color: transparent !important;
+}
+
+/* Cards in light mode get a clean white surface for readability */
+html:not(.dark) [data-slot="card"] {
+  background-color: #ffffff !important;
+  border-color: rgba(15, 23, 42, 0.08) !important;
+  box-shadow: 0 6px 22px -16px rgba(15, 23, 42, 0.18) !important;
+  color: #0a1f4e !important;
+}
+html:not(.dark) [data-slot="card"] * {
+  color: inherit;
+}
+html:not(.dark) [data-slot="card"] .text-muted-foreground,
+html:not(.dark) .text-muted-foreground {
+  color: #4a5b80 !important;
+}
+
+/* Ensure body text & headings stay readable on the cream background.
+   OkyAI hard-codes white text in many places — we surgically restore dark text
+   on the MAIN content area only (sidebar & header keep their white text). */
+html:not(.dark) main h1,
+html:not(.dark) main h2,
+html:not(.dark) main h3,
+html:not(.dark) main h4,
+html:not(.dark) main p,
+html:not(.dark) main span,
+html:not(.dark) main li,
+html:not(.dark) main label,
+html:not(.dark) main blockquote {
+  color: #0a1f4e;
+}
+html:not(.dark) main .text-foreground { color: #0a1f4e !important; }
+html:not(.dark) main .text-white,
+html:not(.dark) main [class*="text-white"],
+html:not(.dark) main .text-slate-200,
+html:not(.dark) main .text-slate-100,
+html:not(.dark) main [class*="text-slate-"] {
+  color: #0a1f4e !important;
+}
+/* Re-allow white text on primary/dark buttons inside main */
+html:not(.dark) main .bg-primary,
+html:not(.dark) main button.bg-primary,
+html:not(.dark) main a.bg-primary,
+html:not(.dark) main [class*="bg-linear-to-r"],
+html:not(.dark) main [class*="bg-primary"] {
+  color: #ffffff !important;
+}
+html:not(.dark) main .bg-primary *,
+html:not(.dark) main button.bg-primary *,
+html:not(.dark) main [class*="bg-primary"] * {
+  color: #ffffff !important;
+}
+
+/* Inputs/search in main should be readable */
+html:not(.dark) main input,
+html:not(.dark) main textarea {
+  color: #0a1f4e !important;
+  background-color: #ffffff !important;
+  border-color: rgba(15, 23, 42, 0.12) !important;
+}
+html:not(.dark) main input::placeholder { color: rgba(15, 23, 42, 0.45) !important; }
+
+/* Lift the purple-ish hover/focus states off content surfaces */
+html:not(.dark) .bg-purple-500\/10,
+html:not(.dark) .bg-violet-500\/10,
+html:not(.dark) .bg-fuchsia-500\/10 {
+  background-color: rgba(31, 68, 144, 0.08) !important;
+}
+.dark .bg-purple-500\/10,
+.dark .bg-violet-500\/10,
+.dark .bg-fuchsia-500\/10 {
+  background-color: rgba(42, 91, 184, 0.16) !important;
+}
+
+/* Chart accent line/area swaps (some charts still hard-code purple) */
+[stroke="#a78bfa"], [stroke="#c084fc"], [stroke="#d8b4fe"],
+[fill="#a78bfa"],   [fill="#c084fc"],   [fill="#d8b4fe"] {
+  stroke: #3b82f6 !important;
+  fill: #3b82f6 !important;
+}
+
+
+/* ============================================================
+   SIDEBAR — ICONS PLUS LISIBLES
+   On force une couleur claire et opaque pour les icônes
+   ============================================================ */
+.sidebar-menu-link.zy-sidebar-link,
+.drawer-menu-link.zy-sidebar-link {
+  color: rgba(255, 255, 255, 0.92) !important;
+}
+.sidebar-menu-link.zy-sidebar-link:hover,
+.drawer-menu-link.zy-sidebar-link:hover {
+  color: #ffffff !important;
+  background-color: rgba(255, 255, 255, 0.10) !important;
+  border-color: rgba(255, 255, 255, 0.16) !important;
+}
+.sidebar-menu-link.zy-sidebar-link[data-active="true"],
+.drawer-menu-link.zy-sidebar-link[data-active="true"] {
+  background: linear-gradient(135deg, #1f4490 0%, #2a5bb8 100%) !important;
+  border-color: rgba(255, 255, 255, 0.22) !important;
+  color: #ffffff !important;
+  box-shadow: 0 6px 16px -8px rgba(31, 68, 144, 0.7);
+}
+.sidebar-menu-link.zy-sidebar-link i,
+.drawer-menu-link.zy-sidebar-link i {
+  stroke-width: 2 !important;
+  opacity: 1 !important;
+}
+
+/* ============================================================
+   HEADER — AVATAR cliquable (remplace l'ancien circle-user)
+   ============================================================ */
+.zy-header-avatar-btn {
+  width: 36px; height: 36px;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #e6d4a8 0%, #d4c099 100%);
+  border: 1.5px solid rgba(255,255,255,0.35);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #0a1f4e;
+  font-weight: 700;
+  font-size: 12px;
+  cursor: pointer;
+  position: relative;
+  transition: transform .15s ease, box-shadow .15s ease, filter .15s ease;
+}
+.zy-header-avatar-btn::after {
+  content: 'AU';
+  color: #0a1f4e;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+}
+.zy-header-avatar-btn:hover {
+  filter: brightness(1.05);
+  box-shadow: 0 6px 16px -6px rgba(230, 212, 168, 0.55);
+}
+.zy-header-avatar-btn[aria-expanded="true"] {
+  box-shadow: 0 0 0 3px rgba(230, 212, 168, 0.30);
+}
+
+/* ============================================================
+   POPOVERS GÉNÉRIQUES (notifications, messages, mail, profil, more)
+   ============================================================ */
+.zy-popover {
+  position: fixed;
+  background: rgba(13, 24, 48, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-radius: 14px;
+  box-shadow: 0 24px 60px -22px rgba(0, 0, 0, 0.6),
+              0 8px 22px -10px rgba(0, 0, 0, 0.45);
+  color: #ffffff;
+  padding: 10px;
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity .14s ease, transform .14s ease;
+  pointer-events: none;
+  overflow: hidden;
+}
+.zy-popover.zy-popover-open {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+/* Light mode */
+html:not(.dark) .zy-popover {
+  background: #ffffff;
+  border-color: rgba(15, 23, 42, 0.08);
+  color: #0a1f4e;
+  box-shadow: 0 24px 60px -22px rgba(15, 23, 42, 0.30),
+              0 8px 22px -10px rgba(15, 23, 42, 0.20);
+}
+
+.zy-pop-header {
+  padding: 8px 12px 10px;
+}
+.zy-pop-title {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+.zy-pop-sub {
+  font-size: 11px;
+  opacity: 0.6;
+  margin-top: 2px;
+}
+.zy-pop-list {
+  list-style: none;
+  margin: 0;
+  padding: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  max-height: 320px;
+  overflow-y: auto;
+}
+.zy-pop-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color .12s ease;
+}
+.zy-pop-item:hover {
+  background-color: rgba(255, 255, 255, 0.06);
+}
+html:not(.dark) .zy-pop-item:hover {
+  background-color: rgba(31, 68, 144, 0.06);
+}
+.zy-pop-avatar {
+  width: 32px; height: 32px;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #1f4490, #2a5bb8);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.zy-pop-icon-bubble {
+  width: 32px; height: 32px;
+  border-radius: 10px;
+  background: rgba(31, 68, 144, 0.18);
+  color: #6aa1ff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+html:not(.dark) .zy-pop-icon-bubble {
+  background: rgba(31, 68, 144, 0.12);
+  color: #1f4490;
+}
+.zy-pop-body { flex: 1; min-width: 0; }
+.zy-pop-name { font-size: 13px; font-weight: 600; }
+.zy-pop-line {
+  font-size: 12px;
+  opacity: 0.72;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.zy-pop-time {
+  font-size: 10px;
+  opacity: 0.55;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.zy-pop-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  margin: 4px -10px -10px;
+  color: #6aa1ff;
+  text-decoration: none;
+  transition: background-color .12s ease;
+}
+.zy-pop-footer:hover {
+  background-color: rgba(255, 255, 255, 0.04);
+}
+html:not(.dark) .zy-pop-footer {
+  border-top-color: rgba(15, 23, 42, 0.08);
+  color: #1f4490;
+}
+html:not(.dark) .zy-pop-footer:hover {
+  background-color: rgba(31, 68, 144, 0.06);
+}
+
+/* Profile head */
+.zy-pop-profile-head {
+  padding: 12px 14px 14px;
+}
+.zy-pop-account { font-size: 14px; font-weight: 700; }
+.zy-pop-email { font-size: 12px; opacity: 0.6; margin-top: 2px; }
+.zy-pop-divider {
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.08);
+  margin: 4px 0;
+}
+html:not(.dark) .zy-pop-divider {
+  background-color: rgba(15, 23, 42, 0.08);
+}
+.zy-pop-menu {
+  list-style: none;
+  padding: 4px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.zy-pop-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: transparent;
+  border: none;
+  color: inherit;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color .12s ease, color .12s ease;
+}
+.zy-pop-menu-item:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+html:not(.dark) .zy-pop-menu-item:hover {
+  background-color: rgba(31, 68, 144, 0.08);
+}
+.zy-pop-menu-item.zy-danger {
+  color: #fb7185;
+}
+.zy-pop-menu-item.zy-danger:hover {
+  background-color: rgba(244, 63, 94, 0.10);
+}
+
+/* Bell button : remove the existing dropdown wrapper effect so our popover takes over */
+header [data-demo-bell] { z-index: 1; }
+
+
+/* ============================================================
+   ICON BUBBLES (KPI cards, list items) — LISIBILITÉ
+   Force le bubble + l'icône à utiliser le navy/bleu Zayado
+   au lieu du beige/primary qui devient invisible sur fond clair.
+   ============================================================ */
+
+/* Bulles d'icônes des cartes : bg navy translucide */
+[data-slot="card"] .bg-primary\/10,
+[data-slot="card"] [class*="bg-primary/1"],
+[data-slot="card"] [class*="bg-primary/2"] {
+  background-color: rgba(31, 68, 144, 0.12) !important;
+}
+.dark [data-slot="card"] .bg-primary\/10,
+.dark [data-slot="card"] [class*="bg-primary/1"],
+.dark [data-slot="card"] [class*="bg-primary/2"] {
+  background-color: rgba(56, 110, 220, 0.22) !important;
+}
+
+/* Couleur des icônes dans ces bulles */
+[data-slot="card"] .text-primary,
+[data-slot="card"] i[class*="text-primary"],
+[data-slot="card"] svg[class*="text-primary"] {
+  color: #1f4490 !important;
+}
+.dark [data-slot="card"] .text-primary,
+.dark [data-slot="card"] i[class*="text-primary"],
+.dark [data-slot="card"] svg[class*="text-primary"] {
+  color: #6aa1ff !important;
+}
+
+/* Lucide SVG hérite via currentColor, donc fix stroke aussi */
+[data-slot="card"] .text-primary svg,
+[data-slot="card"] svg.lucide {
+  stroke: currentColor;
+}
+[data-slot="card"] .bg-primary\/10 svg,
+[data-slot="card"] [class*="bg-primary/1"] svg,
+[data-slot="card"] [class*="bg-primary/2"] svg {
+  stroke: #1f4490 !important;
+}
+.dark [data-slot="card"] .bg-primary\/10 svg,
+.dark [data-slot="card"] [class*="bg-primary/1"] svg,
+.dark [data-slot="card"] [class*="bg-primary/2"] svg {
+  stroke: #6aa1ff !important;
+}
+/* Width minimum pour les lignes des icônes (lucide) */
+[data-slot="card"] .bg-primary\/10 svg,
+[data-slot="card"] [class*="bg-primary/1"] svg,
+[data-slot="card"] [class*="bg-primary/2"] svg {
+  stroke-width: 2 !important;
+}
+
+/* Hover/focus rings should be visible in light mode too */
+html:not(.dark) [data-slot="card"] .bg-emerald-500\/10 { background-color: rgba(16, 185, 129, 0.12) !important; }
+html:not(.dark) [data-slot="card"] .bg-amber-500\/10  { background-color: rgba(245, 158, 11, 0.15) !important; }
+html:not(.dark) [data-slot="card"] .bg-red-500\/10    { background-color: rgba(244, 63, 94,  0.12) !important; }
+
+/* ============================================================
+   LOGO MyExtension AI — affichage propre dans le rail dark
+   ============================================================ */
+img[src*="logo-myextension"] {
+  border-radius: 14px;
+  box-shadow: 0 6px 18px -8px rgba(0, 0, 0, 0.45);
+  background: transparent !important;
+}
+
+/* ============================================================
+   VISION BOARD — composants riches
+   ============================================================ */
+
+/* Boutons réutilisables */
+.zy-btn-primary,
+.zy-btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  height: 38px;
+  padding: 0 14px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  border: 1px solid transparent;
+  transition: filter .15s ease, background-color .15s ease, transform .12s ease;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.zy-btn-sm { height: 30px; padding: 0 10px; font-size: 12px; }
+.zy-btn-primary {
+  background: linear-gradient(135deg, #102a5e 0%, #1f4490 60%, #2a5bb8 100%);
+  color: #ffffff !important;
+  box-shadow: 0 8px 22px -10px rgba(31, 68, 144, 0.55);
+}
+.zy-btn-primary:hover { filter: brightness(1.07); transform: translateY(-1px); }
+.zy-btn-primary i { color: #ffffff !important; }
+.zy-btn-ghost {
+  background: rgba(31, 68, 144, 0.08);
+  color: #1f4490;
+  border-color: rgba(31, 68, 144, 0.15);
+}
+.zy-btn-ghost:hover { background: rgba(31, 68, 144, 0.14); }
+.dark .zy-btn-ghost {
+  background: rgba(255,255,255,0.06);
+  color: #cfd9ec;
+  border-color: rgba(255,255,255,0.10);
+}
+.dark .zy-btn-ghost:hover { background: rgba(255,255,255,0.10); }
+
+.zy-icon-btn {
+  width: 28px; height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: rgba(31, 68, 144, 0.08);
+  color: #1f4490;
+  border: 1px solid rgba(31, 68, 144, 0.12);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background-color .15s ease;
+}
+.zy-icon-btn:hover { background: rgba(31, 68, 144, 0.14); }
+.dark .zy-icon-btn { background: rgba(255,255,255,0.06); color: #cfd9ec; border-color: rgba(255,255,255,0.10); }
+
+.zy-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: rgba(31, 68, 144, 0.08);
+  color: #1f4490;
+  font-size: 11px;
+  font-weight: 600;
+  border: 1px solid rgba(31, 68, 144, 0.15);
+  cursor: pointer;
+}
+.zy-pill:hover { background: rgba(31, 68, 144, 0.14); }
+.dark .zy-pill { background: rgba(106, 161, 255, 0.12); color: #6aa1ff; border-color: rgba(106, 161, 255, 0.20); }
+
+/* Active project banner with subtle pattern */
+.zy-vision-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 95% 10%, rgba(31, 68, 144, 0.10), transparent 50%),
+    radial-gradient(circle at 0% 100%, rgba(230, 212, 168, 0.10), transparent 50%);
+  pointer-events: none;
+}
+
+/* Template cards */
+.zy-template-card {
+  position: relative;
+  border-radius: 14px;
+  background: var(--card, #ffffff);
+  border: 1px solid var(--border, rgba(15,23,42,0.10));
+  overflow: hidden;
+  transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+  cursor: pointer;
+}
+.zy-template-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(31, 68, 144, 0.30);
+  box-shadow: 0 14px 30px -18px rgba(15, 23, 42, 0.30);
+}
+.zy-template-active { border-color: rgba(31, 68, 144, 0.45) !important; }
+.zy-template-active::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 14px;
+  pointer-events: none;
+  box-shadow: 0 0 0 2px rgba(31, 68, 144, 0.18);
+}
+.zy-template-locked { opacity: 0.85; }
+.zy-template-illu {
+  aspect-ratio: 16 / 9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.zy-template-body { padding: 12px 14px 14px; }
+.zy-template-badge {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.07);
+  color: #4a5b80;
+  font-weight: 600;
+}
+.dark .zy-template-badge { background: rgba(255,255,255,0.08); color: #cfd9ec; }
+.zy-template-badge.zy-active { background: rgba(16, 185, 129, 0.15); color: #10b981; }
+
+/* Wizard stepper */
+.zy-step {
+  width: 26px; height: 26px;
+  border-radius: 999px;
+  background: rgba(31, 68, 144, 0.08);
+  color: #4a5b80;
+  font-size: 11px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(31, 68, 144, 0.15);
+}
+.zy-step-active {
+  background: linear-gradient(135deg, #1f4490, #2a5bb8);
+  color: #ffffff;
+  border-color: transparent;
+  box-shadow: 0 0 0 3px rgba(31, 68, 144, 0.18);
+}
+.zy-step-done {
+  background: rgba(16, 185, 129, 0.18);
+  color: #10b981;
+  border-color: rgba(16, 185, 129, 0.30);
+}
+.zy-step-line {
+  width: 22px;
+  height: 2px;
+  border-radius: 2px;
+  background: rgba(31, 68, 144, 0.12);
+}
+.zy-step-line-done { background: rgba(16, 185, 129, 0.45); }
+
+.zy-textarea {
+  width: 100%;
+  resize: vertical;
+  background: rgba(31, 68, 144, 0.04);
+  border: 1px solid rgba(31, 68, 144, 0.14);
+  border-radius: 12px;
+  padding: 14px 16px;
+  font-size: 14px;
+  line-height: 1.55;
+  color: #0a1f4e;
+  outline: none;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+.zy-textarea::placeholder { color: rgba(15, 23, 42, 0.40); }
+.zy-textarea:focus {
+  border-color: #1f4490;
+  box-shadow: 0 0 0 3px rgba(31, 68, 144, 0.15);
+}
+.dark .zy-textarea {
+  background: rgba(255,255,255,0.04);
+  border-color: rgba(255,255,255,0.10);
+  color: #ffffff;
+}
+.dark .zy-textarea::placeholder { color: rgba(255,255,255,0.40); }
+.dark .zy-textarea:focus { border-color: #6aa1ff; box-shadow: 0 0 0 3px rgba(106,161,255,0.20); }
+
+/* AI suggestion bubble */
+.zy-suggestion {
+  border: 1px dashed rgba(31, 68, 144, 0.28);
+  background: rgba(31, 68, 144, 0.04);
+  border-radius: 14px;
+  padding: 16px;
+}
+.dark .zy-suggestion {
+  background: rgba(106, 161, 255, 0.06);
+  border-color: rgba(106, 161, 255, 0.30);
+}
+.zy-quote {
+  font-style: italic;
+  background: rgba(31, 68, 144, 0.10);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+.dark .zy-quote { background: rgba(106, 161, 255, 0.18); }
+
+/* Flipbook mock */
+.zy-flipbook {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  border-radius: 12px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #1f4490 0%, #2a5bb8 60%, #386edc 100%);
+  box-shadow: 0 18px 40px -22px rgba(15, 23, 42, 0.55), 0 6px 14px -8px rgba(15,23,42,0.30);
+  padding: 18px 18px 16px;
+  color: #ffffff !important;
+  display: flex;
+  flex-direction: column;
+}
+.zy-flipbook * { color: #ffffff !important; }
+.zy-flipbook-spine {
+  position: absolute;
+  left: 8px;
+  top: 8px;
+  bottom: 8px;
+  width: 3px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.30), rgba(255,255,255,0.0));
+  border-radius: 2px;
+}
+.zy-flipbook-cover {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.zy-flipbook-back {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 90% 0%, rgba(255,255,255,0.18), transparent 50%),
+    radial-gradient(circle at 0% 100%, rgba(230, 212, 168, 0.20), transparent 50%);
+  pointer-events: none;
+}
+
+/* URL row (share link) */
+.zy-url-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  background: rgba(31, 68, 144, 0.05);
+  border: 1px solid rgba(31, 68, 144, 0.10);
+  border-radius: 10px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  color: #1f4490;
+}
+.dark .zy-url-row {
+  background: rgba(255,255,255,0.04);
+  border-color: rgba(255,255,255,0.10);
+  color: #cfd9ec;
+}
+
+/* Value chips */
+.zy-value-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: rgba(230, 212, 168, 0.22);
+  color: #5d4d24;
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid rgba(230, 212, 168, 0.45);
+}
+.dark .zy-value-chip {
+  background: rgba(230, 212, 168, 0.10);
+  color: #e6d4a8;
+  border-color: rgba(230, 212, 168, 0.25);
+}
+
+/* Activity feed */
+.zy-feed { list-style: none; margin: 0; padding: 0; }
+.zy-feed li {
+  display: grid;
+  grid-template-columns: 16px 1fr;
+  gap: 14px;
+  position: relative;
+  padding: 4px 0 18px;
+}
+.zy-feed li:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 18px;
+  bottom: 0;
+  width: 2px;
+  background: rgba(15, 23, 42, 0.10);
+}
+.dark .zy-feed li:not(:last-child)::after { background: rgba(255,255,255,0.10); }
+.zy-feed-dot {
+  width: 12px; height: 12px;
+  border-radius: 999px;
+  margin-top: 6px;
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.65);
+}
+.dark .zy-feed-dot { box-shadow: 0 0 0 4px rgba(7, 18, 42, 0.85); }
+
+
+/* ============================================================
+   VISION BOARD — Spec d&eacute;veloppeur (juin 2026)
+   3 onglets internes · 3 &eacute;tats adaptatifs · blocs flottants
+   ============================================================ */
+
+.zy-vb-root {
+  padding: 18px 22px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ---------- Tabs header ---------- */
+.zy-vb-tabs {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+  flex-wrap: wrap;
+}
+.dark .zy-vb-tabs { border-bottom-color: rgba(255, 255, 255, 0.08); }
+.zy-vb-tabs-left { display: flex; gap: 22px; }
+.zy-vb-tabs-right { display: flex; gap: 12px; align-items: center; }
+
+.zy-vb-tab {
+  background: transparent;
+  border: none;
+  color: rgba(15, 23, 42, 0.55);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 8px 4px;
+  position: relative;
+  cursor: pointer;
+  transition: color .12s ease;
+}
+.dark .zy-vb-tab { color: rgba(255, 255, 255, 0.55); }
+.zy-vb-tab:hover { color: rgba(15, 23, 42, 0.85); }
+.dark .zy-vb-tab:hover { color: rgba(255, 255, 255, 0.85); }
+.zy-vb-tab-active {
+  color: #1f4490 !important;
+}
+.dark .zy-vb-tab-active { color: #6aa1ff !important; }
+.zy-vb-tab-active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -11px;
+  height: 2.5px;
+  background: #5dcaa5;
+  border-radius: 2px 2px 0 0;
+}
+
+.zy-vb-state-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 6px 4px 10px;
+  border: 1px solid rgba(15, 23, 42, 0.10);
+  border-radius: 9999px;
+  background: rgba(15, 23, 42, 0.03);
+}
+.dark .zy-vb-state-switch {
+  border-color: rgba(255, 255, 255, 0.10);
+  background: rgba(255, 255, 255, 0.04);
+}
+.zy-vb-state-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  opacity: 0.55;
+}
+.zy-vb-state-btn {
+  width: 24px; height: 24px;
+  border-radius: 9999px;
+  border: none;
+  background: transparent;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  color: inherit;
+  opacity: 0.55;
+  transition: background-color .12s ease, opacity .12s ease;
+}
+.zy-vb-state-btn:hover { opacity: 1; background: rgba(31, 68, 144, 0.10); }
+.zy-vb-state-active {
+  background: linear-gradient(135deg, #1f4490, #2a5bb8) !important;
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+.zy-vb-book-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 38px;
+  padding: 0 16px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #5dcaa5 0%, #3fb98d 100%);
+  color: #06251a !important;
+  font-weight: 700;
+  font-size: 13px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 8px 22px -10px rgba(93, 202, 165, 0.55);
+  transition: filter .15s ease, transform .12s ease;
+}
+.zy-vb-book-btn:hover { filter: brightness(1.06); transform: translateY(-1px); }
+.zy-vb-book-btn i { color: #06251a !important; }
+
+/* ---------- Canvas zone ---------- */
+.zy-vb-canvas {
+  position: relative;
+  width: 100%;
+  min-height: 820px;
+  border-radius: 18px;
+  overflow: hidden;
+  background-color: #0c1d31;
+  box-shadow: 0 22px 60px -28px rgba(15, 23, 42, 0.55), 0 8px 18px -10px rgba(15, 23, 42, 0.30);
+}
+
+/* Canva background placeholder */
+.zy-vb-canva-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 18% 22%, rgba(31, 68, 144, 0.45), transparent 55%),
+    radial-gradient(circle at 82% 24%, rgba(93, 202, 165, 0.22), transparent 55%),
+    radial-gradient(circle at 50% 100%, rgba(230, 212, 168, 0.18), transparent 60%),
+    linear-gradient(160deg, #0c1d31 0%, #102a5e 50%, #07122a 100%);
+}
+.zy-vb-canva-pattern {
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(45deg, rgba(255,255,255,0.02) 0 1px, transparent 1px 22px),
+    repeating-linear-gradient(-45deg, rgba(255,255,255,0.02) 0 1px, transparent 1px 22px);
+  mask-image: radial-gradient(ellipse at center, black 40%, transparent 100%);
+}
+.zy-vb-canva-watermark {
+  position: absolute;
+  bottom: 14px;
+  left: 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  padding: 6px 10px;
+  border-radius: 999px;
+  backdrop-filter: blur(8px);
+}
+
+/* States visibility (toggled via [data-state]) */
+.zy-vb-canvas .zy-vb-state { display: none; position: relative; height: 100%; }
+.zy-vb-canvas[data-state="1"] .zy-vb-state-1 { display: block; }
+.zy-vb-canvas[data-state="2"] .zy-vb-state-2 { display: block; }
+.zy-vb-canvas[data-state="3"] .zy-vb-state-3 { display: block; }
+
+.zy-vb-canvas[data-state="1"] .zy-vb-canva-bg,
+.zy-vb-canvas[data-state="1"] .zy-vb-canva-watermark { opacity: 0.6; }
+
+/* ---------- STATE 1 : Empty hero ---------- */
+.zy-vb-empty-hero {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 60px 32px;
+  text-align: center;
+  color: #ffffff;
+}
+.zy-vb-empty-title {
+  font-size: 36px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: #ffffff !important;
+}
+.zy-vb-empty-sub {
+  font-size: 16px;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.65) !important;
+  max-width: 480px;
+}
+.zy-vb-empty-input {
+  width: 100%;
+  max-width: 560px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1.5px solid rgba(255, 255, 255, 0.20);
+  border-radius: 14px;
+  padding: 16px 20px;
+  font-size: 16px;
+  color: #ffffff !important;
+  outline: none;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+.zy-vb-empty-input:focus {
+  border-color: #5dcaa5;
+  box-shadow: 0 0 0 4px rgba(93, 202, 165, 0.18);
+}
+.zy-vb-empty-prefilled {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.55) !important;
+}
+.zy-vb-canva-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+  height: 46px;
+  padding: 0 22px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.10);
+  border: 1.5px solid rgba(255, 255, 255, 0.24);
+  color: #ffffff !important;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  transition: background-color .15s ease, transform .12s ease;
+}
+.zy-vb-canva-cta:hover { background: rgba(255, 255, 255, 0.18); transform: translateY(-1px); }
+.zy-vb-canva-cta i { color: #ffffff !important; }
+
+/* ---------- STATE 2 : Mixed ---------- */
+.zy-vb-progress-bar {
+  position: absolute;
+  top: 18px; left: 22px; right: 22px;
+  padding: 10px 14px;
+  background: rgba(7, 18, 42, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  color: #ffffff;
+}
+.zy-vb-progress-text {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+.zy-vb-progress-text * { color: #ffffff !important; }
+.zy-vb-progress-pct { font-weight: 700; }
+.zy-vb-progress-track {
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.10);
+  overflow: hidden;
+}
+.zy-vb-progress-fill {
+  height: 100%;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #1f4490, #5dcaa5);
+}
+.zy-vb-state2-grid {
+  position: absolute;
+  top: 92px; left: 22px; right: 22px; bottom: 88px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+/* ---------- STATE 3 axis ---------- */
+.zy-vb-axis {
+  position: absolute;
+  top: 16px; left: 22px; right: 22px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: #ffffff;
+}
+.zy-vb-axis-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: rgba(255, 255, 255, 0.55) !important;
+  white-space: nowrap;
+}
+.zy-vb-axis-track {
+  flex: 1;
+  position: relative;
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.12);
+}
+.zy-vb-axis-fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #1f4490 0%, #2a5bb8 50%, #5dcaa5 100%);
+}
+.zy-vb-axis-marker {
+  position: absolute;
+  top: -28px;
+  transform: translateX(-50%);
+  font-size: 11px;
+  font-weight: 700;
+  color: #ffffff !important;
+  background: rgba(93, 202, 165, 0.18);
+  border: 1px solid rgba(93, 202, 165, 0.45);
+  padding: 4px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+  backdrop-filter: blur(6px);
+}
+.zy-vb-axis-marker::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px; height: 16px;
+  background: rgba(93, 202, 165, 0.65);
+}
+
+/* ---------- Floating blocks (state 3) ---------- */
+.zy-vb-block {
+  border-radius: 14px;
+  padding: 14px 16px;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  color: #ffffff !important;
+  box-shadow: 0 14px 30px -18px rgba(0, 0, 0, 0.55);
+  transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+  position: relative;
+  cursor: pointer;
+}
+.zy-vb-block-float {
+  position: absolute;
+  width: 26%;
+  max-width: 320px;
+  z-index: 2;
+}
+.zy-vb-block-wide { width: 30% !important; max-width: 380px !important; }
+.zy-vb-block:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 22px 38px -22px rgba(0, 0, 0, 0.55);
+}
+.zy-vb-block * { color: #ffffff !important; }
+
+.zy-vb-block-user {
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+}
+.zy-vb-block-ai {
+  background: rgba(29, 158, 117, 0.16);
+  border: 1px solid rgba(93, 202, 165, 0.35);
+}
+.zy-vb-block-ai .zy-vb-block-label { color: #5dcaa5 !important; }
+.zy-vb-block-ai .zy-vb-block-label i { color: #5dcaa5 !important; }
+
+.zy-vb-block-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.10em;
+  color: rgba(255, 255, 255, 0.65) !important;
+  margin-bottom: 6px;
+}
+.zy-vb-block-label strong {
+  color: #ffffff !important;
+  font-size: 14px;
+  letter-spacing: 0;
+  text-transform: none;
+}
+.zy-vb-block-value {
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  line-height: 1.05;
+  color: #ffffff !important;
+}
+.zy-vb-block-value-sm { font-size: 17px; font-weight: 700; color: #ffffff !important; }
+.zy-vb-block-meta {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.55) !important;
+  margin-top: 2px;
+}
+.zy-vb-block-quote {
+  font-size: 12px;
+  font-style: italic;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.90) !important;
+}
+.zy-vb-block-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.zy-vb-block-list li {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.88) !important;
+  padding-left: 10px;
+  position: relative;
+}
+.zy-vb-block-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 7px;
+  width: 4px; height: 4px;
+  border-radius: 999px;
+  background: currentColor;
+}
+
+.zy-vb-grip {
+  position: absolute;
+  top: 8px;
+  right: 6px;
+  width: 18px; height: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.35) !important;
+  opacity: 0;
+  transition: opacity .15s ease;
+}
+.zy-vb-block:hover .zy-vb-grip { opacity: 1; }
+
+/* State 2 : empty blocks (dashed) */
+.zy-vb-block-static {
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: #ffffff !important;
+  padding: 16px 18px;
+}
+.zy-vb-block-empty {
+  border: 1.5px dashed rgba(255, 255, 255, 0.28);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.03);
+  color: rgba(255, 255, 255, 0.65) !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 10px;
+  padding: 24px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color .15s ease, border-color .15s ease, color .15s ease;
+}
+.zy-vb-block-empty:hover {
+  background: rgba(93, 202, 165, 0.08);
+  border-color: rgba(93, 202, 165, 0.55);
+  color: #ffffff !important;
+}
+.zy-vb-block-empty-wide { grid-column: span 3; }
+
+/* Citation centered bottom (state 3) */
+.zy-vb-citation {
+  position: absolute;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 60%;
+  text-align: center;
+  font-size: 16px;
+  font-style: italic;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.92) !important;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.55);
+  letter-spacing: 0.01em;
+  z-index: 1;
+}
+
+/* ---------- Toolbar ---------- */
+.zy-vb-toolbar {
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-flex;
+  gap: 8px;
+  padding: 8px;
+  background: rgba(7, 18, 42, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  backdrop-filter: blur(14px);
+  z-index: 3;
+}
+.zy-vb-tool {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 36px;
+  padding: 0 14px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  color: #ffffff !important;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color .15s ease, transform .12s ease;
+}
+.zy-vb-tool:hover { background: rgba(255, 255, 255, 0.12); transform: translateY(-1px); }
+.zy-vb-tool i { color: #ffffff !important; }
+.zy-vb-tool-ai {
+  background: rgba(93, 202, 165, 0.18) !important;
+  border-color: rgba(93, 202, 165, 0.40) !important;
+  color: #5dcaa5 !important;
+}
+.zy-vb-tool-ai i { color: #5dcaa5 !important; }
+
+/* ---------- Edit side panel ---------- */
+.zy-vb-edit-panel {
+  position: absolute;
+  top: 0; right: 0; bottom: 0;
+  width: 360px;
+  background: rgba(7, 18, 42, 0.92);
+  border-left: 1px solid rgba(255, 255, 255, 0.10);
+  backdrop-filter: blur(20px);
+  color: #ffffff !important;
+  display: flex;
+  flex-direction: column;
+  z-index: 4;
+  transform: translateX(110%);
+  transition: transform .25s ease;
+  box-shadow: -16px 0 40px -18px rgba(0, 0, 0, 0.55);
+}
+.zy-vb-edit-panel * { color: #ffffff !important; }
+.zy-vb-edit-panel.open { transform: translateX(0); }
+
+.zy-vb-edit-head {
+  padding: 18px 20px 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.zy-vb-edit-close {
+  width: 30px; height: 30px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #ffffff !important;
+}
+.zy-vb-edit-body { padding: 18px 20px; display: flex; flex-direction: column; gap: 14px; flex: 1; overflow: auto; }
+.zy-vb-field { display: flex; flex-direction: column; gap: 6px; }
+.zy-vb-field > span {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: rgba(255, 255, 255, 0.55) !important;
+}
+.zy-vb-field input {
+  height: 40px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 10px;
+  padding: 0 14px;
+  color: #ffffff !important;
+  font-size: 14px;
+  outline: none;
+}
+.zy-vb-field input:focus { border-color: #5dcaa5; box-shadow: 0 0 0 3px rgba(93, 202, 165, 0.20); }
+.zy-vb-field em {
+  font-style: normal;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.50) !important;
+}
+.zy-vb-edit-tip {
+  display: flex;
+  gap: 8px;
+  padding: 10px 12px;
+  background: rgba(93, 202, 165, 0.10);
+  border: 1px solid rgba(93, 202, 165, 0.30);
+  border-radius: 10px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+.zy-vb-edit-tip i { color: #5dcaa5 !important; }
+.zy-vb-edit-foot {
+  padding: 14px 20px 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+.zy-vb-edit-foot .zy-btn-primary,
+.zy-vb-edit-foot .zy-btn-ghost {
+  height: 36px;
+}
+
+/* ---------- AI context block (JSON the AI reads) ---------- */
+.zy-vb-ai-context {
+  padding: 18px;
+  border-radius: 14px;
+  background: rgba(7, 18, 42, 0.55);
+  border: 1px solid rgba(93, 202, 165, 0.25);
+}
+html:not(.dark) .zy-vb-ai-context {
+  background: rgba(255, 255, 255, 0.96);
+  border-color: rgba(93, 202, 165, 0.40);
+  color: #0a1f4e;
+}
+.zy-vb-ai-context-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+.zy-vb-ai-context-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 4px 9px;
+  border-radius: 999px;
+  background: rgba(93, 202, 165, 0.16);
+  color: #5dcaa5;
+  border: 1px solid rgba(93, 202, 165, 0.35);
+}
+.zy-vb-json {
+  margin: 0;
+  padding: 14px 16px;
+  background: rgba(7, 18, 42, 0.65);
+  border-radius: 10px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 12px;
+  line-height: 1.55;
+  color: #cfe6dc !important;
+  overflow-x: auto;
+  white-space: pre;
+  border: 1px solid rgba(93, 202, 165, 0.20);
+}
+html:not(.dark) .zy-vb-json {
+  background: #0c1d31;
+  color: #cfe6dc !important;
+}
+
+/* Make this card readable in light mode main content overrides */
+html:not(.dark) main .zy-vb-json * { color: inherit !important; }
+
+/* Responsive : tighten on narrow screens */
+@media (max-width: 1180px) {
+  .zy-vb-block-float { width: 30% !important; }
+  .zy-vb-citation { max-width: 80%; font-size: 13px; }
+}
+@media (max-width: 900px) {
+  .zy-vb-state2-grid { grid-template-columns: 1fr 1fr; }
+  .zy-vb-block-empty-wide { grid-column: span 2; }
+  .zy-vb-block-float { position: relative !important; width: auto !important; left: 0 !important; top: 0 !important; margin-bottom: 10px; }
+  .zy-vb-canvas[data-state="3"] .zy-vb-state-3 { padding: 60px 18px 110px; }
+  .zy-vb-citation { position: relative; bottom: auto; left: auto; transform: none; max-width: 100%; margin-top: 14px; }
+}
+

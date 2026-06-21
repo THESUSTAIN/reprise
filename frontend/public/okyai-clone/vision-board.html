@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#7a4aff">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="referrer" content="no-referrer-when-downgrade">
+<meta name="application-name" content="OkyAi">
+<link rel="shortcut icon" href="images/logo-sm.png" type="image/png">
+
+<title>Vision Board — Zayado · MyExtension AI</title>
+
+<meta name="description" content="OkyAi is an AI-powered SaaS dashboard HTML template with a chatbot UI, analytics views, content tools, and settings. Built with Tailwind CSS and Gulp.">
+<meta name="keywords" content="OkyAi, AI dashboard template, AI chatbot UI, SaaS dashboard, Tailwind CSS, Gulp, analytics dashboard, admin template, HTML template">
+<link rel="canonical" href="https://okyai-html.com/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://okyai-html.com/">
+<meta property="og:title" content="OkyAi - Premium AI Dashboard &amp; AI Chatbot HTML Template">
+<meta property="og:description" content="OkyAi is a modern AI SaaS dashboard template with chatbot UI, analytics, content tools, and settings. Built with Tailwind CSS and Gulp.">
+<meta property="og:site_name" content="OkyAi">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://okyai-html.com/">
+<meta name="twitter:title" content="OkyAi - Premium AI Dashboard &amp; AI Chatbot HTML Template">
+<meta name="twitter:description" content="Modern AI SaaS dashboard HTML template with chatbot UI, analytics, content tools, and settings. Built with Tailwind CSS and Gulp.">
+
+    <!-- main css (Tailwind compiled) -->
+<link href="https://okyai-html.mantrakshdevs.com/css/input.min.css" rel="stylesheet" type="text/css" id="main-style">
+
+<link rel="stylesheet" href="/okyai-clone/zayado-palette.css"></head>
+<body>
+    <div class="drawer xl:drawer-horizontal">
+        <input id="my-drawer" type="checkbox" class="drawer-toggle">
+        <div class="drawer-content flex flex-col" style="min-height: 100vh;">
+            <div class="relative z-10">
+                <div class="group/sidebar-wrapper has-data-[variant=inset]:bg-sidebar flex min-h-svh w-full" style="--sidebar-width: 6rem; --sidebar-width-icon: 6rem;">
+                    <!-- XL+ Fixed Sidebar -->
+<div class="group peer hidden xl:block">
+    <div class="fixed inset-y-0 z-10 w-(--sidebar-width) transition-[left,right,width] duration-200 ease-linear left-0 group-data-[collapsible=offcanvas]:-left-(--sidebar-width) group-data-[collapsible=icon]:w-(--sidebar-width-icon) group-data-[side=right]:border-l"
+        style="--sidebar-width: 6rem; --sidebar-width-icon: 6rem;">
+        <div
+            class="group-data-[variant=floating]:border-sidebar-border flex min-h-svh justify-between items-center w-full flex-col group-data-[variant=floating]:rounded-lg group-data-[variant=floating]:border group-data-[variant=floating]:shadow-sm">
+            <div data-slot="sidebar-header" data-sidebar="header" class="flex flex-col gap-2 p-2">
+                <div class="hidden xl:flex items-center gap-2 px-2 py-3"><img width="60" src="assets/logo-myextension-256.png"
+                        alt="OkyAi Logo"></div>
+            </div>
+            <div class="flex-1 flex flex-col gap-2 w-full justify-center">
+                <div class="relative flex w-full min-w-0 flex-col justify-center">
+                    <div class="w-full text-sm relative h-full">
+                        <ul
+                            class="flex justify-center relative xl:items-center xl:bg-linear-to-b from-primary to-sidebar-primary h-full rounded-r-3xl w-full min-w-0 flex-col gap-3 p-4 py-6">
+
+                            
+                            
+                            <li class="group/menu-item relative flex justify-center">
+                                <div class="tooltip tooltip-right tooltip-custom" data-tip="Dashboard">
+                                    <a href="index.html" class="peer/menu-button sidebar-menu-link zy-sidebar-link">
+                                        <i data-lucide="layout-dashboard" class="size-5 shrink-0"></i>
+                                    </a>
+                                </div>
+                            </li>
+
+                            <li class="group/menu-item relative flex justify-center">
+                                <div class="tooltip tooltip-right tooltip-custom" data-tip="Vision Board">
+                                    <a href="/vision-board" class="peer/menu-button sidebar-menu-link zy-sidebar-link" target="_top">
+                                        <i data-lucide="eye" class="size-5 shrink-0"></i>
+                                    </a>
+                                </div>
+                            </li>
+
+                            <li class="group/menu-item relative flex justify-center">
+                                <div class="tooltip tooltip-right tooltip-custom" data-tip="Espace de travail">
+                                    <a href="workspace.html" class="peer/menu-button sidebar-menu-link zy-sidebar-link">
+                                        <i data-lucide="briefcase" class="size-5 shrink-0"></i>
+                                    </a>
+                                </div>
+                            </li>
+
+                            <li class="group/menu-item relative flex justify-center">
+                                <div class="tooltip tooltip-right tooltip-custom" data-tip="Co-pilote IA">
+                                    <a href="copilote.html" class="peer/menu-button sidebar-menu-link zy-sidebar-link">
+                                        <i data-lucide="sparkles" class="size-5 shrink-0"></i>
+                                    </a>
+                                </div>
+                            </li>
+
+                            <li class="group/menu-item relative flex justify-center">
+                                <div class="tooltip tooltip-right tooltip-custom" data-tip="Pilotage">
+                                    <a href="pilotage.html" class="peer/menu-button sidebar-menu-link zy-sidebar-link">
+                                        <i data-lucide="line-chart" class="size-5 shrink-0"></i>
+                                    </a>
+                                </div>
+                            </li>
+
+                            <li class="group/menu-item relative flex justify-center">
+                                <div class="tooltip tooltip-right tooltip-custom" data-tip="Expansion Agent">
+                                    <a href="expansion.html" class="peer/menu-button sidebar-menu-link zy-sidebar-link">
+                                        <i data-lucide="radar" class="size-5 shrink-0"></i>
+                                    </a>
+                                </div>
+                            </li>
+
+                            <li class="group/menu-item relative flex justify-center">
+                                <div class="tooltip tooltip-right tooltip-custom" data-tip="Bien-être">
+                                    <a href="bienetre.html" class="peer/menu-button sidebar-menu-link zy-sidebar-link">
+                                        <i data-lucide="heart-pulse" class="size-5 shrink-0"></i>
+                                    </a>
+                                </div>
+                            </li>
+
+                            <li class="group/menu-item relative flex justify-center" data-zayado-more-host>
+                                <div class="tooltip tooltip-right tooltip-custom" data-tip="Plus">
+                                    <button type="button" class="peer/menu-button sidebar-menu-link zy-sidebar-link" data-zayado-more-btn aria-haspopup="true" aria-expanded="false">
+                                        <i data-lucide="more-horizontal" class="size-5 shrink-0"></i>
+                                    </button>
+                                </div>
+                            </li>
+
+
+                            <li class="absolute xl:block hidden w-full h-full  top-0 left-0 pointer-events-none">
+                                <svg class="absolute left-0 bottom-[-30px] svg-corner svg-pink" width="30" height="30"
+                                    viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#sidebar-clip_2)">
+                                        <path d="M30 0H0V30C0 13.431 13.431 0 30 0Z"></path>
+                                    </g>
+                                    <defs>
+                                        <clipPath id="sidebar-clip_2">
+                                            <rect width="30" height="30" fill="white"></rect>
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                                <svg class="absolute left-0 top-[-30px] -rotate-90 svg-corner " width="30" height="30"
+                                    viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#sidebar-clip_3)">
+                                        <path d="M30 0H0V30C0 13.431 13.431 0 30 0Z"></path>
+                                    </g>
+                                    <defs>
+                                        <clipPath id="sidebar-clip_3">
+                                            <rect width="30" height="30" fill="white"></rect>
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="flex flex-col gap-2 p-2">
+
+                <div class="hidden xl:flex justify-center px-2">
+                    <div class="dropdown dropdown-right dropdown-top">
+                        <div tabindex="0" role="button"
+                            class="inline-flex items-center justify-center size-10 rounded-full bg-sidebar-foreground hover:bg-sidebar-accent transition-all duration-300 cursor-pointer">
+                            <i data-lucide="gem" class="size-5 shrink-0"></i>
+                        </div>
+                        <div tabindex="-1"
+                            class="dropdown-content z-50 mb-2 ml-2 w-64 rounded-xl border border-white/10 bg-popover backdrop-blur-xl text-popover-foreground shadow-xl overflow-hidden p-1">
+                            <div class="px-3 py-2 border-b border-white/10">
+                                <p class="text-sm font-semibold">Account User</p>
+                                <p class="text-xs text-white/50"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="d0a5a3b5a290bfbba9b1b9feb3bfbd">[email&#160;protected]</a></p>
+                            </div>
+                            <div class="p-3">
+                                <div
+                                    class="bg-linear-to-br from-orange-500/10 to-amber-500/10 border border-orange-500/20 rounded-xl p-4 text-center">
+                                    <img alt="Update" class="h-16 mx-auto mb-3 animate-float block"
+                                        src="https://okyai-html.mantrakshdevs.com/images/update1.svg">
+                                    <h5 class="font-semibold text-sm mb-1">Update Pro Plan</h5>
+                                    <p class="text-xs text-white/50 mb-3">Enhance your experience with the Pro version.
+                                    </p>
+                                    <a href="subscription.html"
+                                        class="inline-flex items-center justify-center w-full h-9 rounded-lg px-3 text-sm font-medium text-white bg-linear-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 transition-all duration-300">
+                                        Upgrade Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+                    <main class="relative flex w-full flex-1 flex-col xl:ml-(--sidebar-width) xl:peer-data-[variant=inset]:m-2 xl:peer-data-[variant=inset]:rounded-xl xl:peer-data-[variant=inset]:shadow-sm xl:peer-data-[variant=inset]:peer-data-[state=collapsed]:ml-2">
+                        <header class="sticky top-0 z-50 flex h-16 items-center gap-4 bg-linear-to-r from-primary to-sidebar-primary mx-5 md:mx-10 rounded-b-2xl px-4 md:px-6">
+    <div class="absolute w-full h-full rounded-l-2xl top-0 left-0 pointer-events-none">
+        <svg class="absolute left-[-30px] top-0 svg-corner rotate-90" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#header-clip_2)">
+                <path d="M30 0H0V30C0 13.431 13.431 0 30 0Z"></path>
+            </g>
+            <defs>
+                <clipPath id="header-clip_2">
+                    <rect width="30" height="30" fill="white"></rect>
+                </clipPath>
+            </defs>
+        </svg>
+        <svg class="absolute right-[-30px] top-0 svg-corner svg-pink rotate-0" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#header-clip_3)"><path d="M30 0H0V30C0 13.431 13.431 0 30 0Z"></path></g>
+            <defs>
+                <clipPath id="header-clip_3"><rect width="30" height="30" fill="white"></rect></clipPath>
+            </defs>
+        </svg>
+    </div>
+    <div class="flex items-center gap-4 flex-1">
+        <label for="my-drawer" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all duration-300 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-popover hover:text-accent-foreground dark:hover:bg-accent/50 size-7 xl:hidden">
+            <i data-lucide="panel-left" class="size-4" aria-hidden="true"></i>
+            <span class="sr-only">Toggle Sidebar</span>
+        </label>
+        <div class="relative w-full max-w-md hidden md:block">
+            <i data-lucide="search" class="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" aria-hidden="true"></i>
+            <input data-slot="input" class="file:text-foreground placeholder:text-white/40 selection:bg-primary selection:text-primary-foreground w-full min-w-0 rounded-md border border-border bg-input px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive [&amp;::-webkit-search-cancel-button]:appearance-none pl-9 h-9" placeholder="Search..." type="search">
+        </div>
+    </div>
+    <div class="flex items-center gap-2">
+        <button type="button" data-demo-mobile-search class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all duration-300 disabled:pointer-events-none disabled:opacity-50 size-9 md:hidden hover:bg-popover hover:text-accent-foreground" aria-label="Search">
+            <i data-lucide="search" class="size-5" aria-hidden="true"></i>
+        </button>
+        <div class="dropdown dropdown-end">
+            <button type="button" tabindex="0" data-demo-bell class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all duration-300 size-9 relative group hover:bg-popover hover:text-accent-foreground" aria-label="Notifications">
+                <i data-lucide="bell" class="size-5 transition-all duration-300 group-hover:scale-110 group-hover:rotate-12" aria-hidden="true"></i>
+                <span class="absolute top-1.5 right-1.5 size-2 bg-destructive rounded-full animate-pulse"></span>
+            </button>
+            <div tabindex="0" class="dropdown-content z-100 mt-2 w-72 rounded-xl border border-white/10 bg-popover backdrop-blur-xl shadow-xl p-2">
+                <p class="px-3 py-2 text-xs font-semibold text-white/50 uppercase tracking-wider">Notifications</p>
+                <ul class="space-y-1">
+                    <li><button type="button" class="w-full text-left px-3 py-2 rounded-lg text-sm text-slate-200 hover:bg-sidebar-accent border border-transparent hover:border-sidebar-accent transition-colors">API rate limit warning</button></li>
+                    <li><button type="button" class="w-full text-left px-3 py-2 rounded-lg text-sm text-slate-200 hover:bg-sidebar-accent border border-transparent hover:border-sidebar-accent transition-colors">Payment received — $49.00</button></li>
+                    <li><button type="button" class="w-full text-left px-3 py-2 rounded-lg text-sm text-slate-200 hover:bg-sidebar-accent border border-transparent hover:border-sidebar-accent transition-colors">GPT-4 Turbo model updated</button></li>
+                </ul>
+                <a href="settings.html" class="block mt-2 text-center text-xs text-primary hover:underline py-2">Notification settings</a>
+            </div>
+        </div>
+        <div class="dropdown dropdown-end dropdown-bottom">
+            <div tabindex="0" role="button" class="flex items-center justify-center size-8 rounded-full bg-sidebar-accent border border-sidebar-accent transition-all duration-300 hover:shadow-lg cursor-pointer">
+                <i data-lucide="circle-user" class="size-5 text-white" aria-hidden="true"></i>
+            </div>
+            <div tabindex="-1" class="dropdown-content z-90 mt-2 w-56 rounded-xl border border-white/10 bg-popover backdrop-blur-xl text-popover-foreground shadow-xl overflow-hidden p-1">
+                <div class="px-3 py-2">
+                    <p class="text-sm font-semibold">Account User</p>
+                    <p class="text-xs text-muted-foreground"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="3045435542705f5b4951591e535f5d">[email&#160;protected]</a></p>
+                </div>
+                <div class="bg-white/10 -mx-1 my-1 h-px"></div>
+                <ul>
+                    <li>
+                        <a href="settings.html" class="relative flex items-center gap-2 rounded-md px-3 py-2 text-sm border border-transparent hover:bg-sidebar-accent hover:text-white hover:border-sidebar-accent transition-colors duration-200 cursor-pointer">
+                            <i data-lucide="user" class="size-4 shrink-0"></i> <span>Profile</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="settings.html" class="relative flex items-center gap-2 rounded-md px-3 py-2 text-sm border border-transparent hover:bg-sidebar-accent hover:text-white hover:border-sidebar-accent transition-colors duration-200 cursor-pointer">
+                            <i data-lucide="settings" class="size-4 shrink-0"></i> <span>Settings</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="subscription.html" class="relative flex items-center gap-2 rounded-md px-3 py-2 text-sm border border-transparent hover:bg-sidebar-accent hover:text-white hover:border-sidebar-accent transition-colors duration-200 cursor-pointer">
+                            <i data-lucide="circle-help" class="size-4 shrink-0"></i> <span>Billing &amp; Plans</span>
+                        </a>
+                    </li>
+                </ul>
+                <div class="bg-white/10 -mx-1 my-1 h-px"></div>
+                <ul>
+                    <li>
+                        <a href="login.html" class="relative flex items-center gap-2 rounded-md px-3 py-2 text-sm border border-transparent text-destructive hover:bg-destructive/10 hover:border-destructive/30 transition-colors duration-200 cursor-pointer">
+                            <i data-lucide="log-out" class="size-4 shrink-0"></i> <span>Log out</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+
+                        <div class="zy-vb-root">
+
+                            <!-- ============= INTERNAL HEADER (tabs) ============= -->
+                            <div class="zy-vb-tabs">
+                                <div class="zy-vb-tabs-left">
+                                    <button class="zy-vb-tab zy-vb-tab-active" data-tab="canvas">Vision Canvas</button>
+                                    <button class="zy-vb-tab" data-tab="pillars">Strategic Pillars</button>
+                                    <button class="zy-vb-tab" data-tab="values">Core Values</button>
+                                </div>
+                                <div class="zy-vb-tabs-right">
+                                    <div class="zy-vb-state-switch" title="Aper&ccedil;u des 3 &eacute;tats (mockup)">
+                                        <span class="zy-vb-state-label">&Eacute;tat</span>
+                                        <button class="zy-vb-state-btn" data-state="1">1</button>
+                                        <button class="zy-vb-state-btn" data-state="2">2</button>
+                                        <button class="zy-vb-state-btn zy-vb-state-active" data-state="3">3</button>
+                                    </div>
+                                    <button class="zy-vb-book-btn"><i data-lucide="book-open" class="size-4"></i> Mode Vision Book</button>
+                                </div>
+                            </div>
+
+                            <!-- ============= CANVAS ZONE ============= -->
+                            <div class="zy-vb-canvas" data-completion="62" data-state="3">
+
+                                <!-- Background : in real app -> Canva PNG. Here : tasteful placeholder -->
+                                <div class="zy-vb-canva-bg">
+                                    <div class="zy-vb-canva-pattern"></div>
+                                    <div class="zy-vb-canva-watermark">
+                                        <i data-lucide="image" class="size-5"></i>
+                                        <span>Fond Canva &middot; design Vision Board branded Zayado</span>
+                                    </div>
+                                </div>
+
+                                <!-- ============= STATE 1 : Premier acc&egrave;s (completion = 0) ============= -->
+                                <div class="zy-vb-state zy-vb-state-1">
+                                    <div class="zy-vb-empty-hero">
+                                        <h2 class="zy-vb-empty-title">Commence par ta vision.</h2>
+                                        <p class="zy-vb-empty-sub">Quelle est l&rsquo;essence de ta vision ?</p>
+                                        <input type="text" class="zy-vb-empty-input" value="Architecturer la clart&eacute; pour les entrepreneurs ind&eacute;pendants." />
+                                        <p class="zy-vb-empty-prefilled"><i data-lucide="sparkles" class="size-3.5"></i> Pr&eacute;-rempli depuis ton onboarding &mdash; modifiable</p>
+                                        <button class="zy-vb-canva-cta"><i data-lucide="palette" class="size-4"></i> Cr&eacute;er mon board sur Canva <i data-lucide="arrow-right" class="size-4"></i></button>
+                                    </div>
+                                </div>
+
+                                <!-- ============= STATE 2 : En cours (completion 1-49) ============= -->
+                                <div class="zy-vb-state zy-vb-state-2">
+                                    <div class="zy-vb-progress-bar">
+                                        <div class="zy-vb-progress-text">
+                                            <span>O&ugrave; j&rsquo;en suis : Phase de <strong>Lancement</strong></span>
+                                            <span class="zy-vb-progress-pct">42% alignement</span>
+                                        </div>
+                                        <div class="zy-vb-progress-track"><div class="zy-vb-progress-fill" style="width:42%"></div></div>
+                                    </div>
+                                    <div class="zy-vb-state2-grid">
+                                        <div class="zy-vb-block zy-vb-block-user zy-vb-block-static">
+                                            <span class="zy-vb-block-label">Objectif CA</span>
+                                            <p class="zy-vb-block-value">&euro;1.2M</p>
+                                            <p class="zy-vb-block-meta">Cible ann&eacute;e 3</p>
+                                        </div>
+                                        <div class="zy-vb-block zy-vb-block-user zy-vb-block-static">
+                                            <span class="zy-vb-block-label">Phase actuelle</span>
+                                            <p class="zy-vb-block-value-sm">Lancement</p>
+                                            <p class="zy-vb-block-meta">Mois 4 / 12</p>
+                                        </div>
+                                        <div class="zy-vb-block zy-vb-block-empty">
+                                            <i data-lucide="plus" class="size-5"></i>
+                                            <span>Ajoute tes piliers strat&eacute;giques</span>
+                                        </div>
+                                        <div class="zy-vb-block zy-vb-block-empty">
+                                            <i data-lucide="plus" class="size-5"></i>
+                                            <span>D&eacute;finis tes valeurs</span>
+                                        </div>
+                                        <div class="zy-vb-block zy-vb-block-empty zy-vb-block-empty-wide">
+                                            <i data-lucide="plus" class="size-5"></i>
+                                            <span>Compl&egrave;te ton SWOT &mdash; l&rsquo;IA g&eacute;n&egrave;re ensuite Opportunit&eacute;s &amp; Menaces</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- ============= STATE 3 : Canvas actif (completion 50+) — d&eacute;faut ============= -->
+                                <div class="zy-vb-state zy-vb-state-3">
+
+                                    <!-- Progress bar : Point de d&eacute;part -> Sommet vision -->
+                                    <div class="zy-vb-axis">
+                                        <span class="zy-vb-axis-label">Point de d&eacute;part</span>
+                                        <div class="zy-vb-axis-track">
+                                            <div class="zy-vb-axis-fill" style="width:62%"></div>
+                                            <div class="zy-vb-axis-marker" style="left:62%"><span>62% alignement</span></div>
+                                        </div>
+                                        <span class="zy-vb-axis-label">Sommet vision</span>
+                                    </div>
+
+                                    <!-- Floating blocks (x/y in % of canvas) -->
+
+                                    <!-- USER BLOCKS -->
+                                    <div class="zy-vb-block zy-vb-block-user zy-vb-block-float" style="left:4%;top:14%;">
+                                        <span class="zy-vb-block-label">Objectif CA</span>
+                                        <p class="zy-vb-block-value">&euro;1.2M</p>
+                                        <p class="zy-vb-block-meta">Cible ann&eacute;e 3</p>
+                                        <span class="zy-vb-grip"><i data-lucide="grip-vertical" class="size-3.5"></i></span>
+                                    </div>
+
+                                    <div class="zy-vb-block zy-vb-block-user zy-vb-block-float" style="left:4%;top:38%;">
+                                        <span class="zy-vb-block-label">Marge op.</span>
+                                        <p class="zy-vb-block-value">24%</p>
+                                        <span class="zy-vb-grip"><i data-lucide="grip-vertical" class="size-3.5"></i></span>
+                                    </div>
+
+                                    <div class="zy-vb-block zy-vb-block-user zy-vb-block-float zy-vb-block-wide" style="left:4%;top:58%;">
+                                        <span class="zy-vb-block-label">Pourquoi (Ikigai) &middot; <strong>99</strong></span>
+                                        <p class="zy-vb-block-quote">&laquo;&nbsp;Architecturer la clart&eacute; pour que chaque cr&eacute;ateur puisse b&acirc;tir sans bruit.&nbsp;&raquo;</p>
+                                        <span class="zy-vb-grip"><i data-lucide="grip-vertical" class="size-3.5"></i></span>
+                                    </div>
+
+                                    <div class="zy-vb-block zy-vb-block-user zy-vb-block-float" style="left:67%;top:64%;">
+                                        <span class="zy-vb-block-label">Phase actuelle</span>
+                                        <p class="zy-vb-block-value-sm">Lancement</p>
+                                        <p class="zy-vb-block-meta">Mois 4 / 12</p>
+                                        <span class="zy-vb-grip"><i data-lucide="grip-vertical" class="size-3.5"></i></span>
+                                    </div>
+
+                                    <!-- AI BLOCKS (green) -->
+                                    <div class="zy-vb-block zy-vb-block-ai zy-vb-block-float" style="left:37%;top:14%;">
+                                        <span class="zy-vb-block-label"><i data-lucide="sparkles" class="size-3.5"></i> Forces &middot; SWOT IA</span>
+                                        <ul class="zy-vb-block-list">
+                                            <li>Architecture AI propri&eacute;taire</li>
+                                            <li>R&eacute;seau de mentors premium</li>
+                                        </ul>
+                                        <span class="zy-vb-grip"><i data-lucide="grip-vertical" class="size-3.5"></i></span>
+                                    </div>
+
+                                    <div class="zy-vb-block zy-vb-block-ai zy-vb-block-float" style="left:37%;top:38%;">
+                                        <span class="zy-vb-block-label"><i data-lucide="sparkles" class="size-3.5"></i> Faiblesses &middot; SWOT IA</span>
+                                        <ul class="zy-vb-block-list">
+                                            <li>D&eacute;pendance aux API externes</li>
+                                            <li>Cycle de vente long</li>
+                                        </ul>
+                                        <span class="zy-vb-grip"><i data-lucide="grip-vertical" class="size-3.5"></i></span>
+                                    </div>
+
+                                    <div class="zy-vb-block zy-vb-block-ai zy-vb-block-float" style="left:67%;top:14%;">
+                                        <span class="zy-vb-block-label"><i data-lucide="sparkles" class="size-3.5"></i> Opportunit&eacute;s &middot; SWOT IA</span>
+                                        <ul class="zy-vb-block-list">
+                                            <li>March&eacute; US en expansion</li>
+                                            <li>Demande IA conformit&eacute;</li>
+                                        </ul>
+                                        <span class="zy-vb-grip"><i data-lucide="grip-vertical" class="size-3.5"></i></span>
+                                    </div>
+
+                                    <div class="zy-vb-block zy-vb-block-ai zy-vb-block-float" style="left:67%;top:38%;">
+                                        <span class="zy-vb-block-label"><i data-lucide="sparkles" class="size-3.5"></i> Menaces &middot; SWOT IA</span>
+                                        <ul class="zy-vb-block-list">
+                                            <li>&Eacute;volution r&eacute;glementaire IA</li>
+                                            <li>Concurrence low-cost</li>
+                                        </ul>
+                                        <span class="zy-vb-grip"><i data-lucide="grip-vertical" class="size-3.5"></i></span>
+                                    </div>
+
+                                    <!-- Citation centr&eacute;e en bas -->
+                                    <p class="zy-vb-citation">
+                                        &laquo;&nbsp;Un sanctuaire d&rsquo;intelligence pour entrepreneurs conscients.&nbsp;&raquo;
+                                    </p>
+                                </div>
+
+                                <!-- ============= BOTTOM TOOLBAR ============= -->
+                                <div class="zy-vb-toolbar">
+                                    <button class="zy-vb-tool"><i data-lucide="plus" class="size-4"></i> Bloc</button>
+                                    <button class="zy-vb-tool zy-vb-tool-ai"><i data-lucide="sparkles" class="size-4"></i> IA r&eacute;g&eacute;n&egrave;re SWOT</button>
+                                    <button class="zy-vb-tool"><i data-lucide="palette" class="size-4"></i> Modifier Canva</button>
+                                    <button class="zy-vb-tool"><i data-lucide="download" class="size-4"></i> Export PDF</button>
+                                </div>
+
+                                <!-- ============= EDIT SIDE PANEL (closed by default) ============= -->
+                                <aside class="zy-vb-edit-panel">
+                                    <div class="zy-vb-edit-head">
+                                        <div>
+                                            <p class="text-[11px] uppercase tracking-[0.2em] opacity-60">&Eacute;dition inline</p>
+                                            <h4 class="text-base font-semibold mt-1">Bloc &laquo;&nbsp;Objectif CA&nbsp;&raquo;</h4>
+                                        </div>
+                                        <button class="zy-vb-edit-close" aria-label="Fermer"><i data-lucide="x" class="size-4"></i></button>
+                                    </div>
+                                    <div class="zy-vb-edit-body">
+                                        <label class="zy-vb-field">
+                                            <span>Valeur</span>
+                                            <input type="text" value="1 200 000" />
+                                            <em>Devise &euro; &middot; montant cible</em>
+                                        </label>
+                                        <label class="zy-vb-field">
+                                            <span>Horizon</span>
+                                            <input type="text" value="année 3" />
+                                        </label>
+                                        <div class="zy-vb-edit-tip">
+                                            <i data-lucide="info" class="size-4"></i>
+                                            <span>Le Co-pilote utilise cette valeur pour pr&eacute;dire ta trajectoire dans <strong>Pilotage</strong>.</span>
+                                        </div>
+                                    </div>
+                                    <div class="zy-vb-edit-foot">
+                                        <button class="zy-btn-ghost">Annuler</button>
+                                        <button class="zy-btn-primary">Sauvegarder</button>
+                                    </div>
+                                </aside>
+
+                            </div>
+
+                            <!-- ============= CO-PILOTE CONTEXT (JSON the AI reads) ============= -->
+                            <div class="zy-vb-ai-context">
+                                <div class="zy-vb-ai-context-head">
+                                    <div class="flex items-center gap-2">
+                                        <i data-lucide="brain" class="size-4 text-emerald-500"></i>
+                                        <p class="text-sm font-semibold">Ce que lit ton Co-pilote</p>
+                                    </div>
+                                    <span class="zy-vb-ai-context-pill"><i data-lucide="lock" class="size-3"></i> JSON interne</span>
+                                </div>
+                                <p class="text-xs text-muted-foreground mb-3">L&rsquo;IA ne lit <strong>jamais</strong> le fond Canva. Elle lit uniquement le contenu structur&eacute; des blocs ci-dessus.</p>
+<pre class="zy-vb-json">{
+  "objectif_ca": { "valeur": "1200000", "horizon": "ann&eacute;e 3" },
+  "marge_operationnelle": "24",
+  "ikigai": { "score": 99, "citation": "Architecturer la clart&eacute;..." },
+  "phase_actuelle": "Lancement &mdash; Mois 4 / 12",
+  "swot": {
+    "forces":       ["Architecture AI propri&eacute;taire", "R&eacute;seau de mentors premium"],
+    "faiblesses":   ["D&eacute;pendance aux API externes", "Cycle de vente long"],
+    "opportunites": ["March&eacute; US en expansion", "Demande IA conformit&eacute;"],
+    "menaces":      ["&Eacute;volution r&eacute;glementaire IA", "Concurrence low-cost"]
+  },
+  "completion_score": 62
+}</pre>
+                            </div>
+                        </div>
+
+
+
+                    </main>
+                </div>
+            </div>
+        </div>
+        <div class="drawer-side z-100">
+            <label for="my-drawer" class="drawer-overlay fixed inset-0 z-50 bg-gray-100/10 backdrop-blur-xl"></label>
+            <div class="fixed z-50 flex flex-col gap-4 transition ease-in-out inset-y-0 left-0 h-full sm:max-w-sm w-(--sidebar-width) p-0 [&>button]:hidden" style="--sidebar-width: 18rem;">
+                <div class="flex h-svh relative rounded-r-3xl justify-between bg-linear-to-b from-primary to-sidebar-primary my-3 xl:items-center w-full flex-col">
+                    <div class="flex flex-col gap-2 p-2">
+                        <div class="hidden xl:flex items-center gap-2 px-2 py-3"><img width="60" src="assets/logo-myextension-256.png" alt="OkyAi"></div>
+                        <div class="xl:hidden flex items-center justify-center gap-2 px-2 py-3"><img width="200" src="assets/logo-myextension-256.png" alt="OkyAi"></div>
+                    </div>
+                    <div class="absolute xl:hidden block w-full h-full rounded-l-2xl top-0 left-0 pointer-events-none"><svg class="absolute left-0 bottom-[-30px] svg-corner svg-pink" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#dash-clip_2)"><path d="M30 0H0V30C0 13.431 13.431 0 30 0Z"></path></g><defs><clipPath id="dash-clip_2"><rect width="30" height="30" fill="white"></rect></clipPath></defs></svg><svg class="absolute left-0 top-[-30px] -rotate-90 svg-corner" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#dash-clip_3)"><path d="M30 0H0V30C0 13.431 13.431 0 30 0Z"></path></g><defs><clipPath id="dash-clip_3"><rect width="30" height="30" fill="white"></rect></clipPath></defs></svg></div>
+                    <div class="flex flex-col gap-2">
+                        <!-- Mobile drawer navigation -->
+<div class="relative flex w-full min-w-0 flex-col">
+    <div class="w-full text-sm relative">
+        <ul class="flex justify-center relative h-full w-full min-w-0 flex-col gap-3 p-4 py-6">
+            
+            
+            <li class="group/menu-item relative">
+                <a href="index.html" class="drawer-menu-link zy-sidebar-link">
+                    <i data-lucide="layout-dashboard" class="size-5 shrink-0"></i><span>Dashboard</span>
+                </a>
+            </li>
+            <li class="group/menu-item relative">
+                <a href="/vision-board" class="drawer-menu-link zy-sidebar-link" target="_top">
+                    <i data-lucide="eye" class="size-5 shrink-0"></i><span>Vision Board</span>
+                </a>
+            </li>
+            <li class="group/menu-item relative">
+                <a href="workspace.html" class="drawer-menu-link zy-sidebar-link">
+                    <i data-lucide="briefcase" class="size-5 shrink-0"></i><span>Espace de travail</span>
+                </a>
+            </li>
+            <li class="group/menu-item relative">
+                <a href="copilote.html" class="drawer-menu-link zy-sidebar-link">
+                    <i data-lucide="sparkles" class="size-5 shrink-0"></i><span>Co-pilote IA</span>
+                </a>
+            </li>
+            <li class="group/menu-item relative">
+                <a href="pilotage.html" class="drawer-menu-link zy-sidebar-link">
+                    <i data-lucide="line-chart" class="size-5 shrink-0"></i><span>Pilotage</span>
+                </a>
+            </li>
+            <li class="group/menu-item relative">
+                <a href="expansion.html" class="drawer-menu-link zy-sidebar-link">
+                    <i data-lucide="radar" class="size-5 shrink-0"></i><span>Expansion Agent</span>
+                </a>
+            </li>
+            <li class="group/menu-item relative">
+                <a href="bienetre.html" class="drawer-menu-link zy-sidebar-link">
+                    <i data-lucide="heart-pulse" class="size-5 shrink-0"></i><span>Bien-être</span>
+                </a>
+            </li>
+            <li class="px-3 pt-3 pb-1 text-[10px] uppercase tracking-[0.18em] text-white/40">Plus</li>
+            <li class="group/menu-item relative">
+                <a href="thesustain.html" class="drawer-menu-link zy-sidebar-link">
+                    <i data-lucide="leaf" class="size-5 shrink-0"></i><span>TheSustain</span>
+                </a>
+            </li>
+            <li class="group/menu-item relative">
+                <a href="abonnement.html" class="drawer-menu-link zy-sidebar-link">
+                    <i data-lucide="credit-card" class="size-5 shrink-0"></i><span>Abonnement</span>
+                </a>
+            </li>
+
+
+        </ul>
+    </div>
+</div>
+
+                    </div>
+                    <div class="flex flex-col gap-2 p-2">
+                        <div class="px-3 pb-3">
+                            <div data-slot="card" class="bg-card text-card-foreground flex flex-col gap-4 rounded-xl md:rounded-3xl border sm:p-5 lg:p-6 shadow-sm p-4 text-center"><img alt="Update" class="h-20 mx-auto mb-3 animate-float block" src="https://okyai-html.mantrakshdevs.com/images/update1.svg"><div><p class="font-semibold text-sm mb-1">Update Pro Plan</p><p class="text-xs text-muted-foreground mb-3">Enhance your experience with the Pro version.</p></div><a data-slot="button" class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium transition-all duration-300 disabled:pointer-events-none disabled:opacity-50 bg-primary hover:bg-primary/90 h-8 rounded-md gap-1.5 px-3 w-full bg-linear-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white border-0" href="subscription.html">Upgrade Now</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://okyai-html.mantrakshdevs.com/plugins/gsap/gsap.min.js"></script>
+<script src="https://okyai-html.mantrakshdevs.com/plugins/lucide/umd/lucide.min.js"></script>
+<script>
+    lucide.createIcons();
+</script>
+<script src="https://okyai-html.mantrakshdevs.com/plugins/chart.js/chart.umd.min.js"></script>
+<script src="https://okyai-html.mantrakshdevs.com/js/combined.min.js"></script>
+<script src="https://okyai-html.mantrakshdevs.com/js/demo-utils.js"></script>
+
+    <script src="https://okyai-html.mantrakshdevs.com/js/pages/home.js"></script>
+<script src="/okyai-clone/zayado-header.js" defer></script>
+<script src="/okyai-clone/zayado-vision-board.js" defer></script></body>
+</html>

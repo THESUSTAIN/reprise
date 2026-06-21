@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#7a4aff">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="referrer" content="no-referrer-when-downgrade">
+<meta name="application-name" content="OkyAi">
+<link rel="shortcut icon" href="images/logo-sm.png" type="image/png">
+
+<title>Settings | OkyAi - Premium AI Dashboard &amp; AI Chatbot HTML Template</title>
+
+<meta name="description" content="OkyAi is an AI-powered SaaS dashboard HTML template with a chatbot UI, analytics views, content tools, and settings. Built with Tailwind CSS and Gulp.">
+<meta name="keywords" content="OkyAi, AI dashboard template, AI chatbot UI, SaaS dashboard, Tailwind CSS, Gulp, analytics dashboard, admin template, HTML template">
+<link rel="canonical" href="https://okyai-html.com/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://okyai-html.com/">
+<meta property="og:title" content="OkyAi - Premium AI Dashboard &amp; AI Chatbot HTML Template">
+<meta property="og:description" content="OkyAi is a modern AI SaaS dashboard template with chatbot UI, analytics, content tools, and settings. Built with Tailwind CSS and Gulp.">
+<meta property="og:site_name" content="OkyAi">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://okyai-html.com/">
+<meta name="twitter:title" content="OkyAi - Premium AI Dashboard &amp; AI Chatbot HTML Template">
+<meta name="twitter:description" content="Modern AI SaaS dashboard HTML template with chatbot UI, analytics, content tools, and settings. Built with Tailwind CSS and Gulp.">
+
+    <!-- main css (Tailwind compiled) -->
+<link href="https://okyai-html.mantrakshdevs.com/css/input.min.css" rel="stylesheet" type="text/css" id="main-style">
+
+<link rel="stylesheet" href="/okyai-clone/zayado-palette.css"></head>
+
+<body>
+
+<div class="drawer xl:drawer-horizontal">
+    <input id="my-drawer" type="checkbox" class="drawer-toggle">
+    <div class="drawer-content flex flex-col" style="min-height: 100vh;">
+        <div class="relative z-10">
+            <div class="group/sidebar-wrapper has-data-[variant=inset]:bg-sidebar flex min-h-svh w-full" style="--sidebar-width: 6rem; --sidebar-width-icon: 6rem;">
+                <!-- XL+ Fixed Sidebar -->
+<div class="group peer hidden xl:block">
+    <div class="fixed inset-y-0 z-10 w-(--sidebar-width) transition-[left,right,width] duration-200 ease-linear left-0 group-data-[collapsible=offcanvas]:-left-(--sidebar-width) group-data-[collapsible=icon]:w-(--sidebar-width-icon) group-data-[side=right]:border-l"
+        style="--sidebar-width: 6rem; --sidebar-width-icon: 6rem;">
+        <div
+            class="group-data-[variant=floating]:border-sidebar-border flex min-h-svh justify-between items-center w-full flex-col group-data-[variant=floating]:rounded-lg group-data-[variant=floating]:border group-data-[variant=floating]:shadow-sm">
+            <div data-slot="sidebar-header" data-sidebar="header" class="flex flex-col gap-2 p-2">
+                <div class="hidden xl:flex items-center gap-2 px-2 py-3"><img width="60" src="assets/logo-myextension-256.png"
+                        alt="OkyAi Logo"></div>
+            </div>
+            <div class="flex-1 flex flex-col gap-2 w-full justify-center">
+                <div class="relative flex w-full min-w-0 flex-col justify-center">
+                    <div class="w-full text-sm relative h-full">
+                        <ul
+                            class="flex justify-center relative xl:items-center xl:bg-linear-to-b from-primary to-sidebar-primary h-full rounded-r-3xl w-full min-w-0 flex-col gap-3 p-4 py-6">
+
+                            
+                            
+                            <li class="group/menu-item relative flex justify-center">
+                                <div class="tooltip tooltip-right tooltip-custom" data-tip="Dashboard">
+                                    <a href="index.html" class="peer/menu-button sidebar-menu-link zy-sidebar-link">
+                                        <i data-lucide="layout-dashboard" class="size-5 shrink-0"></i>
+                                    </a>
+                                </div>
+                            </li>
+
+                            <li class="group/menu-item relative flex justify-center">
+                                <div class="tooltip tooltip-right tooltip-custom" data-tip="Vision Board">
+                                    <a href="/vision-board" class="peer/menu-button sidebar-menu-link zy-sidebar-link" target="_top">
+                                        <i data-lucide="eye" class="size-5 shrink-0"></i>
+                                    </a>
+                                </div>
+                            </li>
+
+                            <li class="group/menu-item relative flex justify-center">
+                                <div class="tooltip tooltip-right tooltip-custom" data-tip="Espace de travail">
+                                    <a href="workspace.html" class="peer/menu-button sidebar-menu-link zy-sidebar-link">
+                                        <i data-lucide="briefcase" class="size-5 shrink-0"></i>
+                                    </a>
+                                </div>
+                            </li>
+
+                            <li class="group/menu-item relative flex justify-center">
+                                <div class="tooltip tooltip-right tooltip-custom" data-tip="Co-pilote IA">
+                                    <a href="copilote.html" class="peer/menu-button sidebar-menu-link zy-sidebar-link">
+                                        <i data-lucide="sparkles" class="size-5 shrink-0"></i>
+                                    </a>
+                                </div>
+                            </li>
+
+                            <li class="group/menu-item relative flex justify-center">
+                                <div class="tooltip tooltip-right tooltip-custom" data-tip="Pilotage">
+                                    <a href="pilotage.html" class="peer/menu-button sidebar-menu-link zy-sidebar-link">
+                                        <i data-lucide="line-chart" class="size-5 shrink-0"></i>
+                                    </a>
+                                </div>
+                            </li>
+
+                            <li class="group/menu-item relative flex justify-center">
+                                <div class="tooltip tooltip-right tooltip-custom" data-tip="Expansion Agent">
+                                    <a href="expansion.html" class="peer/menu-button sidebar-menu-link zy-sidebar-link">
+                                        <i data-lucide="radar" class="size-5 shrink-0"></i>
+                                    </a>
+                                </div>
+                            </li>
+
+                            <li class="group/menu-item relative flex justify-center">
+                                <div class="tooltip tooltip-right tooltip-custom" data-tip="Bien-être">
+                                    <a href="bienetre.html" class="peer/menu-button sidebar-menu-link zy-sidebar-link">
+                                        <i data-lucide="heart-pulse" class="size-5 shrink-0"></i>
+                                    </a>
+                                </div>
+                            </li>
+
+                            <li class="group/menu-item relative flex justify-center" data-zayado-more-host>
+                                <div class="tooltip tooltip-right tooltip-custom" data-tip="Plus">
+                                    <button type="button" class="peer/menu-button sidebar-menu-link zy-sidebar-link" data-zayado-more-btn aria-haspopup="true" aria-expanded="false">
+                                        <i data-lucide="more-horizontal" class="size-5 shrink-0"></i>
+                                    </button>
+                                </div>
+                            </li>
+
+
+                            <li class="absolute xl:block hidden w-full h-full  top-0 left-0 pointer-events-none">
+                                <svg class="absolute left-0 bottom-[-30px] svg-corner svg-pink" width="30" height="30"
+                                    viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#sidebar-clip_2)">
+                                        <path d="M30 0H0V30C0 13.431 13.431 0 30 0Z"></path>
+                                    </g>
+                                    <defs>
+                                        <clipPath id="sidebar-clip_2">
+                                            <rect width="30" height="30" fill="white"></rect>
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                                <svg class="absolute left-0 top-[-30px] -rotate-90 svg-corner " width="30" height="30"
+                                    viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#sidebar-clip_3)">
+                                        <path d="M30 0H0V30C0 13.431 13.431 0 30 0Z"></path>
+                                    </g>
+                                    <defs>
+                                        <clipPath id="sidebar-clip_3">
+                                            <rect width="30" height="30" fill="white"></rect>
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="flex flex-col gap-2 p-2">
+
+                <div class="hidden xl:flex justify-center px-2">
+                    <div class="dropdown dropdown-right dropdown-top">
+                        <div tabindex="0" role="button"
+                            class="inline-flex items-center justify-center size-10 rounded-full bg-sidebar-foreground hover:bg-sidebar-accent transition-all duration-300 cursor-pointer">
+                            <i data-lucide="gem" class="size-5 shrink-0"></i>
+                        </div>
+                        <div tabindex="-1"
+                            class="dropdown-content z-50 mb-2 ml-2 w-64 rounded-xl border border-white/10 bg-popover backdrop-blur-xl text-popover-foreground shadow-xl overflow-hidden p-1">
+                            <div class="px-3 py-2 border-b border-white/10">
+                                <p class="text-sm font-semibold">Account User</p>
+                                <p class="text-xs text-white/50"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="166365736456797d6f777f3875797b">[email&#160;protected]</a></p>
+                            </div>
+                            <div class="p-3">
+                                <div
+                                    class="bg-linear-to-br from-orange-500/10 to-amber-500/10 border border-orange-500/20 rounded-xl p-4 text-center">
+                                    <img alt="Update" class="h-16 mx-auto mb-3 animate-float block"
+                                        src="https://okyai-html.mantrakshdevs.com/images/update1.svg">
+                                    <h5 class="font-semibold text-sm mb-1">Update Pro Plan</h5>
+                                    <p class="text-xs text-white/50 mb-3">Enhance your experience with the Pro version.
+                                    </p>
+                                    <a href="subscription.html"
+                                        class="inline-flex items-center justify-center w-full h-9 rounded-lg px-3 text-sm font-medium text-white bg-linear-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 transition-all duration-300">
+                                        Upgrade Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+                <main class="relative flex w-full flex-1 flex-col xl:ml-(--sidebar-width) xl:peer-data-[variant=inset]:m-2 xl:peer-data-[variant=inset]:rounded-xl xl:peer-data-[variant=inset]:shadow-sm xl:peer-data-[variant=inset]:peer-data-[state=collapsed]:ml-2">
+                    <header class="sticky top-0 z-50 flex h-16 items-center gap-4 bg-linear-to-r from-primary to-sidebar-primary mx-5 md:mx-10 rounded-b-2xl px-4 md:px-6">
+    <div class="absolute w-full h-full rounded-l-2xl top-0 left-0 pointer-events-none">
+        <svg class="absolute left-[-30px] top-0 svg-corner rotate-90" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#header-clip_2)">
+                <path d="M30 0H0V30C0 13.431 13.431 0 30 0Z"></path>
+            </g>
+            <defs>
+                <clipPath id="header-clip_2">
+                    <rect width="30" height="30" fill="white"></rect>
+                </clipPath>
+            </defs>
+        </svg>
+        <svg class="absolute right-[-30px] top-0 svg-corner svg-pink rotate-0" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#header-clip_3)"><path d="M30 0H0V30C0 13.431 13.431 0 30 0Z"></path></g>
+            <defs>
+                <clipPath id="header-clip_3"><rect width="30" height="30" fill="white"></rect></clipPath>
+            </defs>
+        </svg>
+    </div>
+    <div class="flex items-center gap-4 flex-1">
+        <label for="my-drawer" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all duration-300 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-popover hover:text-accent-foreground dark:hover:bg-accent/50 size-7 xl:hidden">
+            <i data-lucide="panel-left" class="size-4" aria-hidden="true"></i>
+            <span class="sr-only">Toggle Sidebar</span>
+        </label>
+        <div class="relative w-full max-w-md hidden md:block">
+            <i data-lucide="search" class="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" aria-hidden="true"></i>
+            <input data-slot="input" class="file:text-foreground placeholder:text-white/40 selection:bg-primary selection:text-primary-foreground w-full min-w-0 rounded-md border border-border bg-input px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive [&amp;::-webkit-search-cancel-button]:appearance-none pl-9 h-9" placeholder="Search..." type="search">
+        </div>
+    </div>
+    <div class="flex items-center gap-2">
+        <button type="button" data-demo-mobile-search class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all duration-300 disabled:pointer-events-none disabled:opacity-50 size-9 md:hidden hover:bg-popover hover:text-accent-foreground" aria-label="Search">
+            <i data-lucide="search" class="size-5" aria-hidden="true"></i>
+        </button>
+        <div class="dropdown dropdown-end">
+            <button type="button" tabindex="0" data-demo-bell class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all duration-300 size-9 relative group hover:bg-popover hover:text-accent-foreground" aria-label="Notifications">
+                <i data-lucide="bell" class="size-5 transition-all duration-300 group-hover:scale-110 group-hover:rotate-12" aria-hidden="true"></i>
+                <span class="absolute top-1.5 right-1.5 size-2 bg-destructive rounded-full animate-pulse"></span>
+            </button>
+            <div tabindex="0" class="dropdown-content z-100 mt-2 w-72 rounded-xl border border-white/10 bg-popover backdrop-blur-xl shadow-xl p-2">
+                <p class="px-3 py-2 text-xs font-semibold text-white/50 uppercase tracking-wider">Notifications</p>
+                <ul class="space-y-1">
+                    <li><button type="button" class="w-full text-left px-3 py-2 rounded-lg text-sm text-slate-200 hover:bg-sidebar-accent border border-transparent hover:border-sidebar-accent transition-colors">API rate limit warning</button></li>
+                    <li><button type="button" class="w-full text-left px-3 py-2 rounded-lg text-sm text-slate-200 hover:bg-sidebar-accent border border-transparent hover:border-sidebar-accent transition-colors">Payment received — $49.00</button></li>
+                    <li><button type="button" class="w-full text-left px-3 py-2 rounded-lg text-sm text-slate-200 hover:bg-sidebar-accent border border-transparent hover:border-sidebar-accent transition-colors">GPT-4 Turbo model updated</button></li>
+                </ul>
+                <a href="settings.html" class="block mt-2 text-center text-xs text-primary hover:underline py-2">Notification settings</a>
+            </div>
+        </div>
+        <div class="dropdown dropdown-end dropdown-bottom">
+            <div tabindex="0" role="button" class="flex items-center justify-center size-8 rounded-full bg-sidebar-accent border border-sidebar-accent transition-all duration-300 hover:shadow-lg cursor-pointer">
+                <i data-lucide="circle-user" class="size-5 text-white" aria-hidden="true"></i>
+            </div>
+            <div tabindex="-1" class="dropdown-content z-90 mt-2 w-56 rounded-xl border border-white/10 bg-popover backdrop-blur-xl text-popover-foreground shadow-xl overflow-hidden p-1">
+                <div class="px-3 py-2">
+                    <p class="text-sm font-semibold">Account User</p>
+                    <p class="text-xs text-muted-foreground"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="0570766077456a6e7c646c2b666a68">[email&#160;protected]</a></p>
+                </div>
+                <div class="bg-white/10 -mx-1 my-1 h-px"></div>
+                <ul>
+                    <li>
+                        <a href="settings.html" class="relative flex items-center gap-2 rounded-md px-3 py-2 text-sm border border-transparent hover:bg-sidebar-accent hover:text-white hover:border-sidebar-accent transition-colors duration-200 cursor-pointer">
+                            <i data-lucide="user" class="size-4 shrink-0"></i> <span>Profile</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="settings.html" class="relative flex items-center gap-2 rounded-md px-3 py-2 text-sm border border-transparent hover:bg-sidebar-accent hover:text-white hover:border-sidebar-accent transition-colors duration-200 cursor-pointer">
+                            <i data-lucide="settings" class="size-4 shrink-0"></i> <span>Settings</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="subscription.html" class="relative flex items-center gap-2 rounded-md px-3 py-2 text-sm border border-transparent hover:bg-sidebar-accent hover:text-white hover:border-sidebar-accent transition-colors duration-200 cursor-pointer">
+                            <i data-lucide="circle-help" class="size-4 shrink-0"></i> <span>Billing &amp; Plans</span>
+                        </a>
+                    </li>
+                </ul>
+                <div class="bg-white/10 -mx-1 my-1 h-px"></div>
+                <ul>
+                    <li>
+                        <a href="login.html" class="relative flex items-center gap-2 rounded-md px-3 py-2 text-sm border border-transparent text-destructive hover:bg-destructive/10 hover:border-destructive/30 transition-colors duration-200 cursor-pointer">
+                            <i data-lucide="log-out" class="size-4 shrink-0"></i> <span>Log out</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+
+<dialog id="mobile-search-dialog" class="modal">
+    <div class="modal-box max-w-md bg-slate-950 border border-primary/20">
+        <h3 class="text-lg font-bold text-white mb-4">Search</h3>
+        <div class="relative">
+            <i data-lucide="search" class="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-white/50"></i>
+            <input id="mobile-search-input" type="search" placeholder="Search pages, tools, settings…" class="input-base pl-10 w-full bg-white/10 border-white/20 text-slate-200">
+        </div>
+        <div class="flex gap-2 justify-end mt-4">
+            <button type="button" id="mobile-search-cancel" class="btn-outline-primary-sm">Cancel</button>
+            <button type="button" id="mobile-search-submit" class="btn-gradient">Search</button>
+        </div>
+    </div>
+    <form method="dialog" class="modal-backdrop"><button aria-label="Close">close</button></form>
+</dialog>
+
+                    <section class="flex-1 flex flex-col max-w-7xl mx-auto w-full">
+                        <div class="p-5">
+                            <div class="space-y-6">
+                                <!-- Page Header -->
+                                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                                    <div>
+                                        <h1 class="text-2xl sm:text-3xl font-bold text-white">Settings</h1>
+                                        <p class="text-sm sm:text-base text-white/50 mt-1">Manage your account settings and preferences</p>
+                                    </div>
+                                    <button class="btn-gradient w-full sm:w-auto">
+                                        <i data-lucide="save" class="h-4 w-4" aria-hidden="true"></i> Save All Changes
+                                    </button>
+                                </div>
+
+                                <!-- Main Grid -->
+                                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+                                    <!-- Left Column (col-span-2) -->
+                                    <div class="lg:col-span-2 space-y-6">
+
+                                        <!-- Profile Information -->
+                                        <div class="bg-card text-card-foreground flex flex-col gap-4 rounded-xl md:rounded-3xl border p-4 sm:p-5 lg:p-6 shadow-sm">
+                                            <div class="flex items-center gap-3 mb-4">
+    <div class="p-2 rounded-lg bg-primary/10 border border-primary/20">
+        <i data-lucide="user" class="h-5 w-5 text-primary" aria-hidden="true"></i>
+    </div>
+    <div>
+        <p class="font-semibold text-white">Profile Information</p>
+        <p class="text-sm text-white/50">Update your personal details</p>
+    </div>
+</div>
+
+                                            <form class="space-y-4">
+                                                <!-- Avatar -->
+                                                <div class="flex items-center gap-4">
+                                                    <div class="h-20 w-20 rounded-full bg-linear-to-br from-primary via-purple-500 to-purple-600 flex items-center justify-center text-white text-2xl font-bold shadow-lg shrink-0 overflow-hidden">JD</div>
+                                                    <div class="space-y-2">
+                                                        <input type="file" id="photo-upload" accept="image/jpeg,image/jpg,image/png,image/gif" class="hidden">
+                                                        <button type="button" onclick="document.getElementById('photo-upload').click()" class="btn-outline-primary-sm">
+                                                            <i data-lucide="upload" class="h-4 w-4" aria-hidden="true"></i>Upload Photo
+                                                        </button>
+                                                        <p class="text-xs text-white/50">JPG, PNG or GIF. Max 10MB</p>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Fields -->
+                                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                    <div class="space-y-2">
+                                                        <label for="name" class="text-sm font-medium text-slate-300">Full Name</label>
+                                                        <input id="name" type="text" value="Account User" placeholder="Your full name..." class="input-settings">
+                                                    </div>
+                                                    <div class="space-y-2">
+                                                        <label for="email" class="text-sm font-medium text-slate-300">Email Address</label>
+                                                        <input id="email" type="email" value="user@okyai.com" placeholder="Your email address..." class="input-settings">
+                                                    </div>
+                                                    <div class="space-y-2">
+                                                        <label for="phone" class="text-sm font-medium text-slate-300">Phone Number</label>
+                                                        <input id="phone" type="tel" placeholder="+1 (555) 000-0000" class="input-settings">
+                                                    </div>
+                                                    <div class="space-y-2">
+                                                        <label for="company" class="text-sm font-medium text-slate-300">Company</label>
+                                                        <input id="company" type="text" placeholder="Your company name..." class="input-settings">
+                                                    </div>
+                                                </div>
+
+                                                <button type="submit" class="btn-gradient">
+                                                    <i data-lucide="save" class="h-4 w-4" aria-hidden="true"></i> Save Profile
+                                                </button>
+                                            </form>
+                                        </div>
+
+                                        <!-- Language & Region -->
+                                        <div class="bg-card text-card-foreground flex flex-col gap-4 rounded-xl md:rounded-3xl border p-4 sm:p-5 lg:p-6 shadow-sm">
+                                            <div class="flex items-center gap-3 mb-4">
+    <div class="p-2 rounded-lg bg-blue-500/10 border border-blue-500/20">
+        <i data-lucide="globe" class="h-5 w-5 text-blue-500" aria-hidden="true"></i>
+    </div>
+    <div>
+        <p class="font-semibold text-white">Language & Region</p>
+        <p class="text-sm text-white/50">Set your language and timezone preferences</p>
+    </div>
+</div>
+
+                                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                                <div class="space-y-2">
+                                                    <label class="text-sm font-medium text-slate-300">Language</label>
+                                                    <div class="custom-select-wrapper relative w-full" data-value="en">
+                                                        <button type="button" class="custom-select-trigger border-input bg-popover backdrop-blur-xl flex w-full items-center justify-between gap-2 rounded-md border px-3 py-2 text-sm whitespace-nowrap shadow-xs transition-[color,box-shadow] outline-none h-9 focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50" aria-haspopup="listbox" aria-expanded="false">
+                                                            <span class="custom-select-value line-clamp-1 flex items-center gap-2">English</span>
+                                                            <i data-lucide="chevron-down" class="custom-select-chevron size-4 opacity-50 shrink-0 transition-transform duration-200" aria-hidden="true"></i>
+                                                        </button>
+                                                        <div class="custom-select-content bg-popover backdrop-blur-xl text-popover-foreground absolute z-50 min-w-full mt-1 rounded-md border shadow-md overflow-hidden hidden" role="listbox">
+                                                            <div class="p-1">
+                                                                <div class="custom-select-item focus:bg-sidebar-accent focus:text-white hover:bg-sidebar-accent hover:text-white border border-transparent hover:border-sidebar-accent transition-colors relative flex w-full cursor-pointer items-center gap-2 rounded-md py-1.5 pl-2 pr-8 text-sm outline-none select-none" role="option" data-value="en" tabindex="0">English<span class="custom-select-check absolute right-2 flex size-3.5 items-center justify-center opacity-0"><i data-lucide="check" class="size-4" aria-hidden="true"></i></span></div>
+                                                                <div class="custom-select-item focus:bg-sidebar-accent focus:text-white hover:bg-sidebar-accent hover:text-white border border-transparent hover:border-sidebar-accent transition-colors relative flex w-full cursor-pointer items-center gap-2 rounded-md py-1.5 pl-2 pr-8 text-sm outline-none select-none" role="option" data-value="es" tabindex="0">Español<span class="custom-select-check absolute right-2 flex size-3.5 items-center justify-center opacity-0"><i data-lucide="check" class="size-4" aria-hidden="true"></i></span></div>
+                                                                <div class="custom-select-item focus:bg-sidebar-accent focus:text-white hover:bg-sidebar-accent hover:text-white border border-transparent hover:border-sidebar-accent transition-colors relative flex w-full cursor-pointer items-center gap-2 rounded-md py-1.5 pl-2 pr-8 text-sm outline-none select-none" role="option" data-value="fr" tabindex="0">Français<span class="custom-select-check absolute right-2 flex size-3.5 items-center justify-center opacity-0"><i data-lucide="check" class="size-4" aria-hidden="true"></i></span></div>
+                                                                <div class="custom-select-item focus:bg-sidebar-accent focus:text-white hover:bg-sidebar-accent hover:text-white border border-transparent hover:border-sidebar-accent transition-colors relative flex w-full cursor-pointer items-center gap-2 rounded-md py-1.5 pl-2 pr-8 text-sm outline-none select-none" role="option" data-value="de" tabindex="0">Deutsch<span class="custom-select-check absolute right-2 flex size-3.5 items-center justify-center opacity-0"><i data-lucide="check" class="size-4" aria-hidden="true"></i></span></div>
+                                                                <div class="custom-select-item focus:bg-sidebar-accent focus:text-white hover:bg-sidebar-accent hover:text-white border border-transparent hover:border-sidebar-accent transition-colors relative flex w-full cursor-pointer items-center gap-2 rounded-md py-1.5 pl-2 pr-8 text-sm outline-none select-none" role="option" data-value="zh" tabindex="0">中文<span class="custom-select-check absolute right-2 flex size-3.5 items-center justify-center opacity-0"><i data-lucide="check" class="size-4" aria-hidden="true"></i></span></div>
+                                                                <div class="custom-select-item focus:bg-sidebar-accent focus:text-white hover:bg-sidebar-accent hover:text-white border border-transparent hover:border-sidebar-accent transition-colors relative flex w-full cursor-pointer items-center gap-2 rounded-md py-1.5 pl-2 pr-8 text-sm outline-none select-none" role="option" data-value="ja" tabindex="0">日本語<span class="custom-select-check absolute right-2 flex size-3.5 items-center justify-center opacity-0"><i data-lucide="check" class="size-4" aria-hidden="true"></i></span></div>
+                                                                <div class="custom-select-item focus:bg-sidebar-accent focus:text-white hover:bg-sidebar-accent hover:text-white border border-transparent hover:border-sidebar-accent transition-colors relative flex w-full cursor-pointer items-center gap-2 rounded-md py-1.5 pl-2 pr-8 text-sm outline-none select-none" role="option" data-value="hi" tabindex="0">हिन्दी<span class="custom-select-check absolute right-2 flex size-3.5 items-center justify-center opacity-0"><i data-lucide="check" class="size-4" aria-hidden="true"></i></span></div>
+                                                                <div class="custom-select-item focus:bg-sidebar-accent focus:text-white hover:bg-sidebar-accent hover:text-white border border-transparent hover:border-sidebar-accent transition-colors relative flex w-full cursor-pointer items-center gap-2 rounded-md py-1.5 pl-2 pr-8 text-sm outline-none select-none" role="option" data-value="ar" tabindex="0">العربية<span class="custom-select-check absolute right-2 flex size-3.5 items-center justify-center opacity-0"><i data-lucide="check" class="size-4" aria-hidden="true"></i></span></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="space-y-2">
+                                                    <label class="text-sm font-medium text-slate-300">Timezone</label>
+                                                    <div class="custom-select-wrapper relative w-full" data-value="utc">
+                                                        <button type="button" class="custom-select-trigger border-input bg-popover backdrop-blur-xl flex w-full items-center justify-between gap-2 rounded-md border px-3 py-2 text-sm whitespace-nowrap shadow-xs transition-[color,box-shadow] outline-none h-9 focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50" aria-haspopup="listbox" aria-expanded="false">
+                                                            <span class="custom-select-value line-clamp-1 flex items-center gap-2">UTC (GMT+0)</span>
+                                                            <i data-lucide="chevron-down" class="custom-select-chevron size-4 opacity-50 shrink-0 transition-transform duration-200" aria-hidden="true"></i>
+                                                        </button>
+                                                        <div class="custom-select-content bg-popover backdrop-blur-xl text-popover-foreground absolute z-50 min-w-full mt-1 rounded-md border shadow-md overflow-hidden hidden" role="listbox">
+                                                            <div class="p-1">
+                                                                <div class="custom-select-item focus:bg-sidebar-accent focus:text-white hover:bg-sidebar-accent hover:text-white border border-transparent hover:border-sidebar-accent transition-colors relative flex w-full cursor-pointer items-center gap-2 rounded-md py-1.5 pl-2 pr-8 text-sm outline-none select-none" role="option" data-value="utc" tabindex="0">UTC (GMT+0)<span class="custom-select-check absolute right-2 flex size-3.5 items-center justify-center opacity-0"><i data-lucide="check" class="size-4" aria-hidden="true"></i></span></div>
+                                                                <div class="custom-select-item focus:bg-sidebar-accent focus:text-white hover:bg-sidebar-accent hover:text-white border border-transparent hover:border-sidebar-accent transition-colors relative flex w-full cursor-pointer items-center gap-2 rounded-md py-1.5 pl-2 pr-8 text-sm outline-none select-none" role="option" data-value="est" tabindex="0">Eastern Time (GMT-5)<span class="custom-select-check absolute right-2 flex size-3.5 items-center justify-center opacity-0"><i data-lucide="check" class="size-4" aria-hidden="true"></i></span></div>
+                                                                <div class="custom-select-item focus:bg-sidebar-accent focus:text-white hover:bg-sidebar-accent hover:text-white border border-transparent hover:border-sidebar-accent transition-colors relative flex w-full cursor-pointer items-center gap-2 rounded-md py-1.5 pl-2 pr-8 text-sm outline-none select-none" role="option" data-value="pst" tabindex="0">Pacific Time (GMT-8)<span class="custom-select-check absolute right-2 flex size-3.5 items-center justify-center opacity-0"><i data-lucide="check" class="size-4" aria-hidden="true"></i></span></div>
+                                                                <div class="custom-select-item focus:bg-sidebar-accent focus:text-white hover:bg-sidebar-accent hover:text-white border border-transparent hover:border-sidebar-accent transition-colors relative flex w-full cursor-pointer items-center gap-2 rounded-md py-1.5 pl-2 pr-8 text-sm outline-none select-none" role="option" data-value="cet" tabindex="0">Central European (GMT+1)<span class="custom-select-check absolute right-2 flex size-3.5 items-center justify-center opacity-0"><i data-lucide="check" class="size-4" aria-hidden="true"></i></span></div>
+                                                                <div class="custom-select-item focus:bg-sidebar-accent focus:text-white hover:bg-sidebar-accent hover:text-white border border-transparent hover:border-sidebar-accent transition-colors relative flex w-full cursor-pointer items-center gap-2 rounded-md py-1.5 pl-2 pr-8 text-sm outline-none select-none" role="option" data-value="ist" tabindex="0">India (GMT+5:30)<span class="custom-select-check absolute right-2 flex size-3.5 items-center justify-center opacity-0"><i data-lucide="check" class="size-4" aria-hidden="true"></i></span></div>
+                                                                <div class="custom-select-item focus:bg-sidebar-accent focus:text-white hover:bg-sidebar-accent hover:text-white border border-transparent hover:border-sidebar-accent transition-colors relative flex w-full cursor-pointer items-center gap-2 rounded-md py-1.5 pl-2 pr-8 text-sm outline-none select-none" role="option" data-value="jst" tabindex="0">Japan (GMT+9)<span class="custom-select-check absolute right-2 flex size-3.5 items-center justify-center opacity-0"><i data-lucide="check" class="size-4" aria-hidden="true"></i></span></div>
+                                                                <div class="custom-select-item focus:bg-sidebar-accent focus:text-white hover:bg-sidebar-accent hover:text-white border border-transparent hover:border-sidebar-accent transition-colors relative flex w-full cursor-pointer items-center gap-2 rounded-md py-1.5 pl-2 pr-8 text-sm outline-none select-none" role="option" data-value="aest" tabindex="0">Australia Eastern (GMT+10)<span class="custom-select-check absolute right-2 flex size-3.5 items-center justify-center opacity-0"><i data-lucide="check" class="size-4" aria-hidden="true"></i></span></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Notification Preferences -->
+                                        <div class="bg-card text-card-foreground flex flex-col gap-4 rounded-xl md:rounded-3xl border p-4 sm:p-5 lg:p-6 shadow-sm">
+                                            <div class="flex items-center gap-3 mb-4">
+    <div class="p-2 rounded-lg bg-purple-500/10 border border-purple-500/20">
+        <i data-lucide="bell" class="h-5 w-5 text-purple-500" aria-hidden="true"></i>
+    </div>
+    <div>
+        <p class="font-semibold text-white">Notification Preferences</p>
+        <p class="text-sm text-white/50">Choose what notifications you want to receive</p>
+    </div>
+</div>
+
+                                            <div class="space-y-3">
+                                                <div class="flex items-center justify-between p-3 rounded-lg bg-white/5 border border-white/10">
+    <div class="flex items-center gap-3">
+        <i data-lucide="mail" class="h-5 w-5 text-white/50" aria-hidden="true"></i>
+        <div>
+            <p class="text-sm font-medium text-white">Email Notifications</p>
+            <p class="text-xs text-white/50">Receive notifications via email</p>
+        </div>
+    </div>
+    <label class="relative inline-flex items-center cursor-pointer">
+        <input type="checkbox" class="sr-only peer" checked>
+        <span class="w-11 h-6 bg-white/10 border border-white/20 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-white after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary peer-checked:border-primary"></span>
+    </label>
+</div>
+
+                                                <div class="flex items-center justify-between p-3 rounded-lg bg-white/5 border border-white/10">
+    <div class="flex items-center gap-3">
+        <i data-lucide="smartphone" class="h-5 w-5 text-white/50" aria-hidden="true"></i>
+        <div>
+            <p class="text-sm font-medium text-white">Push Notifications</p>
+            <p class="text-xs text-white/50">Get push notifications on your device</p>
+        </div>
+    </div>
+    <label class="relative inline-flex items-center cursor-pointer">
+        <input type="checkbox" class="sr-only peer" checked>
+        <span class="w-11 h-6 bg-white/10 border border-white/20 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-white after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary peer-checked:border-primary"></span>
+    </label>
+</div>
+
+                                                <div class="flex items-center justify-between p-3 rounded-lg bg-white/5 border border-white/10">
+    <div class="flex items-center gap-3">
+        <i data-lucide="zap" class="h-5 w-5 text-white/50" aria-hidden="true"></i>
+        <div>
+            <p class="text-sm font-medium text-white">Product Updates</p>
+            <p class="text-xs text-white/50">News about new features and updates</p>
+        </div>
+    </div>
+    <label class="relative inline-flex items-center cursor-pointer">
+        <input type="checkbox" class="sr-only peer" >
+        <span class="w-11 h-6 bg-white/10 border border-white/20 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-white after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary peer-checked:border-primary"></span>
+    </label>
+</div>
+
+                                                <div class="flex items-center justify-between p-3 rounded-lg bg-white/5 border border-white/10">
+    <div class="flex items-center gap-3">
+        <i data-lucide="shield" class="h-5 w-5 text-white/50" aria-hidden="true"></i>
+        <div>
+            <p class="text-sm font-medium text-white">Security Alerts</p>
+            <p class="text-xs text-white/50">Important security notifications</p>
+        </div>
+    </div>
+    <label class="relative inline-flex items-center cursor-pointer">
+        <input type="checkbox" class="sr-only peer" checked>
+        <span class="w-11 h-6 bg-white/10 border border-white/20 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-white after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary peer-checked:border-primary"></span>
+    </label>
+</div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Right Column -->
+                                    <div class="space-y-6">
+                                        <!-- Account Status -->
+                                        <div class="bg-card text-card-foreground flex flex-col gap-4 rounded-xl md:rounded-3xl border border-green-500/20 p-4 sm:p-5 lg:p-6 shadow-sm">
+                                            <div class="flex items-center gap-3">
+                                                <div class="p-2 rounded-lg bg-green-500/10 border border-green-500/20">
+                                                    <i data-lucide="circle-check" class="h-5 w-5 text-green-500" aria-hidden="true"></i>
+                                                </div>
+                                                <div>
+                                                    <p class="text-base font-medium text-white">Account Status</p>
+                                                    <p class="text-sm text-white/50">Active &amp; Verified</p>
+                                                </div>
+                                            </div>
+                                            <div class="space-y-2 text-sm text-white/50">
+                                                <div class="flex justify-between">
+                                                    <span>Member since:</span>
+                                                    <span class="text-white">Jan 2024</span>
+                                                </div>
+                                                <div class="flex justify-between">
+                                                    <span>Plan:</span>
+                                                    <span class="text-green-500 font-medium">Professional</span>
+                                                </div>
+                                                <div class="flex justify-between">
+                                                    <span>Storage used:</span>
+                                                    <span class="text-white">2.4 GB / 10 GB</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Billing -->
+                                        <div class="bg-card text-card-foreground flex flex-col gap-4 rounded-xl md:rounded-3xl border p-4 sm:p-5 lg:p-6 shadow-sm">
+                                            <div class="flex items-center gap-3 mb-4">
+    <div class="p-2 rounded-lg bg-blue-500/10 border border-blue-500/20">
+        <i data-lucide="credit-card" class="h-5 w-5 text-blue-500" aria-hidden="true"></i>
+    </div>
+    <div>
+        <p class="font-semibold text-white">Billing</p>
+        <p class="text-sm text-white/50">Manage payment methods</p>
+    </div>
+</div>
+
+                                            <div class="space-y-3">
+                                                <div class="p-3 rounded-lg bg-white/5 border border-white/10">
+                                                    <div class="flex items-center justify-between mb-2">
+                                                        <div class="flex items-center gap-2">
+                                                            <i data-lucide="credit-card" class="h-4 w-4 text-white/50" aria-hidden="true"></i>
+                                                            <span class="text-sm text-white">•••• 4242</span>
+                                                        </div>
+                                                        <span class="text-xs text-white/50">Expires 12/25</span>
+                                                    </div>
+                                                    <p class="text-xs text-white/30">Primary payment method</p>
+                                                </div>
+                                                <button class="w-full btn-outline-primary">Manage Billing</button>
+                                            </div>
+                                        </div>
+
+                                        <!-- Security & Privacy -->
+                                        <div class="bg-card text-card-foreground flex flex-col gap-4 rounded-xl md:rounded-3xl border p-4 sm:p-5 lg:p-6 shadow-sm">
+                                            <div class="flex items-center gap-3 mb-4">
+    <div class="p-2 rounded-lg bg-green-500/10 border border-green-500/20">
+        <i data-lucide="shield" class="h-5 w-5 text-green-500" aria-hidden="true"></i>
+    </div>
+    <div>
+        <p class="font-semibold text-white">Security & Privacy</p>
+        <p class="text-sm text-white/50">Manage your security settings</p>
+    </div>
+</div>
+
+                                            <div class="space-y-3">
+                                                <div class="flex items-center justify-between p-3 rounded-lg bg-white/5 border border-white/10">
+    <div class="flex items-center gap-3">
+        <i data-lucide="key" class="h-5 w-5 text-white/50" aria-hidden="true"></i>
+        <div>
+            <p class="text-sm font-medium text-white">Two-Factor Authentication</p>
+            <p class="text-xs text-white/50">Add an extra layer of security</p>
+        </div>
+    </div>
+    <label class="relative inline-flex items-center cursor-pointer">
+        <input type="checkbox" class="sr-only peer" >
+        <span class="w-11 h-6 bg-white/10 border border-white/20 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-white after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary peer-checked:border-primary"></span>
+    </label>
+</div>
+
+                                                <div class="flex items-center justify-between p-3 rounded-lg bg-white/5 border border-white/10">
+    <div class="flex items-center gap-3">
+        <i data-lucide="database" class="h-5 w-5 text-white/50" aria-hidden="true"></i>
+        <div>
+            <p class="text-sm font-medium text-white">Data Sharing</p>
+            <p class="text-xs text-white/50">Share anonymous usage data</p>
+        </div>
+    </div>
+    <label class="relative inline-flex items-center cursor-pointer">
+        <input type="checkbox" class="sr-only peer" >
+        <span class="w-11 h-6 bg-white/10 border border-white/20 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-white after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary peer-checked:border-primary"></span>
+    </label>
+</div>
+
+                                            </div>
+                                            <div class="space-y-2 pt-1">
+                                                <button class="w-full inline-flex items-center justify-start gap-2 rounded-md text-sm font-medium transition-all duration-300 border h-9 px-3 border-primary/30 text-slate-300 hover:bg-primary/10">
+    <i data-lucide="key" class="h-4 w-4" aria-hidden="true"></i>
+    Change Password
+</button>
+
+                                                <button class="w-full inline-flex items-center justify-start gap-2 rounded-md text-sm font-medium transition-all duration-300 border h-9 px-3 border-primary/30 text-slate-300 hover:bg-primary/10">
+    <i data-lucide="eye" class="h-4 w-4" aria-hidden="true"></i>
+    View Active Sessions
+</button>
+
+                                                <button class="w-full inline-flex items-center justify-start gap-2 rounded-md text-sm font-medium transition-all duration-300 border h-9 px-3 border-primary/30 text-slate-300 hover:bg-primary/10">
+    <i data-lucide="download" class="h-4 w-4" aria-hidden="true"></i>
+    Download My Data
+</button>
+
+                                            </div>
+                                        </div>
+
+                                        <!-- Danger Zone -->
+                                        <div class="text-card-foreground flex flex-col gap-4 rounded-xl md:rounded-3xl border border-red-500/40 bg-red-500/5 p-4 sm:p-5 lg:p-6 shadow-sm">
+                                            <p class="text-sm font-semibold text-red-400">Danger Zone</p>
+                                            <div class="space-y-3">
+                                                <button class="w-full inline-flex items-center justify-start gap-2 rounded-md text-sm font-medium transition-all duration-300 border h-9 px-3 border-red-500/30 text-red-400 hover:bg-red-500/10 hover:border-red-500">
+    <i data-lucide="trash-2" class="h-4 w-4" aria-hidden="true"></i>
+    Delete Account
+</button>
+
+                                                <p class="text-xs text-white/50">Once deleted, your account cannot be recovered</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Shared footer -->
+<footer class="px-5 pt-2 max-w-7xl mx-auto w-full">
+    <div class="py-3 border-t border-x border-white/10 px-5 rounded-t-2xl">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-2">
+            <!-- Copyright -->
+            <div class="text-center md:text-left">
+                <p class="text-white/50 text-sm">© <span id="footer-year"></span> OkyAi. All Rights Reserved.</p>
+            </div>
+            <!-- Credit -->
+            <div class="text-center md:text-right">
+                <p class="text-white/50 text-sm">Designed &amp; Developed by
+                    <a class="text-white/75 hover:text-primary font-medium transition-colors" href="https://mantrakshdevs.com/" target="_blank" rel="noopener noreferrer">Mantraksh Devs</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+                    </section>
+                </main>
+            </div>
+        </div>
+    </div>
+    <div class="drawer-side z-100">
+        <label for="my-drawer" class="drawer-overlay fixed inset-0 z-50 bg-gray-100/10 backdrop-blur-xl"></label>
+        <div class="fixed z-50 flex flex-col gap-4 transition ease-in-out inset-y-0 left-0 h-full sm:max-w-sm w-(--sidebar-width) p-0 [&>button]:hidden" style="--sidebar-width: 18rem;">
+            <div class="flex h-svh relative rounded-r-3xl justify-between bg-linear-to-b from-primary to-sidebar-primary my-3 xl:items-center w-full flex-col">
+                <div class="flex flex-col gap-2 p-2">
+                    <div class="hidden xl:flex items-center gap-2 px-2 py-3"><img width="60" src="assets/logo-myextension-256.png" alt="OkyAi"></div>
+                    <div class="xl:hidden flex items-center justify-center gap-2 px-2 py-3"><img width="200" src="assets/logo-myextension-256.png" alt="OkyAi"></div>
+                </div>
+                <div class="absolute xl:hidden block w-full h-full rounded-l-2xl top-0 left-0 pointer-events-none"><svg class="absolute left-0 bottom-[-30px] svg-corner svg-pink" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#setting-clip_2)"><path d="M30 0H0V30C0 13.431 13.431 0 30 0Z"></path></g><defs><clipPath id="setting-clip_2"><rect width="30" height="30" fill="white"></rect></clipPath></defs></svg><svg class="absolute left-0 top-[-30px] -rotate-90 svg-corner" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#setting-clip_3)"><path d="M30 0H0V30C0 13.431 13.431 0 30 0Z"></path></g><defs><clipPath id="setting-clip_3"><rect width="30" height="30" fill="white"></rect></clipPath></defs></svg></div>
+                <div class="flex flex-col gap-2">
+                    <!-- Mobile drawer navigation -->
+<div class="relative flex w-full min-w-0 flex-col">
+    <div class="w-full text-sm relative">
+        <ul class="flex justify-center relative h-full w-full min-w-0 flex-col gap-3 p-4 py-6">
+            
+            
+            <li class="group/menu-item relative">
+                <a href="index.html" class="drawer-menu-link zy-sidebar-link">
+                    <i data-lucide="layout-dashboard" class="size-5 shrink-0"></i><span>Dashboard</span>
+                </a>
+            </li>
+            <li class="group/menu-item relative">
+                <a href="/vision-board" class="drawer-menu-link zy-sidebar-link" target="_top">
+                    <i data-lucide="eye" class="size-5 shrink-0"></i><span>Vision Board</span>
+                </a>
+            </li>
+            <li class="group/menu-item relative">
+                <a href="workspace.html" class="drawer-menu-link zy-sidebar-link">
+                    <i data-lucide="briefcase" class="size-5 shrink-0"></i><span>Espace de travail</span>
+                </a>
+            </li>
+            <li class="group/menu-item relative">
+                <a href="copilote.html" class="drawer-menu-link zy-sidebar-link">
+                    <i data-lucide="sparkles" class="size-5 shrink-0"></i><span>Co-pilote IA</span>
+                </a>
+            </li>
+            <li class="group/menu-item relative">
+                <a href="pilotage.html" class="drawer-menu-link zy-sidebar-link">
+                    <i data-lucide="line-chart" class="size-5 shrink-0"></i><span>Pilotage</span>
+                </a>
+            </li>
+            <li class="group/menu-item relative">
+                <a href="expansion.html" class="drawer-menu-link zy-sidebar-link">
+                    <i data-lucide="radar" class="size-5 shrink-0"></i><span>Expansion Agent</span>
+                </a>
+            </li>
+            <li class="group/menu-item relative">
+                <a href="bienetre.html" class="drawer-menu-link zy-sidebar-link">
+                    <i data-lucide="heart-pulse" class="size-5 shrink-0"></i><span>Bien-être</span>
+                </a>
+            </li>
+            <li class="px-3 pt-3 pb-1 text-[10px] uppercase tracking-[0.18em] text-white/40">Plus</li>
+            <li class="group/menu-item relative">
+                <a href="thesustain.html" class="drawer-menu-link zy-sidebar-link">
+                    <i data-lucide="leaf" class="size-5 shrink-0"></i><span>TheSustain</span>
+                </a>
+            </li>
+            <li class="group/menu-item relative">
+                <a href="abonnement.html" class="drawer-menu-link zy-sidebar-link">
+                    <i data-lucide="credit-card" class="size-5 shrink-0"></i><span>Abonnement</span>
+                </a>
+            </li>
+
+
+        </ul>
+    </div>
+</div>
+
+                </div>
+                <div class="flex flex-col gap-2 p-2">
+                    <div class="px-3 pb-3">
+                        <div data-slot="card" class="bg-card text-card-foreground flex flex-col gap-4 rounded-xl md:rounded-3xl border sm:p-5 lg:p-6 shadow-sm p-4 text-center"><img alt="Update" class="h-20 mx-auto mb-3 animate-float block" src="https://okyai-html.mantrakshdevs.com/images/update1.svg"><div><p class="font-semibold text-sm mb-1">Update Pro Plan</p><p class="text-xs text-muted-foreground mb-3">Enhance your experience with the Pro version.</p></div><a data-slot="button" class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium transition-all duration-300 disabled:pointer-events-none disabled:opacity-50 bg-primary hover:bg-primary/90 h-8 rounded-md gap-1.5 px-3 w-full bg-linear-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white border-0" href="subscription.html">Upgrade Now</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <dialog id="photo-crop-dialog" class="modal">
+        <div class="modal-box max-w-lg bg-slate-950 border border-primary/20">
+            <h3 class="text-lg font-bold text-white mb-4">Crop Profile Photo</h3>
+            <div class="relative h-64 bg-black rounded-lg overflow-hidden flex items-center justify-center mb-4">
+                <img id="photo-crop-preview" src="" alt="Preview" class="max-h-full max-w-full object-contain transition-transform duration-200">
+            </div>
+            <div class="flex items-center gap-3 mb-4">
+                <label class="text-sm text-white/50 shrink-0">Zoom</label>
+                <input id="photo-crop-zoom" type="range" min="100" max="200" value="100" class="flex-1">
+            </div>
+            <div class="flex gap-2 justify-end">
+                <button type="button" id="photo-crop-cancel" class="btn-outline-primary-sm">Cancel</button>
+                <button type="button" id="photo-crop-apply" class="btn-gradient">Apply</button>
+            </div>
+        </div>
+        <form method="dialog" class="modal-backdrop"><button>close</button></form>
+    </dialog>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://okyai-html.mantrakshdevs.com/plugins/gsap/gsap.min.js"></script>
+<script src="https://okyai-html.mantrakshdevs.com/plugins/lucide/umd/lucide.min.js"></script>
+<script>
+    lucide.createIcons();
+</script>
+<script src="https://okyai-html.mantrakshdevs.com/plugins/chart.js/chart.umd.min.js"></script>
+<script src="https://okyai-html.mantrakshdevs.com/js/combined.min.js"></script>
+<script src="https://okyai-html.mantrakshdevs.com/js/demo-utils.js"></script>
+
+    <script src="https://okyai-html.mantrakshdevs.com/js/pages/settings.js"></script>
+<script src="/okyai-clone/zayado-header.js" defer></script></body>
+
+</html>

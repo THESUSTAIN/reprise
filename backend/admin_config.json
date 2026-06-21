@@ -1,0 +1,5371 @@
+{
+  "email_log": [
+    {
+      "to": "test_inst2@zayado.net",
+      "to_name": "Test Install",
+      "subject": "Bienvenue sur ZAYADO \u2014 Votre assistant IA est pret !",
+      "brand": "zayado",
+      "status": "sent",
+      "message_id": "<202606211059.36974878867@smtp-relay.mailin.fr>",
+      "sent_at": "2026-06-21T10:59:54.652749+00:00"
+    },
+    {
+      "to": "ngalulambenga@gmail.com",
+      "to_name": "",
+      "subject": "Votre lien de connexion \u2014 MyExtension-ai by Zayado",
+      "brand": "myextension",
+      "status": "sent",
+      "message_id": "<202606122300.93947458114@smtp-relay.mailin.fr>",
+      "sent_at": "2026-06-12T23:00:09.151804+00:00"
+    },
+    {
+      "to": "support@zayado.net",
+      "to_name": "",
+      "subject": "[Bilan client] guest@zayado.preview",
+      "brand": "myextension",
+      "status": "sent",
+      "message_id": "<202606120957.80397939625@smtp-relay.mailin.fr>",
+      "sent_at": "2026-06-12T09:57:21.746518+00:00"
+    },
+    {
+      "to": "guest@zayado.preview",
+      "to_name": "",
+      "subject": "Votre bilan bien-\u00eatre \u2014 MyExtension-ai",
+      "brand": "myextension",
+      "status": "sent",
+      "message_id": "<202606120957.91167352622@smtp-relay.mailin.fr>",
+      "sent_at": "2026-06-12T09:57:21.149873+00:00"
+    },
+    {
+      "to": "support@zayado.net",
+      "to_name": "",
+      "subject": "[Bilan client] admin@zayado.net",
+      "brand": "myextension",
+      "status": "sent",
+      "message_id": "<202606120837.54695782073@smtp-relay.mailin.fr>",
+      "sent_at": "2026-06-12T08:37:25.942250+00:00"
+    },
+    {
+      "to": "admin@zayado.net",
+      "to_name": "",
+      "subject": "Votre bilan bien-\u00eatre \u2014 MyExtension-ai",
+      "brand": "myextension",
+      "status": "sent",
+      "message_id": "<202606120837.75963265149@smtp-relay.mailin.fr>",
+      "sent_at": "2026-06-12T08:37:25.730783+00:00"
+    },
+    {
+      "to": "nglaulambenga@gmail.com",
+      "to_name": "nglaulambenga",
+      "subject": "Votre analyse SWOT mensuelle \u2014 MyExtension AI",
+      "brand": "zayado",
+      "status": "sent",
+      "message_id": "<202606111755.53970286411@smtp-relay.mailin.fr>",
+      "sent_at": "2026-06-11T17:55:05.081597+00:00"
+    },
+    {
+      "to": "nglaulambenga@gmail.com",
+      "to_name": "",
+      "subject": "Votre lien de connexion \u2014 MyExtension-ai by Zayado",
+      "brand": "myextension",
+      "status": "sent",
+      "message_id": "<202606111608.11141355275@smtp-relay.mailin.fr>",
+      "sent_at": "2026-06-11T16:08:00.280783+00:00"
+    },
+    {
+      "to": "inessagna3@gmail.com",
+      "to_name": "Ines Sagna",
+      "subject": "On s'inqui\u00e8te pour vous, Ines \u2014 tout va bien ?",
+      "brand": "zayado",
+      "status": "sent",
+      "message_id": "<202606101634.77319191588@smtp-relay.mailin.fr>",
+      "sent_at": "2026-06-10T16:34:02.320801+00:00"
+    },
+    {
+      "to": "emma.chariaud@gmail.com",
+      "to_name": "Emma CHARIAUD",
+      "subject": "Emma, votre cockpit vous attend (3 missions pr\u00eates)",
+      "brand": "zayado",
+      "status": "sent",
+      "message_id": "<202606101633.81122410650@smtp-relay.mailin.fr>",
+      "sent_at": "2026-06-10T16:33:28.462382+00:00"
+    },
+    {
+      "to": "emma.chariaud@gmail.com",
+      "to_name": "Emma CHARIAUD",
+      "subject": "Emma, votre cockpit vous attend (3 missions pr\u00eates)",
+      "brand": "zayado",
+      "status": "sent",
+      "message_id": "<202606101632.81615467829@smtp-relay.mailin.fr>",
+      "sent_at": "2026-06-10T16:32:20.183360+00:00"
+    },
+    {
+      "to": "emma.chariaud@gmail.com",
+      "to_name": "Emma CHARIAUD",
+      "subject": "Emma, votre cockpit vous attend (3 missions pr\u00eates)",
+      "brand": "zayado",
+      "status": "sent",
+      "message_id": "<202606101631.18099218453@smtp-relay.mailin.fr>",
+      "sent_at": "2026-06-10T16:31:33.059822+00:00"
+    },
+    {
+      "to": "ilariengo@gmail.com",
+      "to_name": "Ilarie Ngo",
+      "subject": "On s'inqui\u00e8te pour vous, Ilarie \u2014 tout va bien ?",
+      "brand": "zayado",
+      "status": "sent",
+      "message_id": "<202606101629.26020396616@smtp-relay.mailin.fr>",
+      "sent_at": "2026-06-10T16:29:07.660454+00:00"
+    },
+    {
+      "to": "locationmeubleeabibackup@gmail.com",
+      "to_name": "Abi Backup",
+      "subject": "On s'inqui\u00e8te pour vous, Abi \u2014 tout va bien ?",
+      "brand": "zayado",
+      "status": "sent",
+      "message_id": "<202606101629.35151781819@smtp-relay.mailin.fr>",
+      "sent_at": "2026-06-10T16:29:03.802411+00:00"
+    },
+    {
+      "to": "emma.chariaud@gmail.com",
+      "to_name": "Emma CHARIAUD",
+      "subject": "On s'inqui\u00e8te pour vous, Emma \u2014 tout va bien ?",
+      "brand": "zayado",
+      "status": "sent",
+      "message_id": "<202606101628.66369878926@smtp-relay.mailin.fr>",
+      "sent_at": "2026-06-10T16:29:00.016427+00:00"
+    },
+    {
+      "to": "inessagna3@gmail.com",
+      "to_name": "Ines Sagna",
+      "subject": "Ines, votre cockpit vous attend (3 missions pr\u00eates)",
+      "brand": "zayado",
+      "status": "sent",
+      "message_id": "<202606101628.48962228969@smtp-relay.mailin.fr>",
+      "sent_at": "2026-06-10T16:28:56.082487+00:00"
+    },
+    {
+      "to": "ilariengo@gmail.com",
+      "to_name": "Ilarie Ngo",
+      "subject": "Ilarie, votre cockpit vous attend (3 missions pr\u00eates)",
+      "brand": "zayado",
+      "status": "sent",
+      "message_id": "<202606101628.39322830042@smtp-relay.mailin.fr>",
+      "sent_at": "2026-06-10T16:28:52.263000+00:00"
+    },
+    {
+      "to": "locationmeubleeabibackup@gmail.com",
+      "to_name": "Abi Backup",
+      "subject": "Abi, votre cockpit vous attend (3 missions pr\u00eates)",
+      "brand": "zayado",
+      "status": "sent",
+      "message_id": "<202606101628.10171196168@smtp-relay.mailin.fr>",
+      "sent_at": "2026-06-10T16:28:48.416650+00:00"
+    },
+    {
+      "to": "emma.chariaud@gmail.com",
+      "to_name": "Emma CHARIAUD",
+      "subject": "Emma, votre cockpit vous attend (3 missions pr\u00eates)",
+      "brand": "zayado",
+      "status": "sent",
+      "message_id": "<202606101628.65421500942@smtp-relay.mailin.fr>",
+      "sent_at": "2026-06-10T16:28:44.600743+00:00"
+    },
+    {
+      "to": "admin@zayado.net",
+      "to_name": "Admin",
+      "subject": "Votre analyse SWOT mensuelle \u2014 MyExtension AI",
+      "brand": "zayado",
+      "status": "sent",
+      "message_id": "<202606101310.79605658758@smtp-relay.mailin.fr>",
+      "sent_at": "2026-06-10T13:10:38.984714+00:00"
+    },
+    {
+      "to": "admin@zayado.net",
+      "to_name": "Admin",
+      "subject": "Votre analyse SWOT mensuelle \u2014 Zayado",
+      "brand": "zayado",
+      "status": "sent",
+      "message_id": "<202606101212.80468211167@smtp-relay.mailin.fr>",
+      "sent_at": "2026-06-10T12:12:53.495730+00:00"
+    },
+    {
+      "to": "guest@zayado.preview",
+      "to_name": "Invit\u00e9",
+      "subject": "Votre analyse SWOT mensuelle \u2014 Zayado",
+      "brand": "zayado",
+      "status": "sent",
+      "message_id": "<202606101207.19578459858@smtp-relay.mailin.fr>",
+      "sent_at": "2026-06-10T12:07:40.800745+00:00"
+    },
+    {
+      "to": "user@example.com",
+      "to_name": "user",
+      "subject": "Votre analyse SWOT mensuelle \u2014 Zayado",
+      "brand": "zayado",
+      "status": "sent",
+      "message_id": "<202606101207.12288592366@smtp-relay.mailin.fr>",
+      "sent_at": "2026-06-10T12:07:20.063984+00:00"
+    },
+    {
+      "to": "inessagna3@gmail.com",
+      "to_name": "Ines Sagna",
+      "subject": "Votre analyse SWOT mensuelle \u2014 Zayado",
+      "brand": "zayado",
+      "status": "sent",
+      "message_id": "<202606101207.50545429162@smtp-relay.mailin.fr>",
+      "sent_at": "2026-06-10T12:07:02.354966+00:00"
+    },
+    {
+      "to": "test@example.com",
+      "to_name": "test",
+      "subject": "Votre analyse SWOT mensuelle \u2014 Zayado",
+      "brand": "zayado",
+      "status": "sent",
+      "message_id": "<202606101206.56076949142@smtp-relay.mailin.fr>",
+      "sent_at": "2026-06-10T12:06:42.890008+00:00"
+    },
+    {
+      "to": "etitiljon@gmail.com",
+      "to_name": "Emma titiljon ",
+      "subject": "Votre analyse SWOT mensuelle \u2014 Zayado",
+      "brand": "zayado",
+      "status": "sent",
+      "message_id": "<202606101206.74710447046@smtp-relay.mailin.fr>",
+      "sent_at": "2026-06-10T12:06:24.166211+00:00"
+    },
+    {
+      "to": "wilson@thesustain.net",
+      "to_name": "Administrateurs",
+      "subject": "Votre analyse SWOT mensuelle \u2014 Zayado",
+      "brand": "zayado",
+      "status": "sent",
+      "message_id": "<202606101206.56937025406@smtp-relay.mailin.fr>",
+      "sent_at": "2026-06-10T12:06:04.898890+00:00"
+    },
+    {
+      "to": "panguslariss@gmail.com",
+      "to_name": "Lo\u00eec",
+      "subject": "Votre analyse SWOT mensuelle \u2014 Zayado",
+      "brand": "zayado",
+      "status": "sent",
+      "message_id": "<202606101205.61390504864@smtp-relay.mailin.fr>",
+      "sent_at": "2026-06-10T12:05:44.432486+00:00"
+    },
+    {
+      "to": "local-test@example.com",
+      "to_name": "local-test",
+      "subject": "Votre analyse SWOT mensuelle \u2014 Zayado",
+      "brand": "zayado",
+      "status": "sent",
+      "message_id": "<202606101205.97887918798@smtp-relay.mailin.fr>",
+      "sent_at": "2026-06-10T12:05:24.380750+00:00"
+    },
+    {
+      "to": "newuser@example.com",
+      "to_name": "newuser",
+      "subject": "Votre analyse SWOT mensuelle \u2014 Zayado",
+      "brand": "zayado",
+      "status": "sent",
+      "message_id": "<202606101205.76834820369@smtp-relay.mailin.fr>",
+      "sent_at": "2026-06-10T12:05:04.257016+00:00"
+    },
+    {
+      "to": "ngalumambenga@gmail.com",
+      "to_name": "ngalumambenga",
+      "subject": "Votre analyse SWOT mensuelle \u2014 Zayado",
+      "brand": "zayado",
+      "status": "sent",
+      "message_id": "<202606101204.83147267457@smtp-relay.mailin.fr>",
+      "sent_at": "2026-06-10T12:04:44.141845+00:00"
+    },
+    {
+      "to": "test@x.com",
+      "to_name": "test",
+      "subject": "Votre analyse SWOT mensuelle \u2014 Zayado",
+      "brand": "zayado",
+      "status": "sent",
+      "message_id": "<202606101204.20152056468@smtp-relay.mailin.fr>",
+      "sent_at": "2026-06-10T12:04:22.574047+00:00"
+    },
+    {
+      "to": "fresh-1781052131@test.local",
+      "to_name": "fresh-1781052131",
+      "subject": "Votre analyse SWOT mensuelle \u2014 Zayado",
+      "brand": "zayado",
+      "status": "sent",
+      "message_id": "<202606101204.54798176223@smtp-relay.mailin.fr>",
+      "sent_at": "2026-06-10T12:04:03.354487+00:00"
+    },
+    {
+      "to": "support@thesustain-soutien.com",
+      "to_name": "TheSustain",
+      "subject": "Votre analyse SWOT mensuelle \u2014 Zayado",
+      "brand": "zayado",
+      "status": "sent",
+      "message_id": "<202606101203.67350225491@smtp-relay.mailin.fr>",
+      "sent_at": "2026-06-10T12:03:43.250116+00:00"
+    },
+    {
+      "to": "polezayado@gmail.com",
+      "to_name": "Zayado !",
+      "subject": "Votre analyse SWOT mensuelle \u2014 Zayado",
+      "brand": "zayado",
+      "status": "sent",
+      "message_id": "<202606101203.36098784134@smtp-relay.mailin.fr>",
+      "sent_at": "2026-06-10T12:03:20.101092+00:00"
+    },
+    {
+      "to": "ilariengo@gmail.com",
+      "to_name": "Ilarie Ngo",
+      "subject": "Votre analyse SWOT mensuelle \u2014 Zayado",
+      "brand": "zayado",
+      "status": "sent",
+      "message_id": "<202606101203.87396127975@smtp-relay.mailin.fr>",
+      "sent_at": "2026-06-10T12:03:01.692025+00:00"
+    },
+    {
+      "to": "test@zayado.net",
+      "to_name": "Test",
+      "subject": "Votre analyse SWOT mensuelle \u2014 Zayado",
+      "brand": "zayado",
+      "status": "sent",
+      "message_id": "<202606101202.26879350898@smtp-relay.mailin.fr>",
+      "sent_at": "2026-06-10T12:02:42.587540+00:00"
+    },
+    {
+      "to": "admin@zayado.net",
+      "to_name": "Admin",
+      "subject": "Votre analyse SWOT mensuelle \u2014 Zayado",
+      "brand": "zayado",
+      "status": "sent",
+      "message_id": "<202606101202.97469125799@smtp-relay.mailin.fr>",
+      "sent_at": "2026-06-10T12:02:21.838843+00:00"
+    },
+    {
+      "to": "admin@zayado.onmicrosoft.com",
+      "to_name": "Admin",
+      "subject": "Votre analyse SWOT mensuelle \u2014 Zayado",
+      "brand": "zayado",
+      "status": "sent",
+      "message_id": "<202606101202.52888226635@smtp-relay.mailin.fr>",
+      "sent_at": "2026-06-10T12:02:02.761349+00:00"
+    },
+    {
+      "to": "check-brevo@zayado.test",
+      "to_name": "check-brevo",
+      "subject": "Votre analyse SWOT mensuelle \u2014 Zayado",
+      "brand": "zayado",
+      "status": "sent",
+      "message_id": "<202606101201.42546901966@smtp-relay.mailin.fr>",
+      "sent_at": "2026-06-10T12:01:41.745638+00:00"
+    },
+    {
+      "to": "fresh-1781052162@test.local",
+      "to_name": "fresh-1781052162",
+      "subject": "Votre analyse SWOT mensuelle \u2014 Zayado",
+      "brand": "zayado",
+      "status": "sent",
+      "message_id": "<202606101201.18713213401@smtp-relay.mailin.fr>",
+      "sent_at": "2026-06-10T12:01:21.608636+00:00"
+    },
+    {
+      "to": "locationmeubleeabibackup@gmail.com",
+      "to_name": "Abi Backup",
+      "subject": "Votre analyse SWOT mensuelle \u2014 Zayado",
+      "brand": "zayado",
+      "status": "sent",
+      "message_id": "<202606101201.33812931116@smtp-relay.mailin.fr>",
+      "sent_at": "2026-06-10T12:01:00.478884+00:00"
+    },
+    {
+      "to": "support@zayado.net",
+      "to_name": "support",
+      "subject": "Votre analyse SWOT mensuelle \u2014 Zayado",
+      "brand": "zayado",
+      "status": "sent",
+      "message_id": "<202606101200.84957948490@smtp-relay.mailin.fr>",
+      "sent_at": "2026-06-10T12:00:37.960842+00:00"
+    },
+    {
+      "to": "ryna_lyon@gmail.com",
+      "to_name": "Ryna",
+      "subject": "Votre analyse SWOT mensuelle \u2014 Zayado",
+      "brand": "zayado",
+      "status": "sent",
+      "message_id": "<202606101200.70042444298@smtp-relay.mailin.fr>",
+      "sent_at": "2026-06-10T12:00:17.013455+00:00"
+    },
+    {
+      "to": "emma.chariaud@gmail.com",
+      "to_name": "Emma CHARIAUD",
+      "subject": "Votre analyse SWOT mensuelle \u2014 Zayado",
+      "brand": "zayado",
+      "status": "sent",
+      "message_id": "<202606101159.84627706303@smtp-relay.mailin.fr>",
+      "sent_at": "2026-06-10T11:59:56.761950+00:00"
+    },
+    {
+      "to": "yemmbackpierre@gmail.com",
+      "to_name": "Yem Mback Pierre",
+      "subject": "Votre analyse SWOT mensuelle \u2014 Zayado",
+      "brand": "zayado",
+      "status": "sent",
+      "message_id": "<202606101159.15948721426@smtp-relay.mailin.fr>",
+      "sent_at": "2026-06-10T11:59:36.597104+00:00"
+    },
+    {
+      "to": "nilsabenaqui@gmail.com",
+      "to_name": "nislsjdcbjdb",
+      "subject": "Votre analyse SWOT mensuelle \u2014 Zayado",
+      "brand": "zayado",
+      "status": "sent",
+      "message_id": "<202606101159.39479099192@smtp-relay.mailin.fr>",
+      "sent_at": "2026-06-10T11:59:16.678303+00:00"
+    },
+    {
+      "to": "loic2002junior@gmail.com",
+      "to_name": "Loic junior takam",
+      "subject": "Votre analyse SWOT mensuelle \u2014 Zayado",
+      "brand": "zayado",
+      "status": "sent",
+      "message_id": "<202606101158.57468584623@smtp-relay.mailin.fr>",
+      "sent_at": "2026-06-10T11:58:56.309520+00:00"
+    },
+    {
+      "to": "ngalulambenga@gmail.com",
+      "to_name": "CindyM WILSON (MarieEsther)",
+      "subject": "Votre analyse SWOT mensuelle \u2014 Zayado",
+      "brand": "zayado",
+      "status": "sent",
+      "message_id": "<202606101158.35303081712@smtp-relay.mailin.fr>",
+      "sent_at": "2026-06-10T11:58:36.717335+00:00"
+    },
+    {
+      "to": "contact@zayado.net",
+      "to_name": "",
+      "subject": "[Contact Zayado] general \u2014 x",
+      "brand": "zayado",
+      "status": "sent",
+      "message_id": "<202606101133.53012993184@smtp-relay.mailin.fr>",
+      "sent_at": "2026-06-10T11:33:03.042492+00:00"
+    },
+    {
+      "to": "contact@zayado.net",
+      "to_name": "",
+      "subject": "[Contact Zayado] general \u2014 Test",
+      "brand": "zayado",
+      "status": "sent",
+      "message_id": "<202606100127.61502937054@smtp-relay.mailin.fr>",
+      "sent_at": "2026-06-10T01:27:03.668593+00:00"
+    },
+    {
+      "to": "test@zayado.net",
+      "to_name": "Test",
+      "subject": "Bienvenue sur ZAYADO \u2014 Votre assistant IA est pret !",
+      "status": "sent",
+      "message_id": "<202606090822.81445216503@smtp-relay.mailin.fr>",
+      "sent_at": "2026-06-09T08:22:29.834286+00:00"
+    },
+    {
+      "to": "contact@zayado.net",
+      "to_name": "Zayado",
+      "subject": "[Lead]  \u2014 support@thesustain-soutien.com",
+      "status": "sent",
+      "message_id": "<202604181256.54839171902@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-18T12:56:56.276060+00:00"
+    },
+    {
+      "to": "support@thesustain-soutien.com",
+      "to_name": "cher client",
+      "subject": "Votre Rapport  Personnalis\u00e9 \u2014 Zayado",
+      "status": "sent",
+      "message_id": "<202604181256.84931279759@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-18T12:56:56.196690+00:00"
+    },
+    {
+      "to": "support@thesustain-soutien.com",
+      "to_name": "cher client",
+      "subject": "Votre demande de cr\u00e9ation d'entreprise \u2014 Zayado",
+      "status": "sent",
+      "message_id": "<202604181009.70718229450@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-18T10:09:17.881091+00:00"
+    },
+    {
+      "to": "support@thesustain-soutien.com",
+      "to_name": "cher client",
+      "subject": "Votre demande de cr\u00e9ation d'entreprise \u2014 Zayado",
+      "status": "sent",
+      "message_id": "<202604181009.30016496584@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-18T10:09:11.492537+00:00"
+    },
+    {
+      "to": "support@thesustain-soutien.com",
+      "to_name": "cher client",
+      "subject": "Votre demande de cr\u00e9ation d'entreprise \u2014 Zayado",
+      "status": "sent",
+      "message_id": "<202604180954.76628877466@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-18T09:54:21.813411+00:00"
+    },
+    {
+      "to": "support@thesustain-soutien.com",
+      "to_name": "cher client",
+      "subject": "Votre demande de cr\u00e9ation d'entreprise \u2014 Zayado",
+      "status": "sent",
+      "message_id": "<202604180954.57730742771@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-18T09:54:12.777462+00:00"
+    },
+    {
+      "to": "support@thesustain-soutien.com",
+      "to_name": "cher client",
+      "subject": "Votre demande de cr\u00e9ation d'entreprise \u2014 Zayado",
+      "status": "sent",
+      "message_id": "<202604180954.13888454235@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-18T09:54:06.749059+00:00"
+    },
+    {
+      "to": "support@thesustain-soutien.com",
+      "to_name": "cher client",
+      "subject": "Votre demande de cr\u00e9ation d'entreprise \u2014 Zayado",
+      "status": "sent",
+      "message_id": "<202604180954.36409394007@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-18T09:54:02.203563+00:00"
+    },
+    {
+      "to": "support@thesustain-soutien.com",
+      "to_name": "cher client",
+      "subject": "Votre demande de cr\u00e9ation d'entreprise \u2014 Zayado",
+      "status": "sent",
+      "message_id": "<202604180953.15378476454@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-18T09:53:58.053008+00:00"
+    },
+    {
+      "to": "support@thesustain-soutien.com",
+      "to_name": "cher client",
+      "subject": "Votre demande de cr\u00e9ation d'entreprise \u2014 Zayado",
+      "status": "sent",
+      "message_id": "<202604180953.94603558117@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-18T09:53:51.296362+00:00"
+    },
+    {
+      "to": "support@thesustain-soutien.com",
+      "to_name": "cher client",
+      "subject": "Votre demande de cr\u00e9ation d'entreprise \u2014 Zayado",
+      "status": "sent",
+      "message_id": "<202604180953.68506910988@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-18T09:53:40.766464+00:00"
+    },
+    {
+      "to": "support@thesustain-soutien.com",
+      "to_name": "cher client",
+      "subject": "Votre demande de cr\u00e9ation d'entreprise \u2014 Zayado",
+      "status": "sent",
+      "message_id": "<202604180953.58954326618@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-18T09:53:36.708815+00:00"
+    },
+    {
+      "to": "test@example.com",
+      "to_name": "cher client",
+      "subject": "Votre demande de cr\u00e9ation d'entreprise \u2014 Zayado",
+      "status": "sent",
+      "message_id": "<202604180731.88575490301@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-18T07:31:15.952475+00:00"
+    },
+    {
+      "to": "support@thesustain-soutien.com",
+      "to_name": "cher client",
+      "subject": "Votre demande de cr\u00e9ation d'entreprise \u2014 Zayado",
+      "status": "sent",
+      "message_id": "<202604180723.90584824839@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-18T07:23:49.421508+00:00"
+    },
+    {
+      "to": "support@thesustain-soutien.com",
+      "to_name": "cher client",
+      "subject": "Votre demande de cr\u00e9ation d'entreprise \u2014 Zayado",
+      "status": "sent",
+      "message_id": "<202604180723.56185284902@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-18T07:23:35.691467+00:00"
+    },
+    {
+      "to": "support@thesustain-soutien.com",
+      "to_name": "cher client",
+      "subject": "Votre demande de cr\u00e9ation d'entreprise \u2014 Zayado",
+      "status": "sent",
+      "message_id": "<202604180723.63938359571@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-18T07:23:28.529597+00:00"
+    },
+    {
+      "to": "support@thesustain-soutien.com",
+      "to_name": "cher client",
+      "subject": "Votre demande de cr\u00e9ation d'entreprise \u2014 Zayado",
+      "status": "sent",
+      "message_id": "<202604180723.97730957973@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-18T07:23:26.583244+00:00"
+    },
+    {
+      "to": "support@thesustain-soutien.com",
+      "to_name": "cher client",
+      "subject": "Votre demande de cr\u00e9ation d'entreprise \u2014 Zayado",
+      "status": "sent",
+      "message_id": "<202604180722.95913508891@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-18T07:22:57.636992+00:00"
+    },
+    {
+      "to": "support@thesustain-soutien.com",
+      "to_name": "cher client",
+      "subject": "Votre demande de cr\u00e9ation d'entreprise \u2014 Zayado",
+      "status": "sent",
+      "message_id": "<202604180722.41884076330@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-18T07:22:54.974410+00:00"
+    },
+    {
+      "to": "contact@zayado.net",
+      "to_name": "Zayado",
+      "subject": "[Lead] Simulateur de Statut Juridique \u2014 test@example.com",
+      "status": "sent",
+      "message_id": "<202604180700.94892070762@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-18T07:00:13.787768+00:00"
+    },
+    {
+      "to": "test@example.com",
+      "to_name": "Test User",
+      "subject": "Votre Rapport Simulateur de Statut Juridique Personnalis\u00e9 \u2014 Zayado",
+      "status": "sent",
+      "message_id": "<202604180700.78440278737@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-18T07:00:13.723855+00:00"
+    },
+    {
+      "to": "support@thesustain-soutien.com",
+      "to_name": "cher client",
+      "subject": "Votre demande de cr\u00e9ation d'entreprise \u2014 Zayado",
+      "status": "sent",
+      "message_id": "<202604151446.98511867197@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-15T14:46:48.324546+00:00"
+    },
+    {
+      "to": "support@thesustain-soutien.com",
+      "to_name": "cher client",
+      "subject": "Votre demande de cr\u00e9ation d'entreprise \u2014 Zayado",
+      "status": "sent",
+      "message_id": "<202604151446.42732811365@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-15T14:46:45.041837+00:00"
+    },
+    {
+      "to": "test@example.com",
+      "to_name": "cher client",
+      "subject": "Votre demande de cr\u00e9ation d'entreprise \u2014 Zayado",
+      "status": "sent",
+      "message_id": "<202604151445.68661254678@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-15T14:45:00.134828+00:00"
+    },
+    {
+      "to": "test@example.com",
+      "to_name": "cher client",
+      "subject": "Votre demande de cr\u00e9ation d'entreprise \u2014 Zayado",
+      "status": "sent",
+      "message_id": "<202604151444.45528358625@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-15T14:44:59.775343+00:00"
+    },
+    {
+      "to": "support@thesustain-soutien.com",
+      "to_name": "cher client",
+      "subject": "Votre demande de cr\u00e9ation d'entreprise \u2014 Zayado",
+      "status": "sent",
+      "message_id": "<202604151438.65604941343@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-15T14:38:51.947753+00:00"
+    },
+    {
+      "to": "support@thesustain-soutien.com",
+      "to_name": "cher client",
+      "subject": "Votre demande de cr\u00e9ation d'entreprise \u2014 Zayado",
+      "status": "sent",
+      "message_id": "<202604151438.17800328014@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-15T14:38:48.076959+00:00"
+    },
+    {
+      "to": "test@example.com",
+      "to_name": "cher client",
+      "subject": "Votre demande de cr\u00e9ation d'entreprise \u2014 Zayado",
+      "status": "sent",
+      "message_id": "<202604151436.34192884572@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-15T14:36:48.212820+00:00"
+    },
+    {
+      "to": "test@example.com",
+      "to_name": "cher client",
+      "subject": "Votre demande de cr\u00e9ation d'entreprise \u2014 Zayado",
+      "status": "sent",
+      "message_id": "<202604151436.67347521375@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-15T14:36:47.906805+00:00"
+    },
+    {
+      "to": "test@example.com",
+      "to_name": "cher client",
+      "subject": "Votre demande de cr\u00e9ation d'entreprise \u2014 Zayado",
+      "status": "sent",
+      "message_id": "<202604151435.95879614950@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-15T14:35:59.928991+00:00"
+    },
+    {
+      "to": "test@example.com",
+      "to_name": "cher client",
+      "subject": "Votre demande de cr\u00e9ation d'entreprise \u2014 Zayado",
+      "status": "sent",
+      "message_id": "<202604151435.67024486625@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-15T14:35:59.458765+00:00"
+    },
+    {
+      "to": "test@example.com",
+      "to_name": "cher client",
+      "subject": "Votre demande de cr\u00e9ation d'entreprise \u2014 Zayado",
+      "status": "sent",
+      "message_id": "<202604151435.85943277509@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-15T14:35:34.938618+00:00"
+    },
+    {
+      "to": "test@example.com",
+      "to_name": "cher client",
+      "subject": "Votre demande de cr\u00e9ation d'entreprise \u2014 Zayado",
+      "status": "sent",
+      "message_id": "<202604151435.43472184742@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-15T14:35:34.496732+00:00"
+    },
+    {
+      "to": "test-creation@example.com",
+      "to_name": "Marie Test",
+      "subject": "Votre demande de cr\u00e9ation d'entreprise \u2014 Zayado",
+      "status": "sent",
+      "message_id": "<202604151414.75588154186@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-15T14:14:55.810766+00:00"
+    },
+    {
+      "to": "contact@zayado.net",
+      "to_name": "Zayado",
+      "subject": "[Lead] Simulateur de Statut Juridique \u2014 test@example.com",
+      "status": "sent",
+      "message_id": "<202604151355.89326340474@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-15T13:55:18.488111+00:00"
+    },
+    {
+      "to": "test@example.com",
+      "to_name": "Jean Test",
+      "subject": "Votre Rapport Simulateur de Statut Juridique Personnalis\u00e9 \u2014 Zayado",
+      "status": "sent",
+      "message_id": "<202604151355.48511915385@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-15T13:55:18.423229+00:00"
+    },
+    {
+      "to": "support@thesustain-soutien.com",
+      "to_name": "cher client",
+      "subject": "Votre demande de cr\u00e9ation d'entreprise \u2014 Zayado",
+      "status": "sent",
+      "message_id": "<202604151352.32344767941@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-15T13:52:20.647717+00:00"
+    },
+    {
+      "to": "support@thesustain-soutien.com",
+      "to_name": "cher client",
+      "subject": "Votre demande de cr\u00e9ation d'entreprise \u2014 Zayado",
+      "status": "sent",
+      "message_id": "<202604151352.43659936997@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-15T13:52:18.025636+00:00"
+    },
+    {
+      "to": "support@thesustain-soutien.com",
+      "to_name": "cher client",
+      "subject": "Votre demande de cr\u00e9ation d'entreprise \u2014 Zayado",
+      "status": "sent",
+      "message_id": "<202604151341.77049911476@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-15T13:41:07.317869+00:00"
+    },
+    {
+      "to": "support@thesustain-soutien.com",
+      "to_name": "cher client",
+      "subject": "Votre demande de cr\u00e9ation d'entreprise \u2014 Zayado",
+      "status": "sent",
+      "message_id": "<202604151340.35862016435@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-15T13:40:57.548714+00:00"
+    },
+    {
+      "to": "contact@zayado.net",
+      "to_name": "Zayado",
+      "subject": "[Lead] Cr\u00e9ation Entreprise - Micro-Entreprise \u2014 support@thesustain-soutien.com",
+      "status": "sent",
+      "message_id": "<202604151331.84587890573@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-15T13:31:42.399564+00:00"
+    },
+    {
+      "to": "support@thesustain-soutien.com",
+      "to_name": "cher client",
+      "subject": "Votre Rapport Cr\u00e9ation Entreprise - Micro-Entreprise Personnalis\u00e9 \u2014 Zayado",
+      "status": "sent",
+      "message_id": "<202604151331.92088262049@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-15T13:31:42.322661+00:00"
+    },
+    {
+      "to": "contact@zayado.net",
+      "to_name": "Zayado",
+      "subject": "[Lead] Cr\u00e9ation Entreprise - SAS \u2014 support@thesustain-soutien.com",
+      "status": "sent",
+      "message_id": "<202604151331.70535679956@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-15T13:31:28.957460+00:00"
+    },
+    {
+      "to": "support@thesustain-soutien.com",
+      "to_name": "cher client",
+      "subject": "Votre Rapport Cr\u00e9ation Entreprise - SAS Personnalis\u00e9 \u2014 Zayado",
+      "status": "sent",
+      "message_id": "<202604151331.21271508292@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-15T13:31:28.886763+00:00"
+    },
+    {
+      "to": "contact@zayado.net",
+      "to_name": "Zayado",
+      "subject": "[Lead] Cr\u00e9ation Entreprise - SAS \u2014 support@thesustain-soutien.com",
+      "status": "sent",
+      "message_id": "<202604151224.86404585675@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-15T12:24:03.196854+00:00"
+    },
+    {
+      "to": "support@thesustain-soutien.com",
+      "to_name": "cher client",
+      "subject": "Votre Rapport Cr\u00e9ation Entreprise - SAS Personnalis\u00e9 \u2014 Zayado",
+      "status": "sent",
+      "message_id": "<202604151224.86674472408@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-15T12:24:03.130983+00:00"
+    },
+    {
+      "to": "contact@zayado.net",
+      "to_name": "Zayado",
+      "subject": "[Lead] Cr\u00e9ation Entreprise - SAS \u2014 support@thesustain-soutien.com",
+      "status": "sent",
+      "message_id": "<202604151222.59306350353@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-15T12:22:33.923446+00:00"
+    },
+    {
+      "to": "support@thesustain-soutien.com",
+      "to_name": "cher client",
+      "subject": "Votre Rapport Cr\u00e9ation Entreprise - SAS Personnalis\u00e9 \u2014 Zayado",
+      "status": "sent",
+      "message_id": "<202604151222.19654299708@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-15T12:22:33.846414+00:00"
+    },
+    {
+      "to": "contact@zayado.net",
+      "to_name": "Zayado",
+      "subject": "[Lead] Cr\u00e9ation Entreprise - SAS \u2014 test@example.com",
+      "status": "sent",
+      "message_id": "<202604151204.32723534161@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-15T12:04:30.772673+00:00"
+    },
+    {
+      "to": "test@example.com",
+      "to_name": "cher client",
+      "subject": "Votre Rapport Cr\u00e9ation Entreprise - SAS Personnalis\u00e9 \u2014 Zayado",
+      "status": "sent",
+      "message_id": "<202604151204.96983240011@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-15T12:04:30.705297+00:00"
+    },
+    {
+      "to": "contact@zayado.net",
+      "to_name": "Zayado",
+      "subject": "[Lead] Cr\u00e9ation Entreprise - SAS \u2014 test@example.com",
+      "status": "sent",
+      "message_id": "<202604151204.82133859335@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-15T12:04:30.321515+00:00"
+    },
+    {
+      "to": "test@example.com",
+      "to_name": "cher client",
+      "subject": "Votre Rapport Cr\u00e9ation Entreprise - SAS Personnalis\u00e9 \u2014 Zayado",
+      "status": "sent",
+      "message_id": "<202604151204.24392648011@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-15T12:04:30.251389+00:00"
+    },
+    {
+      "to": "contact@zayado.net",
+      "to_name": "Zayado",
+      "subject": "[Lead] Cr\u00e9ation Entreprise - SAS \u2014 test@example.com",
+      "status": "sent",
+      "message_id": "<202604151204.73842718919@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-15T12:04:10.106061+00:00"
+    },
+    {
+      "to": "test@example.com",
+      "to_name": "cher client",
+      "subject": "Votre Rapport Cr\u00e9ation Entreprise - SAS Personnalis\u00e9 \u2014 Zayado",
+      "status": "sent",
+      "message_id": "<202604151204.68904406009@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-15T12:04:10.037340+00:00"
+    },
+    {
+      "to": "contact@zayado.net",
+      "to_name": "Zayado",
+      "subject": "[Lead] Cr\u00e9ation Entreprise - SAS \u2014 test@example.com",
+      "status": "sent",
+      "message_id": "<202604151204.73695439010@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-15T12:04:09.522928+00:00"
+    },
+    {
+      "to": "test@example.com",
+      "to_name": "cher client",
+      "subject": "Votre Rapport Cr\u00e9ation Entreprise - SAS Personnalis\u00e9 \u2014 Zayado",
+      "status": "sent",
+      "message_id": "<202604151204.77111518451@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-15T12:04:09.469857+00:00"
+    },
+    {
+      "to": "contact@zayado.net",
+      "to_name": "Zayado",
+      "subject": "[Lead] Cr\u00e9ation Entreprise - SAS \u2014 test@example.com",
+      "status": "sent",
+      "message_id": "<202604151203.76996903584@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-15T12:03:52.194337+00:00"
+    },
+    {
+      "to": "test@example.com",
+      "to_name": "cher client",
+      "subject": "Votre Rapport Cr\u00e9ation Entreprise - SAS Personnalis\u00e9 \u2014 Zayado",
+      "status": "sent",
+      "message_id": "<202604151203.13896748516@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-15T12:03:52.092270+00:00"
+    },
+    {
+      "to": "contact@zayado.net",
+      "to_name": "Zayado",
+      "subject": "[Lead] Cr\u00e9ation Entreprise - seul \u2014 support@thesustain-soutien.com",
+      "status": "sent",
+      "message_id": "<202604151155.11240350180@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-15T11:55:27.979622+00:00"
+    },
+    {
+      "to": "support@thesustain-soutien.com",
+      "to_name": "cher client",
+      "subject": "Votre Rapport Cr\u00e9ation Entreprise - seul Personnalis\u00e9 \u2014 Zayado",
+      "status": "sent",
+      "message_id": "<202604151155.50533234805@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-15T11:55:27.911427+00:00"
+    },
+    {
+      "to": "contact@zayado.net",
+      "to_name": "Zayado",
+      "subject": "[Lead] Cr\u00e9ation Entreprise - seul \u2014 test@example.com",
+      "status": "sent",
+      "message_id": "<202604151155.95861956238@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-15T11:55:27.564926+00:00"
+    },
+    {
+      "to": "test@example.com",
+      "to_name": "cher client",
+      "subject": "Votre Rapport Cr\u00e9ation Entreprise - seul Personnalis\u00e9 \u2014 Zayado",
+      "status": "sent",
+      "message_id": "<202604151155.29780281028@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-15T11:55:27.502068+00:00"
+    },
+    {
+      "to": "contact@zayado.net",
+      "to_name": "Zayado",
+      "subject": "[Lead] Cr\u00e9ation Entreprise - seul \u2014 support@thesustain-soutien.com",
+      "status": "sent",
+      "message_id": "<202604151155.75550259904@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-15T11:55:17.906451+00:00"
+    },
+    {
+      "to": "support@thesustain-soutien.com",
+      "to_name": "cher client",
+      "subject": "Votre Rapport Cr\u00e9ation Entreprise - seul Personnalis\u00e9 \u2014 Zayado",
+      "status": "sent",
+      "message_id": "<202604151155.40526692512@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-15T11:55:17.850536+00:00"
+    },
+    {
+      "to": "contact@zayado.net",
+      "to_name": "Zayado",
+      "subject": "[Lead] Cr\u00e9ation Entreprise - seul \u2014 test@example.com",
+      "status": "sent",
+      "message_id": "<202604151155.64523953752@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-15T11:55:11.304019+00:00"
+    },
+    {
+      "to": "test@example.com",
+      "to_name": "cher client",
+      "subject": "Votre Rapport Cr\u00e9ation Entreprise - seul Personnalis\u00e9 \u2014 Zayado",
+      "status": "sent",
+      "message_id": "<202604151155.30103761985@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-15T11:55:11.245274+00:00"
+    },
+    {
+      "to": "contact@zayado.net",
+      "to_name": "Zayado",
+      "subject": "[Lead] Cr\u00e9ation Entreprise - seul \u2014 test@example.com",
+      "status": "sent",
+      "message_id": "<202604151154.57289953436@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-15T11:54:54.242787+00:00"
+    },
+    {
+      "to": "test@example.com",
+      "to_name": "cher client",
+      "subject": "Votre Rapport Cr\u00e9ation Entreprise - seul Personnalis\u00e9 \u2014 Zayado",
+      "status": "sent",
+      "message_id": "<202604151154.28380923760@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-15T11:54:54.175117+00:00"
+    },
+    {
+      "to": "contact@zayado.net",
+      "to_name": "Zayado",
+      "subject": "[Lead] Cr\u00e9ation Entreprise - seul \u2014 test@example.com",
+      "status": "sent",
+      "message_id": "<202604151154.32012438363@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-15T11:54:23.051194+00:00"
+    },
+    {
+      "to": "test@example.com",
+      "to_name": "cher client",
+      "subject": "Votre Rapport Cr\u00e9ation Entreprise - seul Personnalis\u00e9 \u2014 Zayado",
+      "status": "sent",
+      "message_id": "<202604151154.77337766739@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-15T11:54:22.978674+00:00"
+    },
+    {
+      "to": "contact@zayado.net",
+      "to_name": "Zayado",
+      "subject": "[Lead] Cr\u00e9ation Entreprise - seul \u2014 test@example.com",
+      "status": "sent",
+      "message_id": "<202604151154.75831710609@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-15T11:54:06.858425+00:00"
+    },
+    {
+      "to": "test@example.com",
+      "to_name": "cher client",
+      "subject": "Votre Rapport Cr\u00e9ation Entreprise - seul Personnalis\u00e9 \u2014 Zayado",
+      "status": "sent",
+      "message_id": "<202604151154.12515606925@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-15T11:54:06.796470+00:00"
+    },
+    {
+      "to": "contact@zayado.net",
+      "to_name": "Zayado",
+      "subject": "[Lead] Cr\u00e9ation Entreprise - seul \u2014 support@thesustain-soutien.com",
+      "status": "sent",
+      "message_id": "<202604151130.51329637452@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-15T11:30:04.108373+00:00"
+    },
+    {
+      "to": "support@thesustain-soutien.com",
+      "to_name": "cher client",
+      "subject": "Votre Rapport Cr\u00e9ation Entreprise - seul Personnalis\u00e9 \u2014 Zayado",
+      "status": "sent",
+      "message_id": "<202604151130.37821040352@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-15T11:30:04.027113+00:00"
+    },
+    {
+      "to": "contact@zayado.net",
+      "to_name": "Zayado",
+      "subject": "[Lead] Cr\u00e9ation Entreprise - seul \u2014 test@example.com",
+      "status": "sent",
+      "message_id": "<202604151127.35183655741@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-15T11:27:52.490486+00:00"
+    },
+    {
+      "to": "test@example.com",
+      "to_name": "cher client",
+      "subject": "Votre Rapport Cr\u00e9ation Entreprise - seul Personnalis\u00e9 \u2014 Zayado",
+      "status": "sent",
+      "message_id": "<202604151127.35831634105@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-15T11:27:52.415940+00:00"
+    },
+    {
+      "to": "contact@zayado.net",
+      "to_name": "Zayado",
+      "subject": "[Lead] Abonnement  \u2014 support@thesustain-soutien.com",
+      "status": "sent",
+      "message_id": "<202604150223.86885954684@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-15T02:23:53.208417+00:00"
+    },
+    {
+      "to": "support@thesustain-soutien.com",
+      "to_name": "cher client",
+      "subject": "Votre Rapport Abonnement  Personnalis\u00e9 \u2014 Zayado",
+      "status": "sent",
+      "message_id": "<202604150223.49645093278@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-15T02:23:53.150373+00:00"
+    },
+    {
+      "to": "onboard-test@zayado.net",
+      "to_name": "Test Onboard",
+      "subject": "Bienvenue sur ZAYADO \u2014 Votre assistant IA est pret !",
+      "status": "sent",
+      "message_id": "<202604141816.16093083484@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-14T18:16:56.897869+00:00"
+    },
+    {
+      "to": "admin@zayado.net",
+      "to_name": "Admin Zayado",
+      "subject": "[ZAYADO] Validation requise \u2014 Workflow \u00ab Test Web + Email Approval \u00bb",
+      "status": "sent",
+      "message_id": "<202604141723.67260754037@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-14T17:23:33.930226+00:00"
+    },
+    {
+      "to": "contact@zayado.net",
+      "to_name": "Zayado",
+      "subject": "[Lead] Test Tool \u2014 test@example.com",
+      "status": "sent",
+      "message_id": "<202604131541.78105191799@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-13T15:41:31.550989+00:00"
+    },
+    {
+      "to": "test@example.com",
+      "to_name": "Test User",
+      "subject": "Votre Rapport Test Tool Personnalis\u00e9 \u2014 Zayado",
+      "status": "sent",
+      "message_id": "<202604131541.53838960915@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-13T15:41:31.488417+00:00"
+    },
+    {
+      "to": "contact@zayado.net",
+      "to_name": "Zayado",
+      "subject": "[Lead] Test Tool \u2014 test@example.com",
+      "status": "sent",
+      "message_id": "<202604131540.27101954991@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-13T15:40:40.709713+00:00"
+    },
+    {
+      "to": "test@example.com",
+      "to_name": "Test User",
+      "subject": "Votre Rapport Test Tool Personnalis\u00e9 \u2014 Zayado",
+      "status": "sent",
+      "message_id": "<202604131540.93848798593@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-13T15:40:40.650872+00:00"
+    },
+    {
+      "to": "contact@zayado.net",
+      "to_name": "Zayado",
+      "subject": "[Lead] Audit Admin \u2014 audit-fix@zayado.net",
+      "status": "sent",
+      "message_id": "<202604131538.34007073725@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-13T15:38:21.874949+00:00"
+    },
+    {
+      "to": "audit-fix@zayado.net",
+      "to_name": "Test Fix",
+      "subject": "Votre Rapport Audit Admin Personnalis\u00e9 \u2014 Zayado",
+      "status": "sent",
+      "message_id": "<202604131538.96680320717@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-13T15:38:21.793229+00:00"
+    },
+    {
+      "to": "admin-test@zayado.net",
+      "to_name": "Admin Test",
+      "subject": "Bienvenue sur ZAYADO \u2014 Votre assistant IA est pret !",
+      "status": "sent",
+      "message_id": "<202604131516.28539193718@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-13T15:16:17.811023+00:00"
+    },
+    {
+      "to": "freshpay@zayado.net",
+      "to_name": "Fresh Pay",
+      "subject": "Bienvenue sur ZAYADO \u2014 Votre assistant IA est pret !",
+      "status": "sent",
+      "message_id": "<202604131351.97288548304@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-13T13:51:41.502306+00:00"
+    },
+    {
+      "to": "paytest@zayado.net",
+      "to_name": "Pay Test",
+      "subject": "Bienvenue sur ZAYADO \u2014 Votre assistant IA est pret !",
+      "status": "sent",
+      "message_id": "<202604131348.19143914869@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-13T13:48:38.465013+00:00"
+    },
+    {
+      "to": "contact@zayado.net",
+      "to_name": "Zayado",
+      "subject": "[Lead] Analyse Sant\u00e9 Financi\u00e8re \u2014 admin@zayado.net",
+      "status": "sent",
+      "message_id": "<202604121526.18597186195@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-12T15:26:40.249412+00:00"
+    },
+    {
+      "to": "admin@zayado.net",
+      "to_name": "Jean Dupont",
+      "subject": "Votre Rapport Analyse Sant\u00e9 Financi\u00e8re Personnalis\u00e9 \u2014 Zayado",
+      "status": "sent",
+      "message_id": "<202604121526.70193329977@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-12T15:26:40.138072+00:00"
+    },
+    {
+      "to": "contact@zayado.net",
+      "to_name": "Zayado",
+      "subject": "[Lead] Analyse Sant\u00e9 Financi\u00e8re \u2014 admin@zayado.net",
+      "status": "sent",
+      "message_id": "<202604121525.57649141754@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-12T15:25:17.368337+00:00"
+    },
+    {
+      "to": "admin@zayado.net",
+      "to_name": "Jean Dupont",
+      "subject": "Votre Rapport Analyse Sant\u00e9 Financi\u00e8re Personnalis\u00e9 \u2014 Zayado",
+      "status": "sent",
+      "message_id": "<202604121525.43732057422@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-12T15:25:17.259939+00:00"
+    },
+    {
+      "to": "contact@zayado.net",
+      "to_name": "Zayado",
+      "subject": "[Lead] Analyse Sant\u00e9 Financi\u00e8re \u2014 admin@zayado.net",
+      "status": "sent",
+      "message_id": "<202604121507.16915010248@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-12T15:07:48.182440+00:00"
+    },
+    {
+      "to": "admin@zayado.net",
+      "to_name": "Test Final",
+      "subject": "Votre rapport Analyse Sant\u00e9 Financi\u00e8re \u2014 Zayado",
+      "status": "sent",
+      "message_id": "<202604121507.75115300419@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-12T15:07:48.098483+00:00"
+    },
+    {
+      "to": "contact@zayado.net",
+      "to_name": "Zayado",
+      "subject": "[Lead] Analyse Sant\u00e9 Financi\u00e8re \u2014 admin@zayado.net",
+      "status": "sent",
+      "message_id": "<202604121506.27848113574@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-12T15:06:41.776316+00:00"
+    },
+    {
+      "to": "admin@zayado.net",
+      "to_name": "Test Rapport",
+      "subject": "Votre rapport Analyse Sant\u00e9 Financi\u00e8re \u2014 Zayado",
+      "status": "sent",
+      "message_id": "<202604121506.56972691062@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-12T15:06:41.711401+00:00"
+    },
+    {
+      "to": "contact@zayado.net",
+      "to_name": "Zayado",
+      "subject": "[Lead] Analyse Sant\u00e9 Financi\u00e8re \u2014 admin@zayado.net",
+      "status": "sent",
+      "message_id": "<202604121505.99964970531@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-12T15:05:50.371247+00:00"
+    },
+    {
+      "to": "admin@zayado.net",
+      "to_name": "Test Rapport",
+      "subject": "Votre rapport Analyse Sant\u00e9 Financi\u00e8re \u2014 Zayado",
+      "status": "sent",
+      "message_id": "<202604121505.11388393143@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-12T15:05:50.292795+00:00"
+    },
+    {
+      "to": "contact@zayado.net",
+      "to_name": "Zayado",
+      "subject": "[Lead]  \u2014 test@test.com",
+      "status": "sent",
+      "message_id": "<202604121500.56576812916@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-12T15:00:33.824702+00:00"
+    },
+    {
+      "to": "test@test.com",
+      "to_name": "Test ",
+      "subject": "Votre rapport test \u2014 Zayado",
+      "status": "sent",
+      "message_id": "<202604121500.41249663277@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-12T15:00:33.756106+00:00"
+    },
+    {
+      "to": "freeuser_test@test.com",
+      "to_name": "Free User",
+      "subject": "Bienvenue sur ZAYADO \u2014 Votre assistant IA est pret !",
+      "status": "sent",
+      "message_id": "<202604091812.26237927455@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-09T18:12:50.195445+00:00"
+    },
+    {
+      "to": "testteam@zayado.net",
+      "to_name": "Test User Team",
+      "subject": "Bienvenue sur ZAYADO \u2014 Votre assistant IA est pret !",
+      "status": "sent",
+      "message_id": "<202604091654.72812621071@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-09T16:54:05.496021+00:00"
+    },
+    {
+      "to": "jean@example.com",
+      "to_name": "Jean Dupont",
+      "subject": "Votre message a bien \u00e9t\u00e9 re\u00e7u \u2014 Zayado",
+      "status": "sent",
+      "message_id": "<202604070236.39866941026@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-07T02:36:58.000208+00:00"
+    },
+    {
+      "to": "contact@zayado.net",
+      "to_name": "Zayado",
+      "subject": "[Contact] Demande de renseignement",
+      "status": "sent",
+      "message_id": "<202604070236.21625619765@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-07T02:36:57.936580+00:00"
+    },
+    {
+      "to": "test@example.com",
+      "to_name": "Test User",
+      "subject": "Votre message a bien \u00e9t\u00e9 re\u00e7u \u2014 Zayado",
+      "status": "sent",
+      "message_id": "<202604070235.68253564013@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-07T02:35:56.319760+00:00"
+    },
+    {
+      "to": "contact@zayado.net",
+      "to_name": "Zayado",
+      "subject": "[Contact] Test formulaire",
+      "status": "sent",
+      "message_id": "<202604070235.47445523200@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-07T02:35:56.246248+00:00"
+    },
+    {
+      "to": "test200cr_4e71dfd5@test.com",
+      "to_name": "Test User 200 Credits",
+      "subject": "Bienvenue sur ZAYADO \u2014 Votre assistant IA est pret !",
+      "status": "sent",
+      "message_id": "<202604062329.50201754385@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-06T23:29:24.854629+00:00"
+    },
+    {
+      "to": "test200cr_2a07dbba@test.com",
+      "to_name": "Test User 200 Credits",
+      "subject": "Bienvenue sur ZAYADO \u2014 Votre assistant IA est pret !",
+      "status": "sent",
+      "message_id": "<202604062329.96490299312@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-06T23:29:00.100011+00:00"
+    },
+    {
+      "to": "audit_pro_1775516153@test.com",
+      "to_name": "Audit Pro",
+      "subject": "Bienvenue sur ZAYADO \u2014 Votre assistant IA est pret !",
+      "status": "sent",
+      "message_id": "<202604062255.44110249542@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-06T22:55:54.099750+00:00"
+    },
+    {
+      "to": "ngalulambenga@gmail.com",
+      "to_name": "Prospect",
+      "subject": "Decouvrez Extension IA \u2014 Votre copilote business propulse par l IA",
+      "status": "sent",
+      "message_id": "<202604062247.50338055522@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-06T22:47:34.218678+00:00"
+    },
+    {
+      "to": "test_chat_b1b3a241@test.com",
+      "to_name": "Test Chat User",
+      "subject": "Bienvenue sur ZAYADO \u2014 Votre assistant IA est pret !",
+      "status": "sent",
+      "message_id": "<202604062237.29540529615@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-06T22:37:51.540740+00:00"
+    },
+    {
+      "to": "test200cr_5d7f8ae4@test.com",
+      "to_name": "Test User 200 Credits",
+      "subject": "Bienvenue sur ZAYADO \u2014 Votre assistant IA est pret !",
+      "status": "sent",
+      "message_id": "<202604062237.56369752092@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-06T22:37:44.510534+00:00"
+    },
+    {
+      "to": "test_chat_fbaaee88@test.com",
+      "to_name": "Test Chat User",
+      "subject": "Bienvenue sur ZAYADO \u2014 Votre assistant IA est pret !",
+      "status": "sent",
+      "message_id": "<202604062220.27520444569@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-06T22:20:59.436292+00:00"
+    },
+    {
+      "to": "test200cr_a098e53f@test.com",
+      "to_name": "Test User 200 Credits",
+      "subject": "Bienvenue sur ZAYADO \u2014 Votre assistant IA est pret !",
+      "status": "sent",
+      "message_id": "<202604062220.55441047067@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-06T22:20:55.166632+00:00"
+    },
+    {
+      "to": "test200cr@test.com",
+      "to_name": "Test Credits",
+      "subject": "Bienvenue sur ZAYADO \u2014 Votre assistant IA est pret !",
+      "status": "sent",
+      "message_id": "<202604062218.19948563931@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-06T22:18:58.296524+00:00"
+    },
+    {
+      "to": "test.productivite@zayado.net",
+      "to_name": "Utilisateur Test Productivit\u00e9",
+      "subject": "Bienvenue sur ZAYADO \u2014 Votre assistant IA est pret !",
+      "status": "sent",
+      "message_id": "<202604061419.75542006421@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-06T14:19:48.570612+00:00"
+    },
+    {
+      "to": "test-tracking-8f8eb226@test.com",
+      "to_name": "Test Tracking User",
+      "subject": "Confirmation de suppression - Extension IA",
+      "status": "sent",
+      "message_id": "<202604051728.49021461993@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-05T17:28:42.416332+00:00"
+    },
+    {
+      "to": "test-tracking-8f8eb226@test.com",
+      "to_name": "Test Tracking User",
+      "subject": "Bienvenue sur ZAYADO \u2014 Votre assistant IA est pret !",
+      "status": "sent",
+      "message_id": "<202604051728.74681481646@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-05T17:28:42.237348+00:00"
+    },
+    {
+      "to": "test-badref-7d94f1d0@test.com",
+      "to_name": "Test Bad Ref User",
+      "subject": "Confirmation de suppression - Extension IA",
+      "status": "sent",
+      "message_id": "<202604051728.92201188296@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-05T17:28:39.526822+00:00"
+    },
+    {
+      "to": "test-badref-7d94f1d0@test.com",
+      "to_name": "Test Bad Ref User",
+      "subject": "Bienvenue sur ZAYADO \u2014 Votre assistant IA est pret !",
+      "status": "sent",
+      "message_id": "<202604051728.56101370223@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-05T17:28:39.412494+00:00"
+    },
+    {
+      "to": "test-noref-42e0cad0@test.com",
+      "to_name": "Test No Ref User",
+      "subject": "Confirmation de suppression - Extension IA",
+      "status": "sent",
+      "message_id": "<202604051728.97269820532@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-05T17:28:39.068479+00:00"
+    },
+    {
+      "to": "test-noref-42e0cad0@test.com",
+      "to_name": "Test No Ref User",
+      "subject": "Bienvenue sur ZAYADO \u2014 Votre assistant IA est pret !",
+      "status": "sent",
+      "message_id": "<202604051728.31947277084@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-05T17:28:38.909311+00:00"
+    },
+    {
+      "to": "test-ref-bcbdcc24@test.com",
+      "to_name": "Test Ref User",
+      "subject": "Confirmation de suppression - Extension IA",
+      "status": "sent",
+      "message_id": "<202604051728.25054760419@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-05T17:28:38.607072+00:00"
+    },
+    {
+      "to": "test-ref-bcbdcc24@test.com",
+      "to_name": "Test Ref User",
+      "subject": "Bienvenue sur ZAYADO \u2014 Votre assistant IA est pret !",
+      "status": "sent",
+      "message_id": "<202604051728.32233245702@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-05T17:28:38.552367+00:00"
+    },
+    {
+      "to": "client-affil-test@test.com",
+      "to_name": "Client Test",
+      "subject": "Bienvenue sur ZAYADO \u2014 Votre assistant IA est pret !",
+      "status": "sent",
+      "message_id": "<202604051726.54336681124@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-05T17:26:14.675044+00:00"
+    },
+    {
+      "to": "test_delete_23a0a380@test.com",
+      "to_name": "Test Delete User",
+      "subject": "Confirmation de suppression - Extension IA",
+      "status": "sent",
+      "message_id": "<202604051559.34967938019@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-05T15:59:44.953673+00:00"
+    },
+    {
+      "to": "test_delete_23a0a380@test.com",
+      "to_name": "Test Delete User",
+      "subject": "Bienvenue sur ZAYADO \u2014 Votre assistant IA est pret !",
+      "status": "sent",
+      "message_id": "<202604051559.81541525281@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-05T15:59:44.734872+00:00"
+    },
+    {
+      "to": "test_promote_b29cd0ff@test.com",
+      "to_name": "Test Promote User",
+      "subject": "Bienvenue sur ZAYADO \u2014 Votre assistant IA est pret !",
+      "status": "sent",
+      "message_id": "<202604051559.72231100354@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-05T15:59:00.976634+00:00"
+    },
+    {
+      "to": "test_delete_db9242c2@test.com",
+      "to_name": "Test Delete User",
+      "subject": "Bienvenue sur ZAYADO \u2014 Votre assistant IA est pret !",
+      "status": "sent",
+      "message_id": "<202604051558.94191340903@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-05T15:58:56.866277+00:00"
+    },
+    {
+      "to": "testuser@test.com",
+      "to_name": "Test User",
+      "subject": "Bienvenue sur ZAYADO \u2014 Votre assistant IA est pret !",
+      "status": "sent",
+      "message_id": "<202604041207.17435899906@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-04T12:07:58.237562+00:00"
+    },
+    {
+      "to": "test_user_0cd88abe@test.com",
+      "to_name": "Test User",
+      "subject": "Bienvenue sur ZAYADO \u2014 Votre assistant IA est pret !",
+      "status": "sent",
+      "message_id": "<202604041056.24038374973@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-04T10:56:05.197100+00:00"
+    },
+    {
+      "to": "admin@zayado.net",
+      "to_name": "Admin Zayado",
+      "subject": "[ZAYADO] Workflow \u00ab TEST_Run_Agent_Workflow \u00bb termine avec succes",
+      "status": "sent",
+      "message_id": "<202604040956.89448714344@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-04T09:56:07.371592+00:00"
+    },
+    {
+      "to": "test_098f1225@example.com",
+      "to_name": "test_098f1225@example.com",
+      "subject": "[ZAYADO] Invitation \u00e0 rejoindre l'\u00e9quipe \u00ab TEST_Team_233bd5a7 \u00bb",
+      "status": "sent",
+      "message_id": "<202604030023.20259651153@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-03T00:23:21.047862+00:00"
+    },
+    {
+      "to": "admin@zayado.net",
+      "to_name": "Admin Zayado",
+      "subject": "R\u00e9initialisation de mot de passe - Extension IA",
+      "status": "sent",
+      "message_id": "<202604030023.36626220914@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-03T00:23:11.044305+00:00"
+    },
+    {
+      "to": "test_a93b968f@example.com",
+      "to_name": "test_a93b968f@example.com",
+      "subject": "[ZAYADO] Invitation \u00e0 rejoindre l'\u00e9quipe \u00ab TEST_Team_cff18f9d \u00bb",
+      "status": "sent",
+      "message_id": "<202604030022.93522265192@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-03T00:22:44.874990+00:00"
+    },
+    {
+      "to": "admin@zayado.net",
+      "to_name": "Admin Zayado",
+      "subject": "R\u00e9initialisation de mot de passe - Extension IA",
+      "status": "sent",
+      "message_id": "<202604030022.54662154647@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-03T00:22:34.911272+00:00"
+    },
+    {
+      "to": "polezayado@gmail.com",
+      "to_name": "polezayado@gmail.com",
+      "subject": "[ZAYADO] Invitation \u00e0 rejoindre l'\u00e9quipe \u00ab test \u00bb",
+      "status": "sent",
+      "message_id": "<202604022123.37965328673@smtp-relay.mailin.fr>",
+      "sent_at": "2026-04-02T21:23:18.822199+00:00"
+    },
+    {
+      "to": "polezayado@gmail.com",
+      "to_name": "polezayado@gmail.com",
+      "subject": "[ZAYADO] Rappel \u2014 Invitation \u00e0 rejoindre \u00ab 1 \u00bb",
+      "status": "sent",
+      "message_id": "<202603291707.70537503480@smtp-relay.mailin.fr>",
+      "sent_at": "2026-03-29T17:07:18.211141+00:00"
+    },
+    {
+      "to": "polezayado@gmail.com",
+      "to_name": "polezayado@gmail.com",
+      "subject": "[ZAYADO] Invitation \u00e0 rejoindre l'\u00e9quipe \u00ab 1 \u00bb",
+      "status": "sent",
+      "message_id": "<202603291630.93011593738@smtp-relay.mailin.fr>",
+      "sent_at": "2026-03-29T16:30:29.948360+00:00"
+    },
+    {
+      "to": "admin@zayado.net",
+      "to_name": "Admin Zayado",
+      "subject": "[ZAYADO] Workflow \u00ab TEST_Workflow_Iter36_Updated \u00bb termine avec succes",
+      "status": "sent",
+      "message_id": "<202603272323.68859580458@smtp-relay.mailin.fr>",
+      "sent_at": "2026-03-27T23:23:36.548870+00:00"
+    },
+    {
+      "to": "admin@zayado.net",
+      "to_name": "Admin Zayado",
+      "subject": "Votre abonnement ZAYADO a \u00e9t\u00e9 annul\u00e9",
+      "status": "sent",
+      "message_id": "<202603272110.53120090354@smtp-relay.mailin.fr>",
+      "sent_at": "2026-03-27T21:10:50.981482+00:00"
+    },
+    {
+      "to": "admin@zayado.net",
+      "to_name": "Admin Zayado",
+      "subject": "Votre abonnement ZAYADO a \u00e9t\u00e9 annul\u00e9",
+      "status": "sent",
+      "message_id": "<202603272110.31583964018@smtp-relay.mailin.fr>",
+      "sent_at": "2026-03-27T21:10:39.562099+00:00"
+    },
+    {
+      "to": "admin@zayado.net",
+      "to_name": "Admin Zayado",
+      "subject": "Votre abonnement ZAYADO a \u00e9t\u00e9 annul\u00e9",
+      "status": "sent",
+      "message_id": "<202603272110.74244996028@smtp-relay.mailin.fr>",
+      "sent_at": "2026-03-27T21:10:02.311259+00:00"
+    },
+    {
+      "to": "admin@zayado.net",
+      "to_name": "Admin Zayado",
+      "subject": "Votre abonnement ZAYADO a \u00e9t\u00e9 annul\u00e9",
+      "status": "sent",
+      "message_id": "<202603272108.64920463129@smtp-relay.mailin.fr>",
+      "sent_at": "2026-03-27T21:08:00.415102+00:00"
+    },
+    {
+      "to": "ratelimit_reg_6_1774631303@example.com",
+      "to_name": "Test User",
+      "subject": "Bienvenue sur Zayado AI !",
+      "status": "sent",
+      "message_id": "<202603271708.60486224282@smtp-relay.mailin.fr>",
+      "sent_at": "2026-03-27T17:08:23.842253+00:00"
+    },
+    {
+      "to": "ratelimit_reg_5_1774631302@example.com",
+      "to_name": "Test User",
+      "subject": "Bienvenue sur Zayado AI !",
+      "status": "sent",
+      "message_id": "<202603271708.93063836636@smtp-relay.mailin.fr>",
+      "sent_at": "2026-03-27T17:08:23.269150+00:00"
+    },
+    {
+      "to": "ratelimit_reg_4_1774631302@example.com",
+      "to_name": "Test User",
+      "subject": "Bienvenue sur Zayado AI !",
+      "status": "sent",
+      "message_id": "<202603271708.12793038943@smtp-relay.mailin.fr>",
+      "sent_at": "2026-03-27T17:08:22.720222+00:00"
+    }
+  ],
+  "workflow_notifs_8c40b413-34e9-49fc-b509-682874536131": [
+    {
+      "id": "wf_TEST_Workflow_Iter36_Updated_2026-03-27T23:23:36.420228+00:00",
+      "workflow_name": "TEST_Workflow_Iter36_Updated",
+      "status": "completed",
+      "steps": 1,
+      "timestamp": "2026-03-27T23:23:36.420237+00:00"
+    },
+    {
+      "id": "wf_TEST_Run_Agent_Workflow_2026-04-04T09:56:07.217320+00:00",
+      "workflow_name": "TEST_Run_Agent_Workflow",
+      "status": "completed",
+      "steps": 1,
+      "timestamp": "2026-04-04T09:56:07.217330+00:00"
+    }
+  ],
+  "newsletter_subscribers": [
+    {
+      "email": "test@test.com",
+      "source": "test",
+      "date": "2026-03-28T00:40:58.685362+00:00"
+    },
+    {
+      "email": "test_newsletter@example.com",
+      "source": "boutique_ia",
+      "date": "2026-03-28T00:41:09.687581+00:00"
+    },
+    {
+      "email": "test_general@example.com",
+      "source": "general",
+      "date": "2026-03-28T00:41:09.742955+00:00"
+    },
+    {
+      "email": "duplicate_test@example.com",
+      "source": "boutique_ia",
+      "date": "2026-03-28T00:41:09.799832+00:00"
+    },
+    {
+      "email": "test_ui@example.com",
+      "source": "boutique_ia",
+      "date": "2026-03-28T00:45:01.532854+00:00"
+    }
+  ],
+  "simulateur_items": [
+    {
+      "id": "test_sim_1",
+      "label": "Test Simulator",
+      "type": "iframe",
+      "url": "https://example.com",
+      "icon": "calculator"
+    },
+    {
+      "id": "test_sim_2",
+      "label": "External Tool",
+      "type": "redirect",
+      "url": "https://tool.example.com",
+      "icon": "globe"
+    }
+  ],
+  "resources_links": [
+    {
+      "id": "res_1",
+      "label": "Documentation",
+      "url": "https://docs.example.com",
+      "icon": "file"
+    },
+    {
+      "id": "res_2",
+      "label": "Help Center",
+      "url": "https://help.example.com",
+      "icon": "globe"
+    }
+  ],
+  "partner_links": {
+    "show_partenaire": true,
+    "show_thesustain": true,
+    "partenaire_url": "",
+    "thesustain_url": ""
+  },
+  "sidebar_redirects": {
+    "support_ia": {
+      "label": "Chatbot B2B",
+      "url": "https://zayado.net",
+      "enabled": true
+    },
+    "ressource": {
+      "label": "Ressource",
+      "url": "https://zayado.net",
+      "enabled": true
+    },
+    "service": {
+      "label": "Service",
+      "url": "https://zayado.net",
+      "enabled": true
+    }
+  },
+  "mega_menu": {
+    "items": [
+      {
+        "key": "jeMeLance",
+        "label": "Je me lance",
+        "url": "https://zayado.net/je-me-lance",
+        "enabled": true
+      },
+      {
+        "key": "jePilote",
+        "label": "Je pilote",
+        "url": "https://zayado.net/je-pilote",
+        "enabled": true
+      },
+      {
+        "key": "jeGrandis",
+        "label": "Je grandis",
+        "url": "https://zayado.net/je-grandis",
+        "enabled": false
+      },
+      {
+        "key": "boutique",
+        "label": "Boutique",
+        "url": "https://zayado.net/boutique",
+        "enabled": true
+      },
+      {
+        "key": "contact",
+        "label": "Contact",
+        "url": "https://zayado.net/contact",
+        "enabled": true
+      }
+    ]
+  },
+  "maintenance_mode": false,
+  "maintenance_newsletter": true,
+  "seo": {
+    "logo_url": "/api/files/serve/admin_1a723805-3fb7-4b30-ba1b-4951bd91d639.png",
+    "favicon_url": "/api/files/serve/admin_bb80a732-d95a-41cc-9d60-248c7ec9c12a.png",
+    "meta_title": "Extension IA - Assistant IA Professionnel | ChatGPT BYOK Gratuit, Claude, Manus Agent",
+    "meta_description": "Extension IA : Extension Chrome tout-en-un avec ChatGPT BYOK gratuit illimite, Claude Fast & Pro, Manus Agent. Projets, Timer, Workflows automatises. Essai gratuit avec 400 credits.",
+    "meta_keywords": "assistant IA, ChatGPT gratuit, Claude AI, Manus Agent, extension Chrome, BYOK, productivite, timer projet, workflow automatisation, intelligence artificielle",
+    "og_title": "Test OG Title for Extension IA",
+    "og_description": "Test OG Description for social sharing",
+    "og_image": "/api/files/serve/admin_ced884a3-e692-4059-b05e-59c5cb5cfd01.png",
+    "canonical_url": "https://zayado.net/assistant-ia",
+    "ga_tracking_id": "G-TEST12345",
+    "page_seo_extension_ia": {
+      "title": "Public Test Title",
+      "description": "Public test description",
+      "keyword": "public test",
+      "h1_override": "Public H1 Override",
+      "canonical": "https://www.extension-ia.com/fr/extension-ia"
+    },
+    "page_seo_test": {
+      "title": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "description": "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
+      "keyword": "test keyword",
+      "h1_override": "Test H1",
+      "canonical": "https://test.com"
+    },
+    "extension_logo_url": "/api/files/serve/admin_7af21625-9051-4943-8775-81dfa625c409.png"
+  },
+  "fallback_api": {
+    "provider": "groq",
+    "api_key": "sk-test",
+    "model": "gpt-4o",
+    "enabled": true
+  },
+  "footer_conditions_url": "/fr/legal/mentions-legales",
+  "footer_privacy_url": "/fr/legal/politique-confidentialite",
+  "affiliate_tiers": {
+    "bronze": {
+      "min_sales": 0,
+      "commission_rate": 0.12,
+      "label": "Bronze"
+    },
+    "silver": {
+      "min_sales": 5,
+      "commission_rate": 0.15,
+      "label": "Silver"
+    },
+    "gold": {
+      "min_sales": 15,
+      "commission_rate": 0.2,
+      "label": "Gold"
+    },
+    "diamond": {
+      "min_sales": 50,
+      "commission_rate": 0.25,
+      "label": "Diamond"
+    }
+  },
+  "admin_log": [
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-21T14:02:28.994443+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-21T13:51:00.793771+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-21T13:17:58.185464+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-21T10:50:48.223065+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-21T10:50:35.235461+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-21T10:50:16.970437+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-13T22:32:41.369388+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-13T22:32:28.782980+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-13T22:13:05.290717+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-13T21:32:16.314840+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-13T20:07:57.104111+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-13T18:43:59.340841+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-13T16:44:10.514210+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-13T16:43:57.878975+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-13T16:43:32.789084+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-13T15:23:23.895887+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-13T15:23:11.377415+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-13T15:22:58.873359+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-13T14:47:46.329163+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-13T13:10:40.511310+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-13T13:08:39.921031+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-13T13:08:17.605264+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-13T13:07:01.304452+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-13T12:56:13.280814+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-13T12:56:00.873752+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-13T12:55:48.339802+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-13T12:55:35.843828+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-13T12:30:08.486890+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-13T09:46:07.110174+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-13T09:45:36.313429+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-13T09:42:34.916848+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-13T09:30:53.440107+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-13T09:27:28.549666+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-13T09:27:06.078971+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-13T09:04:06.195478+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-13T09:03:53.688801+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-13T09:01:33.548758+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-13T09:01:21.009689+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-13T09:01:06.743270+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-13T08:59:54.701528+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-13T08:58:23.526857+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-13T08:58:10.945881+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-13T08:55:32.107509+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-13T08:25:15.527983+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-12T22:11:47.848624+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-12T18:52:07.017084+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-12T17:48:27.006002+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-12T17:48:12.579433+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-12T17:41:45.880560+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-12T16:46:04.428184+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-12T16:31:34.523598+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-12T16:24:39.885406+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-12T16:24:09.823820+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-12T16:12:48.058037+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-12T16:12:24.005177+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-12T16:07:44.103357+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-12T16:06:41.736216+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-12T16:01:03.150719+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-12T15:59:05.587126+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-12T15:58:51.217780+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-12T15:58:38.892384+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-12T13:49:25.632553+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-12T13:48:36.600781+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-12T13:48:20.955931+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-12T13:17:35.658976+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-12T12:50:53.427802+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-12T12:50:40.909570+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-12T12:50:28.622045+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-12T12:50:16.327698+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-12T12:50:03.905708+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-12T12:49:51.259037+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-12T12:42:56.163035+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-12T11:34:17.160438+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-12T08:42:16.778042+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-12T08:42:04.081631+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-12T08:37:06.572797+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-12T08:34:33.513939+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-12T07:00:53.219630+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-12T07:00:38.364730+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-12T07:00:25.646002+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-12T06:18:32.933729+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-12T06:09:47.678375+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-12T06:08:59.675980+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-12T06:06:55.574024+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-12T06:05:47.380128+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-12T06:02:49.975075+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-12T06:02:37.547789+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-12T06:01:22.651674+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-12T06:00:32.327444+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-12T06:00:16.083430+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-12T06:00:03.697457+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-12T05:59:51.266858+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-12T05:59:30.926828+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-12T05:59:18.591219+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-12T05:39:48.319558+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-12T04:57:39.689964+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-11T22:40:25.058051+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-11T22:37:38.899181+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-11T19:47:27.565272+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-11T17:53:42.221121+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-11T16:05:49.306707+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-11T15:47:53.755715+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-11T13:40:10.191766+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-11T12:48:30.008948+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-11T12:47:28.781182+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-11T12:45:26.650953+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T18:12:44.127006+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T18:12:20.496088+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T18:09:03.148692+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T18:08:40.536642+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T18:00:22.553794+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T18:00:00.933286+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T17:59:16.256339+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T17:07:10.079573+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T17:06:57.746194+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T17:05:33.629197+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T17:03:07.244148+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T17:01:32.839221+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T17:01:15.386012+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T17:00:53.875773+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T16:58:57.319076+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T16:58:08.246376+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T16:35:33.596323+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T16:31:59.146921+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T16:31:12.042220+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T16:29:22.669622+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T16:26:42.466049+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T16:26:25.632678+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T16:26:09.075130+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T16:25:53.203836+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T16:03:47.896274+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T16:01:12.863281+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T15:59:59.997340+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T15:56:34.992004+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T15:53:58.914291+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T15:52:31.005474+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T13:09:54.203723+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T13:07:34.800081+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T13:04:53.979930+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T13:04:33.638857+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T13:03:49.206004+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T13:03:31.741064+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T13:03:14.474907+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T12:12:31.219934+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T12:09:39.238241+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T12:09:11.015808+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T11:57:19.860969+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T11:57:07.368581+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T11:56:54.787501+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T11:56:42.457100+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T11:32:37.226332+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T11:32:24.713923+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T11:31:58.579731+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T11:27:52.518986+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T11:27:36.753391+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T11:25:00.135925+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T11:23:06.568908+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T11:19:11.696017+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T11:18:47.215356+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T11:18:34.816866+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T11:18:09.608508+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T10:58:54.183941+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T10:58:12.028806+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T10:57:35.630061+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T10:55:45.999998+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T10:46:08.358449+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T10:41:11.055319+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T10:40:58.431240+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T10:40:46.164529+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T09:59:14.804924+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T08:59:11.533715+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T08:49:16.909474+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T08:49:04.426328+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T08:48:52.049499+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T08:48:38.008793+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T08:48:25.643600+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T08:48:13.314270+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T08:32:07.600032+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T08:29:12.159914+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T08:19:56.682920+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T08:08:19.162839+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T01:26:43.457344+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T01:26:27.804344+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T01:26:09.830074+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T01:25:20.240569+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T01:24:47.555196+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T01:24:31.705282+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T01:24:13.238972+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T01:14:29.901157+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T01:14:14.582386+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T01:14:02.634606+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T01:13:50.716684+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T01:13:23.594418+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T01:12:33.341091+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T00:41:35.706607+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T00:41:19.693184+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T00:38:20.565510+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T00:08:26.777343+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T00:08:14.923910+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T00:08:03.087081+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T00:07:34.126444+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T00:02:46.046463+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-10T00:02:34.134675+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-09T23:01:18.270828+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-09T22:39:57.803339+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-09T22:39:45.842244+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-09T22:39:33.978694+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-09T22:38:10.504725+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-09T22:35:00.062887+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-09T22:34:48.190616+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-09T22:29:33.655143+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-09T22:29:21.675736+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-09T22:29:06.444435+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-09T22:28:54.301379+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-09T22:15:05.245064+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-09T22:14:52.443299+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-09T22:13:05.745638+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-09T22:12:15.396543+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-09T21:59:45.501585+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-09T14:21:28.007674+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-09T12:53:16.483985+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-09T11:35:20.934912+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-09T11:35:06.690335+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-09T11:32:23.576555+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-09T11:32:08.200541+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-09T11:26:25.338404+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-09T11:10:39.797446+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-09T10:04:41.205669+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-09T09:19:00.581819+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-09T08:29:29.638389+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-09T08:29:15.795282+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-09T08:28:00.725577+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-09T08:27:46.812046+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-09T08:27:15.453329+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-09T08:27:03.556844+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-09T08:26:51.595982+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-09T08:21:25.937127+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-29T13:53:03.682390+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-29T13:52:56.279764+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-29T13:52:22.024515+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-29T13:50:33.542634+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-28T16:08:09.810501+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-28T11:58:04.571509+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-26T11:12:47.168424+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-26T10:29:57.604608+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-26T00:09:13.190168+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-26T00:07:31.040942+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-25T22:11:38.867190+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-25T21:05:42.457421+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-25T18:13:02.920127+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-25T17:30:18.665434+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-24T23:09:01.844302+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-24T23:03:34.757790+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-24T21:02:54.523320+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-24T21:02:53.550116+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-24T21:01:11.971635+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-24T12:50:39.668513+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-24T12:50:38.692348+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-24T12:35:34.424598+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-24T12:35:33.401350+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-24T12:27:52.923287+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-24T11:33:44.370427+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-24T11:33:43.433862+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-24T11:32:47.521204+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-24T10:21:51.016226+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-24T09:17:44.371630+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-23T22:47:02.959213+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-23T10:49:47.735644+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-23T10:49:46.801498+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-23T10:47:09.538071+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-23T10:13:49.027350+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-23T10:13:48.083880+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-23T10:13:47.144386+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-23T09:53:27.351481+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-23T09:44:15.423814+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-23T09:44:14.446534+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-23T09:44:08.759469+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-23T09:44:07.828768+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-23T08:54:21.305044+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-23T08:33:56.835229+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-23T08:33:01.493676+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-22T23:32:42.971272+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-22T23:32:08.183896+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-22T22:53:06.850001+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-22T22:52:57.449479+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-22T22:52:29.422263+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-22T22:51:53.102355+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-22T22:51:12.711968+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-22T22:49:01.887544+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-22T22:48:26.537640+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-22T22:32:00.732542+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-22T22:31:39.414984+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-22T22:28:42.290691+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-22T22:27:39.503278+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-22T22:26:57.533172+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-22T22:02:49.391154+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-22T22:02:05.057564+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-22T22:00:29.102026+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-22T21:58:11.494362+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-22T21:47:28.953004+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-22T21:38:01.476617+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-22T21:23:21.155081+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-22T18:21:35.404133+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-22T17:31:25.428478+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-22T16:41:34.715910+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-22T14:38:39.825231+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-22T14:14:08.709145+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-22T09:55:03.614481+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-22T01:45:45.909747+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-22T01:40:39.222607+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-22T00:57:37.285894+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-22T00:57:36.386641+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-22T00:57:30.877577+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-22T00:57:23.759885+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-22T00:57:22.810246+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-22T00:55:58.701417+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-21T23:12:14.681929+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-21T21:37:41.912049+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-21T16:48:53.812176+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-21T16:48:33.643379+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-21T16:47:44.839811+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-21T16:45:03.374741+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-21T16:43:59.832569+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-21T16:43:07.980028+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-21T16:40:22.974128+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-21T16:37:47.770323+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-21T16:36:22.530340+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-21T16:35:04.976501+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-21T16:34:23.728853+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-21T16:32:32.492139+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-21T16:12:37.337930+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-21T16:09:38.003686+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-21T11:44:15.480809+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-21T09:42:11.932214+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-21T00:03:01.824514+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-20T23:42:07.828962+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-20T23:42:06.805976+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-20T23:42:00.607953+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-20T23:22:10.928894+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-20T17:33:26.266200+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-20T15:22:48.928680+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-20T13:50:14.521989+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-20T11:08:21.749382+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-20T11:08:20.763434+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-20T11:08:19.727396+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-20T11:08:08.871323+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-20T11:08:07.861814+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-20T10:43:19.881174+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-20T10:43:18.978329+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-20T10:43:18.036575+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-20T10:43:03.581844+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-20T10:43:02.663266+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-20T10:41:11.790882+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-20T10:41:10.839471+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-20T10:41:09.890521+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-20T10:41:03.517263+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-20T10:41:02.271094+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-20T10:37:06.163145+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-20T09:54:30.851788+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-20T09:54:29.920376+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-20T09:54:20.828443+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-20T09:54:19.887274+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-20T09:54:17.978920+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-20T09:41:43.712382+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-20T08:50:47.424663+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-20T08:50:46.430349+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-20T08:50:25.371731+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-20T08:50:24.051381+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-20T08:40:45.079021+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-19T23:51:01.944512+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-19T23:51:01.024007+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-19T22:47:37.455679+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-19T22:12:01.997640+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-19T22:12:01.074669+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-19T20:09:59.835413+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-19T20:09:58.891494+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-19T20:09:57.942036+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-19T14:50:08.831926+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-19T14:50:07.892598+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-19T14:49:52.819224+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-19T14:49:51.878373+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-19T14:49:50.263202+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-19T14:49:49.308784+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-19T13:57:42.437640+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-19T13:57:41.500123+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-19T13:57:29.233812+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-19T13:57:28.267081+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-19T13:57:27.287415+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-19T13:57:26.335707+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-19T12:53:04.361829+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-19T12:53:03.435877+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-19T12:52:50.807331+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-19T12:52:49.538920+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-19T12:23:29.279987+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-19T10:29:44.899220+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-18T23:43:23.319143+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-18T23:37:59.424709+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-18T23:37:44.936168+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-18T23:36:53.721876+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-18T23:35:22.119708+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-18T23:24:26.087963+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-18T20:00:02.431341+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-18T19:59:54.684313+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-18T17:42:54.958779+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-18T17:18:15.528256+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-18T17:18:13.559966+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-18T17:18:10.936957+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-18T17:00:05.046985+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-18T13:54:10.372086+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-18T13:42:09.104406+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-18T13:42:08.132412+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-18T13:42:07.135064+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-18T12:38:07.777184+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-18T12:38:06.307142+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-18T12:34:17.970556+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-18T07:16:06.846468+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-18T07:15:54.572329+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-18T06:58:31.894646+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-18T06:58:02.204214+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-18T06:56:16.359356+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-18T06:56:03.749371+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-18T06:55:38.359931+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-18T06:38:34.790930+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-18T06:38:33.397042+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-18T06:38:32.258946+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-18T06:38:31.324518+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-18T05:59:29.202736+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-16T22:34:26.499229+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-16T11:18:09.989322+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-15T23:29:35.254952+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-15T23:29:28.536593+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-15T23:29:21.317500+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-15T23:29:14.603259+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-15T23:29:06.281973+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-15T23:28:20.739330+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-15T23:27:46.522068+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-15T23:27:17.628171+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-15T23:26:29.881589+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-15T23:20:06.998644+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-15T23:01:56.455638+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-15T22:32:25.319047+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-15T17:28:40.648644+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-15T14:14:34.719138+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-15T14:14:25.353588+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-15T13:48:37.804796+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-15T13:38:10.422252+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-15T12:41:43.506458+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-15T11:08:08.131456+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-15T10:36:56.488700+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-15T02:37:46.095447+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-15T02:32:27.627428+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-15T02:32:00.630538+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-15T02:31:52.601186+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-15T02:31:36.627185+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-15T00:10:09.325384+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-15T00:10:01.988650+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-15T00:09:54.247643+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-15T00:00:50.317911+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-15T00:00:42.994321+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-15T00:00:35.159824+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-15T00:00:26.704021+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-14T22:51:48.975657+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-14T22:51:28.720993+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-14T22:45:08.412681+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-14T22:44:48.662804+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-14T22:44:34.173982+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-14T22:43:44.051820+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-14T22:37:15.159309+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-14T22:36:58.431550+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-14T22:36:17.687279+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-14T18:51:38.618260+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-14T18:14:16.907935+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-14T18:14:01.442924+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-14T17:56:19.321146+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-14T17:56:11.297882+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-14T17:55:51.618589+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-14T17:55:35.769446+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-14T17:22:45.205215+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-14T17:22:32.738334+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-14T17:21:56.255907+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-14T17:21:16.756573+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-14T17:20:56.291436+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-14T16:52:57.543152+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-14T14:28:00.326729+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-14T14:02:47.294134+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-14T14:02:39.164085+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-14T14:02:15.731397+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-14T13:50:49.494359+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-14T13:50:42.171833+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-14T13:50:12.215690+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-14T13:50:01.682354+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-14T13:31:26.040289+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-14T13:31:17.312077+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-14T13:30:52.878252+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-14T13:21:36.199696+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-14T11:01:53.955566+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-13T19:31:27.858911+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-13T19:31:26.932486+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-13T19:31:18.646675+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-04-13T19:31:13.685238+00:00",
+      "by": "system"
+    }
+  ],
+  "page_urls": {
+    "accueil": "/accueil-zayado",
+    "extension-ia": "/my-extension",
+    "agent-ia": "/fr/agent-ia",
+    "chatbot-b2b": "/chatbot-b2b-ia",
+    "assistant-ia": "/assistant-ia",
+    "pricing": "/pricing",
+    "pricing-agent": "/pricing-agent-openclaw",
+    "pricing-chatbot": "/pricing-chatbot-b2b-ia",
+    "simulateur-statut": "/simulateur-statut-juridique-mutuelle-sante-entrepreneur-fran\u00e7ais",
+    "simulateur-rentabilite": "/simulateur-rentabilite",
+    "analyse-financiere": "/analyse-financiere",
+    "creation-entreprise": "/creation-entreprise",
+    "pilotage-financier": "/pilotage-financier",
+    "contact": "/contact",
+    "rdv-url": "https://meet.brevo.com/adminzayado/support-se-lancer",
+    "odoo-sign-url": "https://sign-thesustain.odoo.com/sign/document/mail/33/4accbf8b-6b2b-4068-a520-a29bdcedef34"
+  },
+  "page_visibility": {},
+  "help_videos": {
+    "byok": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+    "agents": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+  },
+  "railway_api_token": "37f72da6-8af6-4c25-b568-c9ccd19ba41b",
+  "railway_auto_provision": false
+}
