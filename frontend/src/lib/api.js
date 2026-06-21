@@ -33,12 +33,17 @@ const post = (url, data) => apiClient.post(url, data).then((r) => r.data);
 const put = (url, data) => apiClient.put(url, data).then((r) => r.data);
 const del = (url) => apiClient.delete(url).then((r) => r.data);
 
-// AUTH (final-main backend)
+// AUTH (final-main backend) — passwordless : lien magique + OAuth + invité
 export const authApi = {
   login: (email, password) => post('/auth/login', { email, password }),
-  register: (data) => post('/auth/register', data),
   me: () => get('/auth/me'),
   logout: () => post('/auth/logout'),
+  requestMagicLink: (email) => post('/auth/request-link', { email }),
+  verifyMagicLink: (token) => post('/auth/verify-link', { token }),
+  guestLogin: () => post('/auth/guest'),
+  oauthStart: (provider, redirectUri) =>
+    get(`/oauth/${provider}/start`, { redirect_uri: redirectUri }),
+  oauthExchange: (provider, data) => post(`/oauth/${provider}`, data),
 };
 
 // HEALTH

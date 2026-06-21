@@ -48,3 +48,8 @@ Date: 2026-06-21
 - processes.py utilise du SQL MySQL-only (échoue sur SQLite) -> Espace branché sur /projects à la place.
 - Pages restantes à porter: Croissance, Intégrations, WordPress, Admin, Onboarding.
 - Brancher la vraie base MySQL Hostinger + intégrations (Mollie, Google, Microsoft, Canva) quand souhaité.
+
+## Session 5 (2026-06-21) — Suppression Mongo + Login final-main
+- RETIRÉ toutes les routes MongoDB (motor). Vision Board réécrit en store fichier JSON (backend/vision_local.py, vision_store.json) — aucune dépendance Mongo. Endpoints /api/vision/* + /api/canva/* OK (200).
+- LOGIN refait fidèle à final-main: passwordless (lien magique /api/auth/request-link + /verify-link, OAuth Google/Microsoft /api/oauth/*, mode invité /api/auth/guest). AUCUNE inscription, AUCUN mot de passe. .env backend: ALLOW_GUEST_LOGIN=true, PUBLIC_FRONTEND_URL.
+- À FAIRE (demande user): porter FIDÈLEMENT les pages de final-main (Pilotage.js, BienEtre.js, EspaceDeTravail.js) — actuellement ce sont des versions maison fonctionnelles branchées SQL, PAS les ports exacts final-main.
