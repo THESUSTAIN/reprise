@@ -30,3 +30,8 @@ Date: 2026-06-21
   - Helpers .zy-hdr-btn (boutons theme-aware), .zy-hdr-sep; icônes header en text-current; Logo variant theme-aware.
   - .zy-search theme-aware (texte navy sur blanc en light).
 - Sidebar plus "noir": outer #0c1d33, inner gradient #2a4a8e->#1f3b73->#0f1e50 (palette final-main), scoops #2a4a8e/#0f1e50.
+
+## Session 3 (2026-06-21) — Sidebar uniforme + Vision Board light
+- Sidebar: refonte en dégradé navy UNIFORME pleine hauteur (#2a4a8e->#1f3b73->#0f1e50, style final-main). Supprimé le combo outer noir + inner box + scoops qui créait l'effet 2 tons (noir haut/bas + bleu milieu).
+- Vision Board: ajout d'un thème LIGHT complet (html:not(.dark) .vb-root) -> fond blanc/cream, cartes blanches, textes navy, boutons OK. Couleurs inline #F6F2EA/#9fb2c9 remplacées par var(--cream)/var(--muted).
+- Ajout d'un bouton bascule thème (Sun/Moon) dans la top-nav du Vision Board (data-testid vb-theme-toggle).

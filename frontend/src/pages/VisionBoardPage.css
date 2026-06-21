@@ -314,3 +314,63 @@
   color: var(--ink); font-size: 13px; box-shadow: 0 14px 40px rgba(0,0,0,.5); display: flex; align-items: center; gap: 10px; }
 .vb-toast.ok { border-color: rgba(52,211,153,.5); }
 .vb-toast.err { border-color: rgba(248,113,113,.5); }
+
+
+/* ============================================================
+   LIGHT MODE — fond blanc/cream (aligné final-main)
+   ============================================================ */
+html:not(.dark) .vb-root {
+  --ink: #1a1815;
+  --cream: #102945;
+  --muted: #6b6358;
+  --glass: rgba(26, 58, 110, 0.04);
+  --line: rgba(26, 58, 110, 0.12);
+  background:
+    radial-gradient(1200px 600px at 80% -10%, rgba(26, 58, 110, 0.05), transparent 60%),
+    radial-gradient(900px 500px at -5% 20%, rgba(184, 152, 85, 0.06), transparent 55%),
+    #ffffff;
+  color: var(--ink);
+}
+html:not(.dark) .vb-topnav { background: rgba(255, 255, 255, 0.9); }
+html:not(.dark) .vb-card,
+html:not(.dark) .vb-pillar,
+html:not(.dark) .vb-value,
+html:not(.dark) .vb-book-side,
+html:not(.dark) .vb-ai-panel,
+html:not(.dark) .vb-copilot {
+  background: #ffffff;
+  box-shadow: 0 1px 2px rgba(31, 29, 26, 0.04), 0 6px 18px rgba(31, 29, 26, 0.06);
+}
+html:not(.dark) .vb-card.ai { background: var(--mint-soft); }
+html:not(.dark) .vb-canvas {
+  background:
+    radial-gradient(700px 380px at 78% 8%, rgba(214, 168, 95, 0.1), transparent 60%),
+    radial-gradient(600px 400px at 12% 92%, rgba(26, 58, 110, 0.06), transparent 60%),
+    linear-gradient(180deg, #fbfaf6 0%, #f3eee4 100%);
+}
+html:not(.dark) .vb-canvas-bar,
+html:not(.dark) .vb-canvas-tools { background: rgba(255, 255, 255, 0.7); }
+html:not(.dark) .vb-canvas-onboard {
+  background:
+    radial-gradient(700px 380px at 50% 10%, rgba(214, 168, 95, 0.1), transparent 60%),
+    linear-gradient(180deg, #fbfaf6, #f3eee4);
+}
+html:not(.dark) .vb-actionbar {
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 20px 50px rgba(31, 29, 26, 0.12);
+}
+html:not(.dark) .vb-btn:hover { background: rgba(26, 58, 110, 0.07); }
+html:not(.dark) .vb-prog,
+html:not(.dark) .vb-score-bar { background: rgba(26, 58, 110, 0.1); }
+html:not(.dark) .vb-copilot pre { background: #0f2238; color: #cfe3ff; }
+html:not(.dark) .vb-flip { background: #f3eee4; }
+html:not(.dark) .vb-ring {
+  background: conic-gradient(var(--mint) calc(var(--p) * 1%), rgba(26, 58, 110, 0.12) 0);
+}
+html:not(.dark) .vb-ring span { color: #fff; }
+html:not(.dark) .vb-toast {
+  background: #ffffff;
+  color: var(--ink);
+  box-shadow: 0 14px 40px rgba(31, 29, 26, 0.18);
+}
+html:not(.dark) .vb-spinner { border-color: rgba(26, 58, 110, 0.2); border-top-color: var(--gold); }

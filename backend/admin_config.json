@@ -1846,6 +1846,13 @@
       "action": "server_start",
       "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
       "level": "info",
+      "timestamp": "2026-06-21T17:10:26.837139+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
       "timestamp": "2026-06-21T15:11:42.771427+00:00",
       "by": "system"
     },
@@ -5333,13 +5340,6 @@
       "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
       "level": "info",
       "timestamp": "2026-04-13T19:31:26.932486+00:00",
-      "by": "system"
-    },
-    {
-      "action": "server_start",
-      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
-      "level": "info",
-      "timestamp": "2026-04-13T19:31:18.646675+00:00",
       "by": "system"
     }
   ],

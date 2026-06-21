@@ -7,7 +7,9 @@ import {
   Target, Send, BarChart3, Book, ChevronRight, Plus, RefreshCw,
   Briefcase, TrendingUp, HeartPulse, Users, Compass, Globe,
   ShieldCheck, Star, Feather, Crown, Zap, Lightbulb, Lock, ExternalLink,
+  Sun, Moon,
 } from "lucide-react";
+import { useTheme } from "../contexts/ThemeContext";
 
 const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
 
@@ -42,6 +44,7 @@ const IMG = {
 };
 
 export default function VisionBoardPage() {
+  const { theme, toggleTheme } = useTheme();
   const [tab, setTab] = useState("canvas");
   const [aiTab, setAiTab] = useState("analyse");
   const [board, setBoard] = useState(null);
@@ -131,6 +134,18 @@ export default function VisionBoardPage() {
           ))}
         </nav>
         <div className="vb-user">
+          <button
+            onClick={toggleTheme}
+            data-testid="vb-theme-toggle"
+            title={theme === "dark" ? "Mode clair" : "Mode sombre"}
+            style={{
+              display: "grid", placeItems: "center", width: 38, height: 38,
+              borderRadius: 10, border: "1px solid var(--line)", background: "var(--glass)",
+              color: "var(--ink)", cursor: "pointer",
+            }}
+          >
+            {theme === "dark" ? <Sun size={16} style={{ color: "#D6A85F" }} /> : <Moon size={16} />}
+          </button>
           <div style={{ textAlign: "right" }}>
             <div className="vb-uname">Alexandre</div>
             <div className="vb-urole">Entrepreneur</div>
@@ -206,13 +221,13 @@ export default function VisionBoardPage() {
                     <span>{scores.global || "—"}</span>
                   </div>
                   <div>
-                    <div style={{ fontSize: 13, color: "#9fb2c9" }}>Score global</div>
-                    <div style={{ fontFamily: "Satoshi", fontSize: 22, color: "#F6F2EA", fontWeight: 700 }}>
+                    <div style={{ fontSize: 13, color: "var(--muted)" }}>Score global</div>
+                    <div style={{ fontFamily: "Satoshi", fontSize: 22, color: "var(--cream)", fontWeight: 700 }}>
                       {scores.global || "—"} / 100
                     </div>
                   </div>
                 </div>
-                <div style={{ fontSize: 12.5, color: "#9fb2c9", marginBottom: 4 }}>Points forts</div>
+                <div style={{ fontSize: 12.5, color: "var(--muted)", marginBottom: 4 }}>Points forts</div>
                 <ul className="vb-strong">
                   {(analyse?.swot?.forces || []).slice(0, 3).map((f) => (
                     <li key={f}><CheckCircle2 size={15} /> {f}</li>
@@ -364,7 +379,7 @@ function CanvasView({ info, obj, phase, analyse, images, quote, canva, openCanva
               {/* Ikigai */}
               <div className="vb-card" data-testid="block-ikigai">
                 <div className="vb-card-tag"><Compass size={12} /> Ikigai</div>
-                <div className="vb-kpi-val">{obj.ikigai_score ?? "—"}<span style={{ fontSize: 14, color: "#9fb2c9" }}>/100</span></div>
+                <div className="vb-kpi-val">{obj.ikigai_score ?? "—"}<span style={{ fontSize: 14, color: "var(--muted)" }}>/100</span></div>
               </div>
 
               {/* Summit éditorial */}
@@ -379,7 +394,7 @@ function CanvasView({ info, obj, phase, analyse, images, quote, canva, openCanva
               {/* Phase actuelle */}
               <div className="vb-card vb-h2" data-testid="block-phase">
                 <div className="vb-card-tag"><Zap size={12} /> Phase actuelle</div>
-                <div style={{ fontFamily: "Satoshi", fontSize: 19, color: "#F6F2EA" }}>{phase.label || "Lancement"}</div>
+                <div style={{ fontFamily: "Satoshi", fontSize: 19, color: "var(--cream)" }}>{phase.label || "Lancement"}</div>
                 <div className="vb-kpi-sub">Mois {phase.mois || 4} / {phase.total || 12}</div>
                 <div className="vb-prog"><i style={{ width: `${((phase.mois || 4) / (phase.total || 12)) * 100}%` }} /></div>
               </div>
@@ -484,7 +499,7 @@ function RoadmapView({ board, obj }) {
     <div data-testid="roadmap-view">
       <div className="vb-card" style={{ marginBottom: 18 }}>
         <div className="vb-card-tag"><BarChart3 size={12} /> Transformation Vision → Plan</div>
-        <p style={{ color: "#F6F2EA", fontSize: 15, margin: "6px 0 0" }}>
+        <p style={{ color: "var(--cream)", fontSize: 15, margin: "6px 0 0" }}>
           {fmtEur(obj.ca_cible)} de CA → {obj.nb_clients?.toLocaleString("fr-FR")} clients → plan trimestriel → missions
         </p>
       </div>
