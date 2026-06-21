@@ -35,6 +35,7 @@ let webpackConfig = {
   webpack: {
     alias: {
       '@': path.resolve(__dirname, 'src'),
+      '@fm': path.resolve(__dirname, 'src/fm'),
     },
     configure: (webpackConfig) => {
 

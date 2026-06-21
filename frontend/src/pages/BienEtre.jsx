@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { wellnessApi } from '../lib/api';
 import { useAuth } from '../contexts/AuthContext';
-import AuthGate from '../components/AuthGate';
 import { toast } from 'sonner';
 import { HeartPulse, Battery, Smile, Activity, Moon, Loader2, CheckCircle2 } from 'lucide-react';
 
@@ -13,7 +12,7 @@ const SCALES = [
 ];
 
 export default function BienEtre() {
-  const { user, loading: authLoading } = useAuth();
+  const { user } = useAuth();
   const [today, setToday] = useState(null);
   const [history, setHistory] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -44,7 +43,6 @@ export default function BienEtre() {
     } finally { setSaving(false); }
   };
 
-  if (!authLoading && !user) return <AuthGate title="au Bien-être" />;
 
   return (
     <div data-testid="bienetre-page" className="space-y-6">

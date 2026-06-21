@@ -1,0 +1,77 @@
+import React from "react";
+
+/**
+ * Brand logo "MyExtension AI | Zayado" — final-main version.
+ * Pure inline SVG, transparent. Sized to MATCH the wordmark text height.
+ *
+ *   variant="onDark"  → bars cream, used on navy/dark backgrounds
+ *   variant="onLight" → bars navy,  used on cream/light backgrounds
+ */
+export default function Logo({
+  variant = "onLight",
+  size = "md",
+  showWordmark = true,
+  className = "",
+  testid = "brand-logo",
+}) {
+  const sizes = {
+    sm: { iconPx: 18, text: "text-[12.5px]", sep: "text-[14px]", gap: "gap-1.5" },
+    md: { iconPx: 22, text: "text-[13.5px]", sep: "text-[15px]", gap: "gap-2" },
+    lg: { iconPx: 34, text: "text-[20px]", sep: "text-[22px]", gap: "gap-2.5" },
+  };
+  const s = sizes[size] || sizes.md;
+  const isDark = variant === "onDark";
+
+  const barColor = isDark ? "#f6f3ee" : "#102945";
+  const arrowColor = "#c8302b";
+  const accent = "#d4b982";
+
+  const textColor = isDark ? "text-cream" : "text-navy";
+  const sepColor = isDark ? "text-cream/30" : "text-navy/30";
+  const brandColor = isDark ? "text-cream/70" : "text-navy/65";
+  const aiAccent = isDark ? "text-gold-soft" : "text-gold-deep";
+
+  return (
+    <span
+      className={`inline-flex items-center ${s.gap} ${className}`}
+      data-testid={testid}
+    >
+      <svg
+        width={s.iconPx}
+        height={s.iconPx}
+        viewBox="0 0 64 64"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-label="MyExtension AI"
+        className="shrink-0"
+      >
+        <rect x="6" y="14" width="38" height="7.5" rx="2" fill={barColor} />
+        <rect x="6" y="28" width="30" height="7.5" rx="2" fill={barColor} />
+        <rect x="6" y="42" width="22" height="7.5" rx="2" fill={barColor} />
+        <path d="M30 42 L40 42 L36 49.5 L28 49.5 Z" fill={accent} />
+        <path
+          d="M12 56 C 26 50, 38 38, 50 18 L 46 22 M 50 18 L 54 22"
+          stroke={arrowColor}
+          strokeWidth="5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          fill="none"
+        />
+      </svg>
+      {showWordmark && (
+        <span className="inline-flex items-center gap-1.5 leading-none">
+          <span
+            className={`${s.text} ${textColor} font-display font-normal tracking-tight whitespace-nowrap`}
+          >
+            MyExtension<span className={aiAccent}>-ai</span>
+          </span>
+          <span
+            className={`${s.text === "text-[12.5px]" ? "text-[9px]" : s.text === "text-[20px]" ? "text-[11px]" : "text-[10px]"} ${brandColor} font-light italic whitespace-nowrap`}
+          >
+            by Zayado
+          </span>
+        </span>
+      )}
+    </span>
+  );
+}

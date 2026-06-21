@@ -14,11 +14,18 @@ export function AuthProvider({ children }) {
   const [loading, setLoading] = useState(true);
 
   const refresh = async () => {
-    const token = localStorage.getItem('zayado_token');
+    let token = localStorage.getItem('zayado_token');
+    // Auto-session invité : aucune page de connexion requise (login ajouté plus tard)
     if (!token) {
-      setUser(null);
-      setLoading(false);
-      return;
+      try {
+        const res = await authApi.guestLogin();
+        token = res?.access_token || res?.token;
+        if (token) localStorage.setItem('zayado_token', token);
+      } catch {
+        setUser(null);
+        setLoading(false);
+        return;
+      }
     }
     try {
       const me = await authApi.me();

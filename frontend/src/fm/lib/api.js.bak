@@ -1,0 +1,324 @@
+/**
+ * API client — wraps fetch with auth + base URL.
+ * Token is persisted to localStorage under "mxai_token".
+ */
+
+const BASE = process.env.REACT_APP_BACKEND_URL || "";
+const TOKEN_KEY = "mxai_token";
+const USER_KEY = "mxai_user";
+
+export function getToken() {
+  try { return localStorage.getItem(TOKEN_KEY) || ""; } catch { return ""; }
+}
+export function setToken(t) {
+  try {
+    if (t) localStorage.setItem(TOKEN_KEY, t);
+    else localStorage.removeItem(TOKEN_KEY);
+  } catch {
+    /* ignore */
+  }
+}
+export function getStoredUser() {
+  try { return JSON.parse(localStorage.getItem(USER_KEY) || "null"); } catch { return null; }
+}
+export function setStoredUser(u) {
+  try {
+    if (u) localStorage.setItem(USER_KEY, JSON.stringify(u));
+    else localStorage.removeItem(USER_KEY);
+  } catch {
+    /* ignore */
+  }
+}
+export function clearAuth() {
+  setToken("");
+  setStoredUser(null);
+}
+
+async function request(path, { method = "GET", body, auth = true, headers = {} } = {}) {
+  const h = { "Content-Type": "application/json", ...headers };
+  if (auth) {
+    const t = getToken();
+    if (t) h.Authorization = `Bearer ${t}`;
+  }
+  const res = await fetch(`${BASE}${path}`, {
+    method,
+    headers: h,
+    body: body !== undefined ? JSON.stringify(body) : undefined,
+  });
+  const text = await res.text();
+  let data = null;
+  try { data = text ? JSON.parse(text) : null; } catch { data = text; }
+  if (!res.ok) {
+    const detail = (data && data.detail) || res.statusText || "Erreur réseau";
+    const err = new Error(detail);
+    err.status = res.status;
+    err.data = data;
+    throw err;
+  }
+  return data;
+}
+
+export const api = {
+  get: (p, o) => request(p, { ...(o || {}), method: "GET" }),
+  post: (p, body, o) => request(p, { ...(o || {}), method: "POST", body }),
+  put: (p, body, o) => request(p, { ...(o || {}), method: "PUT", body }),
+  patch: (p, body, o) => request(p, { ...(o || {}), method: "PATCH", body }),
+  del: (p, o) => request(p, { ...(o || {}), method: "DELETE" }),
+};
+
+// High-level helpers
+export const authApi = {
+  register: (email, password) => api.post("/api/auth/register", { email, password }, { auth: false }),
+  login: (email, password) => api.post("/api/auth/login", { email, password }, { auth: false }),
+  me: () => api.get("/api/auth/me"),
+  requestMagicLink: (email) => api.post("/api/auth/request-link", { email }, { auth: false }),
+  verifyMagicLink: (token) => api.post("/api/auth/verify-link", { token }, { auth: false }),
+  guestLogin: () => api.post("/api/auth/guest", {}, { auth: false }),
+};
+
+export const onboardingApi = {
+  submit: (data) => api.post("/api/onboarding", data),
+  status: () => api.get("/api/onboarding/status"),
+};
+
+export const dashboardApi = {
+  summary: () => api.get("/api/dashboard/summary"),
+};
+
+export const tasksApi = {
+  list: () => api.get("/api/tasks"),
+  create: (data) => api.post("/api/tasks", data),
+  patch: (id, data) => api.patch(`/api/tasks/${id}`, data),
+  remove: (id) => api.del(`/api/tasks/${id}`),
+};
+
+export const projectsApi = {
+  list:   ()            => api.get("/api/projects"),
+  get:    (id)          => api.get(`/api/projects/${id}`),
+  create: (data)        => api.post("/api/projects", data),
+  patch:  (id, data)    => api.patch(`/api/projects/${id}`, data),
+  remove: (id)          => api.del(`/api/projects/${id}`),
+  start:  (id)          => api.post(`/api/projects/${id}/start`),
+  stop:   (id)          => api.post(`/api/projects/${id}/stop`),
+  export: (id)          => api.get(`/api/projects/${id}/export`),
+};
+
+export const visionApi = {
+  get: () => api.get("/api/vision"),
+  patch: (data) => api.patch("/api/vision", data),
+  boardGenerate: (data) => api.post("/api/vision/board/generate", data),
+  boardTransform: (data) => api.post("/api/vision/board/transform", data),
+  boardDelete: (item_id) => api.del(`/api/vision/board/${item_id}`),
+};
+
+export const processesApi = {
+  templates: () => api.get("/api/processes/templates"),
+  list: () => api.get("/api/processes"),
+  create: (data) => api.post("/api/processes", data),
+  patch: (id, data) => api.patch(`/api/processes/${id}`, data),
+  remove: (id) => api.del(`/api/processes/${id}`),
+};
+
+export const documentsApi = {
+  list: () => api.get("/api/documents"),
+  create: (data) => api.post("/api/documents", data),
+  generate: (data) => api.post("/api/documents/generate", data),
+  remove: (id) => api.del(`/api/documents/${id}`),
+};
+
+export const revenueApi = {
+  monthly: () => api.get("/api/revenue/monthly"),
+};
+export const leadsApi = {
+  list: () => api.get("/api/leads"),
+  create: (data) => api.post("/api/leads", data),
+  patch: (id, data) => api.patch(`/api/leads/${id}`, data),
+  remove: (id) => api.del(`/api/leads/${id}`),
+};
+
+export const analyseApi = {
+  get: () => api.get("/api/analyse"),
+  run: () => api.post("/api/analyse/run", {}),
+  verdict: () => api.post("/api/analyse/verdict", {}),
+  momTest: () => api.post("/api/analyse/mom-test-guide", {}),
+  export: () => api.get("/api/analyse/export"),
+};
+
+export const growthApi = {
+  config: () => api.get("/api/growth/config"),
+  saveConfig: (data) => api.post("/api/growth/config", data),
+  activity: () => api.get("/api/growth/activity"),
+  logConversation: (data) => api.post("/api/growth/conversations/log", data),
+  conversationsMetrics: () => api.get("/api/growth/conversations/metrics"),
+};
+export const energyApi = {
+  save: (data) => api.post("/api/energy/check-in", data),
+  latest: () => api.get("/api/energy/latest"),
+  ritual: (physique, mentale, stress) =>
+    api.post("/api/energy/ritual", { physique, mentale, stress }),
+  today: () => api.get("/api/energy/today"),
+  history: (days = 30) => api.get(`/api/energy/history?days=${days}`),
+};
+export const streakApi = {
+  get: () => api.get("/api/streak"),
+};
+
+export const collaborateurApi = {
+  chat: (messages, contextPage, uiLanguage) =>
+    api.post("/api/collaborateur/chat", {
+      messages,
+      context_page: contextPage,
+      ui_language: uiLanguage,
+    }),
+};
+
+export const integrationsApi = {
+  statusAll: () => api.get("/api/integrations/status-all"),
+  google: {
+    status: () => api.get("/api/integrations/google/status"),
+    start: () => api.get("/api/integrations/google/start"),
+    files: (limit = 10) => api.get(`/api/integrations/google/files?limit=${limit}`),
+    disconnect: () => api.del("/api/integrations/google"),
+  },
+  microsoft: {
+    status: () => api.get("/api/integrations/microsoft/status"),
+    start: () => api.get("/api/integrations/microsoft/start"),
+    files: (limit = 10) => api.get(`/api/integrations/microsoft/files?limit=${limit}`),
+    disconnect: () => api.del("/api/integrations/microsoft"),
+  },
+  whatsapp: {
+    status: () => api.get("/api/whatsapp/status"),
+    send: (to, message) => api.post("/api/whatsapp/send", { to, message }),
+  },
+};
+
+export const paymentsApi = {
+  status: () => api.get("/api/payments/mollie/status"),
+  checkout: (plan = "premium") => api.post("/api/payments/mollie/checkout", { plan }),
+};
+
+export const meApi = {
+  profile: () => api.get("/api/me/profile"),
+  updateProfile: (data) => api.patch("/api/me/profile", data),
+};
+
+export const adminApi = {
+  overview: () => api.get("/api/admin/overview"),
+  users: (q = "", limit = 50, skip = 0) =>
+    api.get(`/api/admin/users?q=${encodeURIComponent(q)}&limit=${limit}&skip=${skip}`),
+  patchUser: (id, data) => api.patch(`/api/admin/users/${id}`, data),
+  payments: (limit = 50) => api.get(`/api/admin/payments?limit=${limit}`),
+  emailLogs: (limit = 100) => api.get(`/api/admin/email-logs?limit=${limit}`),
+  appLogs: (limit = 100) => api.get(`/api/admin/app-logs?limit=${limit}`),
+  platform: () => api.get("/api/admin/platform"),
+};
+
+export const recapApi = {
+  sendToMe: () => api.post("/api/recap/send", {}),
+  sendAll: () => api.post("/api/recap/send-all", {}),
+};
+
+// Quote cache : la citation du jour ne change pas dans la journée → cache mémoire 1h
+// + dedup in-flight (plusieurs composants peuvent appeler en parallèle au mount)
+let _quoteCache = { ts: 0, data: null, promise: null };
+export const quoteApi = {
+  today: async () => {
+    const now = Date.now();
+    if (_quoteCache.data && (now - _quoteCache.ts) < 60 * 60 * 1000) {
+      return _quoteCache.data;
+    }
+    if (_quoteCache.promise) {
+      return _quoteCache.promise;
+    }
+    _quoteCache.promise = api.get("/api/quote/today")
+      .then((data) => {
+        _quoteCache = { ts: Date.now(), data, promise: null };
+        return data;
+      })
+      .catch((e) => { _quoteCache.promise = null; throw e; });
+    return _quoteCache.promise;
+  },
+  _resetCache: () => { _quoteCache = { ts: 0, data: null, promise: null }; },
+};
+
+export const wpApi = {
+  status: () => api.get("/api/wp/status"),
+  products: ({ page = 1, perPage = 20, search = "", status = "" } = {}) =>
+    api.get(
+      `/api/wp/products?per_page=${perPage}&page=${page}` +
+        (search ? `&search=${encodeURIComponent(search)}` : "") +
+        (status ? `&status=${status}` : "")
+    ),
+  product: (id) => api.get(`/api/wp/products/${id}`),
+  createProduct: (data) => api.post("/api/wp/products", data),
+  updateProduct: (id, data) => api.put(`/api/wp/products/${id}`, data),
+  deleteProduct: (id, force = false) =>
+    api.del(`/api/wp/products/${id}?force=${force ? "true" : "false"}`),
+  categories: () => api.get("/api/wp/product-categories"),
+  orders: ({ page = 1, perPage = 20, status = "" } = {}) =>
+    api.get(
+      `/api/wp/orders?per_page=${perPage}&page=${page}` +
+        (status ? `&status=${status}` : "")
+    ),
+  ordersSummary: () => api.get("/api/wp/orders/summary"),
+  posts: ({ page = 1, perPage = 10 } = {}) =>
+    api.get(`/api/wp/posts?per_page=${perPage}&page=${page}`),
+  pages: () => api.get("/api/wp/pages"),
+};
+
+// Helper used by Espace pages to identify the current user (or 'guest' fallback)
+export const getUserId = () => {
+  try {
+    const u = JSON.parse(localStorage.getItem('zayado_user') || 'null');
+    return u?.id || u?.email || 'guest';
+  } catch { return 'guest'; }
+};
+
+// ── Finance CSV import ────────────────────────────────────────────────
+export const financeApi = {
+
+  /**
+   * Prévisualise un fichier CSV sans écrire en base.
+   * Retourne { bank_format, will_add, duplicates_skipped, preview_rows, … }
+   */
+  importCsvPreview: async (file) => {
+    const form = new FormData();
+    form.append("file", file);
+    const res = await fetch(`${api.baseURL || ""}/api/import-csv-v2?preview=true`, {
+      method: "POST",
+      body: form,
+      headers: { Authorization: `Bearer ${localStorage.getItem("zayado_token") || ""}` },
+    });
+    if (!res.ok) throw new Error((await res.json()).detail || "Erreur prévisualisation CSV");
+    return res.json();
+  },
+  /**
+   * Importe réellement le fichier CSV en base.
+   */
+  importCsv: async (file) => {
+    const form = new FormData();
+    form.append("file", file);
+    const res = await fetch(`${api.baseURL || ""}/api/import-csv-v2`, {
+      method: "POST",
+      body: form,
+      headers: { Authorization: `Bearer ${localStorage.getItem("zayado_token") || ""}` },
+    });
+    if (!res.ok) throw new Error((await res.json()).detail || "Erreur import CSV");
+    return res.json();
+  },
+};
+
+// ── Automations API ───────────────────────────────────────────────────
+export const automationsApi = {
+  list: () => api.get("/api/automations"),
+  toggle: (id, enabled) => api.patch(`/api/automations/${id}/toggle`, { enabled }),
+  run: (id, payload = {}) => api.post(`/api/automations/${id}/run`, payload),
+};
+
+// ── Hot Opportunities API ─────────────────────────────────────────────
+export const hotOppsApi = {
+  latest: () => api.get("/api/hot-opportunities/latest"),
+  list: () => api.get("/api/hot-opportunities"),
+  addManual: (body) => api.post("/api/hot-opportunities/manual", body),
+  update: (id, status) => api.patch(`/api/hot-opportunities/${id}?status=${status}`, {}),
+};

@@ -1,0 +1,552 @@
+/* final-main design layer — namespaced styles for /pilotage, /bien-etre, /espace
+   (@tailwind directives removed: base déjà chargée par l'app principale) */
+
+/* ── SideNav layout helpers ─────────────────────────────────────
+   Inject left padding on body so all pages shift right when the
+   left sidebar is mounted (desktop ≥1024px only). */
+@media (min-width: 1024px) {
+  body.has-sidenav { padding-left: 64px; }
+  body.has-sidenav-expanded { padding-left: 220px; }
+  body.has-sidenav header[data-testid="top-nav"],
+  body.has-sidenav-expanded header[data-testid="top-nav"] {
+    left: var(--sidenav-offset, 64px);
+  }
+  body.has-sidenav { --sidenav-offset: 64px; }
+  body.has-sidenav-expanded { --sidenav-offset: 220px; }
+}
+
+@keyframes sidenav-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50%      { transform: scale(1.25); opacity: 0.75; }
+}
+
+/* ── Sonner toasts — palette Zayado (cream + navy + gold)
+   Remplace les couleurs vives par défaut (vert/rouge néon). */
+[data-sonner-toaster] [data-sonner-toast][data-type="success"] {
+  background: linear-gradient(135deg, #fbfaf6 0%, #f3e9d0 100%) !important;
+  color: #1a3a6e !important;
+  border: 1px solid rgba(184,152,85,0.35) !important;
+}
+[data-sonner-toaster] [data-sonner-toast][data-type="success"] [data-icon] {
+  color: #b89855 !important;
+}
+[data-sonner-toaster] [data-sonner-toast][data-type="error"] {
+  background: #1a3a6e !important;
+  color: #fbfaf6 !important;
+  border: 1px solid rgba(212,185,130,0.30) !important;
+}
+[data-sonner-toaster] [data-sonner-toast][data-type="error"] [data-icon] {
+  color: #d4b982 !important;
+}
+[data-sonner-toaster] [data-sonner-toast][data-type="info"] {
+  background: #fbfaf6 !important;
+  color: #1a3a6e !important;
+  border: 1px solid rgba(26,58,110,0.18) !important;
+}
+[data-sonner-toaster] [data-sonner-toast][data-type="warning"] {
+  background: linear-gradient(135deg, #fbfaf6 0%, #f5e8c8 100%) !important;
+  color: #6b4d1a !important;
+  border: 1px solid rgba(184,152,85,0.40) !important;
+}
+[data-sonner-toaster] [data-close-button] {
+  background: rgba(26,58,110,0.10) !important;
+  color: #1a3a6e !important;
+  border-color: transparent !important;
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=DM+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+    /* Canvas — aligné public-site Zayado */
+    --bg-main: #f6f3ee;
+    --bg-card: #ffffff;
+    --bg-card-soft: #ffffff;
+    --bg-panel: #fbf6ea;
+    /* Navy palette — palette officielle Zayado (TheSustain blue) */
+    --navy: #1a3a6e;
+    --navy-deep: #0c1d33;
+    --navy-bright: #1f4377;
+    --navy-mist: #14305a;
+    --navy-dark: #102945;
+    --navy-gradient: linear-gradient(135deg, #1a3a6e 0%, #102945 60%, #0c1d33 100%);
+    --navy-gradient-strong: linear-gradient(135deg, #1f4377 0%, #14305a 45%, #0c1d33 100%);
+    /* Gold / cream accents — palette site public */
+    --gold: #b89855;
+    --gold-soft: #d4b982;
+    --gold-deep: #9c7d40;
+    --cream: #f6f3ee;
+    --cream-soft: #fbf6ea;
+    --cream-dark: #f2ecdc;
+    --beige: #e2dac7;
+    /* Inks */
+    --ink: #1a1815;
+    --ink-soft: #4a4538;
+    --ink-muted: #6b6358;
+
+    /* aa-main legacy variables (used by BienEtre + Pilotage) */
+    --bg: #FDFBF7;
+    --surface: #FFFFFF;
+    --navy: #1F3A6A;
+    --navy-2: #2C4D85;
+    --navy-deep: #14264A;
+    --border: #e2dac7;
+    --muted: #5C6B7B;
+    --success: #2D6A4F;
+    --red: #8B0000;
+    --red-dark: #660000;
+}
+
+.card-z {
+    background: #FFFFFF;
+    border: none;
+    border-radius: 1rem;
+    box-shadow: 0 1px 2px rgba(31, 29, 26, 0.04), 0 6px 18px rgba(31, 29, 26, 0.06);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.card-z:hover {
+    box-shadow: 0 2px 6px rgba(31, 29, 26, 0.06), 0 12px 28px rgba(31, 29, 26, 0.09);
+}
+
+.card-soft {
+    background: #FFFFFF;
+    border: none;
+    border-radius: 1rem;
+    box-shadow: 0 1px 2px rgba(31, 29, 26, 0.04), 0 6px 18px rgba(31, 29, 26, 0.06);
+    transition: box-shadow 0.2s ease;
+}
+.card-soft:hover {
+    box-shadow: 0 2px 6px rgba(31, 29, 26, 0.06), 0 12px 28px rgba(31, 29, 26, 0.09);
+}
+
+/* Pastilles d'icônes — palette beige/doré (signature Zayado) */
+.icon-beige {
+    background: #f3e9d0;
+    color: #b89855;
+}
+.icon-beige-soft {
+    background: #EDD9B0;
+    color: #1a3a6e;
+}
+
+html, body {
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.fm-page {
+    font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+    background: var(--bg-main);
+    color: var(--ink);
+}
+
+.font-display {
+    font-family: "Fraunces", "Cormorant Garamond", Georgia, serif;
+    font-feature-settings: "ss01" on, "lnum" on;
+    letter-spacing: -0.01em;
+    font-weight: 500;
+}
+
+.font-serif-italic {
+    font-family: "Fraunces", Georgia, serif;
+    font-style: italic;
+    font-weight: 500;
+}
+
+.font-sans {
+    font-family: 'DM Sans', system-ui, sans-serif;
+}
+
+/* shadcn :root tokens retirés (gérés par l'app principale pour éviter les conflits) */
+
+/* ------- Canvas / cards ------- */
+.canvas-bg {
+    background:
+        radial-gradient(1200px 600px at -10% -10%, rgba(214, 178, 122, 0.18), transparent 60%),
+        radial-gradient(900px 500px at 110% 0%, rgba(31, 58, 115, 0.10), transparent 55%),
+        var(--bg-main);
+}
+
+.card-cream {
+    background: #FFFFFF;
+    border: 1px solid #E8E2D8;
+    border-radius: 1rem;
+    box-shadow: 0 1px 2px rgba(31, 29, 26, 0.03), 0 4px 12px rgba(31, 29, 26, 0.04);
+}
+
+.card-cream-soft {
+    background: #FFFFFF;
+    border: 1px solid #E8E2D8;
+    border-radius: 1rem;
+    box-shadow: 0 1px 2px rgba(31, 29, 26, 0.03), 0 4px 12px rgba(31, 29, 26, 0.04);
+}
+
+/* Deep navy gradient with subtle texture (inspired by zayado.net) */
+.navy-bg {
+    background:
+        radial-gradient(1200px 700px at 80% 0%, rgba(31, 58, 115, 0.55), transparent 60%),
+        radial-gradient(900px 500px at 0% 100%, rgba(214, 178, 122, 0.12), transparent 55%),
+        linear-gradient(155deg, #0e2253 0%, #0a1838 60%, #142a55 100%);
+    color: var(--cream);
+}
+
+.navy-bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    background-size: 18px 18px;
+    pointer-events: none;
+    mix-blend-mode: screen;
+    opacity: 0.6;
+}
+
+.card-navy {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(232, 226, 216, 0.4);
+    border-radius: 20px;
+    background:
+        radial-gradient(900px 500px at 100% 0%, rgba(45, 80, 150, 0.55), transparent 60%),
+        radial-gradient(700px 400px at 0% 100%, rgba(214, 178, 122, 0.10), transparent 55%),
+        linear-gradient(155deg, #264653 0%, #1D3557 60%, #14264A 100%);
+    color: #FFFFFF;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.card-navy::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 18px 18px;
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+.glass {
+    background: rgba(250, 246, 236, 0.7);
+    backdrop-filter: saturate(180%) blur(16px);
+    -webkit-backdrop-filter: saturate(180%) blur(16px);
+}
+
+.glass-strong {
+    background: rgba(250, 246, 236, 0.92);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+}
+
+.glass-navy {
+    background: rgba(11, 27, 58, 0.55);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+}
+
+.uppercase-eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--ink-soft);
+}
+
+.gold-text {
+    background: linear-gradient(135deg, #e7c992 0%, #d6b27a 50%, #c9a368 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* Animations */
+@keyframes rise {
+    from { opacity: 0; transform: translateY(14px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.rise { animation: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) both; }
+
+@keyframes slideInRight {
+    from { transform: translateX(100%); }
+    to { transform: translateX(0); }
+}
+.slide-in-right { animation: slideInRight 0.35s cubic-bezier(0.16, 1, 0.3, 1) both; }
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+.fade-in { animation: fadeIn 0.25s ease-out both; }
+
+@keyframes floaty {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+}
+.floaty { animation: floaty 4s ease-in-out infinite; }
+
+/* Scrollbars */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(11, 27, 58, 0.22); border-radius: 8px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(11, 27, 58, 0.38); }
+
+/* Hide scrollbar but keep functional scroll (used for tabs horizontal scroll) */
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+
+/* Range slider */
+input[type="range"].slider-zen {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 6px;
+    background: #e5e1d8;
+    border-radius: 999px;
+    outline: none;
+}
+input[type="range"].slider-zen::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #1a3a6e;
+    border: 3px solid #fff;
+    box-shadow: 0 2px 6px rgba(26, 58, 110, 0.4);
+    cursor: pointer;
+}
+input[type="range"].slider-zen::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #1a3a6e;
+    border: 3px solid #fff;
+    cursor: pointer;
+}
+
+/* Hide emergent badge if it still gets injected somehow */
+#emergent-badge { display: none !important; }
+
+/* Zayado navy gradient (use everywhere a deep navy background is needed) */
+.bg-navy-gradient {
+    background: var(--navy-gradient) !important;
+}
+.bg-navy-gradient-strong {
+    background: var(--navy-gradient-strong) !important;
+}
+.text-navy-gradient {
+    background: var(--navy-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* HeroGreeting citation soft glow (light + dark variants) */
+.citation-glow {
+    background: radial-gradient(60% 70% at 50% 50%, rgba(241,236,226,0.85) 0%, rgba(241,236,226,0.55) 55%, rgba(241,236,226,0) 100%);
+}
+
+/* ─── Admin (Zayado palette) ─────────────────────────────────────── */
+:root {
+    --zayado-navy: #1a3a6e;
+    --zayado-navy-dark: #102945;
+    --zayado-navy-deep: #0c1d33;
+    --zayado-navy-gradient: linear-gradient(135deg, #1a3a6e 0%, #102945 60%, #0c1d33 100%);
+    --zayado-gold: #d6b27a;
+    --zayado-red: #c0392b;
+    --zayado-cream: #f1ece2;
+    --zayado-cream-dark: #ddd2bc;
+    --zayado-text: #1a2238;
+    --zayado-muted: #4a556c;
+    --zayado-border: #e6dfd0;
+}
+html[data-theme="dark"] {
+    --zayado-cream: #0a1224;
+    --zayado-cream-dark: #1a2a52;
+    --zayado-text: #f0ecde;
+    --zayado-muted: #b7b1a0;
+    --zayado-border: rgba(255,255,255,0.10);
+}
+[data-testid="admin-page"] {
+    color: var(--zayado-text);
+}
+.btn-press:active { transform: translateY(1px); }
+.safe-top { padding-top: env(safe-area-inset-top, 0); }
+
+/* ─── DARK THEME ──────────────────────────────────────────────────────────
+   Activated when <html data-theme="dark">.
+   Re-maps tokens so the entire UI flips without per-component changes. */
+html[data-theme="dark"] {
+    --bg-main: #0a1224;
+    --bg-card: #142243;
+    --bg-card-soft: #1a2a52;
+    --bg-panel: #0e1a36;
+    --cream: #e8e0c9;
+    --beige: #c4b89b;
+    --ink: #f0ecde;
+    --ink-soft: #b7b1a0;
+    --ink-muted: #8a8676;
+}
+
+html[data-theme="dark"] body {
+    background: var(--bg-main);
+    color: var(--ink);
+}
+
+html[data-theme="dark"] .canvas-bg {
+    background:
+        radial-gradient(1200px 600px at -10% -10%, rgba(214, 178, 122, 0.10), transparent 60%),
+        radial-gradient(900px 500px at 110% 0%, rgba(31, 58, 115, 0.20), transparent 55%),
+        #0a1224;
+}
+
+html[data-theme="dark"] .card-cream {
+    background: #142243;
+    color: var(--ink);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.04),
+        0 12px 38px rgba(0, 0, 0, 0.45);
+}
+
+html[data-theme="dark"] .card-cream-soft {
+    background: #1a2a52;
+    color: var(--ink);
+}
+
+html[data-theme="dark"] .glass {
+    background: rgba(10, 18, 36, 0.55);
+}
+html[data-theme="dark"] .glass-strong {
+    background: rgba(10, 18, 36, 0.92);
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Tailwind color tokens that we use everywhere → flip them */
+html[data-theme="dark"] .text-navy { color: #f4ead4 !important; }
+html[data-theme="dark"] .text-ink { color: #f0ecde !important; }
+html[data-theme="dark"] .text-ink-soft { color: #b7b1a0 !important; }
+html[data-theme="dark"] .text-ink-muted { color: #8a8676 !important; }
+html[data-theme="dark"] .bg-white { background-color: #142243 !important; }
+html[data-theme="dark"] .bg-cream { background-color: #1a2a52 !important; }
+html[data-theme="dark"] .bg-cream-soft { background-color: #1f3361 !important; }
+html[data-theme="dark"] .bg-cream-base { background-color: #1a2a52 !important; }
+html[data-theme="dark"] .bg-sand-100,
+html[data-theme="dark"] .bg-sand-200,
+html[data-theme="dark"] .bg-sand-300 { background-color: #1f3361 !important; }
+html[data-theme="dark"] .border-sand-200,
+html[data-theme="dark"] .border-sand-300 { border-color: rgba(255, 255, 255, 0.08) !important; }
+html[data-theme="dark"] .ring-sand-200,
+html[data-theme="dark"] .ring-sand-300 { --tw-ring-color: rgba(255, 255, 255, 0.08) !important; }
+html[data-theme="dark"] .bg-navy { background-color: #1f3a73 !important; color: #f4ead4 !important; }
+html[data-theme="dark"] .hover\:bg-navy-bright:hover { background-color: #2c4a8a !important; }
+html[data-theme="dark"] .card-navy {
+    background: linear-gradient(155deg, #1f3a73 0%, #142a55 60%, #1f3a73 100%);
+    color: #f4ead4;
+}
+html[data-theme="dark"] .text-cream { color: #f4ead4 !important; }
+html[data-theme="dark"] .hover\:bg-cream-soft:hover { background-color: #243a72 !important; }
+html[data-theme="dark"] .hover\:bg-sand-200:hover { background-color: #243a72 !important; }
+html[data-theme="dark"] input,
+html[data-theme="dark"] textarea {
+    background-color: #1a2a52 !important;
+    color: var(--ink) !important;
+    border-color: rgba(255, 255, 255, 0.10) !important;
+}
+
+/* Active nav underline stays gold */
+html[data-theme="dark"] .bg-gold { background-color: #d6b27a !important; }
+
+/* ─── TopNav refinements (dark) ─────────────────────────────── */
+html[data-theme="dark"] .glass {
+    background: rgba(10, 18, 36, 0.75);
+    border-color: rgba(255, 255, 255, 0.06) !important;
+}
+html[data-theme="dark"] .glass-strong {
+    background: rgba(10, 18, 36, 0.95);
+    border-color: rgba(255, 255, 255, 0.08) !important;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04), 0 8px 28px rgba(0, 0, 0, 0.45);
+}
+html[data-theme="dark"] header[data-testid="top-nav"] .border-sand-300\/60 {
+    border-color: rgba(255, 255, 255, 0.08) !important;
+}
+/* TopNav action buttons (Search / Bell / Chat) on dark — better visible */
+html[data-theme="dark"] header[data-testid="top-nav"] button .text-navy,
+html[data-theme="dark"] header[data-testid="top-nav"] .text-navy {
+    color: #f4ead4 !important;
+}
+html[data-theme="dark"] header[data-testid="top-nav"] .hover\:bg-cream-soft:hover {
+    background-color: rgba(255, 255, 255, 0.06) !important;
+}
+/* Streak amber badge → amber on dark navy */
+html[data-theme="dark"] .bg-amber-50 {
+    background-color: rgba(214, 178, 122, 0.18) !important;
+}
+html[data-theme="dark"] .text-amber-700 { color: #e7c992 !important; }
+html[data-theme="dark"] .border-amber-200 { border-color: rgba(214, 178, 122, 0.35) !important; }
+/* Emerald connected badges on dark */
+html[data-theme="dark"] .bg-emerald-50 { background-color: rgba(16, 185, 129, 0.14) !important; }
+html[data-theme="dark"] .text-emerald-700 { color: #6ee7b7 !important; }
+html[data-theme="dark"] .border-emerald-200 { border-color: rgba(110, 231, 183, 0.32) !important; }
+html[data-theme="dark"] .bg-emerald-100 { background-color: rgba(16, 185, 129, 0.22) !important; }
+html[data-theme="dark"] .hover\:bg-emerald-100:hover { background-color: rgba(16, 185, 129, 0.30) !important; }
+/* Slate text used in panels */
+html[data-theme="dark"] .text-slate-900 { color: #f0ecde !important; }
+html[data-theme="dark"] .text-slate-800 { color: #e3dccb !important; }
+html[data-theme="dark"] .text-slate-700 { color: #cdc6b3 !important; }
+html[data-theme="dark"] .text-slate-600 { color: #b7b1a0 !important; }
+html[data-theme="dark"] .text-slate-500 { color: #9b9684 !important; }
+html[data-theme="dark"] .text-slate-400 { color: #7a7565 !important; }
+
+/* ─── HeroGreeting citation backdrop (dark) ───────────────────── */
+html[data-theme="dark"] [data-testid="hero-greeting"] .citation-glow {
+    background: radial-gradient(60% 70% at 50% 50%, rgba(214, 178, 122, 0.22) 0%, rgba(214, 178, 122, 0.10) 55%, rgba(0,0,0,0) 100%) !important;
+}
+html[data-theme="dark"] .text-gold-deep { color: #e7c992 !important; }
+html[data-theme="dark"] .gold-text {
+    background: linear-gradient(135deg, #f0d59c 0%, #e7c992 50%, #d6b27a 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+/* Dashboard greeting on dark : ensure good contrast */
+html[data-theme="dark"] [data-testid="dashboard-greeting"] { color: #f7efd9 !important; }
+
+/* SidePanel content on dark */
+html[data-theme="dark"] [data-testid^="panel-"] .bg-white {
+    background-color: #1a2a52 !important;
+}
+
+/* Dashed border boxes (e.g. connect cloud CTA) */
+html[data-theme="dark"] .border-dashed { border-color: rgba(255, 255, 255, 0.14) !important; }
+
+/* Leaf backdrop : darken overlay in dark mode so hero greeting reads well */
+html[data-theme="dark"] .leaf-gradient-h {
+    background: linear-gradient(90deg,
+        rgba(10,18,36,0.92) 0%,
+        rgba(10,18,36,0.82) 40%,
+        rgba(10,18,36,0.55) 62%,
+        rgba(10,18,36,0.30) 80%,
+        rgba(10,18,36,0.10) 92%,
+        transparent 100%) !important;
+}
+html[data-theme="dark"] .leaf-gradient-v {
+    background: linear-gradient(180deg,
+        transparent 0%,
+        transparent 82%,
+        rgba(10,18,36,0.55) 95%,
+        rgba(10,18,36,1) 100%) !important;
+}
+/* Soften the leaf image itself in dark mode (saturate down, darken) */
+html[data-theme="dark"] [aria-hidden] > div[style*="leaf"] {
+    filter: brightness(0.45) saturate(0.7);
+}
+html[data-theme="dark"] .leaf-gradient-v {
+    background: linear-gradient(180deg,
+        transparent 0%,
+        transparent 82%,
+        rgba(10,18,36,0.55) 95%,
+        rgba(10,18,36,1) 100%) !important;
+}
+/* Soften the leaf image itself in dark mode (saturate down, darken) */
+html[data-theme="dark"] [aria-hidden] > div[style*="leaf"] {
+    filter: brightness(0.45) saturate(0.7);
+}

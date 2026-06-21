@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { projectsApi } from '../lib/api';
 import { useAuth } from '../contexts/AuthContext';
-import AuthGate from '../components/AuthGate';
 import { toast } from 'sonner';
 import { Briefcase, Plus, Play, Square, Clock, Euro, Loader2, Trash2 } from 'lucide-react';
 
@@ -12,7 +11,7 @@ const fmtTime = (s) => {
 };
 
 export default function Espace() {
-  const { user, loading: authLoading } = useAuth();
+  const { user } = useAuth();
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
   const [form, setForm] = useState({ name: '', hourly_rate: '', color: '#1f4377' });
@@ -55,7 +54,6 @@ export default function Espace() {
     catch (err) { toast.error('Erreur suppression'); }
   };
 
-  if (!authLoading && !user) return <AuthGate title="à l'Espace de travail" />;
 
   return (
     <div data-testid="espace-page" className="space-y-6">

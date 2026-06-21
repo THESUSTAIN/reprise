@@ -1,0 +1,42 @@
+{
+  "summary": "Iteration 2 review: guest auto-login, Vision Board (file-based, no Mongo) and the 3 final-main pages (Pilotage, Bien-être, Espace) tested end-to-end via external REACT_APP_BACKEND_URL. Backend: 11/11 pytest pass (auth/guest + auth/me, vision board GET endpoints /board /info /copilot-data /canva/status /visionbook, POST /vision/analyse returns scores+swot, finance/wellness/projects do not 500 for fresh guest). Frontend Playwright: cleared localStorage at / → app auto-creates guest session (zayado_token set, 248 chars), NO login wall, NO 'Connexion requise', Dashboard renders with navy Sidebar + Header + KPIs; header-theme-toggle works. /vision-board loads with AI scores (Clarté 97, Alignement 95, Ambition 98, Faisabilité 78, Equilibre 95, Score global 93/100), vb-theme-toggle present, 'Analyser mon board' button clickable. /pilotage renders heading 'Pilotage' with TopNav+SideNav+FloatingBottomBar; WelcomeModal 'Bienvenue sur Pilotage' shows on first visit, dismisses via 'Compris, on y va !' and does NOT reappear on reload. /bien-etre renders 'Bien-être' heading, 3 sliders (Énergie physique 6/10, Clarté mentale 6/10, Niveau de stress 4/10), 'Valider le rituel' button, 'VERDICT DU CO-PILOTE' panel and energy/stress chart — but WelcomeModal IS MISSING (BienEtre.js does NOT import useWelcomeModal/WelcomeModal at all). /espace renders 'Mon espace' with Missions/Processus/Documents tabs; WelcomeModal shows first visit, dismisses, does not reappear. No fatal console errors on any route.",
+  "backend_issues": { "critical": [], "minor": [] },
+  "frontend_issues": {
+    "ui_bugs": [
+      {
+        "component": "fm/pages/BienEtre.js",
+        "issue": "WelcomeModal 'Bienvenue sur Bien-être / Bien-être' never appears on first visit because the page does NOT import useWelcomeModal or WelcomeModal. Pilotage.js and EspaceDeTravail.js both wire them in (useWelcomeModal('pilotage') / 'espace') — BienEtre.js is the only one missing. The content key likely exists in fm/content/welcomeContent.js or needs to be added (e.g. 'bien-etre' / 'bienetre'). Without this, the review requirement 'WelcomeModal appears first visit and dismisses' fails for /bien-etre.",
+        "selector": "/app/frontend/src/fm/pages/BienEtre.js",
+        "priority": "HIGH"
+      }
+    ],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": [
+    "/app/backend/tests/test_iter2_review.py",
+    "/app/test_reports/pytest/iter2.xml"
+  ],
+  "action_items": [
+    "Add WelcomeModal to /app/frontend/src/fm/pages/BienEtre.js: import useWelcomeModal from '@fm/hooks/useWelcomeModal' and WelcomeModal from '@fm/components/WelcomeModal', call const welcome = useWelcomeModal('bien-etre') (or matching key in welcomeContent.js — verify/add an entry with title 'Bienvenue sur Bien-être'), then render <WelcomeModal open={welcome.show} onClose={welcome.close} {...(welcome.content||{})} /> at the bottom of the JSX, same pattern as Pilotage.js line 608 / EspaceDeTravail.js line 94.",
+    "Check /app/frontend/src/fm/content/welcomeContent.js — confirm a 'bien-etre' (or 'bienetre') entry exists with title 'Bienvenue sur Bien-être' and CTA 'Compris, on y va !'; add it if missing."
+  ],
+  "critical_code_review_comments": [
+    "fm/pages/BienEtre.js missing WelcomeModal wiring while Pilotage and Espace have it — inconsistency causes a failing review requirement (see action_items).",
+    "Carry-over from iter1 (still applicable): routes/finance.py uses text(...) without importing SQLAlchemy text and double-prefixes /finance/import-url and /finance/import-csv (effective path /api/finance/finance/...). Non-blocking for this review but should be cleaned.",
+    "Stray JS files (AppLogsTab.js, ChatInterface.js) inside /app/backend/routes/ — should not live under backend/routes.",
+    "AuthContext.jsx: refresh() silently swallows guestLogin failure (catch with no logging) — consider a console.warn so prod auth issues are visible.",
+    "fm/lib/api.js token key 'zayado_token' is duplicated of contexts/AuthContext.jsx — single source-of-truth (a constant export) would prevent drift."
+  ],
+  "updated_files": [
+    "/app/backend/tests/test_iter2_review.py",
+    "/app/test_reports/iteration_2.json"
+  ],
+  "success_rate": { "backend": "100% (11/11)", "frontend": "~85% — 4/5 pages fully pass; Bien-être passes content but missing WelcomeModal" },
+  "test_credentials": "None needed — guest auto-session via POST /api/auth/guest. Optional password account: test@zayado.net / Test1234! (works).",
+  "seed_data_creation": "None this iteration. Guest session JWT created on each test (server-side, no persistent test data added).",
+  "retest_needed": true,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "Backend is fully green for this review (SQLite + file-based vision board). Only remaining issue is the missing WelcomeModal on /bien-etre — main agent must add useWelcomeModal('bien-etre') hook + <WelcomeModal/> render in BienEtre.js mirroring Pilotage.js (line 62 + line 608) and EspaceDeTravail.js (line 27 + line 94). After fix, just navigate to /bien-etre with cleared localStorage and confirm 'Bienvenue' modal appears, then 'Compris, on y va !' dismisses it and reload does not re-show it. Reusable pytest at /app/backend/tests/test_iter2_review.py.",
+  "rca of the issue": "The 'WelcomeModal must appear on first visit' requirement fails on /bien-etre because BienEtre.js never imports useWelcomeModal/WelcomeModal nor renders them — grep on the file returns 0 matches for Welcome, while Pilotage.js and EspaceDeTravail.js both import them and render <WelcomeModal …/>. Localstorage prefix 'zay_welcome_seen_' is per-pageKey (per useWelcomeModal.js), so other pages' dismissals do NOT suppress Bien-être — the modal is simply not wired in. Fix: replicate the 3-line pattern used in Pilotage/Espace inside BienEtre.js (import hook+component, call hook with key 'bien-etre' or whatever key exists in welcomeContent.js, render component at the bottom of the JSX)."
+}

@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { financeApi } from '../lib/api';
 import { useAuth } from '../contexts/AuthContext';
-import AuthGate from '../components/AuthGate';
 import { toast } from 'sonner';
 import {
   TrendingUp, TrendingDown, Wallet, Percent, Plus, Loader2, ShieldCheck, LineChart,
@@ -14,7 +13,7 @@ const serenityColor = (level) =>
     : level === 'vigilance' ? '#d4b78c' : '#dc2626';
 
 export default function Pilotage() {
-  const { user, loading: authLoading } = useAuth();
+  const { user } = useAuth();
   const [overview, setOverview] = useState(null);
   const [serenity, setSerenity] = useState(null);
   const [forecast, setForecast] = useState(null);
@@ -57,7 +56,6 @@ export default function Pilotage() {
     }
   };
 
-  if (!authLoading && !user) return <AuthGate title="au Pilotage financier" />;
 
   const maxWeekly = overview?.weekly?.reduce((m, w) => Math.max(m, w.revenus, w.depenses), 0) || 1;
 

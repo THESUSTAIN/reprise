@@ -11,9 +11,10 @@ import Dashboard from './pages/Dashboard';
 import VisionBoardPage from './pages/VisionBoardPage';
 import Settings from './pages/Settings';
 import Login from './pages/Login';
-import Pilotage from './pages/Pilotage';
-import BienEtre from './pages/BienEtre';
-import Espace from './pages/Espace';
+import FmShell from '@fm/FmShell';
+import FmPilotage from '@fm/pages/Pilotage';
+import FmBienEtre from '@fm/pages/BienEtre';
+import FmEspace from '@fm/pages/EspaceDeTravail';
 import StubPage from './pages/StubPage';
 
 /**
@@ -50,6 +51,11 @@ function App() {
                 }
               />
 
+              {/* Pages portées fidèlement de final-main — autonomes (TopNav propre) */}
+              <Route path="/pilotage" element={<FmShell><FmPilotage /></FmShell>} />
+              <Route path="/bien-etre" element={<FmShell><FmBienEtre /></FmShell>} />
+              <Route path="/espace" element={<FmShell><FmEspace /></FmShell>} />
+
               {/* Vision Board — page autonome (sa propre top-nav, sans Layout global) */}
               <Route path="/vision-board" element={<VisionBoardPage />} />
 
@@ -59,9 +65,6 @@ function App() {
                 <Route path="/parametres" element={<Settings />} />
                 <Route path="/settings" element={<Navigate to="/parametres" replace />} />
 
-                <Route path="/pilotage" element={<Pilotage />} />
-                <Route path="/bien-etre" element={<BienEtre />} />
-                <Route path="/espace" element={<Espace />} />
                 <Route
                   path="/croissance"
                   element={
