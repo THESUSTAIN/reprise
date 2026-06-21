@@ -638,3 +638,9 @@ html.dark .fm-page .recharts-default-tooltip {
   border-color: rgba(255, 255, 255, 0.12) !important;
   color: #f0ecde !important;
 }
+
+/* Barre d'onglets Croissance : bg-white/85 ne bascule pas seule en sombre */
+html.dark .fm-page [data-testid="croissance-tabs"] {
+  background: rgba(18, 32, 54, 0.78) !important;
+  border-color: rgba(255, 255, 255, 0.10) !important;
+}

@@ -72,3 +72,11 @@ Date: 2026-06-21
 - Corrigé qq styles inline ambigus dans Pilotage.js / BienEtre.js : textes clairs sur cartes navy passés en var(--cream) (au lieu de var(--bg)), panneau "frozen", icône alerte, fonds #FBF6EA -> var(--cream-soft), tooltips -> var(--bg-card).
 - Testing agent iteration_3 : PASS. 0 carte/élément clair détecté en mode sombre sur les 3 pages (scan computed backgroundColor). Light mode non cassé. WelcomeModal OK sur les 3 pages. Aucune double-nav.
 - Mineurs non bloquants : pas de data-testid 'page-wellness' (seulement 'page-bien-etre') ; /espace a 3 onglets (Missions/Processus/Documents), pas 4.
+
+## Session 8 (2026-06-21) — Page Croissance portée + onglet Intégrations supprimé
+- PORTÉ la page **Croissance** de final-main sous `@fm` (comme Pilotage/BienEtre/Espace) : `fm/pages/Croissance.js` (orchestrateur) + `fm/pages/croissance/*` (9 sous-composants : HubView, AnalyseView, TerrainView, AgentView, MomTestModal, AddLeadModal, WaComposer, PipelineView, ConversationsMetrics). Imports réécrits `@/`→`@fm/`. Dépendances déjà présentes dans fm (PaywallGate, LeafBackdrop, leadsApi, useEscapeClose, welcomeContent['croissance']).
+- Route App.js : `/croissance` = `<FmShell><FmCroissance/></FmShell>` (était un StubPage). data-testid `page-croissance`. WelcomeModal('croissance') au 1er passage. 4 onglets (hub/analyse/terrain/agent), Growth Agent derrière PaywallGate.
+- SUPPRIMÉ l'onglet **Intégrations** : retiré de `mockData.js` navItems + route `/integrations` supprimée d'App.js (→ catch-all redirige vers /).
+- Dark mode : ajout override `html.dark .fm-page [data-testid="croissance-tabs"]` (la barre d'onglets `bg-white/85` ne basculait pas).
+- Testing agent iteration_4 : PASS sur les 6 critères (shell, dark, onglets, light, WelcomeModal, suppression Intégrations). NB : /api/leads renvoie items vides pour l'invité (KPIs à 0, attendu) ; 403 transitoire au montage rattrapé (.catch).
+- Reste à porter : WordPress, Admin (+ finaliser /login pour la fin).
