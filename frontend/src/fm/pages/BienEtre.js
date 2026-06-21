@@ -10,10 +10,13 @@ import { LineChart, Line, ResponsiveContainer, XAxis, YAxis, CartesianGrid, Tool
 import TrimestrielModal from "@fm/components/TrimestrielModal";
 import { wellnessApi } from "@fm/lib/api";
 import { toast, Toaster } from "sonner";
+import useWelcomeModal from "@fm/hooks/useWelcomeModal";
+import WelcomeModal from "@fm/components/WelcomeModal";
 
 const DEFAULT_TODAY = { physique: 6, mentale: 6, stress: 4, verdict: "Modérée", raison: "Énergie moyenne, stress contenu.", rituel: [], citation: "" };
 
 const BienEtre = () => {
+  const welcome = useWelcomeModal("bienetre");
   const [today, setToday] = useState(DEFAULT_TODAY);
   const [energyHistory, setEnergyHistory] = useState([]);
   const [bilanHistory, setBilanHistory] = useState([]);
@@ -349,6 +352,7 @@ const BienEtre = () => {
       <EspacePanel open={panel === "espace"} onClose={() => setPanel(null)} />
       <EnergiePanel open={panel === "energie"} onClose={() => setPanel(null)} onSave={() => setPanel(null)} />
       <CollaborateurPanel open={panel === "collaborateur"} onClose={() => setPanel(null)} context="Bien-être" />
+      <WelcomeModal open={welcome.show} onClose={welcome.close} {...(welcome.content || {})} />
     </div>
   );
 };

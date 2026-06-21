@@ -53,3 +53,15 @@ Date: 2026-06-21
 - RETIRÉ toutes les routes MongoDB (motor). Vision Board réécrit en store fichier JSON (backend/vision_local.py, vision_store.json) — aucune dépendance Mongo. Endpoints /api/vision/* + /api/canva/* OK (200).
 - LOGIN refait fidèle à final-main: passwordless (lien magique /api/auth/request-link + /verify-link, OAuth Google/Microsoft /api/oauth/*, mode invité /api/auth/guest). AUCUNE inscription, AUCUN mot de passe. .env backend: ALLOW_GUEST_LOGIN=true, PUBLIC_FRONTEND_URL.
 - À FAIRE (demande user): porter FIDÈLEMENT les pages de final-main (Pilotage.js, BienEtre.js, EspaceDeTravail.js) — actuellement ce sont des versions maison fonctionnelles branchées SQL, PAS les ports exacts final-main.
+
+## Session 6 (2026-06-21) — Fidélité totale final-main + auto-invité + suppression Mongo
+- MONGO RETIRÉ : Vision Board en store fichier JSON (vision_local.py). Aucune route motor.
+- AUTH : auto-session INVITÉ silencieuse (AuthContext.refresh -> /api/auth/guest, ALLOW_GUEST_LOGIN=true) -> AUCUN écran de connexion. Login passwordless (magic-link + OAuth + invité) conservé mais masqué.
+- PAGES final-main PORTÉES FIDÈLEMENT sous alias @fm (src/fm/) : /pilotage, /bien-etre, /espace — TopNav + SideNav + FloatingBottomBar + WelcomeModal (1er passage par page) + design tokens navy/cream/gold (tailwind.config + fm/fm.css). Token JWT partagé (zayado_token). fm/lib/api (fetch) vers le même backend.
+- WelcomeModal ajoutée à BienEtre (manquait) + entrée 'bienetre' dans welcomeContent.js.
+- Tests agent iteration_2 : backend 11/11, toutes les pages rendent, pas de mur de login, Vision Board OK. Seul souci (modal BienEtre) corrigé + vérifié.
+
+### Reste / backlog
+- Coquille reprise (Dashboard/Header/Sidebar) coexiste avec la nav final-main (TopNav) sur ces 3 pages (choix user = option 1).
+- Données invité vides : certains endpoints fm (analyse/revenue/finance) renvoient 0 -> brancher la vraie DB MySQL + intégrations pour données réelles.
+- Pages restantes à porter (Croissance, Intégrations, WordPress, Admin) + finaliser /login pour la fin.

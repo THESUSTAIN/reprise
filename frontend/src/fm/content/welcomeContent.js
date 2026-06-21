@@ -51,6 +51,17 @@ export const WELCOME_CONTENT = {
     ],
   },
 
+  bienetre: {
+    icon: Sparkles,
+    title: "Bienvenue sur Bien-être",
+    description: "Votre rituel quotidien d'énergie : un check-in de 2 minutes pour piloter votre forme et prévenir le burn-out.",
+    points: [
+      "Évaluez chaque matin votre énergie, votre clarté mentale et votre stress",
+      "Recevez la charge de travail suggérée par votre Co-pilote",
+      "Suivez votre énergie et votre stress sur les 30 derniers jours",
+    ],
+  },
+
   espace: {
     icon: FolderKanban,
     title: "Bienvenue dans votre Espace de travail",
