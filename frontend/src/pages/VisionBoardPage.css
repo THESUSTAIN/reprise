@@ -88,9 +88,9 @@
   transition: transform .15s, background-color .18s, box-shadow .18s; }
 .vb-btn:hover { background: rgba(255,255,255,.09); transform: translateY(-1px); }
 .vb-btn:active { transform: translateY(0); }
-.vb-btn-gold { background: linear-gradient(135deg, var(--gold), #c2923f); color: #2a1c06;
-  border-color: transparent; box-shadow: 0 8px 22px rgba(214,168,95,.28); }
-.vb-btn-gold:hover { background: linear-gradient(135deg, #e2b66c, #cf9f49); }
+.vb-btn-gold { background: linear-gradient(135deg, #1f4377 0%, #1a3a6e 45%, #0c1d33 100%); color: #ffffff;
+  border-color: transparent; box-shadow: 0 8px 22px rgba(26,58,110,.32); }
+.vb-btn-gold:hover { background: linear-gradient(135deg, #24508c 0%, #1f4377 45%, #102945 100%); }
 .vb-btn-mint { background: var(--mint-soft); color: var(--mint); border-color: rgba(52,211,153,.35); }
 .vb-btn-mint:hover { background: rgba(52,211,153,.22); }
 .vb-btn-ghost { background: transparent; }

@@ -10,6 +10,7 @@ import {
   Sun, Moon,
 } from "lucide-react";
 import { useTheme } from "../contexts/ThemeContext";
+import Logo from "../components/Logo";
 
 const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
 
@@ -119,11 +120,7 @@ export default function VisionBoardPage() {
       {/* ---------- TOP NAV ---------- */}
       <div className="vb-topnav">
         <div className="vb-brand">
-          <div className="vb-logo-mark">M</div>
-          <div>
-            <b>MyExtension<span className="vb-ai">AI</span></b>
-            <small>v2.0</small>
-          </div>
+          <Logo variant={theme === "dark" ? "onDark" : "onLight"} size="md" />
         </div>
         <nav className="vb-mainnav">
           {NAV.map((n) => (

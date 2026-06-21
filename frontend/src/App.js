@@ -10,6 +10,10 @@ import Layout from './components/Layout';
 import Dashboard from './pages/Dashboard';
 import VisionBoardPage from './pages/VisionBoardPage';
 import Settings from './pages/Settings';
+import Login from './pages/Login';
+import Pilotage from './pages/Pilotage';
+import BienEtre from './pages/BienEtre';
+import Espace from './pages/Espace';
 import StubPage from './pages/StubPage';
 
 /**
@@ -31,15 +35,7 @@ function App() {
               {/* Routes publiques sans Layout */}
               <Route
                 path="/login"
-                element={
-                  <StubPage
-                    title="Connexion"
-                    description="Accédez à votre cockpit MyExtension-ai"
-                    testId="page-login"
-                    sourceFile="final-main/frontend/src/pages/Login.js"
-                    status="porting"
-                  />
-                }
+                element={<Login />}
               />
               <Route
                 path="/onboarding"
@@ -63,42 +59,9 @@ function App() {
                 <Route path="/parametres" element={<Settings />} />
                 <Route path="/settings" element={<Navigate to="/parametres" replace />} />
 
-                <Route
-                  path="/pilotage"
-                  element={
-                    <StubPage
-                      title="Pilotage financier"
-                      description="CA, trésorerie, salaire possible — votre clarté financière en temps réel"
-                      testId="page-pilotage"
-                      sourceFile="final-main/frontend/src/pages/Pilotage.js"
-                      status="porting"
-                    />
-                  }
-                />
-                <Route
-                  path="/bien-etre"
-                  element={
-                    <StubPage
-                      title="Bien-être"
-                      description="Check-in énergie quotidien, prévention burn-out, carnet de bord"
-                      testId="page-bienetre"
-                      sourceFile="final-main/frontend/src/pages/BienEtre.js"
-                      status="porting"
-                    />
-                  }
-                />
-                <Route
-                  path="/espace"
-                  element={
-                    <StubPage
-                      title="Espace de travail"
-                      description="Missions, documents IA, processus métier — votre Co-pilote au quotidien"
-                      testId="page-espace"
-                      sourceFile="final-main/frontend/src/pages/EspaceDeTravail.js"
-                      status="porting"
-                    />
-                  }
-                />
+                <Route path="/pilotage" element={<Pilotage />} />
+                <Route path="/bien-etre" element={<BienEtre />} />
+                <Route path="/espace" element={<Espace />} />
                 <Route
                   path="/croissance"
                   element={

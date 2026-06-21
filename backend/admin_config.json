@@ -1,6 +1,15 @@
 {
   "email_log": [
     {
+      "to": "test@zayado.net",
+      "to_name": "Jean Test",
+      "subject": "Bienvenue sur ZAYADO \u2014 Votre assistant IA est pret !",
+      "brand": "zayado",
+      "status": "error",
+      "error": "(401)\nReason: Unauthorized\nHTTP response headers: HTTPHeaderDict({'Date': 'Sun, 21 Jun 2026 17:49:43 GMT', 'Content-Type': 'application/json', 'Content-Length': '72', 'Connection': 'keep-alive', 'CF-RAY': 'a0f4d9fc8df4f134-BCN', 'access-control-allow-credentials': 'true', 'sib-request-id': '46e4b78e-d91b-9432-ac33-2845c19cfaa8', 'access-control-allow-origin': '*', 'access-control-allow-headers': '*', 'access-control-allow-methods': 'PUT, POST, GET, DELETE, PATCH, OPTIONS', 'x-envoy-upstream-service-time': '4', 'cf-cache-status': 'DYNAMIC', 'Set-Cookie': '_cfuvid=3mhEzor8CmtCrviCuLHEkoX1D0yfolesFceQbFM7KhE-1782064183801-0.0.1.1-604800000; path=/; domain=.sendinblue.com; HttpOnly; Secure; SameSite=None', 'Server': 'cloudflare'})\nHTTP response body: {\"message\":\"authentication not found in headers\",\"code\":\"unauthorized\"}\n\n",
+      "sent_at": "2026-06-21T17:49:43.862189+00:00"
+    },
+    {
       "to": "test_inst2@zayado.net",
       "to_name": "Test Install",
       "subject": "Bienvenue sur ZAYADO \u2014 Votre assistant IA est pret !",
@@ -1642,14 +1651,6 @@
       "status": "sent",
       "message_id": "<202603271708.93063836636@smtp-relay.mailin.fr>",
       "sent_at": "2026-03-27T17:08:23.269150+00:00"
-    },
-    {
-      "to": "ratelimit_reg_4_1774631302@example.com",
-      "to_name": "Test User",
-      "subject": "Bienvenue sur Zayado AI !",
-      "status": "sent",
-      "message_id": "<202603271708.12793038943@smtp-relay.mailin.fr>",
-      "sent_at": "2026-03-27T17:08:22.720222+00:00"
     }
   ],
   "workflow_notifs_8c40b413-34e9-49fc-b509-682874536131": [
@@ -1842,6 +1843,34 @@
     }
   },
   "admin_log": [
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-21T17:57:22.046714+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-21T17:47:33.563571+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-21T17:47:25.297858+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-06-21T17:46:51.525874+00:00",
+      "by": "system"
+    },
     {
       "action": "server_start",
       "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
@@ -5312,34 +5341,6 @@
       "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
       "level": "info",
       "timestamp": "2026-04-14T13:30:52.878252+00:00",
-      "by": "system"
-    },
-    {
-      "action": "server_start",
-      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
-      "level": "info",
-      "timestamp": "2026-04-14T13:21:36.199696+00:00",
-      "by": "system"
-    },
-    {
-      "action": "server_start",
-      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
-      "level": "info",
-      "timestamp": "2026-04-14T11:01:53.955566+00:00",
-      "by": "system"
-    },
-    {
-      "action": "server_start",
-      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
-      "level": "info",
-      "timestamp": "2026-04-13T19:31:27.858911+00:00",
-      "by": "system"
-    },
-    {
-      "action": "server_start",
-      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
-      "level": "info",
-      "timestamp": "2026-04-13T19:31:26.932486+00:00",
       "by": "system"
     }
   ],

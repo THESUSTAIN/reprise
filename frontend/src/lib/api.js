@@ -87,16 +87,34 @@ export const paymentsApi = {
 
 // FINANCE / PILOTAGE
 export const financeApi = {
-  overview: () => get('/finance/overview'),
+  overview: (period) => get('/finance/overview', period ? { period } : undefined),
   budget: () => get('/finance/budget'),
   forecast: () => get('/finance/forecast'),
+  serenity: () => get('/finance/serenity'),
+  addEntry: (data) => post('/finance/entry', data),
 };
 
 // WELLNESS / BIEN-ETRE
 export const wellnessApi = {
   today: () => get('/wellness/today'),
-  energy: (level) => post('/energy', { level }),
+  checkin: (data) => post('/wellness/checkin', data),
   history: () => get('/wellness/history'),
+  weeklyReport: () => get('/wellness/weekly-report'),
+};
+
+// ESPACE DE TRAVAIL / PROCESSES
+export const processesApi = {
+  list: () => get('/processes'),
+  create: (data) => post('/processes', data),
+};
+
+// PROJETS / MISSIONS (Espace de travail)
+export const projectsApi = {
+  list: () => get('/projects'),
+  create: (data) => post('/projects', data),
+  start: (id) => post(`/projects/${id}/start`),
+  stop: (id) => post(`/projects/${id}/stop`),
+  remove: (id) => del(`/projects/${id}`),
 };
 
 // PROFILE

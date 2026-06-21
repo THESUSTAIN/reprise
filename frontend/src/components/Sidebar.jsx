@@ -38,7 +38,7 @@ const Sidebar = () => {
   return (
     <aside
       data-testid="sidebar-root"
-      className="fixed inset-y-0 left-0 w-[96px] z-30 flex flex-col justify-between items-center bg-gradient-to-b from-[#2a4a8e] via-[#1f3b73] to-[#0f1e50]"
+      className="fixed inset-y-0 left-0 w-[96px] z-30 flex flex-col justify-between items-center bg-gradient-to-b from-[#142b45] via-[#1B3A5B] to-[#0c1d31]"
     >
       {/* TOP : Logo officiel MyExtension-ai (icône seule) */}
       <div className="w-full flex items-center justify-center px-2 py-5" data-testid="sidebar-logo">

@@ -195,7 +195,18 @@ app.include_router(onedrive_router,   prefix="/api")
 app.include_router(agent_router,      prefix="/api")
 # Cockpit endpoints ported from MongoDB backend
 app.include_router(dashboard_router)
-app.include_router(vision_board_router)
+
+# ── Vision Board (reprise) — routers MongoDB/motor compatibles avec VisionBoardPage.jsx
+#    (remplace l'ancien vision_board_router final-main pour éviter le conflit /api/vision/board)
+from motor.motor_asyncio import AsyncIOMotorClient as _RepriseMongoClient
+import vision_board as _reprise_vision
+import heyzine as _reprise_heyzine
+import canva as _reprise_canva
+_reprise_mongo = _RepriseMongoClient(os.environ['MONGO_URL'])
+_reprise_db = _reprise_mongo[os.environ['DB_NAME']]
+app.include_router(_reprise_vision.build_router(_reprise_db), prefix="/api")
+app.include_router(_reprise_heyzine.build_router(_reprise_db), prefix="/api")
+app.include_router(_reprise_canva.build_router(_reprise_db), prefix="/api")
 app.include_router(complexity_router, prefix="/api")
 app.include_router(support_router,    prefix="/api")
 app.include_router(team_router,       prefix="/api")
