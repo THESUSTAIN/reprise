@@ -65,3 +65,10 @@ Date: 2026-06-21
 - Coquille reprise (Dashboard/Header/Sidebar) coexiste avec la nav final-main (TopNav) sur ces 3 pages (choix user = option 1).
 - Données invité vides : certains endpoints fm (analyse/revenue/finance) renvoient 0 -> brancher la vraie DB MySQL + intégrations pour données réelles.
 - Pages restantes à porter (Croissance, Intégrations, WordPress, Admin) + finaliser /login pour la fin.
+
+## Session 7 (2026-06-21) — Mode sombre final-main FINALISÉ (Priorité 1 ✅)
+- CORRIGÉ le mode sombre des pages importées /pilotage, /bien-etre, /espace.
+- Approche : bloc dark dans fm.css (`html.dark .fm-page`) qui (1) remappe les variables ambiguës (--bg, --surface, --border, --cream-soft, --cream-dark) et (2) neutralise les classes Tailwind couleur "en dur" (.text-[#1F2937], .text-[#6B6358], .bg-[#FBF6EA], .bg-[#F3E9D0], .border-[#E8E2D8]...) + .card-soft + thème Recharts (axes/grille/tooltip).
+- Corrigé qq styles inline ambigus dans Pilotage.js / BienEtre.js : textes clairs sur cartes navy passés en var(--cream) (au lieu de var(--bg)), panneau "frozen", icône alerte, fonds #FBF6EA -> var(--cream-soft), tooltips -> var(--bg-card).
+- Testing agent iteration_3 : PASS. 0 carte/élément clair détecté en mode sombre sur les 3 pages (scan computed backgroundColor). Light mode non cassé. WelcomeModal OK sur les 3 pages. Aucune double-nav.
+- Mineurs non bloquants : pas de data-testid 'page-wellness' (seulement 'page-bien-etre') ; /espace a 3 onglets (Missions/Processus/Documents), pas 4.
