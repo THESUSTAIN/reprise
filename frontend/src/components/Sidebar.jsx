@@ -38,7 +38,7 @@ const Sidebar = () => {
   return (
     <aside
       data-testid="sidebar-root"
-      className="fixed inset-y-0 left-0 w-[96px] z-30 flex flex-col justify-between items-center bg-[#04081a] dark:bg-[#04081a]"
+      className="fixed inset-y-0 left-0 w-[96px] z-30 flex flex-col justify-between items-center bg-[#0c1d33] dark:bg-[#0c1d33]"
     >
       {/* TOP : Logo officiel MyExtension-ai (icône seule) */}
       <div className="w-full flex items-center justify-center px-2 py-5" data-testid="sidebar-logo">
@@ -47,14 +47,14 @@ const Sidebar = () => {
 
       {/* MIDDLE : inner box with navy gradient + scoop corners */}
       <div className="relative w-full flex-1 flex items-center">
-        <div className="relative w-full bg-gradient-to-b from-[#142b45] via-[#1B3A5B] to-[#0c1d31] rounded-r-3xl py-6 px-3">
+        <div className="relative w-full bg-gradient-to-b from-[#2a4a8e] via-[#1f3b73] to-[#0f1e50] rounded-r-3xl py-6 px-3">
           {/* SVG scoop — top-left */}
           <svg
             className="absolute left-0 top-[-30px] -rotate-90 pointer-events-none"
             width="30"
             height="30"
             viewBox="0 0 30 30"
-            fill="#142b45"
+            fill="#2a4a8e"
             xmlns="http://www.w3.org/2000/svg"
             aria-hidden="true"
           >
@@ -66,7 +66,7 @@ const Sidebar = () => {
             width="30"
             height="30"
             viewBox="0 0 30 30"
-            fill="#142b45"
+            fill="#0f1e50"
             xmlns="http://www.w3.org/2000/svg"
             aria-hidden="true"
           >

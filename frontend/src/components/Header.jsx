@@ -63,8 +63,8 @@ const Header = () => {
 
         {/* Wordmark "MyExtension-ai by Zayado" — sur bande navy → toujours variante claire */}
         <div className="hidden md:flex items-center pl-5 pr-4 select-none" data-testid="header-wordmark">
-          <Logo variant="onDark" size="md" />
-          <span className="w-px h-7 bg-white/15 ml-3" />
+          <Logo variant={theme === 'dark' ? 'onDark' : 'onLight'} size="md" />
+          <span className="w-px h-7 ml-3 zy-hdr-sep" />
         </div>
 
         {/* Search */}
@@ -90,21 +90,21 @@ const Header = () => {
           <button
             onClick={toggleTheme}
             data-testid="header-theme-toggle"
-            className="w-9 h-9 rounded-lg bg-white/12 hover:bg-white/20 border border-white/15 flex items-center justify-center transition"
+            className="w-9 h-9 rounded-lg zy-hdr-btn flex items-center justify-center transition"
             aria-label="Toggle theme"
           >
             {theme === 'dark' ? (
               <Sun className="w-[15px] h-[15px] text-[#f3d8a6]" />
             ) : (
-              <Moon className="w-[15px] h-[15px] text-white" />
+              <Moon className="w-[15px] h-[15px] text-current" />
             )}
           </button>
 
           {/* Messages */}
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <button className="relative w-9 h-9 rounded-lg bg-white/12 hover:bg-white/20 border border-white/15 flex items-center justify-center transition">
-                <Mail className="w-[15px] h-[15px] text-white" />
+              <button className="relative w-9 h-9 rounded-lg zy-hdr-btn flex items-center justify-center transition">
+                <Mail className="w-[15px] h-[15px] text-current" />
                 {unreadMsgs > 0 && (
                   <span className="absolute -top-1 -right-1 min-w-[16px] h-[16px] px-1 rounded-full bg-[#d4b78c] text-[#0a1f4e] text-[10px] font-semibold flex items-center justify-center border border-[#0a1f4e]">
                     {unreadMsgs}
@@ -147,11 +147,11 @@ const Header = () => {
             <DropdownMenuTrigger asChild>
               <button
                 data-testid="header-quickjump-btn"
-                className="w-9 h-9 rounded-lg bg-white/12 hover:bg-white/20 border border-white/15 flex items-center justify-center transition"
+                className="w-9 h-9 rounded-lg zy-hdr-btn flex items-center justify-center transition"
                 aria-label="Modules Zayado"
                 title="Modules Zayado"
               >
-                <Grid3x3 className="w-[15px] h-[15px] text-white" />
+                <Grid3x3 className="w-[15px] h-[15px] text-current" />
               </button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-72 mr-2 p-3">
@@ -186,8 +186,8 @@ const Header = () => {
           {/* Notifications */}
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <button className="relative w-9 h-9 rounded-lg bg-white/12 hover:bg-white/20 border border-white/15 flex items-center justify-center transition">
-                <Bell className="w-[15px] h-[15px] text-white" />
+              <button className="relative w-9 h-9 rounded-lg zy-hdr-btn flex items-center justify-center transition">
+                <Bell className="w-[15px] h-[15px] text-current" />
                 {unreadNotifs > 0 && (
                   <span className="absolute -top-1 -right-1 min-w-[16px] h-[16px] px-1 rounded-full bg-[#d4b78c] text-[#0a1f4e] text-[10px] font-semibold flex items-center justify-center border border-[#0a1f4e]">
                     {unreadNotifs}
@@ -230,12 +230,12 @@ const Header = () => {
           {/* Profile */}
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <button className="flex items-center gap-2 pl-1 pr-2 h-9 rounded-lg bg-white/12 hover:bg-white/20 border border-white/15 transition">
+              <button className="flex items-center gap-2 pl-1 pr-2 h-9 rounded-lg zy-hdr-btn transition">
                 <div className="w-7 h-7 rounded-md bg-gradient-to-br from-[#d4b78c] to-[#c4a374] text-[#0a1f4e] text-[11px] font-bold flex items-center justify-center">
                   {userProfile.initials}
                 </div>
-                <span className="hidden md:inline text-white text-sm font-medium">{userProfile.fullName.split(' ')[0]}</span>
-                <ChevronDown className="w-3 h-3 text-white/70 hidden md:block" />
+                <span className="hidden md:inline text-current text-sm font-medium">{userProfile.fullName.split(' ')[0]}</span>
+                <ChevronDown className="w-3 h-3 text-current opacity-70 hidden md:block" />
               </button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-60 mr-2">

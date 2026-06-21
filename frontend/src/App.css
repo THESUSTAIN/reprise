@@ -53,31 +53,57 @@ html:not(.dark) .zy-sidebar {
   background: linear-gradient(180deg, transparent 0%, #d4b78c 25%, #2952a3 60%, transparent 100%);
 }
 
-/* Header band — navy uniforme (référence okyai-clone) : #142b45 → #1B3A5B → #0c1d31 */
+/* Header band
+   - DARK  : navy uniforme (référence okyai-clone) #142b45 → #1B3A5B → #0c1d31, texte clair
+   - LIGHT : blanc (référence final-main TopNav), texte navy */
 .zy-header-band {
   background: linear-gradient(to right, #142b45 0%, #1B3A5B 60%, #0c1d31 100%);
   background-color: #142b45;
+  color: #ffffff;
   border: 1px solid rgba(148, 163, 184, 0.06);
   box-shadow: 0 12px 36px -18px rgba(0, 0, 0, 0.5);
 }
+html:not(.dark) .zy-header-band {
+  background: #ffffff;
+  background-color: #ffffff;
+  color: #1a3a6e;
+  border: 1px solid rgba(26, 58, 110, 0.1);
+  box-shadow: 0 12px 36px -18px rgba(15, 23, 42, 0.18);
+}
 
 /* Header scoops — coins concaves qui prolongent le header dans la page.
-   Le fill DOIT correspondre à la couleur du header (navy) pour créer
-   l'effet de "flare" comme dans la référence (et non la couleur du fond). */
+   Le fill correspond à la couleur du header (flare) :
+   navy en dark, blanc en light. */
 .zy-header-scoop {
   fill: #142b45;
 }
 html:not(.dark) .zy-header-scoop {
-  fill: #142b45;
-}
-html:not(.dark) .zy-header-band {
-  background: linear-gradient(to right, #142b45 0%, #1B3A5B 60%, #0c1d31 100%);
-  background-color: #142b45;
-  border: 1px solid rgba(15, 23, 42, 0.08);
-  box-shadow: 0 12px 36px -18px rgba(15, 23, 42, 0.2);
+  fill: #ffffff;
 }
 
-/* Search bar inside header — navy band dans les deux thèmes → texte clair */
+/* Boutons du header — teinte adaptée au thème (clair sur navy / navy sur blanc) */
+.zy-hdr-btn {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+}
+.zy-hdr-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+html:not(.dark) .zy-hdr-btn {
+  background: rgba(26, 58, 110, 0.05);
+  border: 1px solid rgba(26, 58, 110, 0.12);
+  color: #1a3a6e;
+}
+html:not(.dark) .zy-hdr-btn:hover {
+  background: rgba(26, 58, 110, 0.1);
+}
+.zy-hdr-sep {
+  background: currentColor;
+  opacity: 0.18;
+}
+
+/* Search bar inside header */
 .zy-search {
   background: rgba(255, 255, 255, 0.07);
   border: 1px solid rgba(255, 255, 255, 0.12);
@@ -85,6 +111,14 @@ html:not(.dark) .zy-header-band {
 }
 .zy-search::placeholder {
   color: rgba(255, 255, 255, 0.5);
+}
+html:not(.dark) .zy-search {
+  background: rgba(26, 58, 110, 0.04);
+  border: 1px solid rgba(26, 58, 110, 0.12);
+  color: #1a3a6e;
+}
+html:not(.dark) .zy-search::placeholder {
+  color: rgba(26, 58, 110, 0.45);
 }
 .zy-search:focus {
   outline: none;

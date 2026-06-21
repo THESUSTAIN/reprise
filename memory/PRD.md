@@ -21,3 +21,12 @@ Date: 2026-06-21
 - Wirer la DB MySQL distante si demandé (DATABASE_URL Hostinger).
 - Porter pages stub (Pilotage, Bien-etre, etc.) depuis final-main.
 - Vérifier integrations (Mollie paiement, Google/MS OAuth) en e2e.
+
+## Session 2 (2026-06-21) — Corrections light mode + Vision Board + sidebar
+- Vision Board (/vision-board) sorti du Layout global -> plus de double header; la page garde sa propre top-nav navy/gold autonome.
+- Light mode aligné sur final-main: header BLANC (texte navy), sidebar navy-blue, page cream.
+  - .zy-header-band: dark=navy #142b45->#0c1d31 / light=#fff
+  - .zy-header-scoop: dark #142b45 / light #fff
+  - Helpers .zy-hdr-btn (boutons theme-aware), .zy-hdr-sep; icônes header en text-current; Logo variant theme-aware.
+  - .zy-search theme-aware (texte navy sur blanc en light).
+- Sidebar plus "noir": outer #0c1d33, inner gradient #2a4a8e->#1f3b73->#0f1e50 (palette final-main), scoops #2a4a8e/#0f1e50.

@@ -54,10 +54,12 @@ function App() {
                 }
               />
 
+              {/* Vision Board — page autonome (sa propre top-nav, sans Layout global) */}
+              <Route path="/vision-board" element={<VisionBoardPage />} />
+
               {/* Routes app avec Layout (Sidebar + Header) */}
               <Route element={<Layout />}>
                 <Route path="/" element={<Dashboard />} />
-                <Route path="/vision-board" element={<VisionBoardPage />} />
                 <Route path="/parametres" element={<Settings />} />
                 <Route path="/settings" element={<Navigate to="/parametres" replace />} />
 
