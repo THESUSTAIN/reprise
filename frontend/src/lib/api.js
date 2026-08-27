@@ -270,6 +270,12 @@ export async function sendCopilotMessage({ message, session = "default", history
 export const getCopilotBrief = (session = "default") =>
   api.get(`/growth/daily-brief?user_id=${encodeURIComponent(session)}`).then((r) => r.data);
 
+// Le dashboard sécurisé contient les métriques, missions et checklists réelles
+// absentes du daily-brief. Le Chat l’utilise pour enrichir le Point du jour,
+// sans fabriquer de KPI lorsque l’utilisateur n’a pas encore de données.
+export const getDashboardSummary = () => api.get("/dashboard/summary").then((r) => r.data);
+export const getDashboardFusion = () => api.get("/dashboard/fusion").then((r) => r.data);
+
 export const getCopilotConfig = async () => ({});
 
 export const getCopilotDecision = (session = "default") =>

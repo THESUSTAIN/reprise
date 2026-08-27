@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   ArrowLeft, ArrowRight, Camera, Check, CheckCircle2, ChevronDown, Clock, Compass, Copy, ExternalLink, FileText, Folder, Globe, Handshake, HeartPulse, Image, Loader2,
-  Menu, MessageCircle, Newspaper, Paperclip, Plus, Send, ShieldCheck,
+  MessageCircle, Moon, Newspaper, Paperclip, Plus, RefreshCw, Send, ShieldCheck,
   Sparkles, Sun, Wallet, X,
 } from "lucide-react";
 import { NightRecap, NextSequence } from "./CockpitSections";
@@ -11,7 +11,7 @@ import {
   getCopilotDecision, getCopilotNews, getNewsHistory, getSavedNews, saveNewsItem, deleteSavedNews, archiveNewsEdition,
   sendCopilotWorkRequest, streamChatMessage, sendCopilotMessage, uploadChatFile, generateChatImage,
   getDriveStatus, connectDrive, listDriveFiles, importDriveFileToChat,
-  getLastSeenNewsId, setLastSeenNewsId,
+  getLastSeenNewsId, setLastSeenNewsId, getDashboardSummary, getDashboardFusion,
 } from "../lib/api";
 
 const SUGGESTIONS = [
@@ -87,6 +87,82 @@ function BriefCard({ data }) {
   );
 }
 
+function formatEventTime(value) {
+  if (!value) return "maintenant";
+  const parsed = new Date(value);
+  if (Number.isNaN(parsed.getTime())) return "maintenant";
+  return parsed.toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit" });
+}
+
+function EventStamp({ actor = "MyExtension Business", at, ai = false }) {
+  return <div className="copilot-event-stamp" data-testid="copilot-event-stamp"><span className="copilot-event-dot" />{actor} · {formatEventTime(at)}{ai && <span className="copilot-ai-badge">IA</span>}</div>;
+}
+
+function DailyFlowSummary({ brief, dashboard, fusion, decisions }) {
+  const generated = dashboard?.value_generated;
+  const hasGeneratedData = Boolean(generated?.has_data);
+  const automated = hasGeneratedData ? Number(generated?.automated_tasks || 0) : null;
+  const aiTasks = hasGeneratedData ? Number(generated?.ai_tasks || 0) : null;
+  const decisionCount = Array.isArray(decisions) ? decisions.length : 0;
+  const priority = fusion?.today_priority?.label || dashboard?.vision?.next_step || brief?.headline || "";
+  const items = [];
+  if (automated !== null) items.push(`${automated} élément${automated > 1 ? "s" : ""} préparé${automated > 1 ? "s" : ""}`);
+  if (aiTasks !== null) items.push(`${aiTasks} action${aiTasks > 1 ? "s" : ""} IA`);
+  if (decisionCount) items.push(`${decisionCount} décision${decisionCount > 1 ? "s" : ""} à valider`);
+  if (!brief && !dashboard && !fusion) return null;
+  return <div className="copilot-daily-summary" data-testid="copilot-daily-summary"><EventStamp at={brief?.generated_at || fusion?.generated_at || null} ai /><div className="copilot-daily-summary-title"><Sparkles size={14} /> Point du jour <span className="copilot-ai-badge">IA</span></div>{brief?.date_label && <div className="copilot-daily-date">{brief.date_label}</div>}<p>{items.length ? `${items.join(" · ")}.` : "Votre point du jour est prêt ; connectez vos données pour enrichir ce résumé."}</p>{priority && <div className="copilot-daily-priority"><strong>Prochain pas :</strong> {priority}</div>}</div>;
+}
+
+function RecentTimeline({ items }) {
+  const timeline = Array.isArray(items) ? items.filter((item) => item?.label).slice(0, 3) : [];
+  if (!timeline.length) return null;
+  return <div className="copilot-recent-timeline" data-testid="copilot-recent-timeline"><div className="copilot-result-title"><Clock size={15} /> Derniers mouvements</div>{timeline.map((item, index) => <div className="copilot-timeline-row" key={`${item.at || "event"}-${index}`}><EventStamp at={item.at} /><span>{item.label}</span></div>)}</div>;
+}
+
+function ActionResultCard({ result, onOpenTasks }) {
+  if (!result?.message) return null;
+  return <div className="copilot-action-result" data-testid="copilot-action-result"><EventStamp at={result.at} ai /><div className="copilot-result-title"><CheckCircle2 size={15} /> Résultat préparé</div><p>{result.message}</p>{result.status === "approved" && <button type="button" onClick={onOpenTasks}>Ouvrir Mon Mouvement <ArrowRight size={13} /></button>}</div>;
+}
+
+function EmptyDecisionQueue({ onOpenTasks }) {
+  return <section className="copilot-decision-empty" data-testid="copilot-decisions-empty">
+    <EventStamp actor="MyExtension Business" at={new Date().toISOString()} ai />
+    <div className="copilot-decision-empty-title"><ShieldCheck size={16} /> Validations</div>
+    <p>Aucune validation n’est requise pour le moment. Les tâches et décisions à confirmer apparaîtront ici dès qu’elles seront disponibles.</p>
+    <button type="button" onClick={onOpenTasks}>Voir les tâches et missions <ArrowRight size={14} /></button>
+  </section>;
+}
+
+function InlineNewsSources({ sources = [] }) {
+  if (!sources.length) return null;
+  return <div className="news-inline-sources" data-testid="news-inline-sources"><span>Sources</span>{sources.slice(0, 4).map((source, index) => source?.url ? <a key={`${source.url}-${index}`} href={source.url} target="_blank" rel="noopener noreferrer"><Globe size={11} />{source.source || source.title || "Référence"}</a> : <span key={`${source?.label || "source"}-${index}`}>{source?.label || source?.source || "Référence"}</span>)}</div>;
+}
+
+function NewsConversation({ digest, sources, scope, generatedAt, messages, loading, error, status, onRefresh, onAsk, onSaveEdition, history, saved, onRemoveSaved, userName = "Vous" }) {
+  const [input, setInput] = useState("");
+  const submit = (question) => {
+    const nextQuestion = String(question || input).trim();
+    if (!nextQuestion || loading) return;
+    setInput("");
+    onAsk(nextQuestion);
+  };
+  const scopeLabel = [scope?.sector || "entrepreneuriat PME", scope?.region || "France"].join(" · ");
+  return <div className="news-conversation flex-1 overflow-y-auto px-4 py-4" data-testid="copilot-news-conversation">
+    <div className="news-conversation-intro">
+      <EventStamp actor="MyExtension Business · Veille" at={generatedAt} ai />
+      <p>J’ai analysé les évolutions de votre secteur. Voici le signal qui peut influencer votre activité.</p>
+      <button type="button" onClick={onRefresh} disabled={loading} data-testid="news-refresh"><RefreshCw size={14} className={loading ? "animate-spin" : ""} /> {loading ? "Actualisation…" : "Actualiser la veille"}</button>
+    </div>
+    {status && <div className="news-conversation-status">{status}</div>}
+    {error && <div className="news-conversation-error">{error}</div>}
+    {digest ? <section className="news-signal-card" data-testid="news-signal-card"><EventStamp actor="MyExtension Business · Signal du jour" at={generatedAt} ai /><div className="news-signal-heading"><Newspaper size={15} /> Signal du jour</div><div className="news-signal-scope">{scopeLabel}</div><div className="news-signal-copy">{renderMarkdownLite(digest)}</div><InlineNewsSources sources={sources} /><div className="news-signal-actions"><button type="button" onClick={() => submit("Quel impact concret cette actualité peut-elle avoir sur mon activité ?")}>Quel impact pour moi ?</button><button type="button" onClick={() => submit("Résume cette actualité en trois actions concrètes et proportionnées.")}>3 actions concrètes</button><button type="button" onClick={() => submit("Prépare un brouillon de publication LinkedIn fondé sur cette actualité, sans inventer de faits.")}>Préparer une publication</button><button type="button" onClick={onSaveEdition}>Enregistrer</button></div></section> : !loading && <div className="news-empty-state">Aucun signal de veille n’est disponible pour le moment. Actualisez lorsque vos sources seront connectées.</div>}
+    {messages.map((message, index) => <div key={message.id || `${message.created_at || "news"}-${index}`} className={`news-message ${message.role === "user" ? "is-user" : "is-assistant"}`}><EventStamp actor={message.role === "user" ? userName : "MyExtension Business · Veille"} at={message.created_at || message.updated_at} ai={message.role === "assistant"} /><div className="news-message-bubble">{message.pending ? <Loader2 size={16} className="animate-spin" /> : renderMarkdownLite(message.content)}{message.role === "assistant" && <InlineNewsSources sources={message.sources || []} />}</div></div>)}
+    <details className="news-secondary-panel"><summary>Éditions précédentes <span>{history.length}</span></summary><div>{history.slice(0, 8).map((item) => <details key={item.id} className="news-history-item"><summary>{item.title || "Édition de veille"}</summary><p>{item.published_at ? new Date(item.published_at).toLocaleString("fr-FR", { dateStyle: "medium", timeStyle: "short" }) : "Date indisponible"}</p><div>{renderMarkdownLite(item.digest || item.content || "Contenu détaillé indisponible.")}</div></details>) || <p>Aucune édition précédente.</p>}</div></details>
+    <details className="news-secondary-panel"><summary>Éléments enregistrés <span>{saved.length}</span></summary><div>{saved.slice(0, 12).map((item) => <div className="news-saved-item" key={item.id}><div><strong>{item.title}</strong><small>{item.source || "Veille Copilote"}</small></div><div>{item.url && <a href={item.url} target="_blank" rel="noopener noreferrer">Ouvrir</a>}<button type="button" onClick={() => onRemoveSaved(item.id)}>Retirer</button></div></div>) || <p>Aucun élément enregistré.</p>}</div></details>
+    <div className="news-composer"><input value={input} onChange={(event) => setInput(event.target.value)} onKeyDown={(event) => { if (event.key === "Enter" && !event.shiftKey) { event.preventDefault(); submit(); } }} placeholder="Demandez l’impact pour votre activité…" /><button type="button" onClick={() => submit()} disabled={loading || !input.trim()} aria-label="Envoyer la question de veille"><Send size={16} /></button></div>
+  </div>;
+}
+
 const DECISION_DOMAIN = {
   vision: { label: "Vision", icon: Compass, color: "#93c5fd" },
   pilotage: { label: "Pilotage", icon: Wallet, color: "#6ee7b7" },
@@ -144,7 +220,7 @@ function ActionCard({ card, onDecision, busy, index = 0 }) {
       <button type="button" className="mb-2 flex w-full items-center gap-2.5 text-left" onClick={() => setExpanded((value) => !value)} aria-expanded={expanded} data-testid={`copilot-action-toggle-${rank}`}>
         <span className={`inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-xl ${rank === 1 ? "bg-[#DEC2A3] text-[#0A1128]" : "bg-[#DEC2A3]/20 text-[#E8C96A]"}`}><strong className="text-[13px]">{rank}</strong></span>
         <div className="min-w-0 flex-1">
-          <div className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wide" style={{ color: domain.color }}><DomainIcon size={11} /> {domain.label} · {rank === 1 ? "Aujourd’hui" : "Ensuite"}</div>
+          <div className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wide" style={{ color: domain.color }}><DomainIcon size={11} /> {domain.label} · {rank === 1 ? "Aujourd’hui" : "Ensuite"} <span className="copilot-ai-badge">IA</span></div>
           <div className="text-[11px] text-white/75">{rank === 1 ? "Priorité principale — pourquoi maintenant ?" : "Priorité secondaire à traiter après la précédente."}</div>
         </div>
         <ChevronDown size={18} className={`shrink-0 text-white/65 transition-transform ${expanded ? "rotate-180" : ""}`} />
@@ -176,7 +252,7 @@ function ActionCard({ card, onDecision, busy, index = 0 }) {
   );
 }
 
-export default function ChatPanel({ context, initialAsk, onBack, onMenu }) {
+export default function ChatPanel({ context, initialAsk, onBack }) {
   const navigate = useNavigate();
   const sessionId = useMemo(getSessionId, []);
   const visionContextLabel = String(context || "").match(/Onglet Vision actif : ([^.]+)/)?.[1] || null;
@@ -184,14 +260,20 @@ export default function ChatPanel({ context, initialAsk, onBack, onMenu }) {
   const [input, setInput] = useState("");
   const [attachments, setAttachments] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [hubLight, setHubLight] = useState(() => document.documentElement.classList.contains("ambiance-clarte"));
   const [uploading, setUploading] = useState(false);
   const [historyLoading, setHistoryLoading] = useState(true);
   const [tab, setTab] = useState("chat");
   const [brief, setBrief] = useState(null);
+  const [dashboard, setDashboard] = useState(null);
+  const [fusion, setFusion] = useState(null);
   const [dailyDecisions, setDailyDecisions] = useState([]);
+  const [actionResults, setActionResults] = useState([]);
   const [decisionBusyId, setDecisionBusyId] = useState(null);
   const [newsText, setNewsText] = useState("");
   const [newsSources, setNewsSources] = useState([]);
+  const [newsMessages, setNewsMessages] = useState([]);
+  const [newsConversationLoading, setNewsConversationLoading] = useState(false);
   const [newsError, setNewsError] = useState("");
   const [newsLoading, setNewsLoading] = useState(false);
   const [newsScope, setNewsScope] = useState({ sector: "", region: "", frequency_per_week: 1, next_refresh_at: "" });
@@ -208,6 +290,15 @@ export default function ChatPanel({ context, initialAsk, onBack, onMenu }) {
   // pas juste un point rouge, pour savoir combien de nouvelles éditions
   // sont arrivées depuis la dernière consultation.
   const [unseenNewsCount, setUnseenNewsCount] = useState(0);
+  const toggleHubTheme = () => {
+    const next = !hubLight;
+    document.documentElement.classList.toggle("ambiance-clarte", next);
+    setHubLight(next);
+    try {
+      const raw = JSON.parse(localStorage.getItem("cours-main-settings-preferences") || "{}");
+      localStorage.setItem("cours-main-settings-preferences", JSON.stringify({ ...raw, theme: next ? "light" : "dark", ambiance: next ? "clarte" : "sens" }));
+    } catch { /* noop */ }
+  };
   useEffect(() => {
     if (!newsHistory.length) return;
     getLastSeenNewsId().then((lastSeen) => {
@@ -223,6 +314,14 @@ export default function ChatPanel({ context, initialAsk, onBack, onMenu }) {
   };
   const [contactOpen, setContactOpen] = useState(false);
   const [decisionView, setDecisionView] = useState(null);
+  useEffect(() => {
+    if (!contactOpen) return undefined;
+    const onKeyDown = (event) => { if (event.key === "Escape") setContactOpen(false); };
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    document.addEventListener("keydown", onKeyDown);
+    return () => { document.body.style.overflow = previousOverflow; document.removeEventListener("keydown", onKeyDown); };
+  }, [contactOpen]);
   const [contactMessage, setContactMessage] = useState("");
   const [contactSent, setContactSent] = useState(false);
   const [whatsappUrl, setWhatsappUrl] = useState("");
@@ -242,12 +341,14 @@ export default function ChatPanel({ context, initialAsk, onBack, onMenu }) {
     // getChatHistory lui-même avait réussi. Le Copilote pouvait donc paraître
     // vide à chaque ouverture alors que l'historique existait bel et bien.
     Promise.allSettled([
-      getChatHistory(sessionId), getCopilotBrief(sessionId), getCopilotConfig(),
+      getChatHistory(sessionId), getCopilotBrief(sessionId), getDashboardSummary(), getDashboardFusion(), getCopilotConfig(),
       getCopilotDecision(sessionId), getSavedNews(sessionId), getNewsHistory(sessionId),
-    ]).then(([history, dailyBrief, config, decision, saved, newsHistoryResult]) => {
+    ]).then(([history, dailyBrief, dashboardResult, fusionResult, config, decision, saved, newsHistoryResult]) => {
         if (!active) return;
         setMessages(history.status === "fulfilled" ? history.value : []);
         setBrief(dailyBrief.status === "fulfilled" ? dailyBrief.value : null);
+        setDashboard(dashboardResult.status === "fulfilled" ? dashboardResult.value : null);
+        setFusion(fusionResult.status === "fulfilled" ? fusionResult.value : null);
         setWhatsappUrl(config.status === "fulfilled" ? (config.value?.whatsapp_url || "") : "");
         const loadedDecisions = decision.status === "fulfilled" && Array.isArray(decision.value?.decisions) ? decision.value.decisions : [];
         setDailyDecisions(loadedDecisions.filter((item) => item.status !== "approved"));
@@ -298,8 +399,9 @@ export default function ChatPanel({ context, initialAsk, onBack, onMenu }) {
       .join("\n\n");
     const messageForAI = [message, attachmentContext].filter(Boolean).join("\n\n");
     const priorHistory = messages;
+    const requestedAt = new Date().toISOString();
     setInput(""); setAttachments([]); setTab("chat"); setLoading(true);
-    setMessages((current) => [...current, { role: "user", content: visibleMessage }, { role: "assistant", content: "", pending: true }]);
+    setMessages((current) => [...current, { role: "user", content: visibleMessage, created_at: requestedAt }, { role: "assistant", content: "", pending: true, created_at: requestedAt }]);
     try {
       // sendCopilotMessage() (POST /api/growth/copilote) est le vrai backend —
       // pas de streaming token-par-token (contrairement à l'ancien appel
@@ -313,11 +415,11 @@ export default function ChatPanel({ context, initialAsk, onBack, onMenu }) {
       const reply = typeof replyData === "string" ? replyData : (replyData?.reply || "");
       const sources = typeof replyData === "string" ? [] : (replyData?.sources || []);
       setMessages((current) => {
-        const next = [...current]; next[next.length - 1] = { role: "assistant", content: reply, sources }; return next;
+        const next = [...current]; next[next.length - 1] = { role: "assistant", content: reply, sources, created_at: new Date().toISOString() }; return next;
       });
     } catch (error) {
       setMessages((current) => {
-        const next = [...current]; next[next.length - 1] = { role: "assistant", content: error?.message || "Désolé, le copilote est indisponible pour le moment. Réessaie dans un instant." }; return next;
+        const next = [...current]; next[next.length - 1] = { role: "assistant", content: error?.message || "Désolé, le copilote est indisponible pour le moment. Réessaie dans un instant.", created_at: new Date().toISOString() }; return next;
       });
     } finally { setLoading(false); }
   };
@@ -450,11 +552,13 @@ export default function ChatPanel({ context, initialAsk, onBack, onMenu }) {
     if (!decisionId || decisionBusyId) return;
     setDecisionBusyId(decisionId);
     try {
+      const currentDecision = dailyDecisions.find((item) => item.id === decisionId);
       const result = await applyCopilotDecision({ id: decisionId, session: sessionId, decision });
       setDailyDecisions((current) => decision === "approve"
         ? current.map((d) => d.id === decisionId ? { ...d, justCreated: true, status: result.status } : d)
         : current.map((d) => (d.id === decisionId ? { ...d, ...result } : d)));
-      setMessages((current) => [...current, { role: "assistant", content: result.message }]);
+      setMessages((current) => [...current, { role: "assistant", content: result.message, created_at: new Date().toISOString() }]);
+      setActionResults((current) => [{ id: `${decisionId}-${Date.now()}`, title: currentDecision?.title || "Décision", message: result.message, status: result.status, at: new Date().toISOString() }, ...current].slice(0, 3));
       if (decision === "approve") setTimeout(() => setDailyDecisions((current) => current.filter((d) => d.id !== decisionId)), 520);
     } catch (error) {
       setMessages((current) => [...current, { role: "assistant", content: error?.response?.data?.detail || "Impossible d’enregistrer cette décision pour le moment." }]);
@@ -527,6 +631,30 @@ export default function ChatPanel({ context, initialAsk, onBack, onMenu }) {
     } catch { setNewsError("Impossible de supprimer cet élément pour le moment."); }
   };
 
+  const askNews = async (question) => {
+    const cleanQuestion = String(question || "").trim();
+    if (!cleanQuestion || newsConversationLoading) return;
+    const requestedAt = new Date().toISOString();
+    const contextSources = newsSources.slice(0, 6).map((source) => `${source.title || source.source || "Source"}${source.url ? ` (${source.url})` : ""}`).join("\n");
+    const newsContext = [
+      "Tu es le Copilote de MyExtension Business, produit de la marque ZAYADO, spécialisé dans la veille. Réponds uniquement à partir de la veille ci-dessous et signale explicitement toute incertitude.",
+      `Secteur : ${newsScope.sector || "entrepreneuriat PME"} · Région : ${newsScope.region || "France"}`,
+      `Veille actuelle :\n${newsText || "Aucune édition disponible."}`,
+      contextSources ? `Sources disponibles :\n${contextSources}` : "",
+      `Question de l’utilisateur : ${cleanQuestion}`,
+    ].filter(Boolean).join("\n\n");
+    setNewsMessages((current) => [...current, { role: "user", content: cleanQuestion, created_at: requestedAt }, { role: "assistant", content: "", pending: true, created_at: requestedAt }]);
+    setNewsConversationLoading(true);
+    try {
+      const replyData = await sendCopilotMessage({ message: newsContext, session: `${sessionId}:news`, history: newsMessages });
+      const reply = typeof replyData === "string" ? replyData : (replyData?.reply || "");
+      const replySources = typeof replyData === "string" ? newsSources : (replyData?.sources || newsSources);
+      setNewsMessages((current) => { const next = [...current]; next[next.length - 1] = { role: "assistant", content: reply || "Je n’ai pas assez d’éléments fiables pour répondre à cette question.", sources: replySources, created_at: new Date().toISOString() }; return next; });
+    } catch (error) {
+      setNewsMessages((current) => { const next = [...current]; next[next.length - 1] = { role: "assistant", content: error?.message || "La conversation de veille est indisponible pour le moment. Réessaie dans un instant.", created_at: new Date().toISOString() }; return next; });
+    } finally { setNewsConversationLoading(false); }
+  };
+
   const sendWorkRequest = async () => {
     const message = contactMessage.trim();
     if (!message || contactSent) return;
@@ -542,26 +670,29 @@ export default function ChatPanel({ context, initialAsk, onBack, onMenu }) {
     <div className="flex h-full w-full flex-col" data-testid="copilot-panel">
       <div className="border-b border-white/10 px-5 py-3.5">
         <div className="flex items-center justify-between gap-3">
-          <div className="flex min-w-0 items-center gap-2.5">
-            {onMenu && <button type="button" onClick={onMenu} className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white/80 hover:border-[#DEC2A3]/60 hover:text-[#F0DCA5]" title="Menu" aria-label="Ouvrir le menu" data-testid="copilot-menu">
-              <Menu size={16} />
-            </button>}
-            <div className="gold-bg flex h-9 w-9 shrink-0 items-center justify-center rounded-xl"><Sparkles size={18} className="text-[#0A1128]" /></div><div className="min-w-0"><div className="font-head text-[15px] font-semibold">Cockpit</div><p className="m-0 text-[11px] text-white/55">Votre co-pilote IA</p>{visionContextLabel && <div className="mt-1 inline-flex max-w-full truncate rounded-full border border-[#DEC2A3]/25 bg-[#DEC2A3]/10 px-2 py-0.5 text-[10px] font-medium text-[#F0DCA5]">Vision · {visionContextLabel}</div>}</div></div>
+          <div className="flex min-w-0 items-center gap-2.5" data-testid="hub-product-identity">
+            <div className="hub-product-mark flex h-9 w-9 shrink-0 items-center justify-center rounded-xl"><img src="/logo-zayado.png" alt="" className="hub-product-logo" /></div><div className="min-w-0"><div className="hub-product-name">MyExtension Business</div><p className="hub-product-subtitle">Hub IA · par ZAYADO</p>{visionContextLabel && <div className="hub-context-label mt-1 inline-flex max-w-full truncate rounded-full px-2 py-0.5">Vision · {visionContextLabel}</div>}</div></div>
           <div className="flex shrink-0 items-center gap-2">
             {onBack && <button type="button" onClick={onBack} className="inline-flex h-8 items-center gap-1.5 rounded-full border border-white/25 bg-white/10 px-3 text-[11px] font-semibold text-white hover:border-[#DEC2A3]/60 hover:text-[#F0DCA5]" title="Retour" aria-label="Retour" data-testid="copilot-back"><ArrowLeft size={14} /> <span>Retour</span></button>}
-            <button onClick={() => setContactOpen((value) => !value)} className={`inline-flex h-9 items-center gap-1.5 rounded-full border px-3 text-[11px] font-semibold transition-colors ${contactOpen ? "border-[#DEC2A3]/60 bg-[#DEC2A3]/20 text-[#F0DCA5]" : "border-[#DEC2A3]/45 bg-[#DEC2A3]/12 text-[#F0DCA5] hover:bg-[#DEC2A3]/20"}`} title="Travailler avec l’équipe" aria-label="Travailler avec l’équipe" data-testid="copilot-contact"><Handshake size={16} /> <span>Collaborer</span></button>
+            <button type="button" onClick={toggleHubTheme} className="hub-theme-toggle" title={hubLight ? "Activer le mode dark" : "Activer le mode clair"} aria-label={hubLight ? "Activer le mode dark" : "Activer le mode clair"} data-testid="hub-theme-toggle">{hubLight ? <Moon size={16} /> : <Sun size={16} />}</button>
+            <button onClick={() => setContactOpen((value) => !value)} className={`copilot-contact-button inline-flex h-9 items-center gap-1.5 rounded-full border px-3 text-[11px] font-semibold transition-colors ${contactOpen ? "is-open" : ""}`} title="Travailler avec l’équipe" aria-label="Travailler avec l’équipe" data-testid="copilot-contact"><Handshake size={16} /> <span>Collaborer</span></button>
           </div>
         </div>
         <div className="mt-3 grid grid-cols-2 border-b border-white/10" data-testid="copilot-tabs">
-          <button onClick={() => setTab("chat")} className={`inline-flex h-9 items-center justify-center gap-1.5 border-b-2 text-[11.5px] font-medium transition-colors ${tab === "chat" ? "border-[#F1E2CC] text-[#F0DCA5]" : "border-transparent text-white/50 hover:text-white/75"}`}><MessageCircle size={14} /> Discussion</button>
-          <button onClick={() => { setTab("news"); markNewsTabSeen(); }} className={`inline-flex h-9 items-center justify-center gap-1.5 border-b-2 text-[11.5px] font-medium transition-colors ${tab === "news" ? "border-[#F1E2CC] text-[#F0DCA5]" : "border-transparent text-white/50 hover:text-white/75"}`}><Newspaper size={14} /> Actualité{unseenNewsCount > 0 && <span className="ml-0.5 inline-flex h-4 min-w-[16px] items-center justify-center rounded-full bg-rose-500 px-1 text-[9px] font-bold text-white" data-testid="copilot-news-count">{unseenNewsCount}</span>}</button>
+          <button onClick={() => setTab("chat")} className={`copilot-tab inline-flex h-9 items-center justify-center gap-1.5 border-b-2 text-[11.5px] font-medium transition-colors ${tab === "chat" ? "is-active" : ""}`}><MessageCircle size={14} /> Discussion</button>
+          <button onClick={() => { setTab("news-conversation"); markNewsTabSeen(); }} className={`copilot-tab inline-flex h-9 items-center justify-center gap-1.5 border-b-2 text-[11.5px] font-medium transition-colors ${tab === "news-conversation" ? "is-active" : ""}`}><Newspaper size={14} /> Actualité{unseenNewsCount > 0 && <span className="ml-0.5 inline-flex h-4 min-w-[16px] items-center justify-center rounded-full bg-rose-500 px-1 text-[9px] font-bold text-white" data-testid="copilot-news-count">{unseenNewsCount}</span>}</button>
         </div>
       </div>
 
-      {contactOpen && <div className="mx-4 mt-3 rounded-2xl border border-[#DEC2A3]/35 bg-[#DEC2A3]/10 p-3" data-testid="copilot-contact-panel"><div className="mb-2 text-[12.5px] text-white/80">Envie d’avancer <strong>avec l’équipe</strong> sur ton projet ?</div>{whatsappUrl && <a className="mb-2 inline-flex h-8 items-center gap-1.5 rounded-full bg-emerald-400 px-3 text-[11.5px] font-semibold text-[#0A1128]" href={whatsappUrl} target="_blank" rel="noopener noreferrer"><ExternalLink size={13} /> Discuter sur WhatsApp</a>}<textarea value={contactMessage} onChange={(event) => setContactMessage(event.target.value)} rows={2} placeholder="Décris ton besoin en une phrase…" className="mb-2 block w-full resize-y rounded-xl border border-white/15 bg-white/[0.06] px-3 py-2 text-[12px] text-white placeholder:text-white/35 focus:border-[#DEC2A3]/50 focus:outline-none" data-testid="copilot-contact-message" /><button onClick={sendWorkRequest} disabled={!contactMessage.trim() || contactSent} className="h-8 w-full rounded-xl bg-[#DEC2A3] text-[11.5px] font-semibold text-[#0A1128] disabled:opacity-50" data-testid="copilot-contact-send">{contactSent ? "Demande envoyée" : "Envoyer ma demande"}</button></div>}
+      {tab === "news-conversation" && <NewsConversation digest={newsText} sources={newsSources} scope={newsScope} generatedAt={newsGeneratedAt} messages={newsMessages} loading={newsLoading || newsConversationLoading} error={newsError} status={newsStatusMessage} onRefresh={() => loadNews(true)} onAsk={askNews} onSaveEdition={() => saveNews()} history={newsHistory} saved={savedNews} onRemoveSaved={removeSavedNews} userName={dashboard?.user?.first_name || dashboard?.user?.name || "Vous"} />}
+
+      {contactOpen && <div className="copilot-collab-backdrop" role="presentation" onMouseDown={(event) => { if (event.target === event.currentTarget) setContactOpen(false); }}><section className="copilot-collab-modal" role="dialog" aria-modal="true" aria-labelledby="copilot-collab-title" data-testid="copilot-contact-panel"><div className="copilot-collab-modal-header"><div><div className="copilot-collab-eyebrow">Collaboration</div><h2 id="copilot-collab-title">Avancer avec l’équipe</h2></div><button type="button" onClick={() => setContactOpen(false)} className="copilot-collab-close" aria-label="Fermer la fenêtre Collaborer"><X size={18} /></button></div><p className="copilot-collab-description">Décrivez votre besoin. Votre demande reste séparée du fil IA et sera envoyée à l’équipe sans exécution automatique.</p>{whatsappUrl && <a className="copilot-collab-whatsapp" href={whatsappUrl} target="_blank" rel="noopener noreferrer"><ExternalLink size={13} /> Discuter sur WhatsApp</a>}<label className="copilot-collab-label" htmlFor="copilot-contact-message">Votre besoin</label><textarea id="copilot-contact-message" value={contactMessage} onChange={(event) => setContactMessage(event.target.value)} rows={4} placeholder="Décrivez votre besoin en une phrase…" className="copilot-collab-textarea" data-testid="copilot-contact-message" /><button onClick={sendWorkRequest} disabled={!contactMessage.trim() || contactSent} className="copilot-collab-submit" data-testid="copilot-contact-send">{contactSent ? "Demande enregistrée" : "Envoyer la demande"} <ArrowRight size={15} /></button></section></div>}
 
       {tab === "chat" && <>
         <div ref={scrollRef} className="flex-1 space-y-3 overflow-y-auto px-4 py-4" data-testid="copilot-messages">
+          {!historyLoading && messages.length === 0 && <div className="flex justify-start" data-testid="copilot-opening-greeting"><div className="copilot-message-shell max-w-[87%]" style={{ background: "transparent" }}><EventStamp actor="MyExtension Business" at={new Date().toISOString()} ai /><div className="copilot-chat-bubble is-assistant rounded-2xl px-3.5 py-2.5 text-[13px] leading-relaxed glass"><p className="m-0">Bonjour. J’ai veillé sur votre activité. Voici votre point du jour et les actions qui méritent votre attention.</p></div></div></div>}
+          {!historyLoading && <DailyFlowSummary brief={brief} dashboard={dashboard} fusion={fusion} decisions={dailyDecisions} />}
+          {!historyLoading && <RecentTimeline items={fusion?.timeline} />}
           {!historyLoading && dailyDecisions.length > 0 && (
             <div className="space-y-2.5" data-testid="copilot-decisions-list">
               <div className="flex items-center justify-between gap-2">
@@ -573,17 +704,17 @@ export default function ChatPanel({ context, initialAsk, onBack, onMenu }) {
               ))}
             </div>
           )}
-          <BriefCard data={brief} />
-          {!historyLoading && brief && <NextSequence data={brief} />}
-          {!historyLoading && brief && <NightRecap data={brief} onSeeTasks={() => navigate("/bien-etre#missions")} />}
-          {!historyLoading && messages.length === 0 && <div className="space-y-3"><div className="glass p-4"><div className="mb-1 text-sm font-medium">Bonjour</div><p className="m-0 text-[13px] leading-relaxed text-white/60">Je garde le fil de nos échanges, peux lire tes documents et t’aider à décider de la prochaine action.</p></div><div className="space-y-2">{SUGGESTIONS.map((suggestion) => <button key={suggestion} onClick={() => send(suggestion)} className="w-full rounded-xl border border-white/15 bg-white/5 px-3.5 py-2.5 text-left text-[13px] text-white/75 transition-colors hover:border-[#DEC2A3]/40 hover:bg-white/10" data-testid="copilot-suggestion">{suggestion}</button>)}</div></div>}
-          {messages.map((message, index) => {
-            return <div key={message.id || index} className={`flex ${message.role === "user" ? "justify-end" : "justify-start"}`}><div className={`max-w-[87%] rounded-2xl px-3.5 py-2.5 text-[13px] leading-relaxed whitespace-pre-wrap ${message.role === "user" ? "border border-[#DEC2A3]/30 bg-[#DEC2A3]/20 text-white" : "glass text-white/85"}`}>{message.pending && (loading || generatingImage) && !message.content ? <Loader2 size={16} className="animate-spin text-[#DEC2A3]" /> : renderMarkdownLite(message.content)}{message.imageUrl && <img src={message.imageUrl} alt="Générée par le Copilote" className="mt-2 max-w-full rounded-xl border border-white/10" />}{message.role === "assistant" && Array.isArray(message.sources) && message.sources.length > 0 && <div className="mt-3 flex flex-wrap gap-1.5 border-t border-white/10 pt-2" data-testid="copilot-response-sources"><span className="text-[9px] font-bold uppercase tracking-wide text-[#E8C96A]">Sources</span>{message.sources.map((source, sourceIndex) => <span key={`${source.type}-${sourceIndex}`} className="rounded-full border border-white/15 bg-white/[0.05] px-2 py-1 text-[9px] text-white/55">{source.label}</span>)}</div>}</div></div>;
-          })}
+          {!historyLoading && dailyDecisions.length === 0 && (dashboard || fusion || brief) && <EmptyDecisionQueue onOpenTasks={() => navigate("/mouvement")} />}
+          {actionResults.map((result) => <ActionResultCard key={result.id} result={result} onOpenTasks={() => navigate("/mouvement")} />)}
+          <BriefCard data={dashboard} />
+          {!historyLoading && (dashboard || brief) && <NextSequence data={dashboard || brief} />}
+          {!historyLoading && (dashboard || brief) && <NightRecap data={dashboard || brief} onSeeTasks={() => navigate("/mouvement")} />}
+          {!historyLoading && messages.length === 0 && <div className="copilot-suggestions" data-testid="copilot-suggestions-list"><div className="copilot-suggestions-title"><Sparkles size={14} /> Continuer avec le Copilote <span className="copilot-ai-badge">IA</span></div>{SUGGESTIONS.map((suggestion) => <button key={suggestion} onClick={() => send(suggestion)} className="w-full rounded-xl border border-white/15 bg-white/5 px-3.5 py-2.5 text-left text-[13px] text-white/75 transition-colors hover:border-[#DEC2A3]/40 hover:bg-white/10" data-testid="copilot-suggestion">{suggestion}</button>)}</div>}
+          {messages.map((message, index) => <div key={message.id || index} className={`copilot-message-event ${message.role === "user" ? "is-user" : "is-assistant"}`}><EventStamp actor={message.role === "user" ? (dashboard?.user?.first_name || dashboard?.user?.name || "Vous") : "MyExtension Business"} at={message.created_at || message.updated_at} ai={message.role === "assistant"} /><div className={`flex ${message.role === "user" ? "justify-end" : "justify-start"}`}><div className={`copilot-chat-bubble max-w-[87%] rounded-2xl px-3.5 py-2.5 text-[13px] leading-relaxed whitespace-pre-wrap ${message.role === "user" ? "is-user" : "is-assistant"}`}>{message.pending && (loading || generatingImage) && !message.content ? <Loader2 size={16} className="animate-spin text-[#DEC2A3]" /> : renderMarkdownLite(message.content)}{message.imageUrl && <img src={message.imageUrl} alt="Générée par le Copilote" className="mt-2 max-w-full rounded-xl border border-white/10" />}{message.role === "assistant" && Array.isArray(message.sources) && message.sources.length > 0 && <div className="mt-3 flex flex-wrap gap-1.5 border-t border-white/10 pt-2" data-testid="copilot-response-sources"><span className="text-[9px] font-bold uppercase tracking-wide text-[#E8C96A]">Sources</span>{message.sources.map((source, sourceIndex) => <span key={`${source.type}-${sourceIndex}`} className="rounded-full border border-white/15 bg-white/[0.05] px-2 py-1 text-[9px] text-white/55">{source.label}</span>)}</div>}</div></div></div>)}
         </div>
         <div className="border-t border-white/10 p-4">
           {attachments.length > 0 && <div className="mb-2 flex flex-wrap gap-1.5">{attachments.map((file) => <span key={file.id} className="inline-flex max-w-full items-center gap-1 rounded-lg border border-[#DEC2A3]/25 bg-[#DEC2A3]/10 px-2 py-1 text-[11px] text-[#F0DCA5]"><FileText size={12} /><span className="max-w-[150px] truncate">{file.name}</span><button onClick={() => setAttachments((current) => current.filter((item) => item.id !== file.id))} aria-label={`Retirer ${file.name}`}><X size={12} /></button></span>)}</div>}
-          <div className={`relative flex items-center gap-1.5 rounded-2xl border py-1.5 pl-2 pr-1.5 transition-colors ${imageMode ? "border-[#DEC2A3]/60 bg-[#DEC2A3]/10" : "border-white/15 bg-white/5 focus-within:border-[#DEC2A3]/50"}`}>
+          <div className={`copilot-composer-shell relative flex items-center gap-1.5 rounded-2xl border py-1.5 pl-2 pr-1.5 transition-colors ${imageMode ? "is-image-mode" : ""}`}>
             <input ref={fileRef} type="file" className="hidden" multiple onChange={handleUpload} accept=".txt,.md,.csv,.json,.pdf,.docx,.png,.jpg,.jpeg,.webp" />
             <button onClick={() => fileRef.current?.click()} disabled={uploading || attachments.length >= 5} className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-white/55 transition-colors hover:bg-white/10 hover:text-[#E8C96A] disabled:opacity-40" aria-label="Ajouter un fichier" data-testid="copilot-upload">{uploading ? <Loader2 size={16} className="animate-spin" /> : <Paperclip size={16} />}</button>
             <div className="relative shrink-0" ref={plusRef}>
@@ -610,7 +741,7 @@ export default function ChatPanel({ context, initialAsk, onBack, onMenu }) {
               )}
             </div>
             <input value={input} onChange={(event) => setInput(event.target.value)} onKeyDown={(event) => { if (event.key === "Enter" && !event.shiftKey) { event.preventDefault(); send(); } }} placeholder={imageMode ? "Décrivez l'image à générer…" : "Écrivez à votre copilote…"} className="min-w-0 flex-1 bg-transparent text-sm text-white placeholder:text-white/40 focus:outline-none" data-testid="copilot-input" />
-            <button onClick={() => send()} disabled={loading || uploading || generatingImage || (!input.trim() && attachments.length === 0)} className="gold-bg flex h-9 w-9 shrink-0 items-center justify-center rounded-full disabled:opacity-50" aria-label="Envoyer" data-testid="copilot-send">{loading || generatingImage ? <Loader2 size={16} className="animate-spin text-[#0A1128]" /> : <Send size={16} className="text-[#0A1128]" />}</button>
+            <button onClick={() => send()} disabled={loading || uploading || generatingImage || (!input.trim() && attachments.length === 0)} className="copilot-send-button flex h-9 w-9 shrink-0 items-center justify-center rounded-full disabled:opacity-50" aria-label="Envoyer" data-testid="copilot-send">{loading || generatingImage ? <Loader2 size={16} className="animate-spin text-[#0A1128]" /> : <Send size={16} className="text-[#0A1128]" />}</button>
           </div>
           {driveOpen && (
             <div className="fixed inset-0 z-[80] flex items-end justify-center bg-black/60 sm:items-center" onClick={() => setDriveOpen(false)}>

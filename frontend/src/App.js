@@ -10,7 +10,6 @@ import Croissance from "./pages/Croissance";
 import Travail from "./pages/Travail";
 import Login from "./pages/Login";
 import Onboarding from "./pages/Onboarding";
-import HubIA from "./pages/HubIA";
 import VisionBoard from "./pages/VisionBoard";
 import BienEtre from "./pages/BienEtre";
 import Aujourdhui from "./pages/Aujourdhui";
@@ -114,7 +113,6 @@ function App() {
           </Route>
           <Route path="/login" element={<Login />} />
           <Route path="/onboarding" element={<Onboarding />} />
-          <Route path="/hub-ia" element={<HubIA />} />
         </Routes>
       </BrowserRouter>
       <Toaster theme="dark" position="top-right" richColors />

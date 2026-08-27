@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -27,6 +29,62 @@ body {
   -moz-osx-font-smoothing: grayscale;
   color: #fff;
   background-color: var(--navy-900);
+}
+
+/* MyExtension Business — Hub IA mobile : le clair reste blanc ; les anciennes
+   surfaces beiges deviennent navy. Le dark utilise uniquement les bleus ZAYADO. */
+@media (max-width: 768px) {
+  [data-testid="mobile-copilot-home"] [data-testid="copilot-panel"],
+  [data-testid="mobile-copilot-home"] [data-testid="copilot-panel"] * { font-family: 'Geist', system-ui, sans-serif; }
+
+  [data-testid="mobile-copilot-home"] .hub-product-mark { background: linear-gradient(135deg, #0B1F3A, #294E82); color: #fff; box-shadow: 0 7px 16px rgba(13,35,69,.20); }
+  [data-testid="mobile-copilot-home"] .hub-product-name { color: #17233a; font-size: 14px; font-weight: 650; letter-spacing: -.025em; line-height: 1.05; }
+  [data-testid="mobile-copilot-home"] .hub-product-subtitle { margin: 3px 0 0; color: rgba(23,35,58,.56); font-size: 10px; font-weight: 500; }
+  [data-testid="mobile-copilot-home"] .hub-context-label { border: 1px solid rgba(23,35,58,.12); background: linear-gradient(120deg, rgba(13,35,69,.08), rgba(41,78,130,.12)); color: #294e82; font-size: 9px; font-weight: 600; }
+  [data-testid="mobile-copilot-home"] .hub-theme-toggle { display: inline-flex; width: 36px; height: 36px; align-items: center; justify-content: center; border: 1px solid rgba(23,35,58,.12); border-radius: 12px; background: #fff; color: #0B1F3A; box-shadow: 0 4px 12px rgba(23,35,58,.06); }
+
+  /* Les anciens accents beiges deviennent navy, sans modifier le fond blanc. */
+  [data-testid="mobile-copilot-home"] [data-testid="copilot-contact"],
+  [data-testid="mobile-copilot-home"] [data-testid="copilot-contact-panel"],
+  [data-testid="mobile-copilot-home"] [data-testid="copilot-panel"] .decision-card-body,
+  [data-testid="mobile-copilot-home"] [data-testid="copilot-brief-card"] .grid > div,
+  [data-testid="mobile-copilot-home"] [data-testid="cockpit-night-recap"],
+  [data-testid="mobile-copilot-home"] [data-testid="copilot-suggestions-list"] button,
+  [data-testid="mobile-copilot-home"] .news-signal-actions button,
+  [data-testid="mobile-copilot-home"] .news-conversation-status,
+  [data-testid="mobile-copilot-home"] .news-conversation-error { border-color: rgba(13,35,69,.16) !important; background: linear-gradient(135deg, #0D2345, #294E82) !important; color: #fff !important; }
+  [data-testid="mobile-copilot-home"] [data-testid="copilot-contact"] *,
+  [data-testid="mobile-copilot-home"] [data-testid="copilot-contact-panel"] *,
+  [data-testid="mobile-copilot-home"] [data-testid="copilot-panel"] .decision-card-body *,
+  [data-testid="mobile-copilot-home"] [data-testid="copilot-brief-card"] .grid > div *,
+  [data-testid="mobile-copilot-home"] [data-testid="cockpit-night-recap"] *,
+  [data-testid="mobile-copilot-home"] [data-testid="copilot-suggestions-list"] button,
+  [data-testid="mobile-copilot-home"] .news-signal-actions button { color: #fff !important; }
+  [data-testid="mobile-copilot-home"] [data-testid="copilot-panel"] [class*="bg-[#DEC2A3]"] { background: linear-gradient(135deg, #0D2345, #294E82) !important; color: #fff !important; }
+  [data-testid="mobile-copilot-home"] [data-testid="copilot-panel"] [class*="text-[#F0DCA5]"],
+  [data-testid="mobile-copilot-home"] [data-testid="copilot-panel"] [class*="text-[#E8C96A]"] { color: #294E82 !important; }
+  [data-testid="mobile-copilot-home"] [data-testid="copilot-panel"] [class*="border-[#DEC2A3]"] { border-color: rgba(13,35,69,.20) !important; }
+  [data-testid="mobile-copilot-home"] .copilot-event-dot { background: #456eaa !important; }
+
+  /* Navigation basse : cinq destinations, icône puis libellé, actif navy. */
+  .app-body:has([data-testid="mobile-copilot-home"]) .bottom-nav { display: grid !important; grid-template-columns: repeat(5, minmax(0,1fr)) !important; height: 66px !important; padding: 4px 3px calc(4px + env(safe-area-inset-bottom)) !important; border-top: 1px solid rgba(23,35,58,.10) !important; border-radius: 0 !important; background: #fff !important; box-shadow: 0 -7px 20px rgba(23,35,58,.06) !important; }
+  .app-body:has([data-testid="mobile-copilot-home"]) .bottom-nav button { display: flex !important; min-width: 0; flex-direction: column !important; align-items: center !important; justify-content: center !important; gap: 3px !important; padding: 3px 2px !important; border-radius: 10px !important; color: rgba(23,35,58,.56) !important; font-size: 9px !important; font-weight: 500 !important; line-height: 1.1 !important; }
+  .app-body:has([data-testid="mobile-copilot-home"]) .bottom-nav button svg { width: 18px !important; height: 18px !important; }
+  .app-body:has([data-testid="mobile-copilot-home"]) .bottom-nav button span { display: block !important; max-width: 58px; overflow: hidden; text-align: center; text-overflow: ellipsis; white-space: nowrap; }
+  .app-body:has([data-testid="mobile-copilot-home"]) .bottom-nav button.active { background: linear-gradient(135deg, #0D2345, #294E82) !important; color: #fff !important; box-shadow: 0 4px 10px rgba(13,35,69,.18) !important; }
+
+  /* Dark ZAYADO : bleu sur bleu, jamais noir. */
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"],
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] [data-testid="copilot-panel"] { background: linear-gradient(180deg, #172C5C 0%, #0B1F3A 100%) !important; color: #fff !important; }
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] [data-testid="copilot-panel"] > .border-b,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] [data-testid="copilot-panel"] > .border-t { background: rgba(11,31,58,.96) !important; border-color: rgba(159,191,235,.15) !important; }
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .hub-product-name { color: #fff; }
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .hub-product-subtitle { color: rgba(225,237,255,.66); }
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .hub-context-label,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .hub-theme-toggle { border-color: rgba(159,191,235,.22); background: #172C5C; color: #fff; }
+  html:not(.ambiance-clarte) .app-body:has([data-testid="mobile-copilot-home"]) .bottom-nav { background: linear-gradient(180deg, #172C5C, #0B1F3A) !important; border-top-color: rgba(159,191,235,.14) !important; }
+  html:not(.ambiance-clarte) .app-body:has([data-testid="mobile-copilot-home"]) .bottom-nav button { color: rgba(225,237,255,.65) !important; }
+  html:not(.ambiance-clarte) .app-body:has([data-testid="mobile-copilot-home"]) .bottom-nav button.active { background: #456EAA !important; color: #fff !important; }
 }
 
 h1, h2, h3, h4, .font-head { font-family: 'Outfit', sans-serif; letter-spacing: -0.02em; }
@@ -641,3 +699,806 @@ html.ambiance-clarte [data-testid="campus-bottom-nav"] [class*="text-white/"] { 
   [data-testid="copilot-drawer-toggle"] { display: none !important; }
   .copilot-mobile-overlay { background: #0A1128 !important; }
 }
+
+/* ZAYADO Chat mobile — reprise du vrai ChatPanel original, surface Kairos.
+   Intention : ne modifier que la présentation mobile ; les handlers, données et appels API restent ceux du composant original.
+*/
+@media (max-width: 768px) {
+  /* Correctif final du Hub IA : le Chat doit occuper toute la fenêtre,
+     sans réserver l'ancien header navy et sans laisser la PWA masquer le compositeur. */
+  [data-testid="mobile-copilot-home"] { inset: 0 !important; z-index: 170 !important; }
+  .app-body:has([data-testid="mobile-copilot-home"]) .bottom-nav { display: grid !important; grid-template-columns: repeat(5, minmax(0, 1fr)) !important; position: fixed !important; right: 0 !important; bottom: 0 !important; left: 0 !important; z-index: 180 !important; width: 100% !important; height: 57px !important; padding: 0 !important; border: 0 !important; border-top: 1px solid rgba(23,35,58,.10) !important; border-radius: 0 !important; background: rgba(255,255,255,.97) !important; box-shadow: 0 -5px 18px rgba(23,35,58,.045) !important; transform: none !important; }
+  .app-body:has([data-testid="mobile-copilot-home"]) .bottom-nav button { padding: 0 !important; border-radius: 0 !important; color: rgba(23,35,58,.46) !important; font-size: 9px !important; }
+  .app-body:has([data-testid="mobile-copilot-home"]) .bottom-nav button.active { background: #f2e4d0 !important; color: #8b704e !important; }
+  [data-testid="mobile-copilot-home"] { background: #ffffff !important; color: #17233a !important; }
+  [data-testid="mobile-copilot-home"] [data-testid="copilot-panel"] { --txt: #17233a; --txt-muted: rgba(23,35,58,.60); --glass-soft: #f4eadb; --glass-border: rgba(23,35,58,.11); display: flex !important; height: 100% !important; min-height: 100%; overflow: hidden; background: #ffffff !important; color: #17233a !important; }
+  [data-testid="mobile-copilot-home"] [data-testid="copilot-panel"] { font-family: 'Geist', 'Outfit', system-ui, sans-serif; }
+  [data-testid="mobile-copilot-home"] [data-testid="copilot-panel"] > .border-b { flex: 0 0 auto; border-bottom-color: rgba(23,35,58,.10) !important; background: #ffffff !important; }
+  [data-testid="mobile-copilot-home"] [data-testid="copilot-panel"] .text-white { color: #17233a !important; }
+  [data-testid="mobile-copilot-home"] [data-testid="copilot-panel"] [class*="text-white/"] { color: rgba(23,35,58,.60) !important; }
+  [data-testid="mobile-copilot-home"] [data-testid="copilot-panel"] [class*="border-white/"] { border-color: rgba(23,35,58,.11) !important; }
+  [data-testid="mobile-copilot-home"] [data-testid="copilot-panel"] [class*="bg-white/"] { background: rgba(255,255,255,.78) !important; }
+  [data-testid="mobile-copilot-home"] [data-testid="copilot-panel"] .glass,
+  [data-testid="mobile-copilot-home"] [data-testid="copilot-panel"] [data-testid^="copilot-action-card-"] { border-color: rgba(23,35,58,.09) !important; background: #ffffff !important; color: #17233a !important; box-shadow: 0 5px 18px rgba(23,35,58,.055) !important; }
+  [data-testid="mobile-copilot-home"] [data-testid="copilot-panel"] [data-testid^="copilot-action-card-"] strong,
+  [data-testid="mobile-copilot-home"] [data-testid="copilot-panel"] [data-testid^="copilot-action-card-"] p { color: #17233a !important; }
+  [data-testid="mobile-copilot-home"] [data-testid="copilot-panel"] [data-testid="copilot-messages"] { padding: 15px 14px 126px !important; gap: 12px !important; }
+  [data-testid="mobile-copilot-home"] [data-testid="copilot-panel"] [data-testid="copilot-messages"] > .flex.justify-end > div { border-color: rgba(23,35,58,.08) !important; background: linear-gradient(120deg, #0d2345, #294e82) !important; color: #fff !important; }
+  [data-testid="mobile-copilot-home"] [data-testid="copilot-panel"] [data-testid="copilot-messages"] > .flex.justify-start > div { border-color: rgba(23,35,58,.08) !important; background: #fff !important; color: rgba(23,35,58,.78) !important; box-shadow: 0 4px 14px rgba(23,35,58,.045) !important; }
+  [data-testid="mobile-copilot-home"] [data-testid="copilot-panel"] [data-testid="copilot-messages"] > .flex.justify-start > div [class*="text-white/"] { color: rgba(23,35,58,.70) !important; }
+  [data-testid="mobile-copilot-home"] [data-testid="copilot-panel"] > .border-t { position: fixed; right: 0; bottom: 57px; left: 0; z-index: 35; padding: 8px 14px calc(8px + env(safe-area-inset-bottom)) !important; border-top-color: rgba(23,35,58,.09) !important; background: rgba(255,255,255,.97) !important; box-shadow: 0 -5px 18px rgba(23,35,58,.045); backdrop-filter: blur(16px); }
+  [data-testid="mobile-copilot-home"] [data-testid="copilot-panel"] > .border-t > div.relative { border-color: rgba(23,35,58,.14) !important; background: #fff !important; }
+  [data-testid="mobile-copilot-home"] [data-testid="copilot-panel"] input { color: #17233a !important; }
+  [data-testid="mobile-copilot-home"] [data-testid="copilot-panel"] input::placeholder { color: rgba(23,35,58,.40) !important; }
+  [data-testid="mobile-copilot-home"] [data-testid="copilot-send"],
+  [data-testid="mobile-copilot-home"] [data-testid="copilot-action-approve"] { background: linear-gradient(120deg, #0d2345, #294e82) !important; color: #fff !important; }
+  [data-testid="mobile-copilot-home"] [data-testid="copilot-send"] svg,
+  [data-testid="mobile-copilot-home"] [data-testid="copilot-action-approve"] svg { color: #fff !important; }
+  [data-testid="mobile-copilot-home"] [data-testid="copilot-tabs"] { border-bottom-color: rgba(23,35,58,.10) !important; }
+  [data-testid="mobile-copilot-home"] [data-testid="copilot-tabs"] button { color: rgba(23,35,58,.48) !important; border-bottom-color: transparent !important; }
+  [data-testid="mobile-copilot-home"] [data-testid="copilot-tabs"] button:first-child { color: #8b704e !important; border-bottom-color: #c8a46d !important; }
+  [data-testid="mobile-copilot-home"] [data-testid="copilot-contact-panel"],
+  [data-testid="mobile-copilot-home"] [data-testid="copilot-panel"] .decision-card-body { border-color: rgba(23,35,58,.10) !important; background: #f7f0e5 !important; }
+  [data-testid="mobile-copilot-home"] [data-testid="copilot-plus-menu"] { border-color: rgba(23,35,58,.10) !important; background: #fffdfa !important; box-shadow: 0 18px 42px rgba(23,35,58,.15) !important; }
+  [data-testid="mobile-copilot-home"] [data-testid="copilot-plus-menu"] button { color: #17233a !important; }
+  [data-testid="mobile-copilot-home"] [data-testid="copilot-plus-menu"] button:hover { background: #f7f0e5 !important; }
+  [data-testid="mobile-copilot-home"] [data-testid="copilot-menu"] { border-color: rgba(23,35,58,.12) !important; background: #ffffff !important; color: #0B1F3A !important; }
+  [data-testid="mobile-copilot-home"] [data-testid="copilot-contact"] { border-color: rgba(139,112,78,.28) !important; background: #f7f0e5 !important; color: #8b704e !important; }
+  [data-testid="mobile-copilot-home"] [data-testid="copilot-panel"] [class*="text-[#F0DCA5]"],
+  [data-testid="mobile-copilot-home"] [data-testid="copilot-panel"] [class*="text-[#E8C96A]"] { color: #8b704e !important; }
+  [data-testid="mobile-copilot-home"] [data-testid="copilot-panel"] [class*="bg-[#DEC2A3]"] { background: #f2e4d0 !important; color: #17233a !important; }
+  [data-testid="mobile-copilot-home"] [data-testid="copilot-panel"] [class*="border-[#DEC2A3]"] { border-color: rgba(139,112,78,.28) !important; }
+  [data-testid="mobile-copilot-home"] [data-testid="copilot-brief-card"] .grid > div,
+  [data-testid="mobile-copilot-home"] [data-testid="cockpit-night-recap"] { background: #f4eadb !important; border-color: rgba(139,112,78,.22) !important; }
+  [data-testid="mobile-copilot-home"] [data-testid="cockpit-night-recap"] [data-testid^="night-value-"] { background: #eadbc5 !important; border-color: rgba(139,112,78,.18) !important; }
+  [data-testid="mobile-copilot-home"] [data-testid="copilot-suggestions-list"] button { background: #f4eadb !important; color: #17233a !important; border-color: rgba(139,112,78,.18) !important; }
+  [data-testid="mobile-copilot-home"] .copilot-event-stamp { display: flex; align-items: center; gap: 6px; margin: 0 0 6px; color: rgba(23,35,58,.52); font-size: 9px; font-weight: 500; }
+  [data-testid="mobile-copilot-home"] .copilot-event-dot { width: 4px; height: 4px; border-radius: 999px; background: #c8a46d; }
+  [data-testid="mobile-copilot-home"] .copilot-daily-summary,
+  [data-testid="mobile-copilot-home"] .copilot-action-result,
+  [data-testid="mobile-copilot-home"] .copilot-recent-timeline { padding: 13px; border: 1px solid rgba(23,35,58,.10); border-radius: 14px; background: #fff; box-shadow: 0 5px 18px rgba(23,35,58,.045); }
+  [data-testid="mobile-copilot-home"] .copilot-daily-summary-title,
+  [data-testid="mobile-copilot-home"] .copilot-result-title { display: flex; align-items: center; gap: 7px; color: #17233a; font-size: 13px; font-weight: 600; }
+  [data-testid="mobile-copilot-home"] .copilot-daily-summary-title svg,
+  [data-testid="mobile-copilot-home"] .copilot-result-title svg { color: #8b704e; }
+  [data-testid="mobile-copilot-home"] .copilot-daily-date { margin-top: 3px; color: rgba(23,35,58,.48); font-size: 10px; }
+  [data-testid="mobile-copilot-home"] .copilot-daily-summary p,
+  [data-testid="mobile-copilot-home"] .copilot-action-result p { margin: 8px 0 0; color: rgba(23,35,58,.68); font-size: 11px; line-height: 1.5; }
+  [data-testid="mobile-copilot-home"] .copilot-daily-priority { margin-top: 9px; padding: 8px 9px; border-radius: 9px; background: #f4eadb; color: rgba(23,35,58,.70); font-size: 10px; line-height: 1.4; }
+  [data-testid="mobile-copilot-home"] .copilot-daily-priority strong { color: #8b704e; }
+  [data-testid="mobile-copilot-home"] .copilot-action-result button { display: inline-flex; align-items: center; gap: 6px; margin-top: 10px; padding: 7px 10px; border-radius: 9px; background: linear-gradient(120deg, #0d2345, #294e82); color: #fff; font-size: 10px; font-weight: 600; }
+  [data-testid="mobile-copilot-home"] .copilot-timeline-row { padding: 8px 0; border-top: 1px solid rgba(23,35,58,.08); }
+  [data-testid="mobile-copilot-home"] .copilot-timeline-row:first-of-type { margin-top: 9px; }
+  [data-testid="mobile-copilot-home"] .copilot-timeline-row span { display: block; color: rgba(23,35,58,.70); font-size: 11px; line-height: 1.4; }
+  [data-testid="mobile-copilot-home"] .copilot-message-event.is-user .copilot-event-stamp { justify-content: flex-end; }
+  [data-testid="mobile-copilot-home"] .news-conversation { display: flex; flex-direction: column; gap: 12px; background: #fff; color: #17233a; }
+  [data-testid="mobile-copilot-home"] .news-conversation-intro,
+  [data-testid="mobile-copilot-home"] .news-signal-card,
+  [data-testid="mobile-copilot-home"] .news-message-bubble { border: 1px solid rgba(23,35,58,.10); border-radius: 14px; background: #fff; box-shadow: 0 5px 18px rgba(23,35,58,.045); }
+  [data-testid="mobile-copilot-home"] .news-conversation-intro { padding: 12px; }
+  [data-testid="mobile-copilot-home"] .news-conversation-intro p { margin: 0; color: rgba(23,35,58,.72); font-size: 12px; line-height: 1.5; }
+  [data-testid="mobile-copilot-home"] .news-conversation-intro button { margin-top: 9px; color: #8b704e; font-size: 10px; font-weight: 600; }
+  [data-testid="mobile-copilot-home"] .news-conversation-status,
+  [data-testid="mobile-copilot-home"] .news-conversation-error { border-radius: 10px; padding: 9px 10px; background: #f4eadb; color: rgba(23,35,58,.72); font-size: 10px; line-height: 1.4; }
+  [data-testid="mobile-copilot-home"] .news-conversation-error { border: 1px solid rgba(139,112,78,.24); }
+  [data-testid="mobile-copilot-home"] .news-signal-card { padding: 13px; }
+  [data-testid="mobile-copilot-home"] .news-signal-heading { display: flex; align-items: center; gap: 7px; color: #17233a; font-size: 13px; font-weight: 600; }
+  [data-testid="mobile-copilot-home"] .news-signal-heading svg { color: #8b704e; }
+  [data-testid="mobile-copilot-home"] .news-signal-scope { margin-top: 3px; color: rgba(23,35,58,.48); font-size: 10px; }
+  [data-testid="mobile-copilot-home"] .news-signal-copy { margin-top: 10px; color: rgba(23,35,58,.72); font-size: 11px; line-height: 1.55; }
+  [data-testid="mobile-copilot-home"] .news-signal-copy p { margin: 0 0 7px; }
+  [data-testid="mobile-copilot-home"] .news-inline-sources { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-top: 10px; padding-top: 9px; border-top: 1px solid rgba(23,35,58,.08); }
+  [data-testid="mobile-copilot-home"] .news-inline-sources > span:first-child { color: rgba(23,35,58,.46); font-size: 9px; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; }
+  [data-testid="mobile-copilot-home"] .news-inline-sources a,
+  [data-testid="mobile-copilot-home"] .news-inline-sources span:not(:first-child) { display: inline-flex; align-items: center; gap: 4px; max-width: 150px; overflow: hidden; border: 1px solid rgba(139,112,78,.20); border-radius: 999px; padding: 4px 7px; color: #8b704e; font-size: 9px; text-overflow: ellipsis; white-space: nowrap; }
+  [data-testid="mobile-copilot-home"] .news-signal-actions { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 11px; }
+  [data-testid="mobile-copilot-home"] .news-signal-actions button { border: 1px solid rgba(139,112,78,.20); border-radius: 9px; padding: 7px 8px; background: #f4eadb; color: #17233a; font-size: 10px; font-weight: 600; }
+  [data-testid="mobile-copilot-home"] .news-signal-actions button:first-child { background: linear-gradient(120deg, #0d2345, #294e82); color: #fff; }
+  [data-testid="mobile-copilot-home"] .news-message { margin-top: 2px; }
+  [data-testid="mobile-copilot-home"] .news-message.is-user .copilot-event-stamp { justify-content: flex-end; }
+  [data-testid="mobile-copilot-home"] .news-message.is-user .news-message-bubble { margin-left: auto; background: #0d2345; color: #fff; }
+  [data-testid="mobile-copilot-home"] .news-message-bubble { max-width: 87%; padding: 11px 12px; color: rgba(23,35,58,.74); font-size: 12px; line-height: 1.5; }
+  [data-testid="mobile-copilot-home"] .news-message-bubble p { margin: 0 0 7px; }
+  [data-testid="mobile-copilot-home"] .news-composer { display: flex; align-items: center; gap: 8px; position: sticky; bottom: 0; padding: 8px; border: 1px solid rgba(23,35,58,.11); border-radius: 14px; background: rgba(255,255,255,.96); box-shadow: 0 -5px 18px rgba(23,35,58,.04); }
+  [data-testid="mobile-copilot-home"] .news-composer input { min-width: 0; flex: 1; border: 0; background: transparent; color: #17233a; font-size: 12px; outline: 0; }
+  [data-testid="mobile-copilot-home"] .news-composer input::placeholder { color: rgba(23,35,58,.42); }
+  [data-testid="mobile-copilot-home"] .news-composer button { display: flex; width: 32px; height: 32px; align-items: center; justify-content: center; border-radius: 999px; background: linear-gradient(120deg, #0d2345, #294e82); color: #fff; }
+  [data-testid="mobile-copilot-home"] .news-composer button:disabled { opacity: .45; }
+  [data-testid="mobile-copilot-home"] .news-secondary-panel { border-top: 1px solid rgba(23,35,58,.09); padding-top: 10px; color: rgba(23,35,58,.72); }
+  [data-testid="mobile-copilot-home"] .news-secondary-panel summary { display: flex; align-items: center; justify-content: space-between; cursor: pointer; color: #17233a; font-size: 11px; font-weight: 600; }
+  [data-testid="mobile-copilot-home"] .news-secondary-panel summary span { color: #8b704e; font-size: 10px; }
+  [data-testid="mobile-copilot-home"] .news-history-item { margin-top: 8px; border: 1px solid rgba(23,35,58,.09); border-radius: 10px; padding: 9px; font-size: 10px; }
+  [data-testid="mobile-copilot-home"] .news-history-item summary { font-size: 10px; }
+  [data-testid="mobile-copilot-home"] .news-history-item p { color: rgba(23,35,58,.45); font-size: 9px; }
+  [data-testid="mobile-copilot-home"] .news-saved-item { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 8px; border: 1px solid rgba(23,35,58,.09); border-radius: 10px; padding: 9px; }
+  [data-testid="mobile-copilot-home"] .news-saved-item strong,
+  [data-testid="mobile-copilot-home"] .news-saved-item small { display: block; max-width: 175px; overflow: hidden; color: #17233a; font-size: 10px; text-overflow: ellipsis; white-space: nowrap; }
+  [data-testid="mobile-copilot-home"] .news-saved-item small { margin-top: 2px; color: rgba(23,35,58,.45); font-size: 9px; }
+  [data-testid="mobile-copilot-home"] .news-saved-item a,
+  [data-testid="mobile-copilot-home"] .news-saved-item button { margin-left: 7px; color: #8b704e; font-size: 9px; font-weight: 600; }
+  [data-testid="mobile-copilot-home"] ~ .bottom-nav { display: grid !important; position: fixed !important; right: 0; bottom: 0; left: 0; z-index: 40; height: 57px; background: rgba(255,255,255,.97) !important; border-top-color: rgba(23,35,58,.10) !important; box-shadow: 0 -5px 18px rgba(23,35,58,.045); }
+  [data-testid="mobile-copilot-home"] ~ .bottom-nav button { color: rgba(23,35,58,.46) !important; }
+  [data-testid="mobile-copilot-home"] ~ .bottom-nav button.active { background: #f2e4d0 !important; color: #8b704e !important; }
+}
+
+/* Correctif final Hub IA : cette couche suit les anciens essais beige et est
+   donc volontairement placée en fin de fichier pour définir la source de vérité. */
+@media (max-width: 768px) {
+  html.ambiance-clarte [data-testid="mobile-copilot-home"],
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] [data-testid="copilot-panel"] { background: #fff !important; color: #17233a !important; }
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] [data-testid="copilot-panel"] > .border-b,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] [data-testid="copilot-panel"] > .border-t { background: rgba(255,255,255,.97) !important; border-color: rgba(23,35,58,.10) !important; }
+
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] [data-testid="copilot-contact"],
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] [data-testid="copilot-contact-panel"],
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] [data-testid="copilot-panel"] .decision-card-body,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] [data-testid="copilot-brief-card"] .grid > div,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] [data-testid="cockpit-night-recap"],
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] [data-testid="copilot-suggestions-list"] button,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .news-signal-actions button,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .news-conversation-status,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .news-conversation-error,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .copilot-daily-priority { border-color: rgba(13,35,69,.16) !important; background: linear-gradient(135deg, #0D2345, #294E82) !important; color: #fff !important; }
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] [data-testid="copilot-contact"] *,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] [data-testid="copilot-contact-panel"] *,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] [data-testid="copilot-panel"] .decision-card-body *,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] [data-testid="copilot-brief-card"] .grid > div *,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] [data-testid="cockpit-night-recap"] *,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] [data-testid="copilot-suggestions-list"] button,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .news-signal-actions button,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .copilot-daily-priority * { color: #fff !important; }
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] [data-testid="copilot-tabs"] button:first-child { color: #294E82 !important; border-bottom-color: #294E82 !important; }
+  html.ambiance-clarte .app-body:has([data-testid="mobile-copilot-home"]) .bottom-nav,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] ~ .bottom-nav { background: #fff !important; }
+  html.ambiance-clarte .app-body:has([data-testid="mobile-copilot-home"]) .bottom-nav button.active,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] ~ .bottom-nav button.active { background: linear-gradient(135deg, #0D2345, #294E82) !important; color: #fff !important; }
+
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"],
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] [data-testid="copilot-panel"],
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .news-conversation { background: linear-gradient(180deg, #172C5C 0%, #0B1F3A 100%) !important; color: #fff !important; }
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] [data-testid="copilot-panel"] > .border-b,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] [data-testid="copilot-panel"] > .border-t,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .news-composer { background: #0B1F3A !important; border-color: rgba(159,191,235,.16) !important; }
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .glass,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] [data-testid^="copilot-action-card-"],
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-daily-summary,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-action-result,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-recent-timeline,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .news-conversation-intro,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .news-signal-card,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .news-message-bubble { border-color: rgba(159,191,235,.20) !important; background: linear-gradient(135deg, #172C5C, #0B1F3A) !important; box-shadow: 0 6px 18px rgba(6,20,47,.16) !important; color: rgba(239,246,255,.88) !important; }
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .glass *,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] [data-testid^="copilot-action-card-"] *,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-daily-summary *,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-action-result *,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-recent-timeline *,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .news-conversation-intro *,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .news-signal-card *,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .news-message-bubble * { color: inherit !important; }
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] [data-testid="copilot-contact"],
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] [data-testid="copilot-contact-panel"],
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] [data-testid="copilot-panel"] .decision-card-body,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] [data-testid="copilot-brief-card"] .grid > div,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] [data-testid="cockpit-night-recap"],
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] [data-testid="copilot-suggestions-list"] button,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .news-signal-actions button,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .news-conversation-status,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .news-conversation-error,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-daily-priority { border-color: rgba(159,191,235,.22) !important; background: linear-gradient(135deg, #0D2345, #294E82) !important; color: #fff !important; }
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] [data-testid="copilot-contact"] *,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] [data-testid="copilot-contact-panel"] *,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] [data-testid="copilot-panel"] .decision-card-body *,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] [data-testid="copilot-brief-card"] .grid > div *,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] [data-testid="cockpit-night-recap"] *,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] [data-testid="copilot-suggestions-list"] button,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .news-signal-actions button,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-daily-priority * { color: #fff !important; }
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-event-stamp,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-daily-date,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-daily-summary p,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-timeline-row span { color: rgba(225,237,255,.68) !important; }
+  html:not(.ambiance-clarte) .app-body:has([data-testid="mobile-copilot-home"]) .bottom-nav,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] ~ .bottom-nav { background: linear-gradient(180deg, #172C5C, #0B1F3A) !important; border-color: rgba(159,191,235,.15) !important; }
+  html:not(.ambiance-clarte) .app-body:has([data-testid="mobile-copilot-home"]) .bottom-nav button,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] ~ .bottom-nav button { color: rgba(225,237,255,.65) !important; }
+  html:not(.ambiance-clarte) .app-body:has([data-testid="mobile-copilot-home"]) .bottom-nav button.active,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] ~ .bottom-nav button.active { background: #456EAA !important; color: #fff !important; }
+
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] [data-testid="cockpit-night-recap"] [data-testid^="night-value-"],
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] [data-testid="cockpit-night-recap"] [data-testid^="night-value-"] { border-color: rgba(159,191,235,.24) !important; background: linear-gradient(135deg, #0D2345, #294E82) !important; }
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] [data-testid="cockpit-night-recap"] [data-testid^="night-value-"] *,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] [data-testid="cockpit-night-recap"] [data-testid^="night-value-"] * { color: #fff !important; }
+}
+
+/* Réalignement strict sur les tokens mesurés dans Accueil/Vision et sur le
+   modèle de navigation fourni. Cette couche neutralise les anciens essais
+   navy approximatifs (#0d2345 / #294e82) sans changer les fonctions. */
+@media (max-width: 768px) {
+  [data-testid="mobile-copilot-home"] .hub-product-mark { background: #111 !important; color: #F1E2CC !important; }
+  [data-testid="mobile-copilot-home"] .hub-product-name { color: #0B1F3A !important; }
+  [data-testid="mobile-copilot-home"] .hub-product-subtitle { color: rgba(11,31,58,.58) !important; }
+  [data-testid="mobile-copilot-home"] .hub-theme-toggle { background: #fff !important; border-color: rgba(11,31,58,.14) !important; color: #111 !important; }
+
+  /* Clair : même famille que .glass et le fond clair de l’application. */
+  html.ambiance-clarte [data-testid="mobile-copilot-home"],
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] [data-testid="copilot-panel"],
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .news-conversation { background: #fff !important; color: #0B1F3A !important; }
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] [data-testid="copilot-panel"] > .border-b,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] [data-testid="copilot-panel"] > .border-t { background: rgba(255,255,255,.97) !important; border-color: rgba(23,44,92,.16) !important; }
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .glass,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] [data-testid^="copilot-action-card-"],
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .copilot-daily-summary,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .copilot-action-result,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .copilot-recent-timeline,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .news-conversation-intro,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .news-signal-card,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .news-message-bubble { background: linear-gradient(135deg, rgba(255,255,255,.96), rgba(232,241,251,.82)) !important; border-color: rgba(23,44,92,.19) !important; box-shadow: 0 8px 22px rgba(30,58,105,.08) !important; color: #0B1F3A !important; }
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .glass *,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] [data-testid^="copilot-action-card-" ] *,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .copilot-daily-summary *,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .copilot-action-result *,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .copilot-recent-timeline *,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .news-conversation-intro *,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .news-signal-card *,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .news-message-bubble * { color: inherit !important; }
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] [data-testid="cockpit-night-recap"],
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] [data-testid="cockpit-night-recap"] [data-testid^="night-value-"],
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] [data-testid="copilot-brief-card"] .grid > div { background: linear-gradient(135deg, rgba(255,255,255,.96), rgba(232,241,251,.82)) !important; border-color: rgba(23,44,92,.17) !important; color: #0B1F3A !important; }
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] [data-testid="cockpit-night-recap"] *,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] [data-testid="copilot-daily-summary"] * { color: #0B1F3A !important; }
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] [data-testid="cockpit-night-recap"] [data-testid^="night-value-"] *,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] [data-testid="copilot-brief-card"] .grid > div * { color: #0B1F3A !important; }
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .copilot-daily-priority { background: rgba(69,103,164,.12) !important; border-color: rgba(23,44,92,.14) !important; color: #0B1F3A !important; }
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .copilot-daily-priority * { color: #0B1F3A !important; }
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .news-conversation-intro button,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] [data-testid="copilot-contact"],
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .news-signal-actions button:first-child { background: #111 !important; border-color: #111 !important; color: #fff !important; }
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .news-signal-actions button:not(:first-child),
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] [data-testid="copilot-contact-panel"] { background: linear-gradient(135deg, rgba(255,255,255,.96), rgba(232,241,251,.82)) !important; border-color: rgba(23,44,92,.18) !important; color: #0B1F3A !important; }
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .news-conversation-intro button,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .news-signal-actions button { display: inline-flex !important; align-items: center; justify-content: center; gap: 6px; min-height: 36px; border-radius: 10px; padding: 8px 12px; font-size: 12px; font-weight: 600; }
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] [data-testid="copilot-send"],
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] [data-testid="copilot-action-approve"] { background: #111 !important; color: #fff !important; }
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] [data-testid="copilot-tabs"] button:first-child { color: #0B1F3A !important; border-bottom-color: #DEC2A3 !important; }
+
+  /* Dark : même sky-bg et même verre que les pages originales. */
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"],
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] [data-testid="copilot-panel"],
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .news-conversation { background: radial-gradient(ellipse at 20% 10%, rgba(45,81,150,.45) 0%, transparent 50%), radial-gradient(ellipse at 80% 8%, rgba(30,60,110,.35) 0%, transparent 55%), linear-gradient(180deg, #172C5C 0%, #101F47 42%, #0B1F3A 76%, #081734 100%) !important; color: #fff !important; }
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .hub-product-mark { background: linear-gradient(180deg, #172C5C 0%, #101F47 100%) !important; color: #F1E2CC !important; }
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .hub-product-name { color: #fff !important; }
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .hub-product-subtitle { color: rgba(255,255,255,.72) !important; }
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .hub-theme-toggle { background: rgba(69,103,164,.20) !important; border-color: rgba(255,255,255,.25) !important; color: #fff !important; }
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] [data-testid="copilot-panel"] > .border-b,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] [data-testid="copilot-panel"] > .border-t { background: rgba(11,31,58,.92) !important; border-color: rgba(255,255,255,.25) !important; }
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .glass,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] [data-testid^="copilot-action-card-"],
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-daily-summary,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-action-result,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-recent-timeline,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .news-conversation-intro,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .news-signal-card,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .news-message-bubble { background: linear-gradient(135deg, rgba(69,103,164,.20), rgba(255,255,255,.10)) !important; border-color: rgba(255,255,255,.25) !important; box-shadow: none !important; color: #fff !important; }
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] [data-testid="cockpit-night-recap"],
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] [data-testid="cockpit-night-recap"] [data-testid^="night-value-"],
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] [data-testid="copilot-brief-card"] .grid > div { background: linear-gradient(135deg, rgba(69,103,164,.20), rgba(255,255,255,.10)) !important; border-color: rgba(255,255,255,.25) !important; }
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .news-conversation-intro button,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] [data-testid="copilot-contact"],
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .news-signal-actions button:first-child { background: linear-gradient(135deg, #F1E2CC, #DEC2A3) !important; border-color: rgba(222,194,163,.55) !important; color: #0A1128 !important; }
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .news-signal-actions button:not(:first-child),
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] [data-testid="copilot-contact-panel"] { background: rgba(69,103,164,.20) !important; border-color: rgba(255,255,255,.25) !important; color: #fff !important; }
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .news-conversation-intro button,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .news-signal-actions button { display: inline-flex !important; align-items: center; justify-content: center; gap: 6px; min-height: 36px; border-radius: 10px; padding: 8px 12px; font-size: 12px; font-weight: 600; }
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] [data-testid="copilot-send"],
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] [data-testid="copilot-action-approve"] { background: linear-gradient(135deg, #F1E2CC, #DEC2A3) !important; color: #0A1128 !important; }
+
+  /* Modèle de menu de la capture : fond clair neutre, icône puis libellé,
+     point actif discret ; en dark le menu reprend le sky navy original. */
+  html.ambiance-clarte .app-body:has([data-testid="mobile-copilot-home"]) .bottom-nav,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] ~ .bottom-nav { background: #fff !important; border-top-color: rgba(11,31,58,.10) !important; box-shadow: 0 -5px 16px rgba(11,31,58,.05) !important; }
+  html.ambiance-clarte .app-body:has([data-testid="mobile-copilot-home"]) .bottom-nav button,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] ~ .bottom-nav button { background: transparent !important; color: rgba(11,31,58,.68) !important; box-shadow: none !important; }
+  html.ambiance-clarte .app-body:has([data-testid="mobile-copilot-home"]) .bottom-nav button.active,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] ~ .bottom-nav button.active { background: transparent !important; color: #111 !important; box-shadow: none !important; }
+  html.ambiance-clarte .app-body:has([data-testid="mobile-copilot-home"]) .bottom-nav button.active::after,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] ~ .bottom-nav button.active::after { content: ""; display: block; width: 6px; height: 6px; margin-top: 2px; border-radius: 999px; background: #DEC2A3; }
+  html:not(.ambiance-clarte) .app-body:has([data-testid="mobile-copilot-home"]) .bottom-nav,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] ~ .bottom-nav { background: linear-gradient(180deg, #172C5C 0%, #101F47 100%) !important; border-top-color: rgba(255,255,255,.16) !important; }
+  html:not(.ambiance-clarte) .app-body:has([data-testid="mobile-copilot-home"]) .bottom-nav button,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] ~ .bottom-nav button { background: transparent !important; color: rgba(255,255,255,.68) !important; box-shadow: none !important; }
+  html:not(.ambiance-clarte) .app-body:has([data-testid="mobile-copilot-home"]) .bottom-nav button.active,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] ~ .bottom-nav button.active { background: transparent !important; color: #fff !important; box-shadow: none !important; }
+  html:not(.ambiance-clarte) .app-body:has([data-testid="mobile-copilot-home"]) .bottom-nav button.active::after,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] ~ .bottom-nav button.active::after { content: ""; display: block; width: 6px; height: 6px; margin-top: 2px; border-radius: 999px; background: #DEC2A3; }
+}
+
+/* Passe finale Hub IA : tokens plats de l'application, bulles lisibles et collaboration hors fil. */
+@media (max-width: 768px) {
+  [data-testid="mobile-copilot-home"] {
+    --mx-blue-primary: #4567A4;
+    --mx-blue-deep: #31578F;
+    --mx-blue-sky: #F8FBFF;
+    --mx-blue-glass: rgba(69,103,164,.20);
+    --mx-ink: #0B1F3A;
+  }
+
+  /* Clair : pas de noir de substitution pour les actions métier ; le header Collaborer
+     conserve volontairement le noir de la capture de référence. */
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] [data-testid="copilot-send"],
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] [data-testid="copilot-action-approve"],
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .news-signal-actions button:first-child,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .news-conversation-intro button { background: #4567A4 !important; border-color: #4567A4 !important; color: #fff !important; }
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .news-signal-actions button:not(:first-child),
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .news-secondary-panel,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .news-composer,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] [data-testid="copilot-panel"] > .border-t { background: #F8FBFF !important; border-color: rgba(69,103,164,.22) !important; color: #0B1F3A !important; }
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .glass,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] [data-testid^="copilot-action-card-"],
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .copilot-daily-summary,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .copilot-action-result,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .copilot-recent-timeline,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .news-conversation-intro,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .news-signal-card,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .news-message-bubble,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] [data-testid="cockpit-night-recap"] { background: #F8FBFF !important; border-color: rgba(69,103,164,.22) !important; box-shadow: 0 6px 18px rgba(11,31,58,.06) !important; color: #0B1F3A !important; }
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .glass *,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] [data-testid^="copilot-action-card-" ] *,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .copilot-daily-summary *,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .copilot-action-result *,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .copilot-recent-timeline *,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .news-conversation-intro *,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .news-signal-card *,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .news-message-bubble *,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] [data-testid="cockpit-night-recap"] * { color: #0B1F3A !important; }
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .copilot-message-event .glass,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .copilot-message-event .glass * { background: #F8FBFF !important; color: #0B1F3A !important; }
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .copilot-message-event.is-user > div > div { background: #E8F1FB !important; border-color: rgba(69,103,164,.28) !important; color: #0B1F3A !important; }
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .copilot-event-stamp { color: rgba(11,31,58,.62) !important; }
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .copilot-ai-badge { background: rgba(69,103,164,.12) !important; border-color: rgba(69,103,164,.30) !important; color: #31578F !important; }
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .news-composer { position: sticky; bottom: 0; z-index: 8; margin: 14px -4px 0; padding: 10px 0 4px; }
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .news-composer input,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] [data-testid="copilot-input"] { color: #0B1F3A !important; }
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .news-composer button { background: #4567A4 !important; color: #fff !important; }
+
+  /* Dark : surfaces plates de l'application, sans gradients décoratifs dans les cartes/boutons. */
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"],
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] [data-testid="copilot-panel"],
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .news-conversation { background: #0B1F3A !important; color: #fff !important; }
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .glass,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] [data-testid^="copilot-action-card-"],
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-daily-summary,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-action-result,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-recent-timeline,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .news-conversation-intro,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .news-signal-card,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .news-message-bubble,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] [data-testid="cockpit-night-recap"] { background: rgba(69,103,164,.20) !important; border-color: rgba(255,255,255,.22) !important; box-shadow: none !important; color: #fff !important; }
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .glass *,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] [data-testid^="copilot-action-card-" ] *,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-daily-summary *,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-action-result *,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-recent-timeline *,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .news-conversation-intro *,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .news-signal-card *,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .news-message-bubble *,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] [data-testid="cockpit-night-recap"] * { color: #fff !important; }
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-message-event .glass,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-message-event .glass * { background: rgba(69,103,164,.20) !important; color: #fff !important; }
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-message-event.is-user > div > div { background: #172C5C !important; border-color: rgba(255,255,255,.24) !important; color: #fff !important; }
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-event-stamp { color: rgba(225,237,255,.74) !important; }
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-ai-badge { background: rgba(232,201,106,.12) !important; border-color: rgba(232,201,106,.48) !important; color: #E8C96A !important; }
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .news-composer,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] [data-testid="copilot-panel"] > .border-t { background: #172C5C !important; border-color: rgba(255,255,255,.18) !important; }
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .news-composer { position: sticky; bottom: 0; z-index: 8; margin: 14px -4px 0; padding: 10px 0 4px; }
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .news-composer input,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] [data-testid="copilot-input"] { color: #fff !important; }
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .news-composer button,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] [data-testid="copilot-send"] { background: #4567A4 !important; color: #fff !important; }
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] [data-testid="copilot-action-approve"],
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .news-signal-actions button:first-child { background: #E8EEF6 !important; border-color: #E8EEF6 !important; color: #0B1F3A !important; }
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .news-conversation-intro button { background: #4567A4 !important; border-color: #4567A4 !important; color: #fff !important; }
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .news-signal-actions button:not(:first-child) { background: rgba(69,103,164,.20) !important; border-color: rgba(255,255,255,.24) !important; color: #fff !important; }
+
+  /* Composer commun : capsule continue, boutons plats et non décoratifs. */
+  [data-testid="mobile-copilot-home"] [data-testid="copilot-panel"] > .border-t > div.relative,
+  [data-testid="mobile-copilot-home"] .news-composer { border-radius: 18px !important; }
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] [data-testid="copilot-panel"] > .border-t > div.relative { background: #F8FBFF !important; border-color: rgba(69,103,164,.24) !important; }
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] [data-testid="copilot-panel"] > .border-t > div.relative { background: #172C5C !important; border-color: rgba(255,255,255,.24) !important; }
+
+  /* Modale Collaborer professionnelle, indépendante du flux. */
+  [data-testid="mobile-copilot-home"] .copilot-collab-backdrop { position: fixed; inset: 0; z-index: 120; display: flex; align-items: flex-end; justify-content: center; padding: 16px; background: rgba(11,31,58,.52); backdrop-filter: blur(8px); }
+  [data-testid="mobile-copilot-home"] .copilot-collab-modal { width: min(100%, 430px); max-height: min(76vh, 620px); overflow-y: auto; border: 1px solid rgba(69,103,164,.24); border-radius: 24px; padding: 20px; background: #fff; color: #0B1F3A; box-shadow: 0 24px 70px rgba(11,31,58,.24); }
+  [data-testid="mobile-copilot-home"] .copilot-collab-modal-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 14px; }
+  [data-testid="mobile-copilot-home"] .copilot-collab-eyebrow { color: #4567A4; font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+  [data-testid="mobile-copilot-home"] .copilot-collab-modal h2 { margin: 4px 0 0; color: #0B1F3A; font-size: 20px; line-height: 1.2; }
+  [data-testid="mobile-copilot-home"] .copilot-collab-close { display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; border: 1px solid rgba(11,31,58,.14); border-radius: 999px; background: #F8FBFF; color: #0B1F3A; }
+  [data-testid="mobile-copilot-home"] .copilot-collab-description { margin: 16px 0; color: rgba(11,31,58,.70); font-size: 13px; line-height: 1.55; }
+  [data-testid="mobile-copilot-home"] .copilot-collab-label { display: block; margin-bottom: 7px; color: #0B1F3A; font-size: 12px; font-weight: 700; }
+  [data-testid="mobile-copilot-home"] .copilot-collab-textarea { display: block; width: 100%; resize: vertical; border: 1px solid rgba(69,103,164,.24); border-radius: 14px; padding: 12px; background: #F8FBFF; color: #0B1F3A; font-size: 13px; line-height: 1.5; outline: none; }
+  [data-testid="mobile-copilot-home"] .copilot-collab-textarea:focus { border-color: #4567A4; box-shadow: 0 0 0 3px rgba(69,103,164,.14); }
+  [data-testid="mobile-copilot-home"] .copilot-collab-whatsapp,
+  [data-testid="mobile-copilot-home"] .copilot-collab-submit { display: inline-flex; align-items: center; justify-content: center; gap: 7px; min-height: 38px; border-radius: 12px; font-size: 12px; font-weight: 700; }
+  [data-testid="mobile-copilot-home"] .copilot-collab-whatsapp { margin-bottom: 14px; padding: 8px 12px; background: #E7F6EE; color: #16724A; }
+  [data-testid="mobile-copilot-home"] .copilot-collab-submit { width: 100%; margin-top: 12px; border: 1px solid #4567A4; background: #4567A4; color: #fff; }
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-collab-backdrop { background: rgba(4,15,36,.70); }
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-collab-modal { border-color: rgba(255,255,255,.20); background: #172C5C; color: #fff; }
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-collab-modal h2,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-collab-label { color: #fff; }
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-collab-description { color: rgba(255,255,255,.72); }
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-collab-close,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-collab-textarea { border-color: rgba(255,255,255,.22); background: rgba(69,103,164,.20); color: #fff; }
+}
+
+/* Correctifs de contraste finaux après contrôle Actualité. */
+@media (max-width: 768px) {
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .copilot-suggestions-list button,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] [data-testid="copilot-suggestion"] { background: #E8F1FB !important; border-color: rgba(69,103,164,.22) !important; color: #0B1F3A !important; }
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .news-composer input::placeholder,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] [data-testid="copilot-input"]::placeholder { color: rgba(11,31,58,.58) !important; opacity: 1 !important; }
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .news-secondary-panel,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .news-secondary-panel summary,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .news-secondary-panel details,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .news-secondary-panel p,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .news-secondary-panel span { color: #0B1F3A !important; }
+
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-suggestions-list button,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] [data-testid="copilot-suggestion"] { background: rgba(69,103,164,.20) !important; border-color: rgba(255,255,255,.24) !important; color: #fff !important; }
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .news-composer input::placeholder,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] [data-testid="copilot-input"]::placeholder { color: rgba(225,237,255,.74) !important; opacity: 1 !important; }
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .news-secondary-panel,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .news-secondary-panel summary,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .news-secondary-panel details,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .news-secondary-panel p,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .news-secondary-panel span { color: rgba(225,237,255,.86) !important; }
+}
+
+/* Dernière correction ciblée du composer et de la bulle d'accueil en dark. */
+@media (max-width: 768px) {
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] [data-testid="copilot-opening-greeting"] .glass,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] [data-testid="copilot-opening-greeting"] .glass * { background: rgba(69,103,164,.20) !important; color: #fff !important; }
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] [data-testid="copilot-upload"],
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] [data-testid="copilot-plus"] { background: transparent !important; color: rgba(225,237,255,.78) !important; box-shadow: none !important; }
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] [data-testid="copilot-plus"] { border-left: 1px solid rgba(255,255,255,.16); border-radius: 0 !important; }
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] [data-testid="copilot-panel"] > .border-t > p { color: rgba(225,237,255,.66) !important; }
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] [data-testid="copilot-upload"],
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] [data-testid="copilot-plus"] { background: transparent !important; color: rgba(11,31,58,.62) !important; box-shadow: none !important; }
+}
+
+/* Bulle utilisateur dark : contraste inversé façon Kairos, sans dégrader le fond du Hub. */
+@media (max-width: 768px) {
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-message-event.is-user > div > div { background: #F8FBFF !important; border-color: rgba(255,255,255,.70) !important; color: #0B1F3A !important; }
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-message-event.is-user > div > div * { color: #0B1F3A !important; }
+}
+
+/* Le conteneur d’événement ne doit jamais peindre une seconde carte derrière la bulle. */
+@media (max-width: 768px) {
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-message-event,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] [data-testid="copilot-opening-greeting"] { background: transparent !important; }
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-message-event .glass * { background: transparent !important; }
+}
+
+/* Le wrapper de la ligne d'accueil est structurel, pas une carte : aucun fond propre. */
+@media (max-width: 768px) {
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] [data-testid="copilot-opening-greeting"] > div { background: transparent !important; }
+}
+
+@media (max-width: 768px) {
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-message-shell { background: transparent !important; }
+}
+
+/* Priorité supérieure à l'ancienne règle de mise en page qui blanchissait tous les wrappers assistant. */
+@media (max-width: 768px) {
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] [data-testid="copilot-panel"] [data-testid="copilot-messages"] > .flex.justify-start > div { background: transparent !important; box-shadow: none !important; }
+}
+
+/* Référence finale MyExtension Business — une seule palette mobile, sans héritage noir/beige/gradient parasite. */
+@media (max-width: 768px) {
+  [data-testid="mobile-copilot-home"] {
+    --mx-bg-light: #FFFFFF;
+    --mx-surface-light: #F8FBFF;
+    --mx-blue: #4567A4;
+    --mx-blue-deep: #31578F;
+    --mx-navy-900: #0B1F3A;
+    --mx-navy-800: #172C5C;
+    --mx-border-light: rgba(69,103,164,.22);
+  }
+
+  /* Clair : blanc de l’application, cartes très pâles et actions bleu réel. */
+  html.ambiance-clarte [data-testid="mobile-copilot-home"],
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] [data-testid="copilot-panel"],
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .news-conversation { background: var(--mx-bg-light) !important; color: var(--mx-navy-900) !important; }
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] [data-testid="copilot-panel"] > .border-b,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] [data-testid="copilot-panel"] > .border-t { background: rgba(255,255,255,.98) !important; border-color: var(--mx-border-light) !important; }
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .hub-product-mark { background: var(--mx-blue) !important; color: #FFFFFF !important; box-shadow: none !important; }
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .hub-theme-toggle { background: #FFFFFF !important; color: var(--mx-navy-900) !important; border-color: var(--mx-border-light) !important; }
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] [data-testid="copilot-contact"],
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] [data-testid="copilot-send"],
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] [data-testid="copilot-action-approve"],
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .news-conversation-intro button,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .news-signal-actions button:first-child,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .news-composer button { background: var(--mx-blue) !important; border-color: var(--mx-blue) !important; color: #FFFFFF !important; }
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .glass,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .copilot-daily-summary,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .copilot-action-result,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .copilot-recent-timeline,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .news-conversation-intro,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .news-signal-card,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .news-message-bubble,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] [data-testid="cockpit-night-recap"] { background: var(--mx-surface-light) !important; border-color: var(--mx-border-light) !important; box-shadow: 0 4px 14px rgba(11,31,58,.05) !important; color: var(--mx-navy-900) !important; }
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .copilot-message-event.is-user > div > div,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .news-message.is-user .news-message-bubble { background: #E8F1FB !important; color: var(--mx-navy-900) !important; }
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .copilot-message-event .glass,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .copilot-message-event .glass * { background: var(--mx-surface-light) !important; color: var(--mx-navy-900) !important; }
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .news-signal-actions button:not(:first-child),
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .copilot-suggestions-list button { background: #E8F1FB !important; border-color: var(--mx-border-light) !important; color: var(--mx-navy-900) !important; }
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .news-composer { position: static !important; margin: 8px 0 0 !important; padding: 8px !important; background: var(--mx-surface-light) !important; border-color: var(--mx-border-light) !important; box-shadow: none !important; }
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .news-composer input { color: var(--mx-navy-900) !important; }
+
+  /* Dark : même sky navy que l’application et surfaces glass sans gradient de bouton. */
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"],
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] [data-testid="copilot-panel"],
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .news-conversation { background: linear-gradient(180deg, #172C5C 0%, #101F47 42%, #0B1F3A 76%, #081734 100%) !important; color: #FFFFFF !important; }
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] [data-testid="copilot-panel"] > .border-b,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] [data-testid="copilot-panel"] > .border-t { background: #0B1F3A !important; border-color: rgba(255,255,255,.18) !important; }
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .hub-product-mark { background: #172C5C !important; color: #F1E2CC !important; box-shadow: none !important; }
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .hub-theme-toggle { background: #172C5C !important; color: #FFFFFF !important; border-color: rgba(255,255,255,.22) !important; }
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] [data-testid="copilot-contact"],
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] [data-testid="copilot-send"],
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] [data-testid="copilot-action-approve"],
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .news-conversation-intro button,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .news-signal-actions button:first-child,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .news-composer button { background: #4567A4 !important; border-color: #4567A4 !important; color: #FFFFFF !important; }
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .glass,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-daily-summary,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-action-result,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-recent-timeline,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .news-conversation-intro,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .news-signal-card,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .news-message-bubble,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] [data-testid="cockpit-night-recap"] { background: rgba(69,103,164,.20) !important; border-color: rgba(255,255,255,.22) !important; box-shadow: none !important; color: #FFFFFF !important; }
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-message-event .glass,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-message-event .glass * { background: rgba(69,103,164,.20) !important; color: #FFFFFF !important; }
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-message-event.is-user > div > div,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .news-message.is-user .news-message-bubble { background: #F8FBFF !important; color: #0B1F3A !important; }
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .news-signal-actions button:not(:first-child),
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-suggestions-list button { background: rgba(69,103,164,.20) !important; border-color: rgba(255,255,255,.22) !important; color: #FFFFFF !important; }
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .news-composer { position: static !important; margin: 8px 0 0 !important; padding: 8px !important; background: #172C5C !important; border-color: rgba(255,255,255,.22) !important; box-shadow: none !important; }
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .news-composer input { color: #FFFFFF !important; }
+
+  /* Menu bas : surface stable et distincte, sans bouton en pastille bleue. */
+  html.ambiance-clarte .app-body:has([data-testid="mobile-copilot-home"]) .bottom-nav,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] ~ .bottom-nav { background: #FFFFFF !important; border-top-color: rgba(69,103,164,.18) !important; }
+  html.ambiance-clarte .app-body:has([data-testid="mobile-copilot-home"]) .bottom-nav button,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] ~ .bottom-nav button { background: transparent !important; color: rgba(11,31,58,.64) !important; }
+  html.ambiance-clarte .app-body:has([data-testid="mobile-copilot-home"]) .bottom-nav button.active,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] ~ .bottom-nav button.active { background: transparent !important; color: #4567A4 !important; }
+  html:not(.ambiance-clarte) .app-body:has([data-testid="mobile-copilot-home"]) .bottom-nav,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] ~ .bottom-nav { background: #172C5C !important; border-top-color: rgba(255,255,255,.18) !important; }
+  html:not(.ambiance-clarte) .app-body:has([data-testid="mobile-copilot-home"]) .bottom-nav button,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] ~ .bottom-nav button { background: transparent !important; color: rgba(255,255,255,.70) !important; }
+  html:not(.ambiance-clarte) .app-body:has([data-testid="mobile-copilot-home"]) .bottom-nav button.active,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] ~ .bottom-nav button.active { background: transparent !important; color: #FFFFFF !important; }
+
+  /* Collaboration : centrée, contrastée et indépendante du fil, dans les deux thèmes. */
+  [data-testid="mobile-copilot-home"] .copilot-collab-backdrop { align-items: center !important; justify-content: center !important; padding: 16px !important; background: rgba(11,31,58,.62) !important; }
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .copilot-collab-modal { background: #FFFFFF !important; color: #0B1F3A !important; border-color: rgba(69,103,164,.28) !important; box-shadow: 0 20px 60px rgba(11,31,58,.28) !important; }
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .copilot-collab-modal h2,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .copilot-collab-label,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .copilot-collab-description { color: #0B1F3A !important; }
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .copilot-collab-textarea { background: #F8FBFF !important; color: #0B1F3A !important; border-color: rgba(69,103,164,.28) !important; }
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-collab-modal { background: #172C5C !important; color: #FFFFFF !important; border-color: rgba(255,255,255,.22) !important; }
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-collab-modal h2,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-collab-label,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-collab-description { color: #FFFFFF !important; }
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-collab-textarea { background: rgba(69,103,164,.20) !important; color: #FFFFFF !important; border-color: rgba(255,255,255,.25) !important; }
+}
+
+/* Contrat visuel Hub IA — dernier niveau de priorité, mobile uniquement. */
+@media (max-width: 768px) {
+  [data-testid="mobile-copilot-home"] { --mx-primary: #4567A4; --mx-primary-deep: #31578F; --mx-navy: #0B1F3A; --mx-sky: #172C5C; --mx-light-surface: #F8FBFF; }
+
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] { background: #FFFFFF !important; color: var(--mx-navy) !important; }
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .copilot-contact-button,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .copilot-send-button,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .copilot-collab-submit { background: var(--mx-primary) !important; border-color: var(--mx-primary) !important; color: #FFFFFF !important; box-shadow: none !important; }
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .copilot-contact-button.is-open { background: var(--mx-primary-deep) !important; }
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .copilot-tab { color: rgba(11,31,58,.58) !important; border-color: transparent !important; }
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .copilot-tab.is-active { color: var(--mx-navy) !important; border-color: var(--mx-primary) !important; }
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .copilot-chat-bubble.is-assistant,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .copilot-chat-bubble.is-user { background: var(--mx-light-surface) !important; border: 1px solid rgba(69,103,164,.20) !important; color: var(--mx-navy) !important; }
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .copilot-chat-bubble.is-user { background: #E8F1FB !important; }
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .copilot-chat-bubble * { color: var(--mx-navy) !important; }
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .copilot-composer-shell { background: var(--mx-light-surface) !important; border-color: rgba(69,103,164,.26) !important; }
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .copilot-composer-shell input { color: var(--mx-navy) !important; }
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .copilot-composer-shell input::placeholder { color: rgba(11,31,58,.55) !important; }
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .copilot-collab-backdrop { align-items: center !important; background: rgba(11,31,58,.62) !important; }
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .copilot-collab-modal { background: #FFFFFF !important; color: var(--mx-navy) !important; border: 1px solid rgba(69,103,164,.30) !important; }
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .copilot-collab-modal h2,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .copilot-collab-modal p,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .copilot-collab-label { color: var(--mx-navy) !important; }
+
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] { background: linear-gradient(180deg, #172C5C 0%, #101F47 45%, #0B1F3A 100%) !important; color: #FFFFFF !important; }
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-contact-button,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-send-button,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-collab-submit { background: var(--mx-primary) !important; border-color: var(--mx-primary) !important; color: #FFFFFF !important; box-shadow: none !important; }
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-contact-button.is-open { background: var(--mx-primary-deep) !important; }
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-tab { color: rgba(255,255,255,.62) !important; border-color: transparent !important; }
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-tab.is-active { color: #FFFFFF !important; border-color: #E8C96A !important; }
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-chat-bubble.is-assistant { background: rgba(69,103,164,.20) !important; border: 1px solid rgba(255,255,255,.22) !important; color: #FFFFFF !important; }
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-chat-bubble.is-user { background: #F8FBFF !important; border: 1px solid rgba(255,255,255,.60) !important; color: var(--mx-navy) !important; }
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-chat-bubble.is-assistant * { color: #FFFFFF !important; }
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-chat-bubble.is-user * { color: var(--mx-navy) !important; }
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-composer-shell { background: var(--mx-sky) !important; border-color: rgba(255,255,255,.24) !important; }
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-composer-shell input { color: #FFFFFF !important; }
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-composer-shell input::placeholder { color: rgba(255,255,255,.66) !important; }
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-collab-backdrop { align-items: center !important; background: rgba(4,15,36,.74) !important; }
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-collab-modal { background: var(--mx-sky) !important; color: #FFFFFF !important; border-color: rgba(255,255,255,.24) !important; }
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-collab-modal h2,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-collab-modal p,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-collab-label { color: #FFFFFF !important; }
+
+  html.ambiance-clarte .app-body:has([data-testid="mobile-copilot-home"]) .bottom-nav,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] ~ .bottom-nav { background: #FFFFFF !important; border-top-color: rgba(69,103,164,.18) !important; }
+  html:not(.ambiance-clarte) .app-body:has([data-testid="mobile-copilot-home"]) .bottom-nav,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] ~ .bottom-nav { background: var(--mx-sky) !important; border-top-color: rgba(255,255,255,.18) !important; }
+}
+
+/* Surface cards aligned with Vision: navy only for the shell, never for opaque cards. */
+@media (max-width: 768px) {
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .glass,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-daily-summary,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-recent-timeline,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-action-result,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-chat-bubble.is-assistant,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-brief-card {
+    background-color: rgba(255,255,255,.08) !important;
+    background-image: none !important;
+    border-color: rgba(255,255,255,.20) !important;
+  }
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-chat-bubble.is-user {
+    background-color: #F8FBFF !important;
+    background-image: none !important;
+  }
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .glass,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .copilot-daily-summary,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .copilot-recent-timeline,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .copilot-action-result,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .copilot-chat-bubble.is-assistant,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .copilot-brief-card {
+    background-color: #F8FBFF !important;
+    background-image: none !important;
+    border-color: rgba(69,103,164,.20) !important;
+  }
+}
+
+/* Verrou typographique Hub IA — Geist/Kairos, seule échelle autorisée sur mobile. */
+@media (max-width: 768px) {
+  [data-testid="mobile-copilot-home"],
+  [data-testid="mobile-copilot-home"] * { font-family: Geist, Inter, system-ui, sans-serif !important; }
+
+  /* Le header appartient au fond de page : aucune bande de couleur concurrente. */
+  [data-testid="mobile-copilot-home"] [data-testid="copilot-panel"] > .border-b { background: transparent !important; backdrop-filter: none !important; }
+  [data-testid="mobile-copilot-home"] .hub-product-mark { overflow: hidden !important; padding: 0 !important; background: transparent !important; border-radius: 10px !important; }
+  [data-testid="mobile-copilot-home"] .hub-product-logo { display: block; width: 100%; height: 100%; object-fit: contain; }
+  [data-testid="mobile-copilot-home"] .hub-product-name { font-size: 18px !important; line-height: 22px !important; font-weight: 600 !important; letter-spacing: -.02em !important; }
+  [data-testid="mobile-copilot-home"] .hub-product-subtitle { margin-top: 1px !important; font-size: 12px !important; line-height: 16px !important; font-weight: 400 !important; }
+  [data-testid="mobile-copilot-home"] .hub-theme-toggle,
+  [data-testid="mobile-copilot-home"] .copilot-contact-button { min-height: 38px !important; font-size: 14px !important; line-height: 18px !important; }
+  [data-testid="mobile-copilot-home"] .copilot-tab { height: 42px !important; font-size: 14px !important; line-height: 18px !important; font-weight: 500 !important; }
+
+  [data-testid="mobile-copilot-home"] .copilot-event-stamp,
+  [data-testid="mobile-copilot-home"] .news-signal-scope,
+  [data-testid="mobile-copilot-home"] .news-secondary-panel summary,
+  [data-testid="mobile-copilot-home"] [data-testid="copilot-panel"] > .border-t > p { font-size: 12px !important; line-height: 16px !important; }
+  [data-testid="mobile-copilot-home"] .copilot-chat-bubble,
+  [data-testid="mobile-copilot-home"] .news-message-bubble,
+  [data-testid="mobile-copilot-home"] .news-signal-copy,
+  [data-testid="mobile-copilot-home"] .copilot-daily-summary p,
+  [data-testid="mobile-copilot-home"] .copilot-action-result p,
+  [data-testid="mobile-copilot-home"] .copilot-timeline-row span { font-size: 14px !important; line-height: 21px !important; }
+  [data-testid="mobile-copilot-home"] .copilot-daily-summary-title,
+  [data-testid="mobile-copilot-home"] .news-signal-heading,
+  [data-testid="mobile-copilot-home"] .copilot-result-title,
+  [data-testid="mobile-copilot-home"] .copilot-suggestions-title { font-size: 16px !important; line-height: 22px !important; font-weight: 600 !important; }
+  [data-testid="mobile-copilot-home"] .copilot-suggestions-list button,
+  [data-testid="mobile-copilot-home"] .news-signal-actions button,
+  [data-testid="mobile-copilot-home"] .news-conversation-intro button,
+  [data-testid="mobile-copilot-home"] .copilot-composer-shell input,
+  [data-testid="mobile-copilot-home"] .news-composer input { font-size: 14px !important; line-height: 20px !important; }
+  [data-testid="mobile-copilot-home"] .copilot-ai-badge { font-size: 10px !important; line-height: 14px !important; font-weight: 600 !important; }
+  [data-testid="mobile-copilot-home"] .copilot-daily-summary strong,
+  [data-testid="mobile-copilot-home"] .copilot-brief-card .grid > div > :nth-child(2) { font-size: 20px !important; line-height: 24px !important; font-weight: 600 !important; }
+  [data-testid="mobile-copilot-home"] .bottom-nav button,
+  .app-body:has([data-testid="mobile-copilot-home"]) .bottom-nav button { font-family: Geist, Inter, system-ui, sans-serif !important; font-size: 12px !important; line-height: 16px !important; font-weight: 500 !important; }
+}
+
+/* Alignement Kairos : validations visibles, hiérarchie stricte et Collaborer beige/noir. */
+@media (max-width: 768px) {
+  [data-testid="mobile-copilot-home"] .copilot-contact-button,
+  [data-testid="mobile-copilot-home"] .copilot-contact-button.is-open { background: #F1E2CC !important; border-color: #DEC2A3 !important; color: #0B1F3A !important; box-shadow: none !important; }
+  [data-testid="mobile-copilot-home"] .copilot-contact-button * { color: #0B1F3A !important; }
+  [data-testid="mobile-copilot-home"] [data-testid^="copilot-action-card-"] > button > div > div:first-child,
+  [data-testid="mobile-copilot-home"] .copilot-decision-empty-title { font-size: 16px !important; line-height: 22px !important; font-weight: 600 !important; }
+  [data-testid="mobile-copilot-home"] [data-testid^="copilot-action-card-"] .decision-card-body p,
+  [data-testid="mobile-copilot-home"] [data-testid^="copilot-action-card-"] .decision-card-body span,
+  [data-testid="mobile-copilot-home"] .copilot-decision-empty p { font-size: 14px !important; line-height: 21px !important; }
+  [data-testid="mobile-copilot-home"] .copilot-decision-empty { margin: 0 0 12px; padding: 14px; border: 1px solid rgba(69,103,164,.22); border-radius: 18px; background: #F8FBFF; color: #0B1F3A; }
+  [data-testid="mobile-copilot-home"] .copilot-decision-empty-title { display: flex; align-items: center; gap: 8px; margin: 9px 0 4px; }
+  [data-testid="mobile-copilot-home"] .copilot-decision-empty p { margin: 0; }
+  [data-testid="mobile-copilot-home"] .copilot-decision-empty button { display: inline-flex; align-items: center; gap: 6px; margin-top: 12px; color: #4567A4; font-size: 14px; font-weight: 600; }
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-decision-empty { background: rgba(255,255,255,.08) !important; border-color: rgba(255,255,255,.20) !important; color: #FFFFFF !important; }
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-decision-empty * { color: inherit; }
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-decision-empty button { color: #F1E2CC !important; }
+  [data-testid="mobile-copilot-home"] ~ .bottom-nav button,
+  .app-body:has([data-testid="mobile-copilot-home"]) .bottom-nav button { min-width: 0 !important; padding: 9px 3px 7px !important; }
+}
+
+/* PC : logo et thème sont déjà dans le header global et ne sont jamais dupliqués dans le panneau Chat. */
+@media (min-width: 769px) {
+  [data-testid="copilot-right-drawer"] [data-testid="hub-product-identity"],
+  [data-testid="copilot-right-drawer"] .hub-theme-toggle { display: none !important; }
+  [data-testid="copilot-right-drawer"] [data-testid="copilot-panel"] > .border-b > div:first-child { justify-content: flex-end !important; }
+  [data-testid="copilot-right-drawer"] [data-testid="copilot-panel"] { background: #0B1F3A !important; color: #FFFFFF !important; }
+  [data-testid="copilot-right-drawer"] .copilot-contact-button { background: #F1E2CC !important; border-color: #DEC2A3 !important; color: #0B1F3A !important; }
+  [data-testid="copilot-right-drawer"] .copilot-contact-button * { color: #0B1F3A !important; }
+  [data-testid="copilot-right-drawer"] .glass,
+  [data-testid="copilot-right-drawer"] .copilot-daily-summary,
+  [data-testid="copilot-right-drawer"] .copilot-recent-timeline,
+  [data-testid="copilot-right-drawer"] .copilot-action-result,
+  [data-testid="copilot-right-drawer"] .copilot-decision-empty { background: rgba(255,255,255,.08) !important; border-color: rgba(255,255,255,.20) !important; }
+}
+
+/* Priorité finale : Collaborer reste beige/noir sur mobile, en clair comme en dark. */
+@media (max-width: 768px) {
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .copilot-contact-button,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .copilot-contact-button.is-open,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-contact-button,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-contact-button.is-open {
+    background-color: #F1E2CC !important;
+    background-image: none !important;
+    border-color: #DEC2A3 !important;
+    color: #0B1F3A !important;
+  }
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .copilot-contact-button *,
+  html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] .copilot-contact-button * { color: #0B1F3A !important; }
+}
+
+/* ─────────── FUSION Hub IA : mode CLAIR aussi sur le drawer Copilote PC ───────────
+   Par défaut le drawer desktop reste navy (bloc @media min-width:769px plus haut).
+   Ici, quand l'ambiance claire est active, on aligne le chat PC sur le rendu clair
+   déjà utilisé en mobile (fond clair, texte bleu nuit, bulles/cartes claires). */
+@media (min-width: 769px) {
+  html.ambiance-clarte [data-testid="copilot-right-drawer"] [data-testid="copilot-panel"] {
+    background: linear-gradient(180deg, #f8fbff 0%, #e5effa 100%) !important;
+    color: #17233a !important;
+  }
+  html.ambiance-clarte [data-testid="copilot-right-drawer"] [data-testid="copilot-panel"] .text-white,
+  html.ambiance-clarte [data-testid="copilot-right-drawer"] [data-testid="copilot-panel"] p,
+  html.ambiance-clarte [data-testid="copilot-right-drawer"] [data-testid="copilot-panel"] h1,
+  html.ambiance-clarte [data-testid="copilot-right-drawer"] [data-testid="copilot-panel"] h2 { color: #0B1F3A !important; }
+  html.ambiance-clarte [data-testid="copilot-right-drawer"] [data-testid="copilot-panel"] [class*="text-white/"] { color: rgba(11,31,58,.65) !important; }
+  html.ambiance-clarte [data-testid="copilot-right-drawer"] [data-testid="copilot-panel"] [class*="border-white/"] { border-color: rgba(23,44,92,.16) !important; }
+  html.ambiance-clarte [data-testid="copilot-right-drawer"] [data-testid="copilot-panel"] [class*="bg-white/"] { background-color: rgba(255,255,255,.62) !important; }
+  html.ambiance-clarte [data-testid="copilot-right-drawer"] [data-testid="copilot-panel"] > .border-b { background: rgba(255,255,255,.72) !important; border-color: rgba(23,44,92,.14) !important; }
+  html.ambiance-clarte [data-testid="copilot-right-drawer"] [data-testid="copilot-panel"] > .border-t { background: rgba(255,255,255,.72) !important; border-top-color: rgba(23,44,92,.14) !important; }
+  html.ambiance-clarte [data-testid="copilot-right-drawer"] .glass,
+  html.ambiance-clarte [data-testid="copilot-right-drawer"] .copilot-daily-summary,
+  html.ambiance-clarte [data-testid="copilot-right-drawer"] .copilot-recent-timeline,
+  html.ambiance-clarte [data-testid="copilot-right-drawer"] .copilot-action-result,
+  html.ambiance-clarte [data-testid="copilot-right-drawer"] .copilot-decision-empty {
+    background: linear-gradient(135deg, rgba(255,255,255,.97), rgba(231,241,252,.9)) !important;
+    border-color: rgba(23,44,92,.17) !important;
+    color: #17233a !important;
+  }
+  html.ambiance-clarte [data-testid="copilot-right-drawer"] .copilot-daily-summary *,
+  html.ambiance-clarte [data-testid="copilot-right-drawer"] .copilot-recent-timeline *,
+  html.ambiance-clarte [data-testid="copilot-right-drawer"] .copilot-decision-empty * { color: inherit; }
+  html.ambiance-clarte [data-testid="copilot-right-drawer"] [data-testid="copilot-panel"] input,
+  html.ambiance-clarte [data-testid="copilot-right-drawer"] [data-testid="copilot-panel"] textarea {
+    background: rgba(255,255,255,.92) !important; color: #0B1F3A !important; border-color: rgba(23,44,92,.18) !important;
+  }
+  html.ambiance-clarte [data-testid="copilot-right-drawer"] [data-testid="copilot-panel"] input::placeholder { color: rgba(11,31,58,.45) !important; }
+  /* La pastille "Copilote" (poignée du drawer) reste lisible en clair. */
+  html.ambiance-clarte [data-testid="copilot-drawer-toggle"] { background: linear-gradient(180deg, #5679b7, #31578f) !important; color: #fff !important; }
+}
+

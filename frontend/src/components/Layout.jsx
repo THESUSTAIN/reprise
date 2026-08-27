@@ -16,11 +16,11 @@ import {
 } from "./ui/dropdown-menu";
 
 const ITEMS = [
-  { id: "aujourdhui", label: "Aujourd'hui", shortLabel: "Aujourd'hui", Icon: Compass, path: "/", exact: true },
-  { id: "moncap", label: "Ma Vision", shortLabel: "Ma Vision", Icon: Eye, path: "/vision" },
-  { id: "monmouvement", label: "Mon Mouvement", shortLabel: "Mouvement", Icon: Briefcase, path: "/mouvement" },
-  { id: "mindset", label: "Mindset & capacité", shortLabel: "Mindset", Icon: HeartPulse, path: "/mindset" },
-  { id: "contexte", label: "Contexte", shortLabel: "Contexte", Icon: TrendingUp, path: "/contexte" },
+  { id: "aujourdhui", label: "Hub IA", shortLabel: "Hub IA", Icon: MessageCircle, path: "/", exact: true },
+  { id: "moncap", label: "Vision", shortLabel: "Vision", Icon: Eye, path: "/vision" },
+  { id: "croissance", label: "Croissance", shortLabel: "Croissance", Icon: TrendingUp, path: "/croissance" },
+  { id: "daf", label: "DAF IA", shortLabel: "DAF IA", Icon: Briefcase, path: "/pilotage" },
+  { id: "espace", label: "Espace", shortLabel: "Espace", Icon: LayoutGrid, path: "/collaborateur" },
 ];
 const MENU_GROUP_STARTS = new Set(["contexte"]);
 
@@ -282,7 +282,7 @@ function Header({ onSettings, profileName, theSustainMember, ambianceFoi, onOpen
   );
 }
 
-/* ─────────────── Bottom nav (mobile, pill) ─────────────── */
+/* ─────────────── Bottom nav (mobile, modèle Kairos) ─────────────── */
 function BottomNav({ onCopilote, hasUnseenNews }) {
   const location = useLocation();
   const navigate = useNavigate();
@@ -295,7 +295,8 @@ function BottomNav({ onCopilote, hasUnseenNews }) {
         <button key={item.id} className={`relative ${isActive(item) ? "active" : ""}`} data-testid={`bottomnav-${item.id}`}
           onClick={() => (item.action ? (location.pathname === "/" ? navigate("/") : onCopilote()) : navigate(item.path))}>
           {item.action && hasUnseenNews && <span className="absolute right-2 top-1 h-2 w-2 rounded-full bg-red-500" data-testid="bottomnav-news-badge" />}
-          <item.Icon size={14} /> {item.shortLabel || item.label}
+          <item.Icon size={17} strokeWidth={1.8} />
+          <span>{item.shortLabel || item.label}</span>
         </button>
       ))}
     </nav>
@@ -446,7 +447,7 @@ export default function Layout() {
             <ChatPanel context={context} initialAsk={copilotAsk} />
           </aside>
         </div>
-        {!hideChromeForMobileChat && <BottomNav onCopilote={openCopilot} hasUnseenNews={hasUnseenNews} />}
+        <BottomNav onCopilote={openCopilot} hasUnseenNews={hasUnseenNews} />
       </div>
 
       {mobileNavOpen && (
