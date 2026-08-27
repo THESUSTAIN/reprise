@@ -1502,3 +1502,117 @@ html.ambiance-clarte [data-testid="campus-bottom-nav"] [class*="text-white/"] { 
   html.ambiance-clarte [data-testid="copilot-drawer-toggle"] { background: linear-gradient(180deg, #5679b7, #31578f) !important; color: #fff !important; }
 }
 
+
+/* ═══════════ FUSION Hub IA — Nettoyage & uniformisation (façon Kairos) ═══════════
+   Objectif : moins de couleurs, un seul accent (beige/or), header transparent
+   partout, menu bas cohérent app/chat, boutons beige (jamais bleu clair) en light. */
+
+/* 1) Header transparent aussi sur MOBILE (comme sur PC) — on garde le flou. */
+@media (max-width: 768px) {
+  .app-header {
+    background: transparent !important;
+    background-image: none !important;
+    border-bottom: 1px solid transparent !important;
+    box-shadow: none !important;
+    backdrop-filter: blur(14px) !important;
+    -webkit-backdrop-filter: blur(14px) !important;
+  }
+}
+
+/* 2) Entête du CHAT allégée : on retire l'étiquette de contexte "Vision · …"
+   (info superflue façon Kairos = logo + titre + sous-titre + toggle). */
+[data-testid="copilot-panel"] .hub-context-label { display: none !important; }
+
+/* 3) Menu bas (bottom-nav) : même identité sur le chat que dans l'app,
+   accent beige au lieu du bleu #456EAA. */
+html:not(.ambiance-clarte) .app-body:has([data-testid="mobile-copilot-home"]) .bottom-nav {
+  background: linear-gradient(180deg, #172C5C 0%, #0B1F3A 100%) !important;
+  border-top-color: rgba(222,194,163,.16) !important;
+}
+html:not(.ambiance-clarte) .app-body:has([data-testid="mobile-copilot-home"]) .bottom-nav button.active {
+  background: rgba(222,194,163,.16) !important;
+  color: #F1E2CC !important;
+}
+
+/* 4) LIGHT — accents BEIGE (comme Kairos), plus de bleu clair sur les boutons. */
+@media (max-width: 768px) {
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] [data-testid="copilot-suggestions-list"] button,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] .news-signal-actions button {
+    border-color: #DEC2A3 !important;
+    color: #0B1F3A !important;
+    background: rgba(222,194,163,.16) !important;
+  }
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] [data-testid="copilot-tabs"] button.is-active,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] [data-testid="copilot-tabs"] button:first-child {
+    color: #0B1F3A !important;
+    border-bottom-color: #DEC2A3 !important;
+  }
+  html.ambiance-clarte .app-body:has([data-testid="mobile-copilot-home"]) .bottom-nav button.active,
+  html.ambiance-clarte [data-testid="mobile-copilot-home"] ~ .bottom-nav button.active {
+    background: #DEC2A3 !important;
+    background-image: none !important;
+    color: #0B1F3A !important;
+  }
+}
+
+/* 5) LIGHT desktop (drawer) — onglet actif & boutons en beige, pas en bleu. */
+@media (min-width: 769px) {
+  html.ambiance-clarte [data-testid="copilot-right-drawer"] [data-testid="copilot-tabs"] button.is-active {
+    color: #0B1F3A !important;
+    border-bottom-color: #DEC2A3 !important;
+  }
+  html.ambiance-clarte [data-testid="copilot-right-drawer"] [data-testid="copilot-suggestions-list"] button {
+    border-color: #DEC2A3 !important;
+    color: #0B1F3A !important;
+    background: rgba(222,194,163,.16) !important;
+  }
+}
+
+
+/* ═══════════ Fond du CHAT = fond de l'APPLI (.sky-bg) — dark ═══════════
+   Avant : le chat imposait un dégradé plat #172C5C→#0B1F3A (lignes 78/499/1441)
+   qui recouvrait le .sky-bg de l'appli → un navy différent sur PC et mobile.
+   Ici on reprend EXACTEMENT le même fond (dégradé + halos radiaux) partout. */
+html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"],
+html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] [data-testid="copilot-panel"],
+html:not(.ambiance-clarte) [data-testid="copilot-right-drawer"],
+html:not(.ambiance-clarte) [data-testid="copilot-right-drawer"] [data-testid="copilot-panel"] {
+  background:
+    radial-gradient(ellipse at 20% 10%, rgba(45,81,150,0.45) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 8%, rgba(30,60,110,0.35) 0%, transparent 55%),
+    linear-gradient(180deg, #172C5C 0%, #101F47 42%, #0B1F3A 76%, #081734 100%) !important;
+}
+/* Header/footer du chat = TRANSPARENTS + flou (comme le header PC), sur mobile
+   ET desktop. On surcharge la règle mobile spécifique (.96 opaque, lignes 79-80). */
+html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] [data-testid="copilot-panel"] > .border-b,
+html:not(.ambiance-clarte) [data-testid="mobile-copilot-home"] [data-testid="copilot-panel"] > .border-t,
+html:not(.ambiance-clarte) [data-testid="copilot-right-drawer"] [data-testid="copilot-panel"] > .border-b,
+html:not(.ambiance-clarte) [data-testid="copilot-panel"] > .border-b,
+html:not(.ambiance-clarte) [data-testid="copilot-panel"] > .border-t {
+  background: transparent !important;
+  border-color: rgba(159,191,235,.14) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+}
+html.ambiance-clarte [data-testid="mobile-copilot-home"] [data-testid="copilot-panel"] > .border-b,
+html.ambiance-clarte [data-testid="mobile-copilot-home"] [data-testid="copilot-panel"] > .border-t,
+html.ambiance-clarte [data-testid="copilot-right-drawer"] [data-testid="copilot-panel"] > .border-b,
+html.ambiance-clarte [data-testid="copilot-panel"] > .border-b,
+html.ambiance-clarte [data-testid="copilot-panel"] > .border-t {
+  background: transparent !important;
+  border-color: rgba(23,44,92,.14) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+}
+
+/* En LIGHT : le chat reprend aussi le fond clair de l'appli (.sky-bg light). */
+html.ambiance-clarte [data-testid="mobile-copilot-home"],
+html.ambiance-clarte [data-testid="mobile-copilot-home"] [data-testid="copilot-panel"],
+html.ambiance-clarte [data-testid="copilot-right-drawer"],
+html.ambiance-clarte [data-testid="copilot-right-drawer"] [data-testid="copilot-panel"] {
+  background:
+    radial-gradient(ellipse at 12% 6%, rgba(79,121,181,.16) 0%, transparent 42%),
+    radial-gradient(ellipse at 88% 12%, rgba(241,226,204,.28) 0%, transparent 36%),
+    linear-gradient(180deg, #f8fbff 0%, #edf3fa 48%, #dfeaf7 100%) !important;
+}
+

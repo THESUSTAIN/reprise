@@ -25,6 +25,10 @@ from pydantic import BaseModel
 from datetime import datetime, timezone
 from typing import Optional, Dict, Any
 import os, uuid, logging
+import httpx
+from pathlib import Path
+from dotenv import load_dotenv
+load_dotenv(Path(__file__).parent / ".env")
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("zayado-demo")
@@ -148,7 +152,48 @@ async def chat_messages_send(data: Dict[str, Any] = None):
 
 @api.post("/growth/copilote")
 async def growth_copilote(data: Dict[str, Any] = None):
-    return {"reply": "Chat en mode démo — la vraie IA (Mammouth) sera branchée bientôt.", "sources": []}
+    """Chat Copilote branché sur Mammouth (API compatible OpenAI).
+    Repli propre en message démo si la clé manque ou si Mammouth échoue."""
+    data = data or {}
+    user_message = (data.get("message") or "").strip()
+    history = data.get("history") or []
+    api_key = os.environ.get("MAMMOUTH_API_KEY") or os.environ.get("MAMMOTH_API_KEY", "")
+    base_url = os.environ.get("MAMMOUTH_BASE_URL", "https://api.mammouth.ai/v1").rstrip("/")
+    model = os.environ.get("MAMMOUTH_MODEL", "claude-haiku-4-5-20251001")
+
+    if not user_message:
+        return {"reply": "Comment puis-je vous aider aujourd'hui ?", "sources": []}
+    if not api_key:
+        return {"reply": "Chat en mode démo — la clé Mammouth n'est pas configurée.", "sources": []}
+
+    system_prompt = (
+        "Tu es MyExtension Business, le copilote IA de l'application ZAYADO pour solopreneurs "
+        "et PME. Réponds en français, de façon claire, concise et actionnable. Tu aides sur la "
+        "vision stratégique, la croissance, le pilotage (trésorerie, prospection) et le bien-être. "
+        "Ne fais pas de promesses d'exécution automatique : propose, l'utilisateur valide."
+    )
+    messages = [{"role": "system", "content": system_prompt}]
+    for m in history[-8:]:
+        role = m.get("role")
+        content = m.get("content")
+        if role in ("user", "assistant") and content:
+            messages.append({"role": role, "content": content})
+    messages.append({"role": "user", "content": user_message})
+
+    payload = {"model": model, "messages": messages, "max_tokens": 700, "temperature": 0.6, "stream": False}
+    headers = {"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"}
+    try:
+        async with httpx.AsyncClient(timeout=45.0) as client:
+            resp = await client.post(f"{base_url}/chat/completions", headers=headers, json=payload)
+        if resp.status_code != 200:
+            logger.error(f"[Mammouth] HTTP {resp.status_code}: {resp.text[:300]}")
+            return {"reply": "Le service IA est momentanément indisponible. Réessayez dans un instant.", "sources": []}
+        j = resp.json()
+        reply = (j.get("choices", [{}])[0].get("message", {}).get("content") or "").strip()
+        return {"reply": reply or "Je n'ai pas de réponse pour le moment.", "sources": []}
+    except Exception as e:
+        logger.error(f"[Mammouth] exception: {e}")
+        return {"reply": "Le service IA a rencontré une erreur réseau. Réessayez.", "sources": []}
 
 
 app.include_router(api)
