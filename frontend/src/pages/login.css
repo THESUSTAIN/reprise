@@ -1,0 +1,229 @@
+.login-screen {
+  position: relative;
+  min-height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  padding: 32px 20px;
+  /* Corrigé : recopiait un dégradé légèrement différent à la main
+     (points d'arrêt et couleur de fin différents) au lieu de reprendre
+     la vraie formule .sky-bg définie une seule fois dans index.css —
+     c'était la cause du "bleu qui n'a rien à voir avec cours-main". */
+  background: linear-gradient(180deg, #172C5C 0%, #101F47 42%, #0B1F3A 76%, #081734 100%);
+  overflow: hidden;
+}
+.login-sky {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 10%, rgba(45,81,150,0.45) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 8%, rgba(30,60,110,0.35) 0%, transparent 55%),
+    radial-gradient(ellipse at 50% 90%, rgba(5,8,20,0.95) 0%, transparent 60%);
+}
+.login-sky::after {
+  content: ""; position: absolute; inset: 0;
+  background-image: radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 22px 22px; opacity: 0.5;
+}
+.login-inner { position: relative; z-index: 1; width: 100%; max-width: 420px; }
+
+.login-brand { display: flex; flex-direction: column; align-items: center; gap: 14px; margin-bottom: 24px; }
+.login-logo-img {
+  height: 80px;
+  width: 80px;
+  border-radius: 18px;
+  object-fit: cover;
+  box-shadow: 0 12px 32px rgba(201,64,53,0.28), 0 4px 12px rgba(0,0,0,0.35);
+}
+.login-brand-name {
+  font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 22px;
+  color: #fff; letter-spacing: -0.01em; line-height: 1;
+}
+.login-brand-name-accent { color: #F1E2CC; font-weight: 700; }
+.login-logo {
+  width: 44px; height: 44px; border-radius: 12px;
+  background: linear-gradient(135deg, #F1E2CC, #DEC2A3);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Sora','Manrope',sans-serif; font-weight: 800; font-size: 22px;
+  color: #0B1F3A; box-shadow: 0 8px 24px rgba(222,194,163,0.35);
+}
+.login-brand-name { font-family: 'Manrope',sans-serif; font-weight: 700; font-size: 18px; color: #fff; line-height: 1; }
+.login-brand-tag { font-size: 12px; color: rgba(255,255,255,0.6); margin-top: 3px; }
+
+/* Wrapper H1 : centre le bloc mais laisse le span "login-title" être inline-block
+   pour que "by Zayado" soit ancré en superscript à droite DU TEXTE, pas de la page. */
+.login-title-wrap {
+  text-align: center; margin: 0;
+}
+.login-title {
+  font-family: 'Manrope',sans-serif; font-weight: 600; font-size: 27px;
+  color: #fff; letter-spacing: -0.02em; margin: 0; line-height: 1.15;
+  position: relative; display: inline-block;
+}
+/* Tag "by Zayado" — petit et remonté en haut à droite de la phrase de bienvenue,
+   comme un exposant discret pour clarifier l'appartenance sans concurrencer
+   le nom principal de l'application. */
+.login-title-by {
+  position: absolute; top: -6px; right: -6px;
+  font-family: 'Manrope',sans-serif;
+  font-size: 10px; font-weight: 600; letter-spacing: 0.06em;
+  color: rgba(241, 226, 204,0.9); text-transform: lowercase;
+  padding: 2px 7px; border-radius: 999px;
+  background: rgba(241, 226, 204,0.10);
+  border: 1px solid rgba(241, 226, 204,0.28);
+  white-space: nowrap;
+  transform: translateY(-4px);
+}
+.login-title-by em { font-style: normal; opacity: 0.75; margin-right: 2px; }
+.login-subtitle { font-size: 15px; color: rgba(241, 226, 204,0.9); margin: 8px 0 22px; font-style: italic; }
+
+.login-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border-radius: 20px; padding: 22px;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.35);
+}
+
+.login-input {
+  width: 100%; height: 46px; border-radius: 12px;
+  background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.16);
+  color: #fff; padding: 0 14px; font-size: 14px; outline: none; margin-bottom: 10px;
+}
+.login-input::placeholder { color: rgba(255,255,255,0.45); }
+.login-input:focus { border-color: rgba(222,194,163,0.7); }
+
+.login-btn {
+  width: 100%; height: 46px; border-radius: 12px; border: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  font-family: 'Manrope',sans-serif; font-size: 14px; font-weight: 600;
+  transition: transform .15s ease, opacity .15s ease, background .2s ease;
+}
+.login-btn:hover { transform: translateY(-1px); }
+.login-btn-dark {
+  background: linear-gradient(135deg, #E85842 0%, #C94032 55%, #A82D22 100%) !important;
+  color: #fff !important;
+  box-shadow: 0 8px 20px rgba(201,64,53,0.35), inset 0 1px 0 rgba(255,255,255,0.15);
+}
+.login-btn-dark:hover { box-shadow: 0 12px 26px rgba(201,64,53,0.45), inset 0 1px 0 rgba(255,255,255,0.18); }
+.login-btn-light { background: #fff; color: #1a2230; margin-top: 10px; border: 1px solid rgba(0,0,0,0.06); }
+.login-btn-teal { background: linear-gradient(135deg, #2FB89A, #1f9c82); color: #fff; }
+.login-btn-msft {
+  background: #1a1a1a !important; color: #fff !important; margin-top: 10px;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.login-btn-msft:hover { background: #262626 !important; }
+.login-btn-gold {
+  background: linear-gradient(135deg, #F1E2CC 0%, #DEC2A3 100%) !important;
+  color: #1A1408 !important; font-weight: 700;
+  box-shadow: 0 8px 20px rgba(222,194,163,0.3), inset 0 1px 0 rgba(255,255,255,0.25);
+}
+.login-btn-gold:hover { box-shadow: 0 12px 26px rgba(222,194,163,0.4), inset 0 1px 0 rgba(255,255,255,0.3); }
+
+.login-input-label {
+  display: block; font-size: 11px; font-weight: 600; letter-spacing: 0.08em;
+  text-transform: uppercase; color: rgba(255,255,255,0.55); margin: 4px 0 8px;
+}
+.login-subtitle-plain { font-style: normal; color: rgba(255,255,255,0.7); font-size: 14px; line-height: 1.5; }
+.login-microcopy {
+  text-align: center; font-size: 12.5px; color: rgba(255,255,255,0.55);
+  margin: 14px 0 0; line-height: 1.5;
+}
+.login-microcopy-soft {
+  display: flex; align-items: center; justify-content: center; gap: 5px;
+  margin-top: 6px; color: rgba(255,255,255,0.45);
+}
+
+.login-sep { display: flex; align-items: center; gap: 12px; margin: 16px 0 6px; }
+.login-sep::before, .login-sep::after { content: ""; flex: 1; height: 1px; background: rgba(255,255,255,0.14); }
+.login-sep span { font-size: 12px; color: rgba(255,255,255,0.5); text-transform: lowercase; }
+
+.login-sso {
+  width: 100%; margin-top: 10px; background: transparent; border: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+  font-size: 12.5px; color: rgba(255,255,255,0.55);
+}
+.login-sso:hover { color: rgba(241, 226, 204,0.95); }
+
+.login-sep-thin { height: 1px; background: rgba(255,255,255,0.10); margin: 16px 0; }
+
+.login-foot {
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+  margin-top: 18px; font-size: 12px; color: rgba(255,255,255,0.55);
+}
+.login-foot a { color: rgba(241, 226, 204,0.9); text-decoration: none; }
+.login-foot a:hover { text-decoration: underline; }
+
+/* État "email envoyé" (lien magique) */
+.login-sent {
+  display: flex; align-items: flex-start; gap: 12px;
+  background: rgba(93, 202, 165, 0.12);
+  border: 1px solid rgba(93, 202, 165, 0.35);
+  border-radius: 14px; padding: 14px 16px; color: #cdeee1;
+}
+.login-sent svg { color: #5DCAA5; flex-shrink: 0; margin-top: 2px; }
+.login-sent strong { display: block; font-size: 14px; color: #eafaf4; margin-bottom: 2px; }
+.login-sent span { font-size: 12.5px; line-height: 1.45; opacity: 0.9; }
+.spin { animation: zspin 0.9s linear infinite; }
+@keyframes zspin { to { transform: rotate(360deg); } }
+
+.login-btn-sso { color: #4a4a4a; font-weight: 500; }
+.login-btn-sso svg { color: #6b6b6b; }
+
+/* Signature "by Zayado" en pied de page */
+.login-signature {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 11.5px;
+  color: rgba(255,255,255,0.42);
+  letter-spacing: 0.5px;
+  font-family: 'Manrope', sans-serif;
+}
+.login-signature em { font-style: italic; opacity: 0.75; }
+.login-signature strong { color: rgba(241, 226, 204,0.85); font-weight: 600; letter-spacing: 0.8px; }
+
+/* Message d'erreur si Google échoue */
+.login-error-banner {
+  background: rgba(220,80,80,0.1); border: 1px solid rgba(220,80,80,0.3);
+  color: #c0392b; font-size: 13px; padding: 10px 14px; border-radius: 10px;
+  margin-bottom: 14px; text-align: left; line-height: 1.4;
+}
+
+/* Badge "dernière fois" sur le bouton */
+.login-btn { position: relative; }
+.login-last-badge {
+  position: absolute; right: 12px; font-size: 10px; font-weight: 600;
+  color: #DEC2A3; background: rgba(222,194,163,0.12);
+  padding: 2px 8px; border-radius: 20px;
+}
+
+/* ── Refonte : sélecteur langue, ligne sociale, liens secondaires, loader OAuth ── */
+.login-topbar { display: flex; justify-content: flex-end; margin-bottom: 10px; }
+.login-lang {
+  display: inline-flex; border: 1px solid rgba(255,255,255,0.16); border-radius: 999px;
+  overflow: hidden; background: rgba(255,255,255,0.06);
+}
+.login-lang button {
+  border: none; background: transparent; color: rgba(255,255,255,0.6);
+  font-size: 12px; font-weight: 700; padding: 5px 13px; cursor: pointer; transition: .15s ease;
+}
+.login-lang button.active { background: #DEC2A3; color: #14275C; }
+.login-social-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.login-btn-social { height: 48px; margin-top: 0 !important; font-size: 13px; }
+.login-last-line { text-align: center; font-size: 11.5px; color: #F1E2CC; margin: 10px 0 0; letter-spacing: .2px; }
+.login-secondary { display: flex; align-items: center; justify-content: center; gap: 16px; margin-top: 4px; flex-wrap: wrap; }
+.login-link {
+  background: none; border: none; cursor: pointer; font-size: 12.5px; color: rgba(255,255,255,0.55);
+  display: inline-flex; align-items: center; gap: 5px; transition: color .15s ease;
+}
+.login-link:hover { color: rgba(241, 226, 204,0.95); }
+.login-link-dot { color: rgba(255,255,255,0.3); }
+.login-oauth-overlay {
+  position: fixed; inset: 0; z-index: 60; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 16px;
+  background: rgba(6,15,34,0.85); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); color: #fff;
+}
+.login-oauth-overlay p { font-size: 15px; color: rgba(255,255,255,0.85); }
+.login-resend {
+  margin-top: 10px; background: rgba(222,194,163,0.14); border: 1px solid rgba(222,194,163,0.4);
+  color: #F1E2CC; border-radius: 999px; padding: 9px 16px; font-size: 13px; font-weight: 600;
+  cursor: pointer; display: inline-flex; align-items: center; gap: 8px; transition: background .15s ease;
+}
+.login-resend:hover { background: rgba(222,194,163,0.22); }

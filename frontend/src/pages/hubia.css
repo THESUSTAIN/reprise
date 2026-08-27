@@ -1,0 +1,132 @@
+/* ===== "Hub IA" (copie Kairos) — RECOLORÉE aux couleurs ZAYADO =====
+   Règle de recoloration demandée :
+     - noir #111  → bleu ZAYADO #0B1F3A
+     - boutons    → beige ZAYADO #DEC2A3 (texte bleu)
+     - le reste (fond clair, cartes beige, accent or) conservé du design Kairos
+*/
+
+.hubia-root {
+  --bg: #F2F2F2;
+  --surface: #FFFFFF;
+  --gray: #444444;
+  --blue: #0B1F3A;        /* ex-noir #111 */
+  --gold: #D4AF37;
+  --beige-btn: #DEC2A3;   /* boutons beige ZAYADO */
+  --beige-card: #FDFBF7;
+  --border: #EAEAEA;
+  --bubble: #F5F5F5;
+  --muted: #8A8A8A;
+
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--blue);
+  font-family: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.hubia-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ===== Header ===== */
+.hubia-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 16px 20px;
+  background: rgba(242, 242, 242, 0.82);
+  backdrop-filter: saturate(180%) blur(14px);
+  -webkit-backdrop-filter: saturate(180%) blur(14px);
+}
+.hubia-header__left { display: flex; align-items: center; gap: 12px; }
+
+.hubia-logo {
+  width: 38px; height: 38px; border-radius: 11px;
+  background: var(--blue);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 3px; flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(11, 31, 58, 0.25);
+}
+.hubia-logo span { display: block; height: 3px; width: 18px; border-radius: 2px; }
+.hubia-logo span:nth-child(1) { background: #FFFFFF; }
+.hubia-logo span:nth-child(2) { background: rgba(212, 175, 55, 0.7); }
+.hubia-logo span:nth-child(3) { background: #FFFFFF; }
+
+.hubia-title { font-size: 20px; font-weight: 600; line-height: 1.1; letter-spacing: -0.01em; color: var(--blue); }
+.hubia-subtitle { font-size: 12.5px; color: var(--muted); margin-top: 2px; }
+
+.hubia-toggle {
+  width: 40px; height: 40px; border-radius: 12px;
+  border: 1px solid var(--border); background: var(--surface); color: var(--gray);
+  display: flex; align-items: center; justify-content: center; cursor: pointer;
+  transition: transform 0.15s ease, color 0.2s ease;
+}
+.hubia-toggle:hover { transform: translateY(-1px); color: var(--blue); }
+
+/* ===== Fil de conversation ===== */
+.hubia-thread { flex: 1; padding: 8px 20px 24px; display: flex; flex-direction: column; gap: 22px; }
+.hubia-block { display: flex; flex-direction: column; gap: 7px; }
+.hubia-block--right { align-items: flex-end; }
+.hubia-meta { display: inline-flex; align-items: center; gap: 7px; font-size: 11.5px; color: var(--muted); }
+.hubia-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
+
+/* ===== Bulles ===== */
+.hubia-bubble { font-size: 14.5px; line-height: 1.5; padding: 12px 16px; max-width: min(560px, 82%); animation: hubia-in 0.4s ease both; }
+.hubia-bubble--assistant { background: var(--bubble); border: 1px solid var(--border); color: var(--blue); border-radius: 20px 20px 20px 6px; }
+.hubia-bubble--user { background: var(--blue); color: #FFFFFF; border-radius: 20px 20px 6px 20px; }
+@keyframes hubia-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+/* ===== Cartes d'action ===== */
+.hubia-card { background: var(--beige-card); border: 1px solid var(--border); border-radius: 20px; padding: 18px; width: 100%; animation: hubia-in 0.45s ease both; }
+.hubia-card-head { display: flex; align-items: flex-start; gap: 12px; }
+.hubia-card-icon { width: 34px; height: 34px; border-radius: 10px; background: var(--surface); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; color: var(--blue); flex-shrink: 0; }
+.hubia-card-head__text { flex: 1; min-width: 0; }
+.hubia-card-title { font-size: 16px; font-weight: 600; color: var(--blue); letter-spacing: -0.01em; }
+.hubia-card-subtitle { font-size: 12.5px; color: var(--muted); margin-top: 3px; }
+.hubia-badge { font-size: 10.5px; font-weight: 600; letter-spacing: 0.04em; color: #7A5E12; border: 1px solid rgba(212, 175, 55, 0.5); background: rgba(212, 175, 55, 0.15); border-radius: 7px; padding: 3px 8px; flex-shrink: 0; }
+.hubia-card-body { font-size: 14px; line-height: 1.5; color: var(--gray); margin-top: 14px; }
+
+/* ===== Stat tiles ===== */
+.hubia-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 14px; }
+.hubia-tile { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 13px 14px; }
+.hubia-tile-label { font-size: 11.5px; color: var(--muted); }
+.hubia-tile-value { font-size: 19px; font-weight: 600; color: var(--blue); margin-top: 6px; letter-spacing: -0.01em; }
+.hubia-tile-hint { font-size: 11.5px; margin-top: 4px; }
+.hubia-tile-hint--gold { color: #A8842A; }
+.hubia-tile-hint--muted { color: var(--muted); }
+
+/* ===== Boutons (beige) ===== */
+.hubia-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 16px; }
+.hubia-btn { height: 46px; border-radius: 12px; font-size: 14px; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: transform 0.15s ease, background 0.2s ease, border-color 0.2s ease; border: 1px solid transparent; }
+.hubia-btn:hover { transform: translateY(-1px); }
+.hubia-btn--primary { background: var(--beige-btn); color: var(--blue); }
+.hubia-btn--primary:hover { background: #d3b490; }
+.hubia-btn--outline { background: transparent; color: var(--blue); border-color: var(--beige-btn); }
+.hubia-btn--outline:hover { background: rgba(222, 194, 163, 0.18); }
+
+/* ===== Barre de saisie ===== */
+.hubia-input { position: sticky; bottom: 78px; z-index: 15; padding: 10px 20px 12px; background: rgba(242, 242, 242, 0.88); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+.hubia-pill { display: flex; align-items: center; gap: 10px; background: var(--bubble); border: 1px solid var(--border); border-radius: 999px; padding: 6px 6px 6px 20px; }
+.hubia-field { flex: 1; border: none; outline: none; background: transparent; font-family: inherit; font-size: 14.5px; color: var(--blue); padding: 10px 0; }
+.hubia-field::placeholder { color: var(--muted); }
+.hubia-send { width: 40px; height: 40px; border-radius: 50%; border: none; background: var(--beige-btn); color: var(--blue); display: flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0; transition: transform 0.15s ease, background 0.2s ease; }
+.hubia-send:hover { transform: scale(1.06); background: #d3b490; }
+
+/* ===== Tab bar bas ===== */
+.hubia-tabs { position: sticky; bottom: 0; z-index: 18; display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px; padding: 10px 12px calc(10px + env(safe-area-inset-bottom)); background: rgba(255, 255, 255, 0.78); backdrop-filter: saturate(180%) blur(18px); -webkit-backdrop-filter: saturate(180%) blur(18px); border-top: 1px solid var(--border); }
+.hubia-tab { background: none; border: none; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 5px; padding: 4px 0; color: var(--muted); transition: color 0.2s ease; }
+.hubia-tab:hover { color: var(--gray); }
+.hubia-tab--active { color: var(--blue); }
+.hubia-tab-label { font-size: 11px; font-weight: 500; }
+.hubia-tab-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--gold); margin-top: 1px; }
+
+@media (max-width: 520px) {
+  .hubia-stats { grid-template-columns: 1fr; }
+  .hubia-actions { grid-template-columns: 1fr; }
+  .hubia-header, .hubia-thread, .hubia-input { padding-left: 16px; padding-right: 16px; }
+}
