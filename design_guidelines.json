@@ -1,0 +1,172 @@
+{
+  "project_title": "Vision Board Showcase & Inspiration Gallery (Planches d'Inspiration)",
+  "app_type": "hybrid_fullstack",
+  "theme": "Vibrant, Tactile & Artistic (Editorial Modern Moodboard)",
+  "bilingual_support": {
+    "default_language": "fr",
+    "supported_languages": ["fr", "en"],
+    "description": "Bilingual toggle in header allowing instant language switching for all 5 template titles, descriptions, quadrant tags, quotes, and interactive controls."
+  },
+  "typography": {
+    "headings": {
+      "family": "Playfair Display, Syne, Cormorant Garamond, serif",
+      "font_weight": "700/800",
+      "style": "Expressive, artistic editorial typography with tight letter spacing (tracking-tight)",
+      "sizes": {
+        "hero_h1": "text-4xl sm:text-5xl lg:text-6xl",
+        "section_h2": "text-2xl sm:text-3xl lg:text-4xl",
+        "card_h3": "text-xl sm:text-2xl",
+        "label": "text-xs tracking-[0.2em] uppercase font-mono"
+      }
+    },
+    "body": {
+      "family": "Plus Jakarta Sans, Outfit, sans-serif",
+      "font_weight": "400/500/600",
+      "style": "Clean geometric sans with high legibility and soft rounded finish"
+    },
+    "mono_accents": {
+      "family": "JetBrains Mono, monospace",
+      "style": "Used for quarterly tags (Q1-Q4), coordinates, metrics, and data attributes"
+    }
+  },
+  "colors": {
+    "archetype": "ORGANIC VIBRANT & ARTISTIC (Warm Clay, Terracotta, Ochre, Deep Ink, Electric Lilac)",
+    "palette": {
+      "background_light": "#FAF7F2",
+      "background_dark": "#0D0B14",
+      "card_bg_light": "#FFFFFF",
+      "card_bg_dark": "#161322",
+      "primary_accent": "#E05A47",
+      "secondary_accent": "#D97706",
+      "tertiary_accent": "#8B5CF6",
+      "success_accent": "#10B981",
+      "text_main_light": "#1C1917",
+      "text_sub_light": "#57534E",
+      "text_main_dark": "#F5F5F4",
+      "text_sub_dark": "#A8A29E",
+      "border_light": "rgba(28, 25, 23, 0.1)",
+      "border_dark": "rgba(255, 255, 255, 0.12)"
+    },
+    "tinted_greys": "Never pure black (#000000). Use #0D0B14 for dark surfaces and #FAF7F2 warm bone for light surfaces."
+  },
+  "templates_specification": [
+    {
+      "id": "pillars",
+      "name_fr": "Les Piliers de Vie (La Roue de l'Équilibre)",
+      "name_en": "Life Pillars (Wheel of Balance)",
+      "category": "Holistic / Personal Growth",
+      "tagline_fr": "Croissance harmonieuse à travers 5 secteurs clés",
+      "tagline_en": "Harmonious growth across 5 core life sectors",
+      "sectors": ["Carrière", "Finances", "Santé & Bien-être", "Relations & Amour", "Développement Personnel"],
+      "layout_style": "Radial Wheel & Interactive Sector Cards Grid",
+      "hero_image": "https://images.unsplash.com/photo-1686087344672-8ed2a1862b81?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NjZ8MHwxfHNlYXJjaHwyfHx3ZWxsbmVzcyUyMGNhcmVlciUyMGhlYWx0aCUyMGNyZWF0aXZlJTIwbGlmZXN0eWxlJTIwdmlzaW9uJTIwYm9hcmR8ZW58MHx8fHwxNzg5MzUzODU0fDA&ixlib=rb-4.1.0&q=85"
+    },
+    {
+      "id": "roadmap",
+      "name_fr": "La Feuille de Route Chronologique (Roadmap Temporelle)",
+      "name_en": "Chronological Roadmap (Q1-Q4 Journey)",
+      "category": "Planning & Milestones",
+      "tagline_fr": "Structurez votre année trimestre par trimestre",
+      "tagline_en": "Structure your year quarter by quarter",
+      "quarters": ["Q1: Structuration & Alignement", "Q2: Expansion & Action", "Q3: Consolidation & Exploration", "Q4: Célébration & Bilan"],
+      "layout_style": "Horizontal Timeline with Interactive Quarter Accordions & Image Pinboard",
+      "hero_image": "https://images.unsplash.com/photo-1763046289892-857b83dc070f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzOTB8MHwxfHNlYXJjaHwzfHxtaW5pbWFsaXN0JTIwYWVzdGhldGljJTIwcm9hZG1hcCUyMGdvYWxzJTIwYXJjaGl0ZWN0dXJlJTIwYXJ0fGVufDB8fHx8MTc4OTM1Mzg1NHww&ixlib=rb-4.1.0&q=85"
+    },
+    {
+      "id": "identity",
+      "name_fr": "Le Modèle Identitaire (Vision - Mission - Identité)",
+      "name_en": "Identity Model (Vision - Mission - Identity)",
+      "category": "Mindset & Values",
+      "tagline_fr": "Incarnez la personne que vous devez devenir",
+      "tagline_en": "Embody the person you need to become",
+      "pillars": ["Qui je suis (Identité)", "Ce en quoi je crois (Valeurs)", "Ce que j'accomplis (Mission)"],
+      "layout_style": "Three-Column Editorial Manifesto with Dynamic Affirmation Cards",
+      "hero_image": "https://images.unsplash.com/photo-1542904990-579199bba13a?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NjZ8MHwxfHNlYXJjaHwzfHx3ZWxsbmVzcyUyMGNhcmVlciUyMGhlYWx0aCUyMGNyZWF0aXZlJTIwbGlmZXN0eWxlJTIwdmlzaW9uJTIwYm9hcmR8ZW58MHx8fHwxNzg5MzUzODU0fDA&ixlib=rb-4.1.0&q=85"
+    },
+    {
+      "id": "sensory",
+      "name_fr": "Le Moodboard Émotionnel & Sensoriel (Ambiance & Énergie)",
+      "name_en": "Emotional & Sensory Moodboard (Atmosphere & Energy)",
+      "category": "Artistic & Aesthetic",
+      "tagline_fr": "Ancrez l'énergie, les textures et les ressentis",
+      "tagline_en": "Anchor energy, textures, and deep emotional feels",
+      "elements": ["Palette de Couleurs Vibrantes", "Textures & Tactilité", "Mots-Clés d'Énergie", "Citations & Audio Vibe"],
+      "layout_style": "Free-Flowing Bento Collage with Hover Parallax Effects",
+      "hero_image": "https://images.unsplash.com/photo-1547447134-cd3f5c716030?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2OTF8MHwxfHNlYXJjaHwyfHxhcnRpc3RpYyUyMGFlc3RoZXRpYyUyMG1vb2Rib2FyZCUyMHZpc2lvbiUyMGJvYXJkJTIwaW5zcGlyYXRpb258ZW58MHx8fHllbGxvd3wxNzg5MzUzODU0fDA&ixlib=rb-4.1.0&q=85"
+    },
+    {
+      "id": "strategic",
+      "name_fr": "Le Tableau de Bord Stratégique (Cockpit Visuel)",
+      "name_en": "Strategic Dashboard (Visual Cockpit)",
+      "category": "Entrepreneurship & Performance",
+      "tagline_fr": "Alliez inspiration visuelle et indicateurs de réussite",
+      "tagline_en": "Combine visual inspiration with core key results",
+      "widgets": ["Objectifs Financiers (KPIs)", "Jalons Clés", "Stratégie d'Équipe", "Vision Produits & Impact"],
+      "layout_style": "High-Density Command Grid with Live Metric Counters & Visual Milestones",
+      "hero_image": "https://images.unsplash.com/photo-1505330622279-bf7d7fc918f4?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NjZ8MHwxfHNlYXJjaHw0fHx3ZWxsbmVzcyUyMGNhcmVlciUyMGhlYWx0aCUyMGNyZWF0aXZlJTIwbGlmZXN0eWxlJTIwdmlzaW9uJTIwYm9hcmR8ZW58MHx8fHwxNzg5MzUzODU0fDA&ixlib=rb-4.1.0&q=85"
+    }
+  ],
+  "visual_enhancers": {
+    "glassmorphism": "backdrop-blur-xl bg-white/70 dark:bg-black/60 border border-black/5 dark:border-white/10",
+    "tracing_beam": "glowing interactive outline effect on hover for template cards",
+    "paper_texture": "subtle grain noise overlay to convey physical print moodboard feel",
+    "shadows": "shadow-[0_12px_32px_rgba(0,0,0,0.08)] hover:shadow-[0_20px_40px_rgba(224,90,71,0.15)] transition-all duration-300"
+  },
+  "interactive_features": {
+    "favorites": {
+      "endpoint": "/api/favorites",
+      "description": "Heart toggle button on each template card to save/unsave to backend database",
+      "data_testid": "favorite-button-{template_id}"
+    },
+    "template_detail_modal_or_view": {
+      "description": "Clicking a template card opens full screen interactive showcase view with customizable goals, quote inspiration generator, color scheme preview, and downloadable layout blueprint.",
+      "data_testid": "template-card-{template_id}"
+    },
+    "filter_tabs": {
+      "options": ["all", "holistic", "planning", "mindset", "artistic", "strategic"],
+      "data_testid": "filter-tab-{category}"
+    }
+  },
+  "test_ids_requirements": {
+    "header": {
+      "nav_brand": "nav-brand-logo",
+      "language_toggle": "language-toggle-button",
+      "theme_toggle": "theme-toggle-button",
+      "favorites_counter": "favorites-counter-badge"
+    },
+    "hero": {
+      "hero_title": "hero-headline",
+      "hero_cta": "hero-explore-button"
+    },
+    "gallery": {
+      "container": "templates-gallery-grid",
+      "card": "template-card-{id}",
+      "favorite_btn": "favorite-btn-{id}",
+      "view_detail_btn": "view-detail-btn-{id}"
+    },
+    "detail_view": {
+      "container": "template-detail-view",
+      "close_btn": "detail-close-button",
+      "save_btn": "detail-save-button",
+      "interactive_wheel": "interactive-wheel-pillars",
+      "timeline_container": "roadmap-timeline-container",
+      "manifesto_container": "identity-manifesto-container",
+      "sensory_grid": "sensory-moodboard-grid",
+      "cockpit_grid": "cockpit-dashboard-grid"
+    }
+  },
+  "instructions_to_main_agent": [
+    "Build a stunning, responsive React full-stack web app displaying the 5 vision board templates with rich interactive detail views.",
+    "Implement bilingual FR/EN toggle using a React Context or custom hook.",
+    "Ensure persistent favorites storage using the FastAPI backend (/api/favorites).",
+    "Use Framer Motion for smooth entrances, tab switching, hover lifts, and modal animations.",
+    "Include all required data-testid attributes listed in design_guidelines.json.",
+    "Do NOT hide header links in desktop; ensure dark/light mode toggle works flawlessly."
+  ],
+  "UNIVERSAL GUIDELINES FOR MAIN AGENT": [
+    "Avoid generic centered layouts and standard Vercel dark mode slop.",
+    "Provide rich tactile art aesthetics with grain textures, subtle floating badges, and high-contrast typography.",
+    "Ensure text contrast adheres to APCA guidelines (minimum 4.5:1 for body, 3:1 for large display titles).",
+    "Ensure interactive components use sonner for notifications when boards are saved or favorited."
+  ]
+}
