@@ -1,0 +1,182 @@
+{
+  "project_name": "MyExtension Business (Ecosystem Zayado)",
+  "tagline": "L'IA prépare, vous décidez.",
+  "app_type": "hybrid_fullstack (dashboard/saas_app, frontend-only PWA)",
+  "default_user": "Sarah",
+  "language": "FR",
+  "theme_default": "dark",
+  "design_philosophy": {
+    "core_concept": "Holistic Solopreneur Cockpit blending financial piloting, vision, growth, and wellbeing into a calm yet powerful executive hub.",
+    "anti_slop_principles": [
+      "No generic purple tech gradients or plain flat cards.",
+      "Dual visual mood system: 'Mode Élan' (dynamic, actionable, crisp gold/emerald highlights) vs 'Mode Refuge' (soothing deep indigo, soft glows, grounding values/reflections).",
+      "Refined Glassmorphism with dark midnight blue backdrop blur, high contrast gold/green KPI indicators, and tight micro-interactions.",
+      "Distinctive typography: Serif display headings in 'Fraunces' paired with clean geometric body text in 'Poppins'."
+    ]
+  },
+  "typography": {
+    "font_families": {
+      "headings": "'Fraunces', serif",
+      "body": "'Poppins', -apple-system, BlinkMacSystemFont, sans-serif",
+      "mono": "'JetBrains Mono', 'Fira Code', monospace"
+    },
+    "scale": {
+      "h1": "text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight font-serif",
+      "h2": "text-2xl sm:text-3xl font-medium tracking-tight font-serif",
+      "h3": "text-xl sm:text-2xl font-medium tracking-snug font-serif",
+      "h4": "text-lg font-medium font-sans",
+      "body_lg": "text-base font-normal font-sans leading-relaxed",
+      "body_base": "text-sm font-normal font-sans leading-normal",
+      "small": "text-xs font-normal font-sans text-slate-400"
+    },
+    "font_loading_instructions": "Include Google Fonts link for Fraunces (weights 400, 600, 700) and Poppins (weights 300, 400, 500, 600) in public/index.html or import in index.css."
+  },
+  "colors": {
+    "dark_mode": {
+      "background_gradient": "bg-gradient-to-br from-[#050A18] via-[#0A1228] to-[#0F1A36]",
+      "background_solid": "#050A18",
+      "surface_card": "rgba(15, 23, 42, 0.65)",
+      "surface_card_border": "rgba(212, 175, 55, 0.18)",
+      "surface_hover": "rgba(30, 41, 59, 0.75)",
+      "text_primary": "#F8FAFC",
+      "text_secondary": "#94A3B8",
+      "text_muted": "#64748B",
+      "accent_gold": "#D4AF37",
+      "accent_gold_glow": "rgba(212, 175, 55, 0.25)",
+      "accent_emerald": "#10B981",
+      "accent_emerald_glow": "rgba(16, 185, 129, 0.25)",
+      "accent_cyan": "#06B6D4",
+      "accent_rose": "#F43F5E"
+    },
+    "light_mode": {
+      "background_gradient": "bg-gradient-to-br from-[#F1F5F9] via-[#E2E8F0] to-[#F8FAFC]",
+      "background_solid": "#F8FAFC",
+      "surface_card": "rgba(255, 255, 255, 0.85)",
+      "surface_card_border": "rgba(180, 138, 29, 0.22)",
+      "surface_hover": "rgba(241, 245, 249, 0.95)",
+      "text_primary": "#0F172A",
+      "text_secondary": "#475569",
+      "text_muted": "#64748B",
+      "accent_gold": "#B48A1D",
+      "accent_gold_glow": "rgba(180, 138, 29, 0.2)",
+      "accent_emerald": "#059669",
+      "accent_emerald_glow": "rgba(5, 150, 105, 0.2)",
+      "accent_cyan": "#0891B2",
+      "accent_rose": "#E11D48"
+    }
+  },
+  "ambiance_modes": {
+    "mode_elan": {
+      "name": "Mode Élan",
+      "description": "Actionable, dynamic, high-focus environment for execution, pipeline deal moves, and KPI tracking.",
+      "ui_traits": {
+        "card_border": "border-gold-500/30",
+        "badge_style": "bg-amber-500/10 text-amber-400 border border-amber-500/30",
+        "glow_color": "shadow-[0_0_20px_rgba(212,175,55,0.15)]",
+        "accent_vibe": "Energetic gold and emerald pulse indicators"
+      }
+    },
+    "mode_refuge": {
+      "name": "Mode Refuge",
+      "description": "Calming, reflective, grounding environment highlighting wins, personal values, mindset reflection, and spiritual anchoring (Faith-Toggle support).",
+      "ui_traits": {
+        "card_border": "border-teal-500/20",
+        "badge_style": "bg-teal-500/10 text-teal-300 border border-teal-500/30",
+        "glow_color": "shadow-[0_0_25px_rgba(20,184,166,0.12)]",
+        "accent_vibe": "Soft indigo-teal gradient aura with encouraging quotes and wins"
+      }
+    }
+  },
+  "glassmorphism_specs": {
+    "card_class": "backdrop-blur-md bg-slate-900/65 border border-amber-500/20 rounded-2xl shadow-xl transition-all duration-300 hover:border-amber-500/40 hover:shadow-2xl",
+    "card_light_class": "backdrop-blur-md bg-white/80 border border-amber-600/20 rounded-2xl shadow-lg transition-all duration-300 hover:border-amber-600/40 hover:shadow-xl",
+    "header_class": "sticky top-0 z-40 backdrop-blur-xl bg-[#050A18]/80 border-b border-slate-800/80 px-6 py-3.5 flex items-center justify-between",
+    "sidebar_class": "w-20 lg:w-64 fixed left-0 top-0 h-screen z-50 backdrop-blur-xl bg-[#030712]/90 border-r border-slate-800/80 flex flex-col justify-between py-6 transition-all duration-300"
+  },
+  "components": {
+    "sidebar": {
+      "description": "Icon + title navigation sidebar with ecosystem badge (Zayado), quick active state highlight in gold, mode indicator, and collapse support.",
+      "items": [
+        "Cockpit du jour (Dashboard)",
+        "Copilote IA",
+        "Vision",
+        "Croissance (Pipeline)",
+        "Pilotage / DAF IA",
+        "Bien-être",
+        "Contexte",
+        "Mindset",
+        "Vision Board",
+        "Agenda",
+        "Paramètres"
+      ]
+    },
+    "header": {
+      "description": "Top bar featuring global search input, notifications popup trigger, simulated message inbox, Faith-Toggle badge, Mode Élan/Refuge quick switch, and Sarah's executive profile menu.",
+      "elements": [
+        "Search bar with shortcut badge (Ctrl+K)",
+        "Ambiance Toggle Button (Élan / Refuge)",
+        "Notification bell with badge count",
+        "Copilote message status dot",
+        "User Avatar (Sarah) & Status Indicator"
+      ]
+    },
+    "kpi_cards": {
+      "description": "4 Key metric cards for CA du mois, Trésorerie nette, Prospects actifs, and Score bien-être.",
+      "styling": "Glass container with gold/green micro-gradient, mini Recharts sparkline or metric delta (+18%), and interactive detail drawer/modal."
+    },
+    "timeline": {
+      "description": "Ma Trajectoire timeline (Aujourd'hui → 90 jours → 1 an → 3 ans) with checklist toggles and strategic goal nodes."
+    },
+    "kanban": {
+      "description": "Prospects Pipeline with columns: Nouveaux → Échange → Proposition → Négo → Gagnés, scoring badges, deal value sums, and drag/click deal status change."
+    },
+    "vision_board": {
+      "description": "5 interactive templates: Wheel of balance, Roadmap Q1-Q4, Identity Model (Vision/Mission/Valeurs), Emotional Moodboard, Strategic Cockpit."
+    },
+    "copilote_chat": {
+      "description": "Contextual AI assistant panel with suggested actions, deliverables awaiting validation, estimated time saved counter, and simulated interactive chat stream."
+    }
+  },
+  "testing": {
+    "requirement": "All interactive buttons, inputs, links, cards, navigation items, toggles, and modals MUST include a kebab-case `data-testid` attribute.",
+    "examples": [
+      "data-testid=\"sidebar-nav-cockpit\"",
+      "data-testid=\"sidebar-nav-copilote\"",
+      "data-testid=\"header-search-input\"",
+      "data-testid=\"ambiance-mode-toggle\"",
+      "data-testid=\"faith-toggle-switch\"",
+      "data-testid=\"kpi-card-ca-du-mois\"",
+      "data-testid=\"kpi-card-tresorerie\"",
+      "data-testid=\"pipeline-card-deal-1\"",
+      "data-testid=\"copilote-send-btn\"",
+      "data-testid=\"login-enter-cockpit-btn\""
+    ]
+  },
+  "image_urls": {
+    "sarah_avatar": "https://images.unsplash.com/photo-1614786269829-d24616faf56d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1Mjh8MHwxfHNlYXJjaHwxfHxzb2xvcHJlbmV1ciUyMGV4ZWN1dGl2ZSUyMHdvbWFuJTIwZGFyayUyMGJhY2tncm91bmR8ZW58MHx8fHwxNzg5MzQ0NDgyfDA&ixlib=rb-4.1.0&q=85",
+    "executive_portrait": "https://images.unsplash.com/photo-1665224752136-4dbe2dfc8195?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1Mjh8MHwxfHNlYXJjaHwzfHxzb2xvcHJlbmV1ciUyMGV4ZWN1dGl2ZSUyMHdvbWFuJTIwZGFyayUyMGJhY2tncm91bmR8ZW58MHx8fHwxNzg5MzQ0NDgyfDA&ixlib=rb-4.1.0&q=85"
+  },
+  "instructions_to_main_agent": [
+    "Ensure all components use proper React imports (.js and .jsx files).",
+    "Implement smooth Framer Motion transitions when switching between Mode Élan and Mode Refuge.",
+    "Ensure theme toggles smoothly between Dark (Night Blue gradient) and Light mode.",
+    "Ensure Recharts components are styled with custom gold (#D4AF37) and emerald (#10B981) colors.",
+    "Verify all 11 modules listed in the problem statement are accessible via sidebar tabs or quick actions.",
+    "Verify mocked demo data is realistic, inspiring, and pre-populated for Sarah.",
+    "Add data-testid attributes to all interactive elements."
+  ],
+  "UNIVERSAL GUIDELINES FOR MAIN AGENT": [
+    "Dark colors look good when used independently without gradients. DO NOT use dark colors as gradients if they conflict with contrast.",
+    "Don't make generic centered layouts, simplistic gradients, and uniform styling.",
+    "Create depth through layered design elements with z-index hierarchy.",
+    "Use glass-morphism effects with backdrop filters (12-24px blur).",
+    "You MUST NOT apply universal transition (e.g. transition: all). Add transitions for specific interactive elements.",
+    "You MUST NOT center align the app container.",
+    "Always use modern button styles like pill-shaped, or sharp button with interaction animations & color relevant to the app style.",
+    "NEVER use AI assistant Emoji characters like 🤖🧠💭💡🔮🎯 for icons. Use Phosphor Icons or Lucide icons.",
+    "Use 2-3x more spacing than feels comfortable.",
+    "Subtle grain textures, noise overlays, custom cursors, selection states, and loading animations separate good from extraordinary.",
+    "Prioritize using pre-existing components from src/components/ui when applicable.",
+    "Use sonner for toasts (located in src/components/ui/sonner.jsx)."
+  ]
+}

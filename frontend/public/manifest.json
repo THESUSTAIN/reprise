@@ -1,0 +1,17 @@
+{
+  "short_name": "MyExtension",
+  "name": "MyExtension Business — Cockpit du solopreneur",
+  "description": "Le cockpit holistique du solopreneur : finances, vision, croissance et bien-être en un seul endroit.",
+  "icons": [
+    { "src": "favicon.ico", "sizes": "16x16 32x32 64x64", "type": "image/x-icon" },
+    { "src": "icon-192.png", "type": "image/png", "sizes": "192x192", "purpose": "any maskable" },
+    { "src": "icon-512.png", "type": "image/png", "sizes": "512x512", "purpose": "any maskable" }
+  ],
+  "start_url": ".",
+  "scope": ".",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#050A18",
+  "background_color": "#050A18",
+  "lang": "fr"
+}

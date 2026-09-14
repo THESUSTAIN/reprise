@@ -1,0 +1,30 @@
+{
+  "summary": "Frontend-only PWA end-to-end testing completed. All 11 modules load without runtime errors. Login → cockpit flow works. All sidebar navigation testids resolve and route correctly. Cockpit KPIs, inspiration carousel, task/program toggles, deliverable accept work. Copilote send + suggestions dispatch messages (toasts confirm), Vision ambiance toggle Élan↔Refuge works, Faith-Toggle default OFF and switches ON to show vision.verse in Refuge (verified by code). Vision Board tabs (roue/roadmap/identite/moodboard/cockpit) all render. Croissance pipeline advances. Agenda qualified filter works. Mindset decisions work. Paramètres theme toggle visibly switches dark ↔ light (body bg rgb(15,23,42) → rgb(248,250,252)). Header profile menu / theme / ambiance work. Logout link present. Mobile viewport (390px) exposes header-menu-btn which opens the sidebar drawer.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [
+      {"component": "Header (Notifications/Messages dropdowns)", "issue": "Sonner toast in top-right position intercepts pointer events over header-notifications-btn and header-messages-btn while a toast is visible, making them un-clickable for 4–6 seconds after each toast fires. Consider moving toaster to top-center/bottom-right or setting pointer-events:none on the toast container root.", "selector": "[data-testid=\"header-notifications-btn\"], [data-testid=\"header-messages-btn\"]", "priority": "MEDIUM"}
+    ],
+    "integration_issues": [],
+    "design_issues": [
+      {"screen": "All pages with Recharts (Pilotage cashflow, Bien-être mood, VisionBoard radar)", "issues": ["Numerous Recharts console warnings: 'The width(-1) and height(-1) of chart should be greater than 0'. Charts do render eventually but the ResponsiveContainer parent lacks a minHeight/minWidth or is measured before layout — add explicit heights (e.g., h-64) or minHeight on ResponsiveContainer to silence and prevent brief 0-size layout flashes."]}
+    ]
+  },
+  "test_report_links": [],
+  "action_items": [
+    "Fix Sonner toast overlay intercepting header buttons: adjust <Toaster /> position or add pointer-events:none to the toast wrapper so the header dropdown triggers remain clickable while toasts are visible.",
+    "Add explicit min heights on ResponsiveContainer usages (Pilotage, Bien-être, VisionBoard) to eliminate Recharts width/height(-1) warnings and initial 0-size flash."
+  ],
+  "critical_code_review_comments": [
+    "Toaster from sonner is mounted at top-right (default) — overlaps with the header controls. Either reposition or ensure pointer-events pass-through on the wrapper.",
+    "Recharts ResponsiveContainer inside cards lacks minHeight; a few chart containers momentarily report -1 dimensions."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A (skipped)", "frontend": "~95%"},
+  "test_credentials": "Mocked login button data-testid=login-enter-cockpit-btn (no credentials).",
+  "seed_data_creation": "None (all data mocked in /app/frontend/src/data/mock.js).",
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "All 11 routes and every data-testid referenced in the review request are present and functional. Only two non-blocking issues remain: (1) sonner toast overlay blocks header notification/messages buttons intermittently; (2) Recharts ResponsiveContainer warnings. No runtime errors on any route. Faith-Toggle correctly reveals vision.verse in Refuge mode (Vision.jsx lines 117–122).",
+  "rca of the issue": "Sonner default position is top-right which occupies the exact z-index area of the header actions; while a toast is present, its <li> intercepts pointer events for the underlying header dropdown triggers, causing Playwright's click to time out and real users to require a second click after the toast fades."
+}
