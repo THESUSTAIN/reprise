@@ -9,6 +9,7 @@ import ChatPanel from "./ChatPanel";
 import SettingsModal from "./SettingsModal";
 import TheSustainModal from "./TheSustainModal";
 import InstallBanner from "./InstallBanner";
+import WelcomeTour from "./WelcomeTour";
 import { authMe, getProfile, getHeaderMessages, getHeaderNotifications, markHeaderMessagesRead, markHeaderNotificationsRead, setLanguage, logoutSession, getNewsHistory, getLastSeenNewsId, globalSearch } from "../lib/api";
 import {
   DropdownMenu, DropdownMenuContent, DropdownMenuItem,
@@ -28,11 +29,11 @@ import {
 // surélevée (le geste réflexe des applications mobiles), le pilotage
 // financier rejoint le menu profil où se trouvent déjà les autres modules.
 const ITEMS = [
-  { id: "aujourdhui", label: "Aujourd'hui", shortLabel: "Aujourd'hui", Icon: LayoutDashboard, path: "/", exact: true },
-  { id: "moncap", label: "Vision", shortLabel: "Vision", Icon: Eye, path: "/vision" },
-  { id: "copilote", label: "Copilote", shortLabel: "Copilote", Icon: MessageCircle, action: "copilot", center: true },
-  { id: "mouvement", label: "Mon Mouvement", shortLabel: "Mouvement", Icon: ListChecks, path: "/mouvement" },
-  { id: "croissance", label: "Croissance", shortLabel: "Croissance", Icon: TrendingUp, path: "/croissance" },
+  { id: "aujourdhui", label: "Aujourd'hui", shortLabel: "Aujourd'hui", sub: "Votre journée en un coup d'œil", Icon: LayoutDashboard, path: "/", exact: true },
+  { id: "moncap", label: "Vision", shortLabel: "Vision", sub: "Cap & décisions", Icon: Eye, path: "/vision" },
+  { id: "copilote", label: "Copilote", shortLabel: "Copilote", sub: "L'IA prépare, vous décidez", Icon: MessageCircle, action: "copilot", center: true },
+  { id: "mouvement", label: "Mon Mouvement", shortLabel: "Mouvement", sub: "Tâches & projets", Icon: ListChecks, path: "/mouvement" },
+  { id: "croissance", label: "Croissance", shortLabel: "Croissance", sub: "Prospects & ventes", Icon: TrendingUp, path: "/croissance" },
 ];
 const MENU_GROUP_STARTS = new Set(["contexte"]);
 
@@ -54,16 +55,16 @@ const SEARCH_TARGETS = [
 const ECOSYSTEM_ITEMS = [
   // DAF IA quitte la navigation principale (cinq entrées maximum sur mobile)
   // mais devait rester atteignable : il manquait ici.
-  { id: "pilotage", label: "DAF IA · Pilotage", path: "/pilotage", Icon: Briefcase, available: true },
-  { id: "roadmap", label: "Roadmap 30/60/90", path: "/roadmap", Icon: Map, available: true },
-  { id: "agents", label: "Mes agents (WhatsApp/Telegram)", path: "/agents", Icon: Bot, available: true },
-  { id: "mindset", label: "Mindset & capacité", path: "/mindset", Icon: HeartPulse, available: true },
-  { id: "contexte", label: "Contexte", path: "/contexte", Icon: Gauge, available: true },
-  { id: "collaborateur", label: "Collaborateur", path: "/collaborateur", Icon: Handshake, available: true },
-  { id: "campus", label: "Campus", path: "/campus", Icon: GraduationCap, available: true },
-  { id: "business", label: "Équiper mon business", path: "https://zayado.net/boutique", Icon: Gem, available: true, external: true },
-  { id: "espace", label: "Espace", path: "https://espace.zayado.net", Icon: Briefcase, available: true, external: true },
-  { id: "thesustain", label: "TheSustain · Foi & vocation", path: "/thesustain", Icon: Eye, available: true, requiresTheSustain: true },
+  { id: "pilotage", label: "DAF IA · Pilotage", sub: "Finances & trésorerie", path: "/pilotage", Icon: Briefcase, available: true },
+  { id: "roadmap", label: "Roadmap 30/60/90", sub: "Plan d'action par étapes", path: "/roadmap", Icon: Map, available: true },
+  { id: "agents", label: "Mes agents (WhatsApp/Telegram)", sub: "Assistants automatisés", path: "/agents", Icon: Bot, available: true },
+  { id: "mindset", label: "Mindset & capacité", sub: "Énergie & anti-surcharge", path: "/mindset", Icon: HeartPulse, available: true },
+  { id: "contexte", label: "Contexte", sub: "Échéances & priorités", path: "/contexte", Icon: Gauge, available: true },
+  { id: "collaborateur", label: "Collaborateur", sub: "Déléguer & partager", path: "/collaborateur", Icon: Handshake, available: true },
+  { id: "campus", label: "Campus", sub: "Formations & simulations", path: "/campus", Icon: GraduationCap, available: true },
+  { id: "business", label: "Équiper mon business", sub: "Boutique & outils", path: "https://zayado.net/boutique", Icon: Gem, available: true, external: true },
+  { id: "espace", label: "Espace", sub: "Espace membres", path: "https://espace.zayado.net", Icon: Briefcase, available: true, external: true },
+  { id: "thesustain", label: "TheSustain · Foi & vocation", sub: "Foi & vocation", path: "/thesustain", Icon: Eye, available: true, requiresTheSustain: true },
 ];
 
 /* ─────────────── Sidebar (rail 96px, modèle exact) ─────────────── */
@@ -135,7 +136,8 @@ function Sidebar({ onSettings, onCopilote, unseenNewsCount }) {
                       <span className="absolute -right-0.5 -top-0.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-rose-500 px-1 text-[9px] font-bold text-white" data-testid="side-copilote-badge">{unseenNewsCount}</span>
                     )}
                     <span className={`menu-tooltip pointer-events-none absolute left-full ml-3 top-1/2 -translate-y-1/2 whitespace-nowrap rounded-md text-white text-xs px-2.5 py-1.5 transition-opacity z-50 ${scrolling ? "!opacity-0" : "opacity-0 group-hover:opacity-100"}`}>
-                      {item.label}
+                      <span className="block font-medium">{item.label}</span>
+                      {item.sub && <span className="block text-[10px] text-white/60 leading-tight">{item.sub}</span>}
                     </span>
                   </button>
                 </li>
@@ -147,13 +149,13 @@ function Sidebar({ onSettings, onCopilote, unseenNewsCount }) {
             <li className="w-full flex justify-center menu-group-start">
               <button onClick={() => navigate("/contexte")} data-testid="side-contexte" aria-label="Contexte" className={`menu-link group relative w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-200 ${location.pathname.startsWith("/contexte") ? "active" : ""}`}>
                 <Gauge size={16} strokeWidth={1.85} />
-                <span className={`menu-tooltip pointer-events-none absolute left-full ml-3 top-1/2 -translate-y-1/2 whitespace-nowrap rounded-md text-white text-xs px-2.5 py-1.5 transition-opacity z-50 ${scrolling ? "!opacity-0" : "opacity-0 group-hover:opacity-100"}`}>Contexte</span>
+                <span className={`menu-tooltip pointer-events-none absolute left-full ml-3 top-1/2 -translate-y-1/2 whitespace-nowrap rounded-md text-white text-xs px-2.5 py-1.5 transition-opacity z-50 ${scrolling ? "!opacity-0" : "opacity-0 group-hover:opacity-100"}`}><span className="block font-medium">Contexte</span><span className="block text-[10px] text-white/60 leading-tight">Échéances & priorités</span></span>
               </button>
             </li>
             <li className="w-full flex justify-center">
               <button onClick={() => navigate("/mindset")} data-testid="side-mindset" aria-label="Mindset & capacité" className={`menu-link group relative w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-200 ${location.pathname.startsWith("/mindset") ? "active" : ""}`}>
                 <HeartPulse size={16} strokeWidth={1.85} />
-                <span className={`menu-tooltip pointer-events-none absolute left-full ml-3 top-1/2 -translate-y-1/2 whitespace-nowrap rounded-md text-white text-xs px-2.5 py-1.5 transition-opacity z-50 ${scrolling ? "!opacity-0" : "opacity-0 group-hover:opacity-100"}`}>Mindset & capacité</span>
+                <span className={`menu-tooltip pointer-events-none absolute left-full ml-3 top-1/2 -translate-y-1/2 whitespace-nowrap rounded-md text-white text-xs px-2.5 py-1.5 transition-opacity z-50 ${scrolling ? "!opacity-0" : "opacity-0 group-hover:opacity-100"}`}><span className="block font-medium">Mindset & capacité</span><span className="block text-[10px] text-white/60 leading-tight">Énergie & recul</span></span>
               </button>
             </li>
           </ul>
@@ -274,7 +276,7 @@ function Header({ onSettings, profileName, theSustainMember, ambianceFoi, onOpen
             <div className="ecosystem-grid grid grid-cols-2 gap-2">
               {ECOSYSTEM_ITEMS.filter((item) => !item.requiresTheSustain || theSustainMember || ambianceFoi).map((item) => {
                 const Icon = item.Icon;
-                return <button key={item.id} type="button" data-testid={`ecosystem-${item.id}`} onClick={() => { if (item.id === "thesustain") { onOpenTheSustain(); return; } if (item.available && item.external) window.open(item.path, "_blank", "noopener,noreferrer"); else if (item.available) navigate(item.path); else toast.info(`${item.label} sera disponible dans le prochain lot.`); }} className={`ecosystem-card flex flex-col items-center justify-center gap-1.5 rounded-xl border border-white/10 p-3 text-center ${item.available ? "" : "is-disabled"}`}><span className="ecosystem-card-icon"><Icon size={19} /></span><span className="ecosystem-card-label text-[11px] font-medium leading-tight">{item.label}</span></button>;
+                return <button key={item.id} type="button" data-testid={`ecosystem-${item.id}`} onClick={() => { if (item.id === "thesustain") { onOpenTheSustain(); return; } if (item.available && item.external) window.open(item.path, "_blank", "noopener,noreferrer"); else if (item.available) navigate(item.path); else toast.info(`${item.label} sera disponible dans le prochain lot.`); }} className={`ecosystem-card flex flex-col items-center justify-center gap-1 rounded-xl border border-white/10 p-3 text-center ${item.available ? "" : "is-disabled"}`}><span className="ecosystem-card-icon"><Icon size={19} /></span><span className="ecosystem-card-label text-[11px] font-medium leading-tight">{item.label}</span>{item.sub && <span className="ecosystem-card-sub text-[9px] text-white/55 leading-tight">{item.sub}</span>}</button>;
               })}
             </div>
           </DropdownMenuContent>
@@ -305,8 +307,8 @@ function Header({ onSettings, profileName, theSustainMember, ambianceFoi, onOpen
             <DropdownMenuItem className="cursor-pointer" data-testid="profile-contexte" onClick={() => navigate("/contexte")}>
               <Gauge className="w-4 h-4 mr-2" /> Contexte
             </DropdownMenuItem>
-            <DropdownMenuItem className="cursor-pointer" onClick={() => toast.info("Aide & support bientôt disponible.")}>
-              <HelpCircle className="w-4 h-4 mr-2" /> Aide & Support
+            <DropdownMenuItem className="cursor-pointer" data-testid="profile-revoir-guide" onClick={() => window.dispatchEvent(new CustomEvent("cours:open-tour"))}>
+              <HelpCircle className="w-4 h-4 mr-2" /> Revoir le guide
             </DropdownMenuItem>
             <DropdownMenuSeparator className="bg-white/10" />
             <DropdownMenuItem className="cursor-pointer" onClick={() => setLanguage("fr").then(() => toast.success("Langue française enregistrée.")).catch(() => toast.error("Impossible d’enregistrer la langue."))}><Globe className="w-4 h-4 mr-2" /> Français</DropdownMenuItem><DropdownMenuItem className="cursor-pointer" onClick={() => setLanguage("en").then(() => toast.success("English language saved.")).catch(() => toast.error("Impossible d’enregistrer la langue."))}><Globe className="w-4 h-4 mr-2" /> English</DropdownMenuItem>
@@ -578,6 +580,7 @@ export default function Layout() {
       <SettingsModal open={settingsOpen} onClose={() => setSettingsOpen(false)} initialSection={settingsSection} />
       <TheSustainModal open={theSustainModalOpen} onClose={() => setTheSustainModalOpen(false)} />
       <InstallBanner />
+      <WelcomeTour />
     </div>
   );
 }

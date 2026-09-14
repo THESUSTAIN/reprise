@@ -322,7 +322,11 @@ async function ensurePreviewSession() {
   } catch { /* noop — l'app affichera simplement l'écran de connexion */ }
 }
 
-ensurePreviewSession().finally(() => {
+// Session démo bornée à 2s : on tente d'obtenir le jeton AVANT le rendu (pour
+// que la garde de session le voie), mais on ne bloque JAMAIS l'affichage au-delà
+// de 2s — sinon un réseau lent laisserait un écran vide. Passé ce délai, on rend
+// quand même (l'app affichera l'écran de connexion, jamais une page blanche).
+function renderApp() {
   ReactDOM.createRoot(document.getElementById("root")).render(
     <React.StrictMode>
       <RootErrorBoundary>
@@ -330,4 +334,9 @@ ensurePreviewSession().finally(() => {
       </RootErrorBoundary>
     </React.StrictMode>
   );
-});
+}
+
+Promise.race([
+  ensurePreviewSession(),
+  new Promise((resolve) => setTimeout(resolve, 2000)),
+]).finally(renderApp);

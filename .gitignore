@@ -85,3 +85,9 @@ android-sdk/
 **/.emergent/recordings/
 frontend/node_modules/.cache/default-development/13.pack
 _v1_backup/frontend/node_modules/.cache/default-development/13.pack
+.env
+.env.*
+*.env
+credentials.json
+*.key
+.credentials
