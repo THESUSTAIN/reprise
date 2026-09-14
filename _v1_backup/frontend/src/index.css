@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Poppins:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --background: 210 40% 98%;
+        --foreground: 222 47% 11%;
+        --card: 0 0% 100%;
+        --card-foreground: 222 47% 11%;
+        --popover: 0 0% 100%;
+        --popover-foreground: 222 47% 11%;
+        --primary: 43 74% 41%;
+        --primary-foreground: 0 0% 100%;
+        --secondary: 210 40% 96%;
+        --secondary-foreground: 222 47% 11%;
+        --muted: 210 40% 96%;
+        --muted-foreground: 215 16% 47%;
+        --accent: 43 74% 49%;
+        --accent-foreground: 222 47% 11%;
+        --destructive: 347 77% 50%;
+        --destructive-foreground: 0 0% 98%;
+        --border: 214 32% 88%;
+        --input: 214 32% 88%;
+        --ring: 43 74% 49%;
+        --chart-1: 43 74% 49%;
+        --chart-2: 160 84% 39%;
+        --chart-3: 189 94% 43%;
+        --chart-4: 262 60% 55%;
+        --chart-5: 347 77% 50%;
+        --radius: 0.9rem;
+    }
+    .dark {
+        --background: 222 60% 6%;
+        --foreground: 210 40% 98%;
+        --card: 222 47% 11%;
+        --card-foreground: 210 40% 98%;
+        --popover: 222 47% 11%;
+        --popover-foreground: 210 40% 98%;
+        --primary: 43 74% 52%;
+        --primary-foreground: 222 47% 8%;
+        --secondary: 217 33% 17%;
+        --secondary-foreground: 210 40% 98%;
+        --muted: 217 33% 17%;
+        --muted-foreground: 215 20% 65%;
+        --accent: 43 74% 52%;
+        --accent-foreground: 222 47% 8%;
+        --destructive: 347 77% 55%;
+        --destructive-foreground: 0 0% 98%;
+        --border: 217 33% 20%;
+        --input: 217 33% 20%;
+        --ring: 43 74% 52%;
+        --chart-1: 43 74% 52%;
+        --chart-2: 160 84% 44%;
+        --chart-3: 189 94% 48%;
+        --chart-4: 262 60% 62%;
+        --chart-5: 347 77% 60%;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+    body {
+        @apply bg-background text-foreground font-sans;
+        margin: 0;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    h1, h2, h3 { @apply font-serif; }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 9px; height: 9px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(148,163,184,0.25); border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(212,175,55,0.45); }
+
+::selection { background: rgba(212,175,55,0.28); color: inherit; }
+
+.glass {
+    @apply backdrop-blur-md rounded-2xl border shadow-xl;
+    background: rgba(255,255,255,0.82);
+    border-color: rgba(180,138,29,0.22);
+}
+.dark .glass {
+    background: rgba(15,23,42,0.6);
+    border-color: rgba(212,175,55,0.16);
+}
+.glass-strong {
+    @apply backdrop-blur-xl;
+}
+
+/* Grain overlay */
+.grain::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.text-gold { color: #D4AF37; }
+.dark .text-gold { color: #D4AF37; }
+.text-emerald2 { color: #10B981; }
+
+.gold-gradient-text {
+    background: linear-gradient(135deg, #F4D77B 0%, #D4AF37 55%, #B48A1D 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@layer base {
+    [data-debug-wrapper="true"] { display: contents !important; }
+}

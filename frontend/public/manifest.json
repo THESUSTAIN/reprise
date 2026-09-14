@@ -1,17 +1,18 @@
 {
   "short_name": "MyExtension",
-  "name": "MyExtension Business — Cockpit du solopreneur",
-  "description": "Le cockpit holistique du solopreneur : finances, vision, croissance et bien-être en un seul endroit.",
+  "name": "MyExtension Business — Cockpit",
+  "description": "De la vision à l'action — pilotage, vision et bien-être pour solopreneurs.",
+  "lang": "fr",
   "icons": [
-    { "src": "favicon.ico", "sizes": "16x16 32x32 64x64", "type": "image/x-icon" },
-    { "src": "icon-192.png", "type": "image/png", "sizes": "192x192", "purpose": "any maskable" },
-    { "src": "icon-512.png", "type": "image/png", "sizes": "512x512", "purpose": "any maskable" }
+    { "src": "/logo-icon.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" },
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
   ],
-  "start_url": ".",
-  "scope": ".",
+  "start_url": "/",
+  "scope": "/",
   "display": "standalone",
-  "orientation": "portrait-primary",
-  "theme_color": "#050A18",
-  "background_color": "#050A18",
-  "lang": "fr"
+  "orientation": "portrait",
+  "theme_color": "#0B1F3A",
+  "background_color": "#0B1F3A",
+  "categories": ["business", "productivity"]
 }

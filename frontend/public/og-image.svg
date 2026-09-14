@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0B1B3A"/><stop offset="1" stop-color="#1A2D5C"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#g)"/>
+  <circle cx="120" cy="120" r="56" fill="#E8C36B"/>
+  <text x="120" y="142" text-anchor="middle" font-family="Georgia,serif" font-style="italic" font-size="64" fill="#0B1B3A" font-weight="600">Z</text>
+  <text x="220" y="135" font-family="system-ui,Arial" font-size="42" fill="#FDFBF6" font-weight="600">Zayado</text>
+  <text x="120" y="350" font-family="Georgia,serif" font-style="italic" font-size="72" fill="#FDFBF6">Entreprendre,</text>
+  <text x="120" y="430" font-family="Georgia,serif" font-style="italic" font-size="72" fill="#FDFBF6">sans rester seul.</text>
+  <text x="120" y="530" font-family="system-ui,Arial" font-size="28" fill="#E8C36B" letter-spacing="3">BOUTIQUE · APP · GROUPEMENT</text>
+</svg>

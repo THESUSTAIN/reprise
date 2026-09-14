@@ -1,0 +1,223 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+/* Vision Board — tokens mappés sur le thème glassmorphism du cockpit.
+   Tout est scopé sous .vb-root pour ne pas fuir dans le reste de l'app.
+   Système typo (identique à la réf VisionFlow) :
+   - corps        -> Inter
+   - titres/UI    -> Sora  (.font-head)
+   - display      -> Bricolage Grotesque (.vb-title) */
+.vb-root {
+  position: relative;
+  z-index: 1;
+  padding: 4px 2px 40px;
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* Mapping Final-main -> thème Cours-main : navy, or discret, verre blanc. */
+  --app-text: #F8FAFC;
+  --app-text-muted: rgba(235, 242, 255, 0.76);
+  --app-border: rgba(255, 255, 255, 0.25);
+  --app-surface: rgba(255,255,255,0.12);
+  --app-surface-2: rgba(255,255,255,0.08);
+  --app-accent: #DEC2A3;
+  --app-accent-soft: rgba(222, 194, 163, 0.16);
+  --app-navy: #0A1128;
+  --app-navy-deep: #0A1128;
+}
+
+/* Tokens SEULS (valeurs littérales) pour le canvas mobile immersif porté sur <body>.
+   Aucune règle de position/z-index/padding -> ne casse pas le layout fixed du portal. */
+.vb-tokens {
+  --app-navy: #0A1128;
+  --app-navy-deep: #0A1128;
+  --app-accent: #DEC2A3;
+  --app-accent-soft: rgba(222, 194, 163, 0.16);
+  --app-text: #F8FAFC;
+  --app-text-muted: rgba(235, 242, 255, 0.76);
+  --app-surface: rgba(255,255,255,0.12);
+  --app-surface-2: rgba(255,255,255,0.08);
+  --app-border: rgba(255, 255, 255, 0.25);
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Pleine largeur (page pro, pas confinée dans content-wrapper) */
+.vision-page-wrapper {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1720px;
+  margin: 0 auto;
+  padding: 16px 28px 110px;
+}
+@media (min-width: 1024px) {
+  .vision-page-wrapper { padding: 20px 44px 110px; }
+}
+.layout-left .app-body .vision-page-wrapper { padding-bottom: 80px; }
+
+/* En-tête : grand titre léger, comme le dashboard ("Bonjour, Sarah" = Manrope Light) */
+.vb-root .vb-title {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--txt);
+  font-size: 28px;
+}
+@media (min-width: 768px) { .vb-root .vb-title { font-size: 34px; } }
+.vb-root .vb-subtitle {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--txt-muted);
+  letter-spacing: 0;
+}
+.vb-header { margin-bottom: 2px; min-height: 40px; }
+
+/* .font-head hérite désormais du global (Outfit, index.css) — plus
+   d'override Manrope propre à Vision Board. */
+
+/* Carte glass générique */
+.vb-root .app-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 18px;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+  padding: 16px;
+}
+
+.vb-root .card-hover {
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.vb-root .card-hover:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.28);
+  border-color: rgba(222, 194, 163, 0.45);
+}
+
+/* Fond pointillé du canvas */
+.vb-root .canvas-dots {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.14) 1.4px, transparent 1.4px);
+  background-size: 20px 20px;
+  background-position: -10px -10px;
+}
+.ambiance-clarte .vb-root .canvas-dots {
+  background-image: radial-gradient(rgba(20, 33, 61, 0.14) 1.4px, transparent 1.4px);
+}
+
+/* Canvas : masquer la barre de défilement (on navigue au zoom / outil main) */
+.vb-root .vb-canvas { scrollbar-width: none; -ms-overflow-style: none; }
+.vb-root .vb-canvas::-webkit-scrollbar { width: 0; height: 0; display: none; }
+
+/* Studio plein écran : fond Cours-main, pas un aplat noir Final-main. */
+.vb-root .vb-canvas:fullscreen,
+.vb-root [data-testid="vision-canvas-container"]:fullscreen {
+  background:
+    radial-gradient(ellipse at 18% 10%, rgba(45,81,150,0.46) 0%, transparent 50%),
+    radial-gradient(ellipse at 82% 8%, rgba(30,60,110,0.34) 0%, transparent 55%),
+    radial-gradient(ellipse at 50% 92%, rgba(5,8,20,0.72) 0%, transparent 60%),
+    linear-gradient(180deg, #172c5c 0%, #101f47 30%, #0a1230 60%, #05081a 100%);
+}
+
+/* Anneau de progression (piliers) */
+.vb-root .gauge-track { stroke: var(--glass-border); }
+
+/* Animations */
+@keyframes vbPop {
+  from { opacity: 0; transform: scale(0.94); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes vbFadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.vb-root .animate-pop { animation: vbPop 0.5s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.vb-root .animate-fade-up { animation: vbFadeUp 0.5s cubic-bezier(0.22, 1, 0.36, 1) both; }
+
+/* Confort de lecture des inputs sur fond glass */
+.vb-root input::placeholder { opacity: 0.8; }
+.vb-root .line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@keyframes sheetUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+.vb-scroll::-webkit-scrollbar { width: 0; height: 0; }
+
+/* ── Layout : contenu + panneau IA persistant à droite ── */
+.vb-root {
+  position: relative;
+  z-index: 2;
+  /* Transparent : le dégradé sky-bg Cours-main doit rester visible. */
+  background: transparent;
+  border-radius: 18px;
+  padding: 16px 18px 24px;
+  min-height: calc(100vh - 48px);
+}
+.vb-main-row {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  width: 100%;
+}
+.vb-main-content {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.vb-side-panel {
+  flex: 0 0 360px;
+  width: 360px;
+}
+.vbrain-panel {
+  position: sticky;
+  top: 16px;
+  max-height: calc(100vh - 90px);
+  overflow-y: auto;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: rgba(255, 255, 255, 0.055);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  padding: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+.vbrain-panel::-webkit-scrollbar { width: 6px; }
+.vbrain-panel::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.12); border-radius: 3px; }
+@media (max-width: 1023px) {
+  .vb-main-row { flex-direction: column; }
+  .vb-side-panel { flex: 1 1 auto; width: 100%; }
+  .vbrain-panel { position: static; max-height: none; }
+}
+
+/* Vision Board mobile : les quatre onglets restent une navigation horizontale.
+   Le Studio est une action séparée, jamais concurrente des onglets. */
+@media (max-width: 768px) {
+  .vb-root { gap: 14px; }
+  .vb-root .vb-header { padding-inline: 2px; }
+  .vb-root .vb-title { font-size: 28px; line-height: 1.1; }
+  .vb-root .vb-subtitle { font-size: 13px; line-height: 1.45; }
+
+  .vb-root .vb-toolbar {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      "tabs actions"
+      "studio studio";
+    align-items: center;
+    gap: 10px;
+  }
+  .vb-root .vb-tabs {
+    grid-area: tabs;
+    min-width: 0;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .vb-root .vb-tabs::-webkit-scrollbar { display: none; }
+  .vb-root .vb-tabs button { white-space: nowrap; flex: 0 0 auto; padding-inline: 12px; }
+  .vb-root [data-testid="open-vision-studio"] { grid-area: studio; width: 100%; justify-content: center; }
+  .vb-root .vb-actions { grid-area: actions; }
+}

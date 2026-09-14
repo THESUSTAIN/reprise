@@ -1,70 +1,58 @@
-# Getting Started with Create React App
+# Zayado — Public site (zayado.net)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Public-facing storefront and content site for Zayado. Pulls products + blog from WordPress (cms.zayado.net) read-only and links users back to the cockpit (app.zayado.net) for sign-up.
 
-## Available Scripts
+## Stack
+- React 18 + Vite 5
+- React Router 6
+- Tailwind CSS 3
+- lucide-react icons
 
-In the project directory, you can run:
+## Local dev
+```bash
+cd /app/public-site
+yarn install
+yarn dev           # http://localhost:5173
+```
 
-### `npm start`
+## Build & preview
+```bash
+yarn build         # → dist/
+yarn start         # vite preview on $PORT (default 4173)
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Environment variables
+Copy `.env.example` to `.env` and fill:
+- `VITE_API_URL` — Zayado backend (FastAPI) e.g. `https://api.zayado.net`. Used for the `/api/public/contact` form.
+- `VITE_SAAS_URL` — Cockpit app URL e.g. `https://app.zayado.net`. Used for all "Cockpit" / "Démarrer" CTAs.
+- `VITE_WP_URL` — WordPress CMS URL e.g. `https://cms.zayado.net`. Used to fetch products + blog posts read-only.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Railway deploy
+The `railway.json` at the root tells Railway to use Nixpacks with:
+```
+yarn install && yarn build   # build
+yarn start                   # start (vite preview on $PORT)
+```
 
-### `npm test`
+In the Railway project:
+1. Create a new service from this directory (`/app/public-site`).
+2. Set the env vars above (Variables tab).
+3. Add a public domain (or attach `zayado.net`).
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Architecture
+- Single source of truth: **WordPress (cms.zayado.net)** — products, posts, legal pages.
+- The cockpit (app.zayado.net) is the **admin/master** : creating a product there pushes to WP via `/api/wp/products`.
+- The public site only **reads** from WP REST API + WooCommerce REST API.
+- Checkout stays on WooCommerce (`/produit/{slug}/`).
 
-### `npm run build`
+## Pages
+- `/` — Landing
+- `/boutique` — Product grid (WC)
+- `/boutique/:slug` — Product detail (WC)
+- `/tarifs` — SaaS pricing → cockpit
+- `/blog` — Posts (WP)
+- `/a-propos`, `/contact`
+- `/mentions-legales`, `/confidentialite`, `/cgv` — pulled from WP pages by slug
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Legacy
+Raw `.jsx` files from `a-main.zip` are preserved in `src/pages/legacy/` for future migration.
