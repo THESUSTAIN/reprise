@@ -1,9 +1,8 @@
-// Flat config (ESLint 9). Charge react-hooks + react uniquement pour que les
-// directives `eslint-disable react-hooks/*` et `react/*` présentes dans le code
-// soient reconnues. Aucune règle n'est activée : le lint ne bloque pas le build
-// de cette app Vite importée.
-import reactHooks from "eslint-plugin-react-hooks";
-import react from "eslint-plugin-react";
+// Config ESLint (ESLint 9) pour le frontend — sans import externe.
+// Stubs no-op pour les règles référencées par des directives eslint-disable.
+const stub = (names) => ({
+  rules: Object.fromEntries(names.map((n) => [n, { create: () => ({}) }])),
+});
 
 export default [
   {
@@ -18,7 +17,10 @@ export default [
   },
   {
     files: ["**/*.{js,jsx}"],
-    plugins: { "react-hooks": reactHooks, react },
+    plugins: {
+      "react-hooks": stub(["exhaustive-deps", "rules-of-hooks", "set-state-in-effect"]),
+      react: stub(["no-unknown-property", "no-unescaped-entities", "jsx-key", "display-name", "prop-types", "no-children-prop"]),
+    },
     languageOptions: {
       ecmaVersion: "latest",
       sourceType: "module",
