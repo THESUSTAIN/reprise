@@ -9,7 +9,7 @@
   --txt: #ffffff;
   --txt-soft: rgba(255,255,255,0.8);
   --txt-muted: rgba(255,255,255,0.72);
-  --glass-bg: linear-gradient(135deg, rgba(69,103,164,0.20), rgba(255,255,255,0.10));
+  --glass-bg: linear-gradient(135deg, rgba(26,58,110,0.20), rgba(255,255,255,0.10));
   --glass-border: rgba(255,255,255,0.25);
   --glass-soft: rgba(96,133,193,0.12);
 }
@@ -74,7 +74,7 @@ h1, h2, h3, h4, .font-head { font-family: 'Outfit', sans-serif; letter-spacing: 
   transition: transform 180ms cubic-bezier(0.23, 1, 0.32, 1), border-color 180ms ease, box-shadow 180ms ease, background 180ms ease;
 }
 .glass-hover { transition: background-color .3s ease, border-color .3s ease, transform .3s ease; }
-.glass-hover:hover { background: linear-gradient(135deg, rgba(78,118,184,0.27), rgba(255,255,255,0.15)); border-color: rgba(255,255,255,0.42); transform: translateY(-3px); }
+.glass-hover:hover { background: linear-gradient(135deg, rgba(26,58,110,0.27), rgba(255,255,255,0.15)); border-color: rgba(255,255,255,0.42); transform: translateY(-3px); }
 
 /* Certaines sous-cartes utilisaient directement un fond Tailwind blanc/gris.
    Elles deviennent du verre Cours-main à leur tour : aucun changement sur
@@ -170,7 +170,7 @@ html.ambiance-clarte .sky-bg {
     radial-gradient(ellipse at 88% 12%, rgba(241, 226, 204,.34) 0%, transparent 36%),
     linear-gradient(180deg, #f8fbff 0%, #edf3fa 48%, #dfeaf7 100%);
 }
-html.ambiance-clarte .sky-bg::before { opacity: .55; background-image: radial-gradient(ellipse 780px 300px at 12% 20%, rgba(69,103,164,.13) 0%, transparent 60%), radial-gradient(ellipse 850px 280px at 70% 60%, rgba(255,255,255,.95) 0%, transparent 65%); }
+html.ambiance-clarte .sky-bg::before { opacity: .55; background-image: radial-gradient(ellipse 780px 300px at 12% 20%, rgba(26,58,110,.13) 0%, transparent 60%), radial-gradient(ellipse 850px 280px at 70% 60%, rgba(255,255,255,.95) 0%, transparent 65%); }
 html.ambiance-clarte .glass {
   background: linear-gradient(135deg, rgba(255,255,255,.88), rgba(232,241,251,.70)) !important;
   border-color: rgba(23,44,92,.19) !important; box-shadow: 0 14px 34px rgba(30,58,105,.10);
@@ -213,7 +213,7 @@ html.ambiance-clarte .bottom-nav button.active { background: rgba(255,255,255,.9
 }
 
 /* Light Cours-main complet : #4567A4 est le bleu du verre de référence
-   (rgba(69,103,164,.20)) ; il est éclairci ici pour dissocier Light de Dark. */
+   (rgba(26,58,110,.20)) ; il est éclairci ici pour dissocier Light de Dark. */
 html.ambiance-clarte [data-testid="copilot-right-drawer"] { background: linear-gradient(180deg, rgba(250,253,255,.98), rgba(228,239,251,.98)) !important; border-left-color: rgba(23,44,92,.16) !important; box-shadow: -12px 0 36px rgba(30,58,105,.11) !important; }
 html.ambiance-clarte [data-testid="copilot-drawer-toggle"] { background: linear-gradient(180deg, #5679b7, #31578f) !important; border-color: rgba(23,44,92,.18) !important; color: #fff !important; }
 html.ambiance-clarte [data-testid="copilot-panel"] .glass,
@@ -230,7 +230,7 @@ html.ambiance-clarte .settings-search-box input, html.ambiance-clarte .settings-
 html.ambiance-clarte .settings-search-box input::placeholder, html.ambiance-clarte .settings-input::placeholder, html.ambiance-clarte .zinput::placeholder { color: rgba(11,31,58,.42); }
 html.ambiance-clarte .settings-completion-ring::after { background: #f4f8fd; }
 html.ambiance-clarte .settings-nav-item { color: rgba(11,31,58,.68); }
-html.ambiance-clarte .settings-nav-item:hover, html.ambiance-clarte .settings-nav-item.active { color: #0B1F3A; background: rgba(69,103,164,.13); border-color: rgba(69,103,164,.24); }
+html.ambiance-clarte .settings-nav-item:hover, html.ambiance-clarte .settings-nav-item.active { color: #0B1F3A; background: rgba(26,58,110,.13); border-color: rgba(26,58,110,.24); }
 html.ambiance-clarte .settings-glass-card, html.ambiance-clarte .glass-card { background: linear-gradient(135deg, rgba(255,255,255,.94), rgba(231,241,252,.80)); border-color: rgba(23,44,92,.17); box-shadow: 0 8px 26px rgba(30,58,105,.09); }
 html.ambiance-clarte .settings-card-title, html.ambiance-clarte .card-label, html.ambiance-clarte .settings-row-label { color: #0B1F3A; }
 html.ambiance-clarte .settings-muted, html.ambiance-clarte .muted { color: rgba(11,31,58,.66); }
@@ -383,7 +383,7 @@ html.ambiance-clarte [data-testid="campus-bottom-nav"] [class*="text-white/"] { 
 .settings-nav-item.active { color: #fff; background: rgba(174,193,220,.16); border-color: rgba(255,255,255,.16); }
 .settings-nav-badge { margin-left: auto; min-width: 17px; text-align: center; padding: 1px 5px; border-radius: 999px; color: #0A1128; background: #DEC2A3; font-size: 10px; }
 .settings-panel { flex: 1 1 auto; min-width: 0; overflow-y: auto; padding: 20px; }
-.settings-glass-card, .glass-card { padding: 16px; border: 1px solid rgba(255,255,255,.23); border-radius: 16px; background: linear-gradient(135deg, rgba(69,103,164,.18), rgba(255,255,255,.09)); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); box-shadow: 0 8px 26px rgba(0,0,0,.14); }
+.settings-glass-card, .glass-card { padding: 16px; border: 1px solid rgba(255,255,255,.23); border-radius: 16px; background: linear-gradient(135deg, rgba(26,58,110,.18), rgba(255,255,255,.09)); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); box-shadow: 0 8px 26px rgba(0,0,0,.14); }
 .settings-glass-card + .settings-glass-card { margin-top: 16px; }
 .settings-card-title, .card-label { display: flex; align-items: center; gap: 8px; margin: 0 0 7px; color: #fff; font-size: 13px; font-weight: 700; }
 .settings-muted, .muted { color: rgba(255,255,255,.70); }
@@ -544,7 +544,7 @@ html.ambiance-clarte [data-testid="campus-bottom-nav"] [class*="text-white/"] { 
 .vision-climate-bottom { justify-content: flex-start; gap: 22px; }
 .vision-climate-bottom span { display: inline-flex; align-items: center; gap: 5px; }
 .vision-focus-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
-.vision-focus-grid article { display: grid; align-content: start; gap: 7px; min-width: 0; padding: 15px; border: 1px solid rgba(255,255,255,.15); border-radius: 18px; background: linear-gradient(135deg, rgba(69,103,164,.18), rgba(255,255,255,.07)); backdrop-filter: blur(14px); transition: transform .2s ease, border-color .2s ease; }
+.vision-focus-grid article { display: grid; align-content: start; gap: 7px; min-width: 0; padding: 15px; border: 1px solid rgba(255,255,255,.15); border-radius: 18px; background: linear-gradient(135deg, rgba(26,58,110,.18), rgba(255,255,255,.07)); backdrop-filter: blur(14px); transition: transform .2s ease, border-color .2s ease; }
 .vision-focus-grid article:hover { transform: translateY(-2px); border-color: rgba(241, 226, 204,.45); }
 .focus-label { display: inline-flex; align-items: center; gap: 6px; font-size: 10px; font-weight: 800; letter-spacing: .08em; }
 .focus-green { color: #8ee7bb; } .focus-amber { color: #f2c66d; } .focus-blue { color: #91b8ff; } .focus-gold { color: var(--gold-bright); }
@@ -673,8 +673,8 @@ html.ambiance-clarte .header-notifications-title { color:#0B1F3A; }
 html.ambiance-clarte .header-notifications-subtitle { color:rgba(11,31,58,.58); }
 html.ambiance-clarte .header-notifications-count { color:#0B1F3A; }
 html.ambiance-clarte .header-notification-item { color:#0B1F3A; }
-html.ambiance-clarte .header-notification-item:hover { background:rgba(69,103,164,.055); border-color:rgba(23,44,92,.11); }
-html.ambiance-clarte .header-notification-item.is-unread { background:rgba(69,103,164,.055); }
+html.ambiance-clarte .header-notification-item:hover { background:rgba(26,58,110,.055); border-color:rgba(23,44,92,.11); }
+html.ambiance-clarte .header-notification-item.is-unread { background:rgba(26,58,110,.055); }
 html.ambiance-clarte .header-notification-title-text { color:#0B1F3A; }
 html.ambiance-clarte .header-notification-text { color:rgba(11,31,58,.66); }
 html.ambiance-clarte .header-notification-time { color:rgba(11,31,58,.45); }
@@ -691,7 +691,7 @@ html.ambiance-clarte .header-notifications-foot { border-top-color:rgba(23,44,92
 .onboarding-logo { width:40px; height:40px; display:grid; place-items:center; border-radius:12px; font-family:Outfit,sans-serif; font-size:21px; font-weight:700; color:#0B1F3A; background:linear-gradient(135deg,#F1E2CC,#DEC2A3); box-shadow:0 8px 24px rgba(0,0,0,.20); }
 .onboarding-brand-name { font-family:Outfit,sans-serif; font-size:13px; font-weight:800; letter-spacing:.18em; }
 .onboarding-brand-sub { margin-top:2px; font-size:10px; color:rgba(255,255,255,.55); }
-.onboarding-card { border:1px solid rgba(222,194,163,.20); border-radius:24px; padding:24px; background:linear-gradient(145deg,rgba(69,103,164,.18),rgba(255,255,255,.07)); box-shadow:0 24px 80px rgba(0,0,0,.24), inset 0 1px 0 rgba(255,255,255,.05); backdrop-filter:blur(18px); }
+.onboarding-card { border:1px solid rgba(222,194,163,.20); border-radius:24px; padding:24px; background:linear-gradient(145deg,rgba(26,58,110,.18),rgba(255,255,255,.07)); box-shadow:0 24px 80px rgba(0,0,0,.24), inset 0 1px 0 rgba(255,255,255,.05); backdrop-filter:blur(18px); }
 .onboarding-topline { display:flex; align-items:center; justify-content:space-between; gap:10px; }
 .onboarding-kicker { display:inline-flex; align-items:center; gap:6px; color:#F0DCA5; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.12em; }
 .onboarding-step-count { color:rgba(255,255,255,.42); font-size:10px; font-weight:600; }
@@ -741,8 +741,8 @@ html.ambiance-clarte .onboarding-progress { background:rgba(23,44,92,.10); }
 html.ambiance-clarte .onboarding-field input, html.ambiance-clarte .onboarding-field textarea { background:rgba(255,255,255,.80); color:#0B1F3A; border-color:rgba(23,44,92,.16); }
 html.ambiance-clarte .onboarding-field input::placeholder, html.ambiance-clarte .onboarding-field textarea::placeholder { color:rgba(11,31,58,.38); }
 html.ambiance-clarte .onboarding-option { background:rgba(255,255,255,.60); color:#0B1F3A; border-color:rgba(23,44,92,.14); }
-html.ambiance-clarte .onboarding-option:hover { background:rgba(255,255,255,.78); border-color:rgba(69,103,164,.30); }
-html.ambiance-clarte .onboarding-option.is-selected { background:linear-gradient(145deg,rgba(222,194,163,.20),rgba(69,103,164,.07)); border-color:rgba(69,103,164,.46); }
+html.ambiance-clarte .onboarding-option:hover { background:rgba(255,255,255,.78); border-color:rgba(26,58,110,.30); }
+html.ambiance-clarte .onboarding-option.is-selected { background:linear-gradient(145deg,rgba(222,194,163,.20),rgba(26,58,110,.07)); border-color:rgba(26,58,110,.46); }
 html.ambiance-clarte .onboarding-option-description, html.ambiance-clarte .onboarding-summary span, html.ambiance-clarte .onboarding-note { color:rgba(11,31,58,.50); }
 html.ambiance-clarte .onboarding-chip { background:rgba(255,255,255,.62); color:rgba(11,31,58,.70); border-color:rgba(23,44,92,.14); }
 html.ambiance-clarte .onboarding-summary { background:rgba(255,255,255,.52); border-color:rgba(23,44,92,.12); }

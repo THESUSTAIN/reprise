@@ -1,0 +1,32 @@
+{
+  "summary": "Frontend-only verification of the rebuilt /vision-board VSL page and cockpit modal blue consistency. /vision-board renders on-charter with all expected data-testid elements, no old nav links, hero GIF loads (900x640, /vision-board-preview.gif, 200 OK), and both email CTAs (hero + final) correctly flip localStorage zay_preview_mode='app', save zay_lead_email, and navigate to '/' where the cockpit renders (welcome-tour + aujourdhui-premiers-pas visible, Thomas demo). Landing '/' still renders hero-image in public mode. Charter check: on /vision-board the applied palette is exclusively #215480/#001d50 gradient, #a10e10 red, #f8f3eb beige, with Fraunces/Poppins/Corinthia fonts as required. Forbidden hex values (#b89855, #d4b982, #1a3a6e) DO appear in the shared global index.css and other pages (Tarifs, Temoignages, AntiBurnout, Echeances, BundleDiscountHint, ShopBroadcast) but are NOT used by VisionBoardPublic.jsx or rendered on the /vision-board screen. Cockpit modal scan revealed inconsistent blue tint (#4567A4 = rgb(69,103,164)) on the `glass`-class dialogs.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [
+      {"component": "Cockpit modal `aujourdhui-premiers-pas`", "issue": "Card uses linear-gradient(135deg, rgba(69,103,164,0.2), rgba(255,255,255,0.1)) — base tone #4567A4 is a washed-out blue that does NOT match cockpit navy palette (#1a3a6e / #102945 / #0c1d33). Class `glass` is the source.", "selector": "[data-testid='aujourdhui-premiers-pas']", "priority": "MEDIUM"},
+      {"component": "Cockpit welcome/onboarding tour `welcome-tour`", "issue": "Inner card uses the same `glass` gradient (rgba(69,103,164,0.2)) => #4567A4 tint, inconsistent with cockpit navy #1a3a6e/#102945/#0c1d33.", "selector": "[data-testid='welcome-tour'] .glass", "priority": "MEDIUM"},
+      {"component": "Global `.glass` utility", "issue": "The shared `.glass` class (used by cockpit dialogs) is defined with rgba(69,103,164,0.2) — this cascades to every modal using it. Fix once in the .glass definition to align with cockpit navy.", "selector": ".glass", "priority": "MEDIUM"}
+    ],
+    "integration_issues": [],
+    "design_issues": [
+      {"screen": "Global CSS", "issues": ["index.css still defines --zayado-navy:#1a3a6e, --zayado-gold:#b89855, --zayado-gold-soft:#d4b982 and Tarifs/Temoignages/AntiBurnout/Echeances/ExpansionAgent/BundleDiscountHint/ShopBroadcast pages still render gold + old navy. Not on /vision-board, but the charter migration is not complete site-wide."]}
+    ]
+  },
+  "test_report_links": [],
+  "action_items": [
+    "Align cockpit modal blues: update `.glass` base tint (currently rgba(69,103,164,0.2) => #4567A4) to cockpit navy (#1a3a6e/#102945/#0c1d33) so `aujourdhui-premiers-pas` and `welcome-tour` match the cockpit background.",
+    "Optional charter cleanup (out of scope but flagged): purge remaining #b89855/#d4b982/#1a3a6e usages from Tarifs, Temoignages, AntiBurnout, Echeances, ExpansionAgent, BundleDiscountHint, ShopBroadcast and CSS variables in src/index.css if the new brand charter is to apply globally."
+  ],
+  "critical_code_review_comments": [
+    "VisionBoardPublic.jsx is clean, self-contained (no LandingHub header), uses new palette exclusively, and gracefully handles image fallback via onError to Pexels.",
+    "LeadForm correctly restricts the mode switch to preview.emergentagent.com/localhost hosts — good defensive check.",
+    "Iframe previews rely on backend /api/vision/board/preview-public?template= — verify server-side rendering separately if changed; here they were accessible (iframes rendered without errors)."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A (skipped)", "frontend": "100% on /vision-board VSL checks; 2 cockpit modals flagged for blue inconsistency"},
+  "seed_data_creation": "None",
+  "retest_needed": false,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "Cockpit forces demo-login as Thomas when localStorage zay_preview_mode='app'. To reach public pages set mode='public' and reload. The `.glass` utility is the root cause of the modal blue tint (#4567A4); fixing it once should normalize all cockpit modals.",
+  "rca_of_the_issue": "Inconsistent blue on cockpit modals: `.glass` class defined globally uses rgba(69,103,164,0.2) → #4567A4 which is a mid-blue rather than the cockpit navy (#1a3a6e→#102945→#0c1d33). All dialogs sharing this class (aujourdhui-premiers-pas, welcome-tour) inherit the off-brand tint. Mitigation: update the .glass background gradient stops to use rgba(26,58,110,0.25) or rgba(16,41,69,0.35)."
+}
