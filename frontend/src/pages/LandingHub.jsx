@@ -3,10 +3,10 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { ArrowUpRight, ArrowRight, Instagram, Linkedin, Youtube, Sparkles } from "lucide-react";
 
-const NAVY = "#102945";
+const NAVY = "#001d50";
 const CREAM = "#F6F1E8";
 const SAND = "#D8B979";
-const TERRACOTTA = "#A84A2A";
+const TERRACOTTA = "#a10e10";
 const INK = "#1A2028";
 
 export function PublicHeader() {
@@ -26,7 +26,7 @@ export function PublicHeader() {
           <Link to="/nos-services">Services</Link>
           <Link to="/myextension-ai">MyExtension AI</Link>
         </nav>
-        <Link to="/contact" className="hidden sm:inline-flex items-center gap-2 rounded-full bg-[#102945] text-white px-4 py-2 text-sm font-semibold">
+        <Link to="/contact" className="hidden sm:inline-flex items-center gap-2 rounded-full bg-[#001d50] text-white px-4 py-2 text-sm font-semibold">
           Parler à Zayado <ArrowUpRight size={15} />
         </Link>
       </div>
@@ -36,7 +36,7 @@ export function PublicHeader() {
 
 export function UnifiedFooter() {
   return (
-    <footer className="bg-[#102945] text-white">
+    <footer className="bg-[#001d50] text-white">
       <div className="max-w-7xl mx-auto px-4 md:px-8 py-10 grid md:grid-cols-4 gap-8">
         <div>
           <div className="text-xl font-serif">ZAYADO</div>
@@ -52,9 +52,9 @@ export function UnifiedFooter() {
 }
 
 const journeys = [
-  {title:"Boutique", text:"Des outils sélectionnés pour votre confort, votre concentration et votre quotidien.", href:"/boutique", accent:"#173652"},
-  {title:"Avantages", text:"Des offres négociées et des opportunités utiles pour entreprendre, bouger et économiser.", href:"/avantages", accent:"#E7D8C2"},
-  {title:"Services", text:"Une équipe et des spécialistes pour vous aider à piloter, structurer et développer votre activité.", href:"/nos-services", accent:"#A84A2A"},
+  {title:"Boutique", text:"Des outils sélectionnés pour votre confort, votre concentration et votre quotidien.", href:"/boutique", accent:"#215480"},
+  {title:"Avantages", text:"Des offres négociées et des opportunités utiles pour entreprendre, bouger et économiser.", href:"/avantages", accent:"#f8f3eb"},
+  {title:"Services", text:"Une équipe et des spécialistes pour vous aider à piloter, structurer et développer votre activité.", href:"/nos-services", accent:"#a10e10"},
 ];
 
 export default function Landing() {
@@ -75,8 +75,8 @@ export default function Landing() {
               <div className="text-[clamp(60px,11vw,150px)] leading-[.79] font-serif font-semibold tracking-[-.06em]" style={{color:NAVY}}>Zayado</div>
               <p className="mt-5 text-lg md:text-2xl font-medium max-w-xl" style={{color:NAVY}}>Entreprendre avec sens, clarté et équilibre.</p>
               <div className="mt-8 flex flex-wrap gap-3">
-                <Link to="/boutique" className="rounded-full bg-[#102945] text-white px-5 py-3 text-sm font-semibold inline-flex items-center gap-2">Découvrir la marketplace <ArrowUpRight size={15}/></Link>
-                <Link to="/myextension-ai" className="rounded-full border border-[#102945]/20 bg-white/60 px-5 py-3 text-sm font-semibold" style={{color:NAVY}}>Découvrir MyExtension AI</Link>
+                <Link to="/boutique" className="rounded-full text-white px-5 py-3 text-sm font-semibold inline-flex items-center gap-2" style={{backgroundImage:"linear-gradient(135deg,#215480,#001d50)"}}>Découvrir la marketplace <ArrowUpRight size={15}/></Link>
+                <Link to="/myextension-ai" className="rounded-full border bg-white px-5 py-3 text-sm font-semibold" style={{color:NAVY, borderColor:"#e7dcc5"}}>Découvrir MyExtension AI</Link>
               </div>
             </div>
             <div className="hidden md:flex items-center gap-5 pt-2 text-sm font-semibold" style={{color:NAVY}}>
@@ -88,9 +88,9 @@ export default function Landing() {
           </div>
 
           <div className="grid lg:grid-cols-12 gap-5 mt-10 items-end">
-            <div className="lg:col-span-7 rounded-[34px] overflow-hidden min-h-[620px] relative bg-[#183247]">
+            <div className="lg:col-span-7 rounded-[34px] overflow-hidden min-h-[620px] relative bg-[#001d50]">
               <img className="absolute inset-0 w-full h-full object-cover" src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1800&q=85" alt="Espace de travail élégant" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#091a2b] via-transparent to-transparent"/>
+              <div className="absolute inset-0 bg-gradient-to-t from-[#001d50] via-transparent to-transparent"/>
               <div className="absolute left-6 bottom-6 right-6 text-white">
                 <div className="text-xs uppercase tracking-[.23em] text-white/60">L'écosystème Zayado</div>
                 <h1 className="mt-2 text-4xl md:text-6xl font-serif max-w-xl leading-[.95]">Une marketplace qui accompagne aussi votre activité.</h1>
@@ -103,7 +103,7 @@ export default function Landing() {
                 <div className="flex items-center justify-between text-sm"><span>Sélection Corps · Âme · Rituel</span><ArrowRight className="group-hover:translate-x-1 transition"/></div>
               </Link>
               <div className="grid grid-cols-2 gap-5">
-                <Link to="/avantages" className="rounded-[28px] p-6 min-h-[220px] flex flex-col justify-between" style={{background:"#E7D8C2",color:NAVY}}><div><div className="text-xs uppercase tracking-[.2em] opacity-60">02 · Avantages</div><h3 className="mt-3 text-2xl font-serif">Négocié pour vous.</h3></div><ArrowUpRight/></Link>
+                <Link to="/avantages" className="rounded-[28px] p-6 min-h-[220px] flex flex-col justify-between" style={{background:"#f8f3eb",color:NAVY}}><div><div className="text-xs uppercase tracking-[.2em] opacity-60">02 · Avantages</div><h3 className="mt-3 text-2xl font-serif">Négocié pour vous.</h3></div><ArrowUpRight/></Link>
                 <Link to="/nos-services" className="rounded-[28px] p-6 min-h-[220px] text-white flex flex-col justify-between" style={{background:TERRACOTTA}}><div><div className="text-xs uppercase tracking-[.2em] text-white/60">03 · Services</div><h3 className="mt-3 text-2xl font-serif">Une équipe derrière votre activité.</h3></div><ArrowUpRight/></Link>
               </div>
             </div>
@@ -123,8 +123,8 @@ export default function Landing() {
       </section>
 
       <section className="max-w-7xl mx-auto px-4 md:px-8 pb-24">
-        <div className="rounded-[34px] bg-[#102945] text-white p-8 md:p-12 grid md:grid-cols-2 gap-10 items-center">
-          <div><div className="text-xs uppercase tracking-[.22em] text-white/45">Le cockpit</div><h2 className="mt-3 text-4xl md:text-5xl font-serif">MyExtension AI relie tout ce que vous faites.</h2><p className="mt-5 text-white/65 max-w-xl">Vision, pilotage financier, travail, CRM, croissance et énergie réunis dans une même expérience.</p><Link to="/myextension-ai" className="mt-7 inline-flex items-center gap-2 rounded-full bg-white text-[#102945] px-5 py-3 text-sm font-semibold">Voir MyExtension AI <ArrowRight size={16}/></Link></div>
+        <div className="rounded-[34px] text-white p-8 md:p-12 grid md:grid-cols-2 gap-10 items-center" style={{backgroundImage:"linear-gradient(135deg,#215480,#001d50)"}}>
+          <div><div className="text-xs uppercase tracking-[.22em] text-white/45">Le cockpit</div><h2 className="mt-3 text-4xl md:text-5xl font-serif">MyExtension AI relie tout ce que vous faites.</h2><p className="mt-5 text-white/65 max-w-xl">Vision, pilotage financier, travail, CRM, croissance et énergie réunis dans une même expérience.</p><Link to="/myextension-ai" className="mt-7 inline-flex items-center gap-2 rounded-full bg-white text-[#001d50] px-5 py-3 text-sm font-semibold">Voir MyExtension AI <ArrowRight size={16}/></Link></div>
           <div className="grid grid-cols-2 gap-4">{[['Vision','Votre trajectoire'],['Finance','Vos chiffres'],['Travail','Vos missions'],['Growth','Vos actions'],['CRM','Vos relations'],['Énergie','Votre rythme']].map(([a,b])=><div key={a} className="rounded-2xl border border-white/10 bg-white/5 p-4"><div className="font-semibold">{a}</div><div className="text-xs text-white/50 mt-1">{b}</div></div>)}</div>
         </div>
       </section>
