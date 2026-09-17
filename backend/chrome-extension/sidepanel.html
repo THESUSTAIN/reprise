@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zayado Copilot</title>
+  <style>
+    :root { --bg:#0B1F3A; --surface:#0f2647; --line:rgba(255,255,255,.10); --gold:#C9A449; --purple:#9333EA; --txt:#eaf0f7; --muted:#9db0c7; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background:var(--bg); color:var(--txt); width:360px; min-height:100vh; }
+    .wrap { padding:14px; }
+    .brand { display:flex; align-items:center; gap:8px; font-weight:700; font-size:15px; }
+    .brand .dot { width:22px;height:22px;border-radius:7px;background:linear-gradient(135deg,var(--purple),var(--gold)); display:flex;align-items:center;justify-content:center;font-size:12px; }
+    .muted { color:var(--muted); font-size:12px; }
+    .card { border:1px solid var(--line); background:var(--surface); border-radius:14px; padding:12px; margin-top:12px; }
+    .card h4 { margin:0 0 6px; font-size:11px; text-transform:uppercase; letter-spacing:.06em; color:var(--muted); }
+    input, textarea { width:100%; background:rgba(255,255,255,.05); border:1px solid var(--line); border-radius:10px; color:var(--txt); padding:9px 10px; font-size:13px; }
+    textarea { resize:vertical; min-height:52px; }
+    .btn { width:100%; border:none; border-radius:10px; padding:10px; font-weight:600; font-size:13px; cursor:pointer; margin-top:8px; display:flex; align-items:center; justify-content:center; gap:6px; }
+    .btn.primary { background:linear-gradient(90deg,var(--purple),var(--gold)); color:#fff; }
+    .btn.ghost { background:rgba(255,255,255,.06); color:var(--txt); }
+    .btn.small { padding:8px; font-size:12px; }
+    .actions { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:8px; }
+    .hidden { display:none; }
+    .pill { display:inline-flex; align-items:center; gap:5px; font-size:11px; padding:3px 8px; border-radius:999px; background:rgba(16,185,129,.15); color:#6ee7b7; }
+    .ctx-title { font-size:13px; font-weight:600; }
+    .ctx-url { font-size:11px; color:var(--muted); word-break:break-all; }
+    .summary { font-size:13px; line-height:1.45; }
+    .toast { font-size:12px; color:#6ee7b7; margin-top:6px; min-height:16px; }
+    .err { color:#fca5a5; }
+    a { color:var(--gold); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="brand"><span class="dot">✦</span> Zayado Copilot</div>
+    <div class="muted">Couche IA contextuelle · Business OS</div>
+
+    <!-- Connexion -->
+    <div id="auth" class="card">
+      <h4>Connexion</h4>
+      <div id="authed" class="hidden">
+        <span class="pill">● Connecté</span>
+        <div class="muted" id="authedEmail" style="margin-top:6px;"></div>
+        <button class="btn ghost small" id="logout" style="margin-top:8px;">Se déconnecter</button>
+      </div>
+      <div id="loginForm">
+        <input id="email" type="email" placeholder="Votre email MyExtension AI" value="thomas@zayado.fr" />
+        <button class="btn primary" id="login">Connecter mon compte</button>
+        <div class="toast" id="authToast"></div>
+      </div>
+    </div>
+
+    <!-- Cockpit en direct (SSE — fix E5) -->
+    <div id="liveCard" class="card hidden">
+      <h4>Cockpit en direct <span id="liveDot" class="pill" style="background:rgba(16,185,129,.15);color:#6ee7b7;">● live</span></h4>
+      <div style="display:flex;align-items:baseline;gap:8px;">
+        <div style="font-size:26px;font-weight:800;color:var(--gold);" id="liveScore">—</div>
+        <div class="muted">score d'alignement</div>
+      </div>
+      <div class="muted" id="liveLabel" style="margin-top:4px;"></div>
+      <div class="muted" id="liveUpdated" style="margin-top:6px;font-size:11px;"></div>
+    </div>
+
+    <!-- Contexte de la page -->
+    <div class="card">
+      <h4>Contexte de la page</h4>
+      <div class="ctx-title" id="ctxTitle">—</div>
+      <div class="ctx-url" id="ctxUrl"></div>
+      <textarea id="ctxSelection" placeholder="Sélection / note…" style="margin-top:8px;"></textarea>
+      <button class="btn primary" id="analyze">✨ Analyser avec l'IA</button>
+    </div>
+
+    <!-- Résultat IA -->
+    <div id="result" class="card hidden">
+      <h4>Analyse IA</h4>
+      <div class="summary" id="summary"></div>
+      <div id="contact" class="muted" style="margin-top:6px;"></div>
+      <div class="actions" id="actionBtns"></div>
+      <div class="toast" id="captureToast"></div>
+    </div>
+
+    <button class="btn ghost" id="openHub" style="margin-top:12px;">Ouvrir le Hub IA →</button>
+  </div>
+
+  <script src="sidepanel.js"></script>
+</body>
+</html>

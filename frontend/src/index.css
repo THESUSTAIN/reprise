@@ -1,111 +1,504 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;0,900;1,500;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Corinthia:wght@400;700&family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-    :root {
-        --background: 38 43% 96%;
-        --foreground: 24 10% 10%;
-        --card: 0 0% 100%;
-        --card-foreground: 24 10% 10%;
-        --popover: 0 0% 100%;
-        --popover-foreground: 24 10% 10%;
-        --primary: 9 71% 58%;
-        --primary-foreground: 40 40% 98%;
-        --secondary: 38 30% 92%;
-        --secondary-foreground: 24 10% 10%;
-        --muted: 38 24% 90%;
-        --muted-foreground: 30 6% 38%;
-        --accent: 258 90% 66%;
-        --accent-foreground: 40 40% 98%;
-        --destructive: 0 84% 60%;
-        --destructive-foreground: 0 0% 98%;
-        --border: 30 12% 86%;
-        --input: 30 12% 86%;
-        --ring: 9 71% 58%;
-        --radius: 1rem;
+/* Hide Emergent-injected badge on preview/deploy */
+#emergent-badge { display: none !important; visibility: hidden !important; opacity: 0 !important; pointer-events: none !important; }
 
-        --clay: 9 71% 58%;
-        --ochre: 32 95% 44%;
-        --lilac: 258 90% 66%;
-        --emerald: 160 84% 39%;
-        --rose: 330 81% 60%;
-    }
-    .dark {
-        --background: 255 24% 6%;
-        --foreground: 60 9% 96%;
-        --card: 255 27% 11%;
-        --card-foreground: 60 9% 96%;
-        --popover: 255 27% 11%;
-        --popover-foreground: 60 9% 96%;
-        --primary: 9 78% 63%;
-        --primary-foreground: 255 24% 6%;
-        --secondary: 255 20% 16%;
-        --secondary-foreground: 60 9% 96%;
-        --muted: 255 18% 18%;
-        --muted-foreground: 30 6% 64%;
-        --accent: 258 90% 70%;
-        --accent-foreground: 255 24% 6%;
-        --destructive: 0 62% 45%;
-        --destructive-foreground: 0 0% 98%;
-        --border: 255 18% 20%;
-        --input: 255 18% 20%;
-        --ring: 9 78% 63%;
+/* Carousel — hide horizontal scrollbar on mobile snap rows */
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
 
-        --clay: 9 78% 63%;
-        --ochre: 32 92% 55%;
-        --lilac: 258 90% 72%;
-        --emerald: 160 74% 48%;
-        --rose: 330 81% 66%;
-    }
+/* Google Translate widget — masque la barre native, garde la traduction du contenu */
+.goog-te-banner-frame.skiptranslate,
+.goog-te-gadget-icon,
+.goog-te-balloon-frame,
+iframe.goog-te-menu-frame { display: none !important; }
+body { top: 0 !important; position: static !important; }
+.goog-tooltip, .goog-tooltip:hover { display: none !important; }
+.goog-text-highlight { background: transparent !important; box-shadow: none !important; }
+#zay-google-translate-hidden { display: none !important; }
+
+
+:root {
+  /* V5 palette — bleu TheSustain (conservé) + or doré (#D4B982) corrigé d'après l'image ref */
+  --zayado-cream: #f6f3ee;
+  --zayado-cream-dark: #f2ecdc;
+  --zayado-navy: #1a3a6e;
+  --zayado-navy-dark: #102945;
+  --zayado-navy-deep: #0c1d33;
+  --zayado-navy-gradient: linear-gradient(135deg, #1a3a6e 0%, #102945 60%, #0c1d33 100%);
+  --zayado-gold: #b89855;
+  --zayado-gold-soft: #d4b982;
+  --zayado-gold-bg: #f3e9d0;
+  --zayado-red: #a01722;
+  --zayado-text: #1a1815;
+  --zayado-muted: #6b6358;
+  --zayado-border: #e2dac7;
+  --zayado-white: #ffffff;
+
+  /* Hauteur du header AppLayout (sticky top) — utilisée par CollabPanel pour
+     ne pas chevaucher l'en-tête. Mobile = 65px, desktop = 61px. */
+  --app-header-h: 65px;
+
+  /* Charte : fond principal blanc */
+  --background: 0 0% 100%;
+  --foreground: 30 10% 9%;
+  --card: 0 0% 100%;
+  --card-foreground: 30 10% 9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 30 10% 9%;
+  --primary: 213 51% 25%;
+  --primary-foreground: 0 0% 98%;
+  --secondary: 40 43% 95%;
+  --secondary-foreground: 30 10% 9%;
+  --muted: 41 38% 90%;
+  --muted-foreground: 30 8% 38%;
+  --accent: 41 36% 39%;
+  --accent-foreground: 0 0% 98%;
+  --destructive: 354 75% 36%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 36 30% 83%;
+  --input: 36 30% 83%;
+  --ring: 213 51% 25%;
+  --radius: 0.75rem;
 }
 
-@layer base {
-    * {
-        @apply border-border;
-    }
-    body {
-        @apply bg-background text-foreground;
-        font-family: 'Plus Jakarta Sans', sans-serif;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        margin: 0;
-    }
-    .font-display {
-        font-family: 'Playfair Display', serif;
-    }
-    .font-mono-accent {
-        font-family: 'JetBrains Mono', monospace;
-    }
+/* ────────────────────────────────────────────────────────────────────
+ * DARK MODE — appliqué via [data-theme="dark"] sur <html> (ThemeContext)
+ * Palette inspirée navy/charbon, conserve les accents gold pour la marque.
+ * ────────────────────────────────────────────────────────────────────*/
+html[data-theme="dark"] {
+  --zayado-cream: #1a1f2e;
+  --zayado-cream-dark: #232a3d;
+  --zayado-navy: #6ea7e0;
+  --zayado-navy-dark: #8fc1ef;
+  --zayado-gold: #d4b97a;
+  --zayado-gold-soft: #b89858;
+  --zayado-gold-bg: #2c2618;
+  --zayado-red: #f87171;
+  --zayado-text: #e8e6e0;
+  --zayado-muted: #95918a;
+  --zayado-border: #2e3447;
+  --zayado-white: #1f2536;
+
+  --background: 220 28% 14%;
+  --foreground: 40 12% 90%;
+  --card: 220 24% 18%;
+  --card-foreground: 40 12% 90%;
+  --popover: 220 24% 18%;
+  --popover-foreground: 40 12% 90%;
+  --primary: 213 60% 65%;
+  --primary-foreground: 220 28% 14%;
+  --secondary: 220 18% 24%;
+  --secondary-foreground: 40 12% 90%;
+  --muted: 220 18% 24%;
+  --muted-foreground: 40 8% 60%;
+  --accent: 41 36% 55%;
+  --accent-foreground: 220 28% 14%;
+  --destructive: 354 75% 60%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 220 20% 28%;
+  --input: 220 20% 28%;
+  --ring: 213 60% 65%;
+}
+html[data-theme="dark"] body { background: #1a1f2e !important; color: var(--zayado-text); }
+html[data-theme="dark"] #root { background: #1a1f2e; }
+html[data-theme="dark"] .card-soft { background: #232a3d; border-color: #2e3447; }
+
+body {
+  margin: 0;
+  font-family: 'Poppins', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #ffffff !important;
+  color: var(--zayado-text);
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+html { background: #ffffff; }
+#root { background: #ffffff; min-height: 100vh; }
+
+/* All headings: Fraunces (regular) — charte Zayado */
+h1, .font-display {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.05;
+  font-style: normal;
+}
+h2 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 400;
+  letter-spacing: -0.005em;
+  line-height: 1.1;
+  font-style: normal;
+}
+h3 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.15;
+  font-style: normal;
+}
+h4, h5, h6 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+/* Italic in <em> stays italic (Zayado brand mark) — same heavy weight + navy accent */
+h1 em, h2 em, h3 em, .font-display em, .editorial em {
+  font-style: italic;
+  color: var(--zayado-navy);
+  font-weight: 700;
 }
 
-/* Paper grain texture overlay */
-.grain::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: 1;
-    pointer-events: none;
-    opacity: 0.5;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 300 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+/* Override : pages Presta-Partenaire by TheSustain → typo Inter sans-serif */
+.ts-page,
+.ts-page h1,
+.ts-page h2,
+.ts-page h3,
+.ts-page h4,
+.ts-page h5,
+.ts-page h6 {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+  font-style: normal !important;
+  letter-spacing: -0.01em;
 }
+.ts-page h1 { font-weight: 800; }
+.ts-page h2 { font-weight: 700; }
+.ts-page h3 { font-weight: 700; }
 
-.glass {
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-}
-
-::selection {
-    background: hsl(var(--clay));
-    color: white;
-}
-
-::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar { width: 8px; height: 8px; }
 ::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: hsl(var(--muted-foreground) / 0.4); border-radius: 10px; }
-::-webkit-scrollbar-thumb:hover { background: hsl(var(--clay)); }
+::-webkit-scrollbar-thumb { background: var(--zayado-border); border-radius: 8px; }
+::-webkit-scrollbar-thumb:hover { background: var(--zayado-muted); }
 
-@keyframes spin-slow { to { transform: rotate(360deg); } }
-.animate-spin-slow { animation: spin-slow 40s linear infinite; }
+::selection { background: var(--zayado-navy); color: var(--zayado-cream); }
+
+@layer base {
+  * { @apply border-border; }
+  body { @apply bg-background text-foreground; }
+}
+
+.grain-overlay {
+  position: relative;
+  overflow: hidden;
+}
+.grain-overlay::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.25'/%3E%3C/svg%3E");
+  opacity: 0.35;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-up { animation: fade-up 0.5s ease-out both; }
+
+@keyframes pulse-soft {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(138,115,64,0.4); }
+  50% { box-shadow: 0 0 0 12px rgba(138,115,64,0); }
+}
+.pulse-gold { animation: pulse-soft 2.4s ease-out infinite; }
+
+.btn-press { transition: transform 0.15s ease, box-shadow 0.2s ease; }
+.btn-press:active { transform: scale(0.97); }
+
+.card-soft {
+  background: white;
+  border: none;
+  border-radius: 1rem;
+  box-shadow: 0 1px 2px rgba(31, 29, 26, 0.04), 0 6px 18px rgba(31, 29, 26, 0.06);
+}
+.card-soft:hover { box-shadow: 0 2px 6px rgba(31, 29, 26, 0.06), 0 12px 28px rgba(31, 29, 26, 0.09); }
+
+/* Pastilles d'icônes beige — signature Zayado */
+.icon-beige { background: #f3e9d0; color: #b89855; }
+.icon-beige-soft { background: #EDD9B0; color: #1a3a6e; }
+
+.btn-navy {
+  background: var(--zayado-navy);
+  color: var(--zayado-cream);
+  border-radius: 0.75rem;
+  padding: 0.7rem 1.4rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+.btn-navy:hover { background: var(--zayado-navy-dark); transform: translateY(-1px); }
+.btn-navy:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+/* ── Aplats bleus en GRADIENT (pas uni) ── */
+.bg-navy-gradient {
+  background: var(--zayado-navy-gradient);
+  color: var(--zayado-cream);
+}
+.btn-navy-gradient {
+  background: var(--zayado-navy-gradient);
+  color: var(--zayado-cream);
+  border-radius: 999px;
+  padding: 0.7rem 1.4rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  background-size: 200% 200%;
+  background-position: 0% 0%;
+}
+.btn-navy-gradient:hover { background-position: 100% 100%; transform: translateY(-1px); }
+
+.btn-gold {
+  background: var(--zayado-gold);
+  color: white;
+  border-radius: 0.75rem;
+  padding: 0.7rem 1.4rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+.btn-gold:hover { background: #74612f; transform: translateY(-1px); }
+
+.btn-red {
+  background: var(--zayado-red);
+  color: white;
+  border-radius: 0.75rem;
+  padding: 0.7rem 1.4rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+.btn-red:hover { background: #7c0f1a; transform: translateY(-1px); }
+
+.btn-outline-navy {
+  background: transparent;
+  color: var(--zayado-navy);
+  border: 1.5px solid var(--zayado-navy);
+  border-radius: 0.75rem;
+  padding: 0.6rem 1.4rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+.btn-outline-navy:hover { background: var(--zayado-navy); color: white; }
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  background: var(--zayado-cream-dark);
+  color: var(--zayado-text);
+  font-size: 0.78rem;
+  font-weight: 500;
+}
+
+.chip-gold {
+  background: var(--zayado-gold-bg);
+  color: var(--zayado-gold);
+  font-weight: 600;
+}
+
+/* Sidebar group label */
+.sidebar-group {
+  font-size: 0.68rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--zayado-muted);
+  padding: 0 1rem;
+  margin-top: 0.7rem;
+  margin-bottom: 0.25rem;
+}
+
+.sidebar-item {
+  display: flex; align-items: center; gap: 0.7rem;
+  padding: 0.45rem 1rem;
+  font-size: 0.91rem;
+  color: var(--zayado-text);
+  border-right: 3px solid transparent;
+  transition: all 0.15s ease;
+}
+.sidebar-item:hover { background: var(--zayado-cream); }
+.sidebar-item.active {
+  background: var(--zayado-gold-bg);
+  border-right-color: var(--zayado-gold);
+  color: var(--zayado-navy);
+  font-weight: 600;
+}
+
+/* ─────────────────────────────────────────────────────────
+   Responsive globals — gardes-fou pour mobile et PWA
+   ───────────────────────────────────────────────────────── */
+
+/* Évite le débordement horizontal causé par les tables larges,
+   les preformatted blocks, ou les iframes. */
+html, body { overflow-x: hidden; max-width: 100vw; }
+img, video, svg { max-width: 100%; height: auto; }
+table { display: block; max-width: 100%; overflow-x: auto; }
+
+/* Safe-area pour iOS standalone (PWA) — la sidebar mobile et le bottom-bar
+   doivent respecter le notch et la home-indicator. */
+@supports (padding: max(0px)) {
+  .safe-top { padding-top: max(0.5rem, env(safe-area-inset-top)); }
+  .safe-bottom { padding-bottom: max(0.75rem, env(safe-area-inset-bottom)); }
+  .safe-left { padding-left: max(0.75rem, env(safe-area-inset-left)); }
+  .safe-right { padding-right: max(0.75rem, env(safe-area-inset-right)); }
+}
+
+/* Mobile : compactage typographique et padding-bottom pour le bottom-bar. */
+@media (max-width: 767px) {
+  main { padding-bottom: 88px !important; }
+  h1.font-display { font-size: clamp(1.85rem, 6vw, 2.4rem); line-height: 1.15; }
+  h2.font-display { font-size: clamp(1.4rem, 5vw, 1.85rem); line-height: 1.2; }
+  /* Inputs : éviter le zoom auto iOS sur focus (< 16px) */
+  input, select, textarea { font-size: 16px; }
+  /* Tap targets : minimum 44px */
+  button, [role="button"], a.sidebar-item { min-height: 40px; }
+  /* Cards qui débordent : forcer leur conteneur à tenir dans la largeur. */
+  .card-soft { border-radius: 0.85rem; }
+}
+
+/* Touch-friendly hovers — désactiver les transitions hover sur touch devices */
+@media (hover: none) {
+  .card-soft:hover { box-shadow: 0 1px 2px rgba(31, 29, 26, 0.03), 0 4px 12px rgba(31, 29, 26, 0.04); }
+}
+
+/* PWA standalone : masque les liens externes décoratifs */
+@media all and (display-mode: standalone) {
+  .pwa-hide { display: none !important; }
+}
+
+
+/* ─────────────────────────────────────────────────────────
+   wp-content — styling pour les pages WordPress (Gutenberg)
+   rendues via /wp/:slug et /page/:slug
+   ───────────────────────────────────────────────────────── */
+.wp-content {
+  font-family: 'Inter', system-ui, sans-serif;
+  color: var(--zayado-text);
+  font-size: 17px;
+  line-height: 1.7;
+}
+.wp-content h1, .wp-content h2, .wp-content h3, .wp-content h4 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--zayado-text);
+  margin-top: 1.8em;
+  margin-bottom: 0.5em;
+}
+.wp-content h1 { font-size: 2.4rem; line-height: 1.1; }
+.wp-content h2 { font-size: 1.85rem; line-height: 1.15; }
+.wp-content h3 { font-size: 1.4rem; line-height: 1.25; }
+.wp-content h4 { font-size: 1.15rem; }
+.wp-content p { margin: 1em 0; }
+.wp-content a { color: var(--zayado-navy); text-decoration: underline; text-underline-offset: 3px; }
+.wp-content a:hover { color: var(--zayado-gold); }
+.wp-content ul, .wp-content ol { margin: 1em 0; padding-left: 1.5rem; }
+.wp-content ul li, .wp-content ol li { margin: 0.4em 0; }
+.wp-content img { border-radius: 1rem; margin: 1.5em auto; box-shadow: 0 6px 18px rgba(31,29,26,0.08); }
+.wp-content blockquote {
+  border-left: 3px solid var(--zayado-gold);
+  padding: 0.4em 1.2em;
+  margin: 1.5em 0;
+  font-style: italic;
+  background: rgba(212,185,130,0.08);
+  border-radius: 0 1rem 1rem 0;
+}
+.wp-content code {
+  background: var(--zayado-cream-dark);
+  padding: 0.15em 0.4em;
+  border-radius: 0.35rem;
+  font-size: 0.9em;
+}
+.wp-content pre {
+  background: var(--zayado-navy-deep);
+  color: var(--zayado-cream);
+  padding: 1.2rem;
+  border-radius: 1rem;
+  overflow-x: auto;
+}
+.wp-content pre code { background: transparent; color: inherit; padding: 0; }
+.wp-content hr {
+  border: none;
+  height: 1px;
+  background: var(--zayado-border);
+  margin: 2.5em 0;
+}
+.wp-content figure { margin: 1.5em 0; }
+.wp-content figure figcaption {
+  text-align: center;
+  font-size: 0.85em;
+  color: var(--zayado-muted);
+  margin-top: 0.5em;
+  font-style: italic;
+}
+.wp-content .wp-block-button__link {
+  display: inline-block;
+  background: var(--zayado-navy);
+  color: #f6f3ee !important;
+  padding: 0.7em 1.6em;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(31,59,115,0.18);
+  transition: all 0.2s;
+}
+.wp-content .wp-block-button__link:hover { background: var(--zayado-navy-dark); transform: translateY(-1px); }
+.wp-content .wp-block-columns { display: grid; gap: 2rem; margin: 1.5em 0; }
+@media (min-width: 768px) {
+  .wp-content .wp-block-columns { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+}
+.wp-content .wp-block-image img { margin: 0; }
+
+/* ═══════════════════════════════════════════════════════════
+   CHARTE DE MARQUE ZAYADO
+   ═══════════════════════════════════════════════════════════ */
+/* Eyebrow — Corinthia ~45px */
+.eyebrow, .font-eyebrow, [data-eyebrow] {
+  font-family: 'Corinthia', cursive;
+  font-weight: 700;
+  font-size: 2.8rem;
+  line-height: 1;
+}
+
+/* SITE PUBLIC : charte complète (bleu dégradé #215480 → #001d50).
+   Scopé sous .public-site → n'affecte PAS le cockpit SaaS (bleu SaaS intact). */
+.public-site {
+  --zayado-navy: #215480;
+  --zayado-navy-dark: #143d63;
+  --zayado-navy-deep: #001d50;
+  --zayado-navy-gradient: linear-gradient(135deg, #215480 0%, #001d50 100%);
+  --primary: 208 59% 32%;        /* #215480 */
+  --primary-foreground: 0 0% 100%;
+  --background: 0 0% 100%;       /* blanc */
+  --secondary: 40 43% 95%;       /* beige #f8f3eb */
+  --destructive: 0 83% 34%;      /* rouge sang */
+  --zayado-red: #a10e10;
+  background: #ffffff;
+}
+.public-site h1, .public-site h2, .public-site h3 { font-family: 'Fraunces', Georgia, serif; font-weight: 400; }
+/* Cartes : blanc + ombre */
+.public-site .card-soft {
+  background: #fff;
+  border: 1px solid #efe7d8;
+  box-shadow: 0 1px 2px rgba(0,29,80,.05), 0 12px 30px rgba(0,29,80,.08);
+}
+/* Bouton principal : blanc, bordure beige */
+.public-site .btn-primary, .public-site [data-btn="primary"] {
+  background: #fff; color: #001d50; border: 1.5px solid #e7dcc5;
+  border-radius: 999px; padding: .7rem 1.5rem; font-weight: 600; transition: all .2s ease;
+}
+.public-site .btn-primary:hover, .public-site [data-btn="primary"]:hover { background: #f8f3eb; }
+/* Bouton secondaire : dégradé bleu */
+.public-site .btn-secondary, .public-site [data-btn="secondary"] {
+  background: linear-gradient(135deg,#215480,#001d50); color: #fff; border: none;
+  border-radius: 999px; padding: .7rem 1.5rem; font-weight: 600; transition: all .2s ease;
+}
+.public-site .btn-secondary:hover, .public-site [data-btn="secondary"]:hover { filter: brightness(1.08); transform: translateY(-1px); }
+/* Badge / icône promo : rouge sang */
+.badge-promo, .public-site .badge-promo {
+  background: #a10e10; color: #fff; border-radius: 999px;
+  padding: .15rem .6rem; font-weight: 700; font-size: .75rem;
+}
