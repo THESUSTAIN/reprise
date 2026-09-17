@@ -1,0 +1,50 @@
+{
+  "summary": "Frontend-only testing of Zayado public site + cockpit preview. Landing '/' (PublicHome) renders correctly with all required testids and a visible hero image (Pexels, 960px, loaded, not broken). /vision-board loads all 3 templates with live iframes; backend /api/vision/board/preview-public returns 200 HTML for magazine/trajectoire/arbre (5075/7363/6148 bytes). Confirmed the dead-end CTA bug: every CTA on /vision-board navigates to '/?login=1' but the new PublicHome does not read/handle the ?login query param, so users land silently on the landing page with no login modal or action. Also confirmed strong brand/charter divergence between the new PublicHome (charter-compliant: white bg, blue gradient #215480->#001d50, Fraunces/Poppins/Corinthia, red #a10e10 pain accent) and (a) VisionBoardPublic which still uses old navy #1a3a6e + gold #b89855 + beige #f6f3ee, and (b) the Cockpit (Thomas) which is dark-navy + gold-accented and still branded 'MyExtension' instead of 'Zayado'. Preview toolbar works and toggles cockpit/public.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [
+      {"component": "VisionBoardPublic CTAs", "issue": "vb-cta-create, vb-template-cta-magazine/trajectoire/arbre, vb-cta-final all link to '/?login=1' but PublicHome has NO effect handler for ?login query param. User is dropped on landing page with no login modal, no scroll, no action. Every conversion CTA on /vision-board is a dead end.", "selector": "[data-testid='vb-cta-create'], [data-testid^='vb-template-cta-'], [data-testid='vb-cta-final']", "priority": "CRITICAL"},
+      {"component": "Cockpit onboarding modal", "issue": "Modal title reads 'Voici ce que fait MyExtension' — brand should be 'Zayado' per charter. Stale copy across cockpit (menus labeled 'ÉCOSYSTÈME MYEXTENSION AI').", "selector": "welcome dialog / [data-testid='header-apps-btn'] panel", "priority": "HIGH"},
+      {"component": "Apps menu popover (header-apps-btn)", "issue": "Tile labels overflow / overlap: 'agents (WhatsApp/Telegram)' text overlaps neighbouring 'Mindset & capacité' tile at desktop 1440px. Row layout breaks visually.", "selector": "[data-testid='header-apps-btn'] popover", "priority": "MEDIUM"}
+    ],
+    "integration_issues": [
+      {"flow": "Vision Board -> Sign up / Login", "issue": "CTAs pointing to /?login=1 have no matching handler in PublicHome. Either PublicHome must read ?login and open a login/signup modal, or CTAs must point to a real login/auth route (currently no auth route exists in PublicApp routes — only '/' and '/vision-board').", "affected_selectors": ["[data-testid='vb-cta-create']","[data-testid='vb-template-cta-magazine']","[data-testid='vb-template-cta-trajectoire']","[data-testid='vb-template-cta-arbre']","[data-testid='vb-cta-final']"]}
+    ],
+    "design_issues": [
+      {"screen": "/vision-board (VisionBoardPublic)", "issues": [
+        "Off-charter navy #1a3a6e used for headline & CTA bg instead of blue gradient #215480->#001d50",
+        "Off-charter gold #b89855 / #d4b982 used for eyebrows, benefit checks and final CTA button — charter has NO gold; accent color should be blood-red #a10e10",
+        "Background beige #f6f3ee differs from charter beige #f8f3eb",
+        "Typography uses 'font-display' + 'font-serif-italic' classes; charter mandates Fraunces (headings) + Poppins (body) + Corinthia (eyebrow) as used on PublicHome — visual style feels disconnected from the new landing",
+        "Imports PublicHeader / UnifiedFooter from LandingHub which likely still carries WordPress-era menu items (Boutique, Avantages, Services, MyExtension AI, 'Parler à Zayado') — this contradicts the 'clean slate' brief (only '/' and '/vision-board' remain)"
+      ]},
+      {"screen": "Cockpit (Thomas) preview", "issues": [
+        "Whole cockpit is dark-navy with gold accents — inconsistent with charter (white bg, blue gradient, red accent, no gold)",
+        "Brand naming inconsistency: 'MyExtension' appears in onboarding modal and apps menu heading instead of 'Zayado'",
+        "Cockpit header shows 'Boutique / Avantages / Services / MyExtension AI / Parler à Zayado' items that no longer exist on the reduced public site"
+      ]}
+    ]
+  },
+  "test_report_links": [],
+  "action_items": [
+    "Fix the dead-end conversion path: either (a) implement a ?login=1 handler in PublicHome that opens a login/signup modal or scrolls to a CTA, or (b) repoint all /vision-board CTAs to a real signup route (and add that route to PublicApp).",
+    "Rebrand /vision-board to the new charter: replace #1a3a6e with the blue gradient #215480->#001d50, remove all gold (#b89855 / #d4b982), swap accent to blood-red #a10e10, align beige to #f8f3eb, and use Fraunces/Poppins/Corinthia like PublicHome. Ideally reuse the visual language (hero + pain + modules blocks) from PublicHome for cohesion.",
+    "Do NOT reuse PublicHeader/UnifiedFooter from LandingHub on /vision-board — they still expose removed WP sections (Boutique, Avantages, Services, MyExtension AI). Build a minimal charter-compliant header/footer matching PublicHome instead.",
+    "Cockpit rebrand: replace all remaining 'MyExtension' strings with 'Zayado' (onboarding modal title, apps menu 'ÉCOSYSTÈME MYEXTENSION AI', etc.). Consider aligning cockpit palette with the new white/blue-gradient/red charter, or explicitly document that the cockpit keeps a dark theme.",
+    "Fix the header apps popover overflow where 'agents (WhatsApp/Telegram)' overlaps the adjacent tile."
+  ],
+  "critical_code_review_comments": [
+    "PublicApp routes are '/' and '/vision-board' only, yet VisionBoardPublic still deep-links to '/?login=1' — the routing/CTA layer is out of sync with the reduced route set (Navigate * -> /). This will bleed conversion.",
+    "VisionBoardPublic hard-codes brand colors #1a3a6e and #b89855; there is no theme token layer — every charter change will require touching this file directly.",
+    "Iframes on /vision-board are decorative (pointer-events-none) which is good, but they trigger 3 server-side HTML renders on every page view — consider a poster image fallback for perf/SEO.",
+    "main.jsx: previewMode() is read only at module load; toggling via localStorage requires full reload (already the case in PreviewToolbar), which is fine but should be documented.",
+    "LandingHub is imported by VisionBoardPublic but the brief says WP/legal/simulators were removed — verify LandingHub does not silently re-introduce dead links or 404 targets."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "n/a (skipped)", "frontend": "landing 100%, vision-board 100% render, ~40% brand/UX compliance"},
+  "seed_data_creation": "none",
+  "retest_needed": true,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "Set localStorage.zay_preview_mode='public' then reload to see the public site; 'app' to see cockpit. PublicHome hero image loads from Pexels (external) — flag if Pexels ever blocks. Backend /api/vision/board/preview-public?template=<magazine|trajectoire|arbre> returns 200 HTML directly (5-7kB), used by iframes. Dead-end CTA bug is the top blocker.",
+  "rca of the issue": "PublicHome (new landing) was rewritten from scratch and only handles static Links to /vision-board. VisionBoardPublic was NOT updated during the reduction: it still targets '/?login=1' assuming the old landing consumed that query to open a login flow. In the new PublicApp there is no ?login handler and no login route, so the CTA becomes a silent no-op. Reproduction: localStorage.setItem('zay_preview_mode','public'); goto /vision-board; click any CTA -> URL becomes /?login=1 and PublicHome renders unchanged. Mitigation: implement a useEffect in PublicHome reading searchParams.get('login')==='1' to open a login/signup modal, OR change all vb-* CTAs to point to a real signup route (and register it)."
+}

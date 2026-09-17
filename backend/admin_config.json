@@ -4,6 +4,20 @@
       "action": "server_start",
       "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
       "level": "info",
+      "timestamp": "2026-09-17T07:19:23.033239+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
+      "timestamp": "2026-09-17T05:59:36.652689+00:00",
+      "by": "system"
+    },
+    {
+      "action": "server_start",
+      "detail": "Zayado API v2.5.0 d\u00e9marr\u00e9e",
+      "level": "info",
       "timestamp": "2026-09-17T03:03:08.035349+00:00",
       "by": "system"
     },

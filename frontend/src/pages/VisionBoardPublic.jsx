@@ -1,181 +1,187 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
 import { Helmet } from "react-helmet-async";
-import { Sparkles, ArrowRight, Check, BookOpen, TrendingUp, GitBranch } from "lucide-react";
-import { PublicHeader, UnifiedFooter } from "@/pages/LandingHub";
+import { Sparkles, ArrowRight, Play, AlertTriangle, Clock3, TrendingDown, HeartCrack, BookOpen, TrendingUp, GitBranch, Star } from "lucide-react";
 
-/**
- * Page publique Vision Board — showcase des 3 templates pour conversion.
- * Affiche un aperçu iframe live de chaque template (magazine / trajectoire / arbre).
- *
- * SEO + meta synchronisés avec WP via /api/wp/page/vision-board (cache 30s).
- */
+const GRAD = { backgroundImage: "linear-gradient(135deg,#215480,#001d50)" };
+const API = import.meta.env.VITE_API_URL || "";
 
+const PAINS = [
+  { icon: TrendingDown, t: "Une vision floue", d: "Vos ambitions restent dans votre tête, jamais visibles ni mesurables." },
+  { icon: Clock3, t: "Zéro temps pour la poser", d: "Entre deux urgences, structurer sa vision passe toujours après." },
+  { icon: HeartCrack, t: "La motivation s'essouffle", d: "Sans miroir de vos objectifs, l'élan du départ retombe vite." },
+];
+const PROOF = [
+  { n: "5 min", l: "pour créer votre board" },
+  { n: "3", l: "templates éditoriaux IA" },
+  { n: "PDF", l: "flipbook + partage protégé" },
+];
 const TEMPLATES = [
-  {
-    id: "magazine",
-    title: "Magazine éditorial",
-    pitch: "Une couverture digne d'un mook. Vos valeurs, votre why, vos 10 ans projetés — en lecture longue.",
-    benefits: ["Couverture full-width", "Mosaïque keywords + 6 piliers", "Quote du fondateur en double page", "Roadmap visuelle"],
-    icon: BookOpen,
-    color: "#b89855",
-    bg: "#f3e9d0",
-  },
-  {
-    id: "trajectoire",
-    title: "Trajectoire 10 ans",
-    pitch: "Votre projection temporelle : aujourd'hui → 1 an → 3 ans → 10 ans. Idéal pour les fondateurs ambitieux.",
-    benefits: ["Timeline horizontale", "3 jalons clés", "KPIs cibles par étape", "Photo de vous dans 10 ans (IA)"],
-    icon: TrendingUp,
-    color: "#1a3a6e",
-    bg: "rgba(26,58,110,0.08)",
-  },
-  {
-    id: "arbre",
-    title: "Arbre de vie",
-    pitch: "Vos racines (valeurs), votre tronc (mission), vos branches (domaines). Une visualisation organique.",
-    benefits: ["Racines = valeurs profondes", "Tronc = pourquoi central", "Branches = 5 domaines de vie", "Fruits = livrables visés"],
-    icon: GitBranch,
-    color: "#2D6A4F",
-    bg: "rgba(45,106,79,0.1)",
-  },
+  { id: "magazine", title: "Magazine éditorial", pitch: "Une couverture digne d'un mook : vos valeurs, votre why, vos 10 ans projetés.", icon: BookOpen },
+  { id: "trajectoire", title: "Trajectoire 10 ans", pitch: "Votre projection : aujourd'hui → 1 an → 3 ans → 10 ans. Pour les ambitieux.", icon: TrendingUp },
+  { id: "arbre", title: "Arbre de vie", pitch: "Racines (valeurs), tronc (mission), branches (domaines). Une visualisation organique.", icon: GitBranch },
 ];
 
-export default function VisionBoardPublic() {
-  const previewBase = (import.meta.env.VITE_API_URL || "") + "/api/vision/board/preview-public?template=";
-
+function LeadForm({ testid }) {
+  const [email, setEmail] = useState("");
+  const enter = (e) => {
+    e.preventDefault();
+    try { if (email) localStorage.setItem("zay_lead_email", email); } catch { /* noop */ }
+    try {
+      const h = window.location.hostname;
+      if (/\.preview\.emergentagent\.com$/i.test(h) || h === "localhost" || h === "127.0.0.1") {
+        localStorage.setItem("zay_preview_mode", "app");
+      }
+    } catch { /* noop */ }
+    window.location.href = "/";
+  };
   return (
-    <div className="min-h-screen flex flex-col" style={{ background: "#f6f3ee" }} data-testid="vb-public-page">
+    <form onSubmit={enter} className="flex w-full max-w-md flex-col gap-3 sm:flex-row" data-testid={testid}>
+      <input
+        type="email" required value={email} onChange={(e) => setEmail(e.target.value)}
+        placeholder="Votre e-mail" data-testid={`${testid}-input`}
+        className="flex-1 rounded-full border border-[#e2dac7] bg-white px-5 py-3.5 text-sm text-[#001d50] outline-none focus:border-[#215480]"
+      />
+      <button type="submit" data-testid={`${testid}-submit`} className="inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 font-semibold text-white transition-transform hover:-translate-y-0.5" style={GRAD}>
+        Créer mon Vision Board <ArrowRight size={18} />
+      </button>
+    </form>
+  );
+}
+
+export default function VisionBoardPublic() {
+  const previewBase = API + "/api/vision/board/preview-public?template=";
+  const gif = API + "/vision-board-preview.gif";
+  return (
+    <div className="min-h-screen bg-white text-[#001d50]" style={{ fontFamily: "Poppins, sans-serif" }} data-testid="vb-public-page">
       <Helmet>
         <title>Vision Board IA · Donnez vie à votre vision — Zayado</title>
-        <meta name="description" content="Créez votre Vision Board personnalisé en 5 minutes. 3 templates éditoriaux (Magazine, Trajectoire, Arbre de vie) générés par IA. Téléchargez en PDF flipbook ou partagez en ligne." />
-        <meta property="og:title" content="Vision Board IA · Donnez vie à votre vision — Zayado" />
-        <meta property="og:description" content="3 templates éditoriaux générés par IA. Magazine, Trajectoire, Arbre. PDF + flipbook + partage protégé." />
-        <link rel="canonical" href="https://zayado.net/vision-board" />
+        <meta name="description" content="Créez votre Vision Board en 5 minutes. 3 templates éditoriaux générés par IA. PDF flipbook + partage." />
       </Helmet>
 
-      <PublicHeader />
+      {/* Header minimal */}
+      <header className="sticky top-0 z-40 border-b border-[#efe7d8] bg-white/85 backdrop-blur">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
+          <a href="/" className="text-xl font-bold tracking-tight" data-testid="vb-logo">Zayado</a>
+          <a href="#creer" className="rounded-full px-5 py-2.5 text-sm font-semibold text-white" style={GRAD} data-testid="vb-header-cta">Commencer</a>
+        </div>
+      </header>
 
-      <main className="flex-1 max-w-6xl mx-auto px-6 lg:px-10 py-16">
-        {/* Hero */}
-        <section className="text-center mb-14">
-          <div className="text-[11px] tracking-[0.22em] uppercase font-bold mb-3" style={{ color: "#b89855" }}>
-            Vision Board IA · 3 templates
+      {/* Hero VSL */}
+      <section className="relative overflow-hidden">
+        <div className="pointer-events-none absolute -top-24 right-0 h-80 w-80 rounded-full opacity-20 blur-3xl" style={GRAD} />
+        <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 pt-14 pb-12 sm:pt-20 lg:grid-cols-[1fr_1fr]">
+          <div>
+            <span className="block leading-none text-[#215480]" style={{ fontFamily: "Corinthia, cursive", fontSize: "2.8rem" }} data-testid="vb-eyebrow">
+              donnez vie à votre vision
+            </span>
+            <h1 className="mt-2 text-4xl font-normal leading-[1.05] sm:text-5xl" style={{ fontFamily: "Fraunces, serif" }} data-testid="vb-title">
+              Votre Vision Board, généré par l'IA en 5 minutes.
+            </h1>
+            <p className="mt-5 max-w-xl text-base leading-relaxed text-[#41506a] sm:text-lg">
+              Répondez à quelques questions : l'IA transforme votre mission, vos valeurs et votre projection en un board éditorial professionnel. Regardez la démo (90 s), puis créez le vôtre.
+            </p>
+            <div id="creer" className="mt-8"><LeadForm testid="vb-lead-hero" /></div>
+            <p className="mt-2 text-xs text-[#7a869c]">Sans carte bancaire · votre e-mail sert à sauvegarder votre board.</p>
           </div>
-          <h1 className="font-display text-[40px] sm:text-[56px] leading-[1.05] mb-5"
-              style={{ color: "#1a3a6e", letterSpacing: "-0.03em", fontWeight: 600 }}>
-            Donnez vie à <span className="font-serif-italic" style={{ color: "#b89855" }}>votre vision.</span>
-          </h1>
-          <p className="text-[16px] max-w-2xl mx-auto leading-relaxed mb-7" style={{ color: "#4a4538" }}>
-            En 5 minutes, l'IA transforme vos réponses (mission, valeurs, projection 10 ans) en un Vision Board éditorial professionnel. Téléchargez-le en PDF flipbook ou partagez-le avec un lien protégé.
-          </p>
-          <div className="flex items-center justify-center gap-3 flex-wrap">
-            <Link to="/?login=1" className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-[13.5px] font-semibold shadow-md transition"
-                  style={{ background: "#1a3a6e", color: "#f6f3ee" }} data-testid="vb-cta-create">
-              <Sparkles size={14} /> Créer mon Vision Board <ArrowRight size={13} />
-            </Link>
-            <a href="#templates" className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-[13.5px] font-medium transition"
-               style={{ background: "transparent", color: "#1a3a6e", outline: "1.5px solid rgba(26,58,110,0.22)" }}>
-              Voir les 3 templates
-            </a>
+
+          {/* Vidéo / GIF de démo */}
+          <div className="relative" data-testid="vb-hero-video">
+            <div className="relative overflow-hidden rounded-3xl border border-[#efe7d8] shadow-[0_30px_60px_rgba(0,29,80,.18)]">
+              <img
+                src={gif}
+                onError={(e) => { e.currentTarget.src = "https://images.pexels.com/photos/6931845/pexels-photo-6931845.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=720&w=1040"; }}
+                alt="Aperçu animé du Vision Board Zayado" className="h-full w-full object-cover" data-testid="vb-hero-image"
+              />
+              <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(0,29,80,.05), rgba(0,29,80,.5))" }} />
+              <span className="absolute inset-0 grid place-items-center">
+                <span className="grid h-16 w-16 place-items-center rounded-full bg-white/90 text-[#001d50] shadow-xl">
+                  <Play size={26} className="ml-1" fill="currentColor" />
+                </span>
+              </span>
+              <span className="absolute bottom-3 left-3 rounded-full bg-[#001d50]/85 px-3 py-1 text-xs font-semibold text-white backdrop-blur">Présentation du Vision Board · 90s</span>
+            </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Templates showcase avec iframe live */}
-        <section id="templates" className="space-y-12">
-          {TEMPLATES.map((t, idx) => {
-            const Icon = t.icon;
-            const reverse = idx % 2 === 1;
-            return (
-              <article
-                key={t.id}
-                className="rounded-3xl bg-white shadow-md hover:shadow-xl transition overflow-hidden"
-                data-testid={`vb-template-${t.id}`}
-              >
-                <div className={`grid grid-cols-1 lg:grid-cols-12 gap-0 ${reverse ? "lg:flex-row-reverse" : ""}`}>
-                  {/* Iframe preview live */}
-                  <div className={`lg:col-span-7 ${reverse ? "lg:order-2" : ""}`}
-                       style={{ background: t.bg, padding: "2rem", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                    <div className="relative w-full max-w-[640px] aspect-[1.41/1] rounded-2xl overflow-hidden shadow-2xl"
-                         style={{ background: "white" }}>
-                      <iframe
-                        src={previewBase + t.id}
-                        title={`Aperçu ${t.title}`}
-                        loading="lazy"
-                        className="w-full h-full border-0 pointer-events-none"
-                        style={{ transform: "scale(0.75)", transformOrigin: "top left", width: "133.33%", height: "133.33%" }}
-                        data-testid={`vb-iframe-${t.id}`}
-                      />
-                      <span className="absolute top-3 right-3 px-2.5 py-1 rounded-full text-[9.5px] font-bold tracking-[0.14em] uppercase shadow-md"
-                            style={{ background: "white", color: t.color }}>
-                        Aperçu live
-                      </span>
-                    </div>
-                  </div>
+      {/* Douleur */}
+      <section className="border-y border-[#efe7d8]" style={{ background: "#f8f3eb" }} data-testid="vb-pain">
+        <div className="mx-auto max-w-6xl px-5 py-14">
+          <div className="mb-3 inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-bold uppercase tracking-wider text-white" style={{ background: "#a10e10" }}>
+            <AlertTriangle size={14} /> Le vrai problème
+          </div>
+          <h2 className="max-w-2xl text-2xl font-normal leading-tight sm:text-3xl" style={{ fontFamily: "Fraunces, serif" }}>
+            Vous avez la vision. Il vous manque le support qui la rend réelle.
+          </h2>
+          <div className="mt-8 grid gap-5 md:grid-cols-3">
+            {PAINS.map((p) => (
+              <div key={p.t} className="rounded-2xl border border-[#e9dcc4] bg-white p-6 shadow-[0_12px_30px_rgba(0,29,80,.06)]">
+                <span className="grid h-11 w-11 place-items-center rounded-xl text-white" style={{ background: "#a10e10" }}><p.icon size={20} /></span>
+                <h3 className="mt-4 text-lg font-semibold" style={{ fontFamily: "Fraunces, serif" }}>{p.t}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-[#41506a]">{p.d}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-                  {/* Texte */}
-                  <div className={`lg:col-span-5 p-8 lg:p-10 flex flex-col justify-center ${reverse ? "lg:order-1" : ""}`}>
-                    <div className="w-12 h-12 rounded-2xl grid place-items-center mb-4"
-                         style={{ background: t.bg, color: t.color }}>
-                      <Icon size={20} />
-                    </div>
-                    <div className="text-[10.5px] tracking-[0.22em] uppercase font-bold mb-2" style={{ color: t.color }}>
-                      Template · 0{idx + 1}
-                    </div>
-                    <h2 className="font-display text-[28px] leading-tight mb-3"
-                        style={{ color: "#1a1815", letterSpacing: "-0.02em", fontWeight: 700 }}>
-                      {t.title}
-                    </h2>
-                    <p className="text-[14px] leading-relaxed mb-5" style={{ color: "#6b6358" }}>
-                      {t.pitch}
-                    </p>
-                    <ul className="space-y-2 mb-6">
-                      {t.benefits.map((b, i) => (
-                        <li key={i} className="flex items-start gap-2 text-[13px]" style={{ color: "#4a4538" }}>
-                          <span className="w-4 h-4 shrink-0 rounded-full grid place-items-center mt-0.5"
-                                style={{ background: "#f3e9d0", color: "#b89855" }}>
-                            <Check size={9} strokeWidth={3} />
-                          </span>
-                          <span>{b}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    <Link to="/?login=1"
-                          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-[13px] font-semibold shadow-md self-start transition"
-                          style={{ background: "#1a3a6e", color: "#f6f3ee" }}
-                          data-testid={`vb-template-cta-${t.id}`}>
-                      Utiliser ce template <ArrowRight size={13} />
-                    </Link>
+      {/* Preuve / chiffres */}
+      <section className="mx-auto max-w-6xl px-5 py-12">
+        <div className="grid gap-4 sm:grid-cols-3">
+          {PROOF.map((s) => (
+            <div key={s.l} className="rounded-2xl border border-[#efe7d8] bg-white p-6 text-center shadow-[0_12px_30px_rgba(0,29,80,.06)]">
+              <div className="text-3xl font-black" style={{ color: "#215480", fontFamily: "Fraunces, serif" }}>{s.n}</div>
+              <div className="mt-1 text-sm text-[#41506a]">{s.l}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Templates (preuve visuelle) */}
+      <section id="templates" className="mx-auto max-w-6xl px-5 pb-12">
+        <span className="text-sm font-semibold uppercase tracking-wider text-[#215480]">3 templates éditoriaux</span>
+        <h2 className="mt-2 text-2xl font-normal sm:text-3xl" style={{ fontFamily: "Fraunces, serif" }}>Choisissez le style qui vous ressemble.</h2>
+        <div className="mt-8 space-y-10">
+          {TEMPLATES.map((t, idx) => (
+            <article key={t.id} className="overflow-hidden rounded-3xl border border-[#efe7d8] bg-white shadow-[0_12px_30px_rgba(0,29,80,.06)]" data-testid={`vb-template-${t.id}`}>
+              <div className={`grid gap-0 lg:grid-cols-12 ${idx % 2 ? "lg:[direction:rtl]" : ""}`}>
+                <div className="lg:col-span-7 [direction:ltr]" style={{ background: "#f8f3eb", padding: "1.5rem" }}>
+                  <div className="relative mx-auto aspect-[1.41/1] w-full max-w-[640px] overflow-hidden rounded-2xl bg-white shadow-2xl">
+                    <iframe src={previewBase + t.id} title={`Aperçu ${t.title}`} loading="lazy"
+                      className="border-0 pointer-events-none" data-testid={`vb-iframe-${t.id}`}
+                      style={{ transform: "scale(0.75)", transformOrigin: "top left", width: "133.33%", height: "133.33%" }} />
                   </div>
                 </div>
-              </article>
-            );
-          })}
-        </section>
+                <div className="flex flex-col justify-center p-8 lg:col-span-5 [direction:ltr]">
+                  <span className="grid h-12 w-12 place-items-center rounded-2xl text-white" style={GRAD}><t.icon size={22} /></span>
+                  <div className="mt-4 text-xs font-bold uppercase tracking-wider text-[#215480]">Template · 0{idx + 1}</div>
+                  <h3 className="mt-1 text-2xl font-semibold" style={{ fontFamily: "Fraunces, serif" }}>{t.title}</h3>
+                  <p className="mt-2 text-[#41506a]">{t.pitch}</p>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
 
-        {/* CTA final */}
-        <section className="mt-16 rounded-3xl p-10 text-center shadow-md"
-                 style={{ background: "linear-gradient(135deg, #1a3a6e 0%, #2c4d85 100%)", color: "#f6f3ee" }}>
-          <div className="text-[11px] tracking-[0.22em] uppercase font-bold mb-3" style={{ color: "#d4b982" }}>
-            En 5 minutes · pas plus
+      {/* Témoignage + CTA final */}
+      <section className="px-5 pb-20">
+        <div className="mx-auto max-w-6xl rounded-[34px] p-10 text-white sm:p-14" style={GRAD} data-testid="vb-final-cta">
+          <div className="mb-4 flex items-center gap-1 text-[#f8f3eb]">
+            {[0,1,2,3,4].map((i) => <Star key={i} size={16} fill="currentColor" />)}
+            <span className="ml-2 text-sm text-white/80">Adoré par les entrepreneurs visionnaires</span>
           </div>
-          <h2 className="font-display text-[32px] leading-tight mb-3"
-              style={{ letterSpacing: "-0.025em", fontWeight: 600 }}>
-            Votre <span className="font-serif-italic" style={{ color: "#d4b982" }}>premier Vision Board</span> en quelques clics.
+          <h2 className="max-w-2xl text-3xl font-normal sm:text-4xl" style={{ fontFamily: "Fraunces, serif" }}>
+            Votre premier Vision Board vous attend.
           </h2>
-          <p className="text-[14.5px] mb-6 opacity-85 max-w-md mx-auto">
-            L'IA pose les bonnes questions, génère un brouillon, vous éditez, vous téléchargez. Aussi simple que ça.
-          </p>
-          <Link to="/?login=1"
-                className="inline-flex items-center gap-2 px-7 py-3 rounded-full text-[14px] font-semibold transition shadow-md"
-                style={{ background: "#d4b982", color: "#0c1d33" }}
-                data-testid="vb-cta-final">
-            Commencer gratuitement <ArrowRight size={14} />
-          </Link>
-        </section>
-      </main>
+          <p className="mt-3 max-w-md text-white/85"><Sparkles size={16} className="mr-1 inline" /> 5 minutes suffisent. Entrez votre e-mail et lancez-vous.</p>
+          <div className="mt-7"><LeadForm testid="vb-lead-final" /></div>
+        </div>
+      </section>
 
-      <UnifiedFooter />
+      <footer className="border-t border-[#efe7d8] py-8 text-center text-sm text-[#7a869c]">
+        © {new Date().getFullYear()} Zayado — l'écosystème qui agit pour vous.
+      </footer>
     </div>
   );
 }
