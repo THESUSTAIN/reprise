@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>5 — Command · Esprit Raycast / Superhuman</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Poppins:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0E1013;--surface:#16181D;--line:#24272E;--ink:#E8EAED;--muted:#7D838E;
+--vio:#8B7CFF;--r:12px;--mono:'JetBrains Mono',monospace}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:'Poppins',sans-serif;font-size:14px;line-height:1.5;
+background-image:radial-gradient(ellipse 40% 30% at 70% 0%,rgba(139,124,255,.1),transparent 60%)}
+h1,h2,h3{font-family:'Fraunces',serif;font-weight:550}
+.wrap{max-width:980px;margin:0 auto;padding:24px 24px 120px}
+.top{display:flex;align-items:center;justify-content:space-between;padding:8px 0 22px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:600;font-size:14px}
+.lm{width:32px;height:32px;border-radius:9px;background:var(--vio);display:grid;place-items:center;font-family:'Fraunces',serif;font-style:italic;color:#0E1013;font-size:16px}
+.nav{display:flex;gap:2px}
+.nav a{padding:7px 14px;border-radius:9px;font-size:12.5px;color:var(--muted);text-decoration:none;display:flex;gap:7px;align-items:center}
+.nav a.on{background:var(--surface);color:#fff;border:1px solid var(--line)}
+.nav kbd{font-family:var(--mono);font-size:9.5px;background:#0E1013;border:1px solid var(--line);border-radius:5px;padding:1px 6px;color:var(--muted)}
+/* COMMAND BAR */
+.cmd{display:flex;align-items:center;gap:12px;background:var(--surface);border:1px solid #2E3340;border-radius:14px;padding:14px 18px;margin:8px 0 26px;box-shadow:0 20px 50px -20px rgba(0,0,0,.8),0 0 0 1px rgba(139,124,255,.15)}
+.cmd .ic{color:var(--vio)}
+.cmd input{flex:1;background:transparent;border:0;outline:none;color:var(--ink);font-family:'Poppins';font-size:14px}
+.cmd input::placeholder{color:#5A616D}
+.cmd kbd{font-family:var(--mono);font-size:10px;background:#0E1013;border:1px solid var(--line);border-radius:6px;padding:3px 8px;color:var(--muted)}
+.hero{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:22px;gap:16px;flex-wrap:wrap}
+.kick{font-family:var(--mono);font-size:10.5px;color:var(--vio);letter-spacing:.12em;margin-bottom:8px}
+h1{font-size:clamp(28px,3.6vw,40px);line-height:1.1}
+h1 em{font-style:italic;color:var(--vio)}
+.meta{font-size:12px;color:var(--muted);margin-top:8px;font-family:var(--mono)}
+.mode{display:flex;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:3px}
+.mode button{border:0;background:transparent;color:var(--muted);font-family:'Poppins';font-size:12px;padding:8px 16px;border-radius:8px;cursor:pointer}
+.mode button.on{background:var(--vio);color:#0E1013;font-weight:600}
+.cols{display:grid;grid-template-columns:1.4fr 1fr;gap:14px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px 20px}
+.card+.card{margin-top:14px}
+.card h3{font-size:15px;margin-bottom:2px}
+.card .s{font-size:11px;color:var(--muted);margin-bottom:12px;font-family:var(--mono)}
+.row{display:flex;align-items:center;gap:10px;padding:9px 8px;border-radius:8px;font-size:13px;transition:.15s}
+.row:hover{background:#1B1E24}
+.row+.row{border-top:1px solid #1E2127}
+.ck{width:16px;height:16px;border-radius:5px;border:1.5px solid #33383F;flex-shrink:0;display:grid;place-items:center;font-size:9px;color:#0E1013}
+.ck.d{background:var(--vio);border:0}
+.row .k{margin-left:auto;font-family:var(--mono);font-size:9.5px;color:#5A616D;border:1px solid var(--line);border-radius:5px;padding:1px 7px}
+.row .p{font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;padding:2px 7px;border-radius:4px;background:rgba(139,124,255,.12);color:#B3A8FF;font-weight:600}
+.stat{display:flex;justify-content:space-between;align-items:center;padding:7px 0;font-size:12.5px}
+.stat span{color:var(--muted)}
+.stat b{font-family:var(--mono);font-weight:500}
+.meter{height:5px;background:#22252B;border-radius:99px;overflow:hidden;margin:4px 0 12px}
+.meter i{display:block;height:100%;background:var(--vio);border-radius:99px}
+.quo{font-family:'Fraunces',serif;font-style:italic;font-size:16.5px;line-height:1.5;color:#D4D7DD;margin:6px 0 12px}
+.vs{border-left:2px solid var(--vio);padding:7px 11px;background:rgba(139,124,255,.06);border-radius:0 8px 8px 0;font-size:11px;color:#9AA1AD}
+.vs b{display:block;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--vio);margin-bottom:3px;font-family:var(--mono);font-weight:500}
+.hintbar{margin-top:18px;display:flex;gap:14px;justify-content:center;font-family:var(--mono);font-size:10.5px;color:#5A616D}
+.hintbar kbd{border:1px solid var(--line);border-radius:5px;padding:1px 6px;background:var(--surface)}
+.cop{position:fixed;right:24px;bottom:24px}
+.cop .b{width:50px;height:50px;border-radius:14px;background:var(--vio);display:grid;place-items:center;cursor:pointer;box-shadow:0 12px 30px -8px rgba(139,124,255,.6);transition:.2s}
+.cop .b:hover{transform:translateY(-3px)}
+.cop svg{width:22px;height:22px;stroke:#0E1013;stroke-width:2}
+.tag{position:fixed;left:20px;bottom:20px;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#4A4F59;font-family:var(--mono)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <div class="logo"><div class="lm">M</div>MyExtension Business</div>
+  <nav class="nav">
+    <a class="on" href="#">Aujourd'hui<kbd>1</kbd></a><a href="#">Ma Vision<kbd>2</kbd></a><a href="#">Copilote<kbd>3</kbd></a><a href="#">Mon Refuge<kbd>4</kbd></a>
+  </nav>
+</header>
+<div class="cmd"><span class="ic">⌘</span><input placeholder="Capturer une idée, lancer une action, chercher…"><kbd>⌘K</kbd></div>
+<section class="hero">
+  <div>
+    <div class="kick">$ aujourd'hui --mode=élan --foi=on</div>
+    <h1>Bonjour Sarah,<br>prête pour <em>la première marche ?</em></h1>
+    <div class="meta">énergie: 62% · actions: 3 · idées: 12 · série: 9j</div>
+  </div>
+  <div class="mode"><button class="on">⚡ Élan</button><button>🕊 Refuge</button></div>
+</section>
+<section class="cols">
+  <div>
+    <div class="card">
+      <h3>File d'actions</h3><div class="s">// triées par impact sur ta vision</div>
+      <div class="row"><div class="ck d">✓</div>Envoyer la proposition chiffrée à Mme Leroy<span class="p">Business</span><span class="k">↵</span></div>
+      <div class="row"><div class="ck"></div>Structurer l'offre "accompagnement CFO"<span class="p">Produit</span><span class="k">2</span></div>
+      <div class="row"><div class="ck"></div>20 min de marche sans téléphone<span class="p">Équilibre</span><span class="k">3</span></div>
+      <div class="row"><div class="ck"></div>Noter l'idée "dashboard burn-out clients"<span class="p">Idée</span><span class="k">4</span></div>
+    </div>
+    <div class="card">
+      <h3>Refuge express</h3><div class="s">// 30 secondes pour toi</div>
+      <p class="quo">« Tu n'as pas besoin de voir tout l'escalier. Juste la première marche. »</p>
+      <div class="vs"><b>PSAUME 37:5 — MODE FOI</b>« Remets ton sort à l'Éternel, confie-toi en lui, et il agira. »</div>
+    </div>
+  </div>
+  <div>
+    <div class="card">
+      <h3>Énergie & signaux</h3><div class="s">// semaine en cours</div>
+      <div class="stat"><span>Niveau global</span><b>62%</b></div>
+      <div class="meter"><i style="width:62%"></i></div>
+      <div class="stat"><span>Sommeil</span><b style="color:#FFB86B">▼ 6h12</b></div>
+      <div class="stat"><span>Charge mentale</span><b style="color:#FFB86B">▲ haute</b></div>
+      <div class="stat"><span>Risque burnout</span><b style="color:#FF7A93">modéré</b></div>
+    </div>
+    <div class="card">
+      <h3>Vision</h3><div class="s">// pyramide de clarté</div>
+      <div class="stat"><span>Objectifs actifs</span><b>4</b></div>
+      <div class="stat"><span>Idées en réserve</span><b>12</b></div>
+      <div class="stat"><span>Alignement semaine</span><b style="color:#7DE3A8">86%</b></div>
+    </div>
+  </div>
+</section>
+<div class="hintbar"><span><kbd>⌘K</kbd> commandes</span><span><kbd>C</kbd> capturer</span><span><kbd>R</kbd> refuge</span><span><kbd>E</kbd> énergie</span></div>
+</div>
+<div class="cop"><div class="b"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3z"/></svg></div></div>
+<div class="tag">05 · Command — esprit Raycast</div>
+</body>
+</html>
