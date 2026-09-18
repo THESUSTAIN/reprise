@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>B — Ma Vision · Éditorial centré</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--gold1:#F1E2CC;--gold2:#DEC2A3;--line:rgba(255,255,255,.12)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Poppins',sans-serif;font-size:14px;color:#fff;min-height:100vh;
+background:linear-gradient(180deg,#172C5C 0%,#101F47 42%,#0B1F3A 76%,#081734 100%);background-attachment:fixed}
+h1,h2,h3{font-family:'Fraunces',serif;font-weight:550}
+.gold{background:linear-gradient(90deg,#F1E2CC,#DEC2A3);-webkit-background-clip:text;background-clip:text;color:transparent}
+.glass{background:rgba(255,255,255,.055);border:1px solid var(--line);border-radius:22px;backdrop-filter:blur(12px)}
+.topbar{display:flex;justify-content:space-between;align-items:center;max-width:900px;margin:0 auto;padding:20px 24px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:600;font-size:13.5px}
+.lm{width:32px;height:32px;border-radius:10px;background:linear-gradient(135deg,#F1E2CC,#DEC2A3);display:grid;place-items:center;font-family:'Fraunces',serif;font-style:italic;color:#0B1F3A;font-size:16px;font-weight:700}
+.nav{position:fixed;top:64px;left:50%;transform:translateX(-50%);display:flex;gap:2px;background:rgba(8,23,52,.75);border:1px solid var(--line);border-radius:999px;padding:4px;backdrop-filter:blur(16px);z-index:20}
+.nav a{padding:7px 16px;border-radius:999px;font-size:12px;color:rgba(255,255,255,.55);text-decoration:none}
+.nav a.on{background:rgba(255,255,255,.12);color:#fff}
+.foi{font-size:11px;color:rgba(222,194,163,.9);display:flex;gap:7px;align-items:center}
+.foi .d{width:7px;height:7px;border-radius:50%;background:#DEC2A3;box-shadow:0 0 8px #DEC2A3}
+.col{max-width:900px;margin:0 auto;padding:70px 24px 130px}
+.date{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#DEC2A3;font-weight:600;margin-bottom:14px}
+h1{font-size:clamp(38px,5.4vw,58px);line-height:1.05;margin-bottom:12px}
+.sub{font-size:13.5px;color:rgba(255,255,255,.5);margin-bottom:36px}
+.chapter{display:grid;grid-template-columns:90px 1fr;gap:22px;padding:26px 0;border-bottom:1px solid rgba(255,255,255,.09)}
+.chapter:last-child{border:0}
+.ch-num{font-family:'Fraunces',serif;font-size:44px;font-weight:300;font-style:italic;color:rgba(222,194,163,.55);line-height:1}
+.ch-num small{display:block;font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;font-family:'Poppins';font-style:normal;color:rgba(255,255,255,.35);margin-top:8px}
+.chapter h2{font-size:clamp(20px,2.6vw,27px);margin-bottom:8px}
+.chapter p{font-size:13px;color:rgba(255,255,255,.55);line-height:1.65;max-width:560px}
+.chapter .big-q{font-family:'Fraunces',serif;font-style:italic;font-size:19px;color:#F3E9DB;line-height:1.45;margin:6px 0 10px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.chip{font-size:11px;padding:6px 13px;border-radius:999px;border:1px solid rgba(222,194,163,.3);background:rgba(222,194,163,.08);color:#E8D5BC}
+.chip.on{background:linear-gradient(135deg,#F1E2CC,#DEC2A3);color:#0B1F3A;font-weight:600;border-color:transparent}
+.prog{height:5px;background:rgba(255,255,255,.08);border-radius:99px;overflow:hidden;margin-top:14px;max-width:400px}
+.prog i{display:block;height:100%;width:38%;background:linear-gradient(90deg,#F1E2CC,#DEC2A3);border-radius:99px}
+.pct{font-size:11px;color:rgba(255,255,255,.45);margin-top:7px}
+.cop{position:fixed;right:26px;bottom:26px;display:flex;align-items:center;gap:12px;z-index:10}
+.cop .h{background:rgba(8,23,52,.92);border:1px solid rgba(222,194,163,.3);padding:9px 15px;border-radius:14px 14px 4px 14px;font-size:12px;color:#E8D5BC;backdrop-filter:blur(12px)}
+.cop .b{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#F1E2CC,#DEC2A3);display:grid;place-items:center;cursor:pointer;box-shadow:0 14px 32px -8px rgba(222,194,163,.5);font-size:22px;color:#0B1F3A}
+.tag{position:fixed;left:22px;bottom:22px;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.3)}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo"><div class="lm">M</div>MyExtension Business</div>
+  <div class="foi"><span class="d"></span>Mode Foi · activé</div>
+</header>
+<nav class="nav"><a href="#">Aujourd'hui</a><a class="on" href="#">Ma Vision</a><a href="#">Copilote</a><a href="#">Mon Refuge</a><a href="#" style="color:rgba(222,194,163,.8)">＋</a></nav>
+<main class="col">
+  <div class="date">Ma Vision · Manifeste</div>
+  <h1>D'abord le <em class="gold" style="font-style:italic">pourquoi.</em></h1>
+  <div class="sub">Ta pyramide de clarté, racontée comme un manifeste en quatre chapitres.</div>
+
+  <section class="chapter">
+    <div class="ch-num">01<small>Intemporel</small></div>
+    <div>
+      <h2>Raison d'être</h2>
+      <p class="big-q">« Libérer les indépendants du flou financier, pour qu'ils construisent sans s'épuiser. »</p>
+      <p>Écrite le 3 mars 2026 · relue il y a 2 jours · toujours vraie ✓</p>
+    </div>
+  </section>
+  <section class="chapter">
+    <div class="ch-num">02<small>3 à 20 ans</small></div>
+    <div>
+      <h2>Vision long terme</h2>
+      <p>Devenir la référence de l'accompagnement financier des solopreneurs francophones — celui qui protège leur énergie autant que leur trésorerie.</p>
+    </div>
+  </section>
+  <section class="chapter">
+    <div class="ch-num">03<small>2 à 4 ans</small></div>
+    <div>
+      <h2>Stratégie moyen terme</h2>
+      <p>Construire l'offre d'accompagnement CFO accessible, puis la décliner en formation et en outil.</p>
+      <div class="chips"><span class="chip on">Offre CFO</span><span class="chip">Formation</span><span class="chip">Outil SaaS</span></div>
+    </div>
+  </section>
+  <section class="chapter">
+    <div class="ch-num">04<small>1 an</small></div>
+    <div>
+      <h2>Objectifs court terme</h2>
+      <p>Horizon 90 jours : 3 jalons mesurables, reliés à ton énergie réelle — pas à une ambition qui te crame.</p>
+      <div class="prog"><i></i></div>
+      <div class="pct">38% du trimestre · rythme soutenable</div>
+    </div>
+  </section>
+  <section class="chapter">
+    <div class="ch-num">05<small>Business · Produits · Interne</small></div>
+    <div>
+      <h2>Trois familles d'objectifs</h2>
+      <p>Chaque objectif court terme vit dans une famille — et la famille « Interne » protège celle qui porte tout : toi.</p>
+      <div class="chips"><span class="chip on">Business · 12 clients · 8 000 € MRR</span><span class="chip">Produits · offre CFO vendue 3 fois</span><span class="chip">Interne · énergie ≥ 65% · 0 semaine &gt; 45 h</span></div>
+    </div>
+  </section>
+  <section class="chapter">
+    <div class="ch-num">06<small>En réserve</small></div>
+    <div>
+      <h2>Idées en attente de tri</h2>
+      <p>Elles fusent, elles sont posées là, elles ne te courent pas après. Le Copilote t'aide à les trier quand tu es prête.</p>
+      <div class="chips"><span class="chip">Dashboard burn-out clients</span><span class="chip">Newsletter finance consciente</span><span class="chip">Atelier « prix sans culpabilité »</span><span class="chip">+ 9 autres</span></div>
+    </div>
+  </section>
+</main>
+<div class="cop"><div class="h">Une idée pour ta vision ? Dis-la-moi.</div><div class="b">✦</div></div>
+<div class="tag">Disposition B · éditorial centré — page Ma Vision</div>
+</body>
+</html>

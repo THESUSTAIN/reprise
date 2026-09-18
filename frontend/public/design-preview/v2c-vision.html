@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>C — Ma Vision · Bento asymétrique</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--gold1:#F1E2CC;--gold2:#DEC2A3;--line:rgba(255,255,255,.12)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Poppins',sans-serif;font-size:14px;color:#fff;min-height:100vh;
+background:linear-gradient(180deg,#172C5C 0%,#101F47 42%,#0B1F3A 76%,#081734 100%);background-attachment:fixed}
+h1,h2,h3{font-family:'Fraunces',serif;font-weight:550}
+.gold{background:linear-gradient(90deg,#F1E2CC,#DEC2A3);-webkit-background-clip:text;background-clip:text;color:transparent}
+.glass{background:rgba(255,255,255,.055);border:1px solid var(--line);border-radius:20px;backdrop-filter:blur(12px);transition:.25s}
+.glass:hover{border-color:rgba(222,194,163,.35)}
+.wrap{max-width:1200px;margin:0 auto;padding:22px 28px 130px}
+.topbar{display:flex;justify-content:space-between;align-items:center;padding:6px 0 26px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:600;font-size:13.5px}
+.lm{width:34px;height:34px;border-radius:11px;background:linear-gradient(135deg,#F1E2CC,#DEC2A3);display:grid;place-items:center;font-family:'Fraunces',serif;font-style:italic;color:#0B1F3A;font-size:17px;font-weight:700}
+.nav{display:flex;gap:22px;align-items:center}
+.nav a{font-size:13px;color:rgba(255,255,255,.55);text-decoration:none;padding-bottom:3px;border-bottom:2px solid transparent}
+.nav a.on{color:#fff;border-bottom-color:#DEC2A3}
+.nav .plus{color:#DEC2A3;font-size:15px}
+.right{display:flex;gap:12px;align-items:center}
+.foi{font-size:10.5px;color:rgba(222,194,163,.9);display:flex;gap:6px;align-items:center}
+.foi .d{width:6px;height:6px;border-radius:50%;background:#DEC2A3;box-shadow:0 0 8px #DEC2A3}
+.avatar{width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.12);display:grid;place-items:center;font-size:11px;font-weight:600;border:1px solid var(--line)}
+.head{margin-bottom:22px}
+.date{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:#DEC2A3;font-weight:600;margin-bottom:8px}
+h1{font-size:clamp(28px,3.4vw,40px);line-height:1.1}
+.sub{font-size:12.5px;color:rgba(255,255,255,.5);margin-top:7px}
+.bento{display:grid;grid-template-columns:1.3fr 1fr 1fr;grid-template-rows:auto auto;gap:14px}
+.big{grid-row:span 2;padding:26px;position:relative;overflow:hidden}
+.big::before{content:"“";position:absolute;right:16px;top:-28px;font-family:'Fraunces',serif;font-size:150px;color:rgba(222,194,163,.1)}
+.card{padding:20px}
+.eyebrow{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(222,194,163,.85);font-weight:600;margin-bottom:10px}
+.big p.q{font-family:'Fraunces',serif;font-size:clamp(19px,2.2vw,25px);font-style:italic;line-height:1.4;color:#F3E9DB;margin:8px 0 14px}
+.meta{font-size:11px;color:rgba(255,255,255,.45)}
+.pilier{display:flex;flex-direction:column;gap:9px}
+.pilier .it{display:flex;justify-content:space-between;align-items:center;border:1px solid var(--line);border-radius:12px;padding:11px 14px;font-size:12.5px}
+.pilier .it span{font-size:10px;color:rgba(255,255,255,.45)}
+.pilier .it.g{background:linear-gradient(135deg,#F1E2CC,#DEC2A3);color:#0B1F3A;border:0;font-weight:600}
+.pilier .it.g span{color:rgba(11,31,58,.6)}
+.prog{height:5px;background:rgba(255,255,255,.08);border-radius:99px;overflow:hidden;margin-top:12px}
+.prog i{display:block;height:100%;width:38%;background:linear-gradient(90deg,#F1E2CC,#DEC2A3);border-radius:99px}
+.pct{font-size:10.5px;color:rgba(255,255,255,.45);margin-top:6px}
+.dec{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.07);font-size:12.5px;text-align:left}
+.dec:last-child{border:0}
+.dec .dot{width:8px;height:8px;border-radius:50%;background:#E8927C;flex-shrink:0}
+.dec .dot.ok{background:#10B981}
+.dec .st{margin-left:auto;font-size:9.5px;letter-spacing:.07em;text-transform:uppercase;color:rgba(255,255,255,.4)}
+.dec .st.done{color:#7DE3A8}
+.obj{display:flex;align-items:flex-end;gap:8px;height:70px;margin-top:12px}
+.obj b{flex:1;border-radius:6px 6px 2px 2px;background:linear-gradient(180deg,#DEC2A3,rgba(222,194,163,.2))}
+.obj-lbl{display:flex;gap:8px;margin-top:7px}
+.obj-lbl span{flex:1;text-align:center;font-size:9px;color:rgba(255,255,255,.4)}
+.card h3{font-size:16px;margin-bottom:4px}
+.card .s{font-size:11px;color:rgba(255,255,255,.45)}
+.krs{display:flex;flex-direction:column;gap:0}
+.kr{display:flex;gap:9px;align-items:baseline;font-size:11.5px;color:rgba(255,255,255,.55);padding:6px 0;border-top:1px dashed rgba(255,255,255,.09)}
+.kr:first-child{border-top:0}
+.kr::before{content:"KR";font-size:8.5px;letter-spacing:.1em;color:#DEC2A3;font-weight:600;flex-shrink:0}
+.idees{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+.chip2{font-size:11px;padding:6px 13px;border-radius:999px;border:1px solid rgba(222,194,163,.3);background:rgba(222,194,163,.08);color:#E8D5BC}
+.chip2.more{border-style:dashed;color:rgba(255,255,255,.45)}
+.cop{position:fixed;right:26px;bottom:26px;z-index:10;text-align:right}
+.cop .h{display:inline-block;background:rgba(8,23,52,.92);border:1px solid rgba(222,194,163,.3);padding:9px 15px;border-radius:14px 14px 4px 14px;font-size:12px;color:#E8D5BC;backdrop-filter:blur(12px);margin-bottom:10px}
+.cop .b{width:64px;height:64px;border-radius:22px;background:linear-gradient(135deg,#F1E2CC,#DEC2A3);display:grid;place-items:center;cursor:pointer;box-shadow:0 16px 36px -8px rgba(222,194,163,.55);font-size:26px;color:#0B1F3A;margin-left:auto}
+.tag{position:fixed;left:22px;bottom:22px;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.3)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="topbar">
+  <div class="logo"><div class="lm">M</div>MyExtension Business</div>
+  <nav class="nav"><a href="#">Aujourd'hui</a><a class="on" href="#">Ma Vision</a><a href="#">Copilote</a><a href="#">Mon Refuge</a><a class="plus" href="#">＋</a></nav>
+  <div class="right"><div class="foi"><span class="d"></span>Mode Foi</div><div class="avatar">SA</div></div>
+</header>
+<div class="head">
+  <div class="date">Ma Vision · Pyramide de clarté</div>
+  <h1>D'abord le <em class="gold" style="font-style:italic">pourquoi.</em></h1>
+  <div class="sub">Les leaders partent du pourquoi. Ta pyramide te ramène au cap.</div>
+</div>
+<section class="bento">
+  <div class="glass big">
+    <div class="eyebrow">Raison d'être · intemporel</div>
+    <p class="q">Libérer les indépendants du flou financier, pour qu'ils construisent sans s'épuiser.</p>
+    <div class="meta">Écrite le 3 mars 2026 · relue il y a 2 jours · toujours vraie ✓</div>
+    <div style="margin-top:22px" class="eyebrow">Vision long terme · 3 à 20 ans</div>
+    <p style="font-size:12.5px;color:rgba(255,255,255,.55);line-height:1.65">Devenir la référence de l'accompagnement financier des solopreneurs francophones — celui qui protège leur énergie autant que leur trésorerie.</p>
+  </div>
+  <div class="glass card">
+    <div class="eyebrow">Stratégie · 2 à 4 ans</div>
+    <h3>Trois piliers</h3>
+    <div class="pilier" style="margin-top:10px">
+      <div class="it g">Offre CFO<span>En cours</span></div>
+      <div class="it">Formation<span>2027</span></div>
+      <div class="it">Outil SaaS<span>2028</span></div>
+    </div>
+  </div>
+  <div class="glass card">
+    <div class="eyebrow">Objectifs · 1 an</div>
+    <h3>Horizon 90 jours</h3>
+    <div class="s">3 jalons, rythme soutenable</div>
+    <div class="obj"><b style="height:80%"></b><b style="height:55%"></b><b style="height:35%"></b></div>
+    <div class="obj-lbl"><span>Juil</span><span>Août</span><span>Sept</span></div>
+    <div class="prog"><i></i></div>
+    <div class="pct">38% du trimestre</div>
+  </div>
+</section>
+<section class="bento" style="margin-top:14px;grid-template-rows:auto">
+  <div class="glass card">
+    <div class="eyebrow">Objectifs · Business</div>
+    <h3>12 clients accompagnés</h3>
+    <div class="krs" style="margin-top:8px">
+      <div class="kr">5 nouveaux contrats signés d'ici décembre</div>
+      <div class="kr">8 000 € de revenu mensuel récurrent</div>
+    </div>
+  </div>
+  <div class="glass card">
+    <div class="eyebrow">Objectifs · Produits</div>
+    <h3>Offre CFO packagée</h3>
+    <div class="krs" style="margin-top:8px">
+      <div class="kr">1 offre vendue 3 fois</div>
+      <div class="kr">1 pilote de formation livré</div>
+    </div>
+  </div>
+  <div class="glass card">
+    <div class="eyebrow">Objectifs · Interne</div>
+    <h3>Tenir sans se cramer</h3>
+    <div class="krs" style="margin-top:8px">
+      <div class="kr">Énergie moyenne ≥ 65% sur le trimestre</div>
+      <div class="kr">0 semaine à plus de 45 h</div>
+    </div>
+  </div>
+</section>
+<section class="glass card" style="margin-top:14px">
+  <div class="eyebrow">Décisions à clarifier</div>
+  <div class="dec"><span class="dot"></span>Facturer l'offre CFO au forfait ou à l'heure ?<span class="st">À trancher</span></div>
+  <div class="dec"><span class="dot"></span>Ouvrir un créneau de formation ce trimestre ?<span class="st">À trancher</span></div>
+  <div class="dec"><span class="dot ok"></span>Refuser le partenariat non aligné<span class="st done">Tranchée ✓</span></div>
+</section>
+<section class="glass card" style="margin-top:14px">
+  <div class="eyebrow">Idées en réserve · en attente de tri</div>
+  <div class="idees">
+    <span class="chip2">Dashboard burn-out clients</span>
+    <span class="chip2">Newsletter finance consciente</span>
+    <span class="chip2">Atelier « prix sans culpabilité »</span>
+    <span class="chip2 more">+ 9 autres · le Copilote t'aide à trier</span>
+  </div>
+</section>
+</div>
+<div class="cop"><div class="h">Une idée pour ta vision ? Dis-la-moi.</div><div class="b">✦</div></div>
+<div class="tag">Disposition C · bento asymétrique — page Ma Vision</div>
+</body>
+</html>

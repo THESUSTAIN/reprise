@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A — Ma Vision · Sidebar</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--gold1:#F1E2CC;--gold2:#DEC2A3;--line:rgba(255,255,255,.12)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Poppins',sans-serif;font-size:14px;color:#fff;min-height:100vh;
+background:linear-gradient(180deg,#172C5C 0%,#101F47 42%,#0B1F3A 76%,#081734 100%);background-attachment:fixed}
+h1,h2,h3{font-family:'Fraunces',serif;font-weight:550}
+.gold{background:linear-gradient(90deg,#F1E2CC,#DEC2A3);-webkit-background-clip:text;background-clip:text;color:transparent}
+.glass{background:rgba(255,255,255,.055);border:1px solid var(--line);border-radius:20px;backdrop-filter:blur(12px)}
+.layout{display:grid;grid-template-columns:230px 1fr;min-height:100vh}
+.side{border-right:1px solid rgba(255,255,255,.08);padding:26px 16px;display:flex;flex-direction:column;gap:4px;background:rgba(8,23,52,.55);backdrop-filter:blur(14px);position:sticky;top:0;height:100vh}
+.logo{display:flex;align-items:center;gap:11px;padding:0 8px 28px}
+.lm{width:36px;height:36px;border-radius:12px;background:linear-gradient(135deg,#F1E2CC,#DEC2A3);display:grid;place-items:center;font-family:'Fraunces',serif;font-style:italic;color:#0B1F3A;font-size:18px;font-weight:700}
+.ln b{font-size:13.5px;display:block}.ln span{font-size:9.5px;color:rgba(255,255,255,.45);letter-spacing:.08em}
+.ni{display:flex;align-items:center;gap:11px;padding:11px 12px;border-radius:13px;font-size:13px;color:rgba(255,255,255,.62);cursor:pointer;border:1px solid transparent}
+.ni.on{background:rgba(255,255,255,.1);color:#fff;border-color:rgba(222,194,163,.35)}
+.ni.plus{margin-top:14px;border:1px dashed rgba(255,255,255,.2);justify-content:center;color:rgba(255,255,255,.5);font-size:12px}
+.foi{margin-top:auto;background:rgba(222,194,163,.08);border:1px solid rgba(222,194,163,.25);border-radius:14px;padding:12px;font-size:11px;color:#E8D5BC}
+.foi b{display:flex;gap:7px;align-items:center;font-size:11.5px;margin-bottom:4px}
+.foi .d{width:7px;height:7px;border-radius:50%;background:#DEC2A3;box-shadow:0 0 8px #DEC2A3}
+.main{padding:30px 38px 120px}
+.date{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#DEC2A3;font-weight:600}
+h1{font-size:clamp(30px,3.4vw,42px);line-height:1.1;margin:6px 0 6px}
+.sub{font-size:13px;color:rgba(255,255,255,.5);margin-bottom:26px}
+.why{padding:26px 28px;margin-bottom:16px;position:relative;overflow:hidden}
+.why::before{content:"“";position:absolute;right:20px;top:-30px;font-family:'Fraunces',serif;font-size:150px;color:rgba(222,194,163,.12)}
+.eyebrow{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(222,194,163,.85);font-weight:600;margin-bottom:10px}
+.why p{font-family:'Fraunces',serif;font-size:clamp(19px,2.2vw,26px);font-style:italic;line-height:1.4;color:#F3E9DB;max-width:640px}
+.why .meta{margin-top:12px;font-size:11px;color:rgba(255,255,255,.45)}
+.pyr{display:grid;grid-template-columns:1.1fr .9fr;gap:16px;align-items:start}
+.layers{display:flex;flex-direction:column;gap:8px;padding:22px}
+.layer{border-radius:14px;padding:13px 18px;display:flex;justify-content:space-between;align-items:center;border:1px solid var(--line)}
+.layer b{font-family:'Fraunces',serif;font-size:15px;font-weight:550}
+.layer span{font-size:10.5px;color:rgba(255,255,255,.5)}
+.l1{background:linear-gradient(135deg,#F1E2CC,#DEC2A3);color:#0B1F3A}.l1 span{color:rgba(11,31,58,.6)}
+.l2{background:rgba(222,194,163,.35)}.l3{background:rgba(222,194,163,.18)}.l4{background:rgba(255,255,255,.05)}
+.qcol{display:flex;flex-direction:column;gap:12px}
+.q{padding:18px 20px}
+.q b{font-family:'Fraunces',serif;font-size:15px;font-weight:550;display:block;margin-bottom:4px}
+.q p{font-size:12px;color:rgba(255,255,255,.5);line-height:1.55}
+.q .k{font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:#DEC2A3;font-weight:600;display:block;margin-bottom:6px}
+.fams{margin-top:16px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.fam{padding:18px 20px}
+.fam .k{font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:#DEC2A3;font-weight:600;display:block;margin-bottom:6px}
+.fam b{font-family:'Fraunces',serif;font-size:15.5px;font-weight:550;display:block;margin-bottom:8px}
+.fam p{font-size:11.5px;color:rgba(255,255,255,.5);padding:6px 0;border-top:1px dashed rgba(255,255,255,.09)}
+.fam p:first-of-type{border-top:0;padding-top:0}
+.decs{margin-top:16px;padding:18px 22px}
+.dec{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.07);font-size:12.5px}
+.dec:last-child{border:0}
+.dec .dot{width:8px;height:8px;border-radius:50%;background:#E8927C;flex-shrink:0}
+.dec .dot.ok{background:#10B981}
+.dec .st{margin-left:auto;font-size:9.5px;letter-spacing:.07em;text-transform:uppercase;color:rgba(255,255,255,.4)}
+.dec .st.done{color:#7DE3A8}
+.idees{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+.chip2{font-size:11px;padding:6px 13px;border-radius:999px;border:1px solid rgba(222,194,163,.3);background:rgba(222,194,163,.08);color:#E8D5BC}
+.chip2.more{border-style:dashed;color:rgba(255,255,255,.45)}
+.cop{position:fixed;right:26px;bottom:26px;display:flex;align-items:center;gap:12px;z-index:10}
+.cop .h{background:rgba(8,23,52,.92);border:1px solid rgba(222,194,163,.3);padding:9px 15px;border-radius:14px 14px 4px 14px;font-size:12px;color:#E8D5BC;backdrop-filter:blur(12px)}
+.cop .b{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#F1E2CC,#DEC2A3);display:grid;place-items:center;cursor:pointer;box-shadow:0 14px 32px -8px rgba(222,194,163,.5);font-size:22px;color:#0B1F3A}
+.tag{position:fixed;left:254px;bottom:22px;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.3)}
+</style>
+</head>
+<body>
+<div class="layout">
+<aside class="side">
+  <div class="logo"><div class="lm">M</div><div class="ln"><b>MyExtension</b><span>BUSINESS · ZAYADO</span></div></div>
+  <div class="ni"><span class="ic">☀</span>Aujourd'hui</div>
+  <div class="ni on"><span class="ic">🔭</span>Ma Vision</div>
+  <div class="ni"><span class="ic">✦</span>Copilote</div>
+  <div class="ni"><span class="ic">🕊</span>Mon Refuge</div>
+  <div class="ni plus">＋ Tout mon espace</div>
+  <div class="foi"><b><span class="d"></span>Mode Foi · activé</b>Ta raison d'être peut intégrer ta vocation.</div>
+</aside>
+<main class="main">
+  <div class="date">Ma Vision · Pyramide de clarté</div>
+  <h1>D'abord le <em class="gold" style="font-style:italic">pourquoi.</em></h1>
+  <div class="sub">Les leaders partent du pourquoi. Les autres, du quoi. Ta pyramide te ramène au cap.</div>
+  <section class="glass why">
+    <div class="eyebrow">Raison d'être · intemporel</div>
+    <p>Libérer les indépendants du flou financier, pour qu'ils construisent sans s'épuiser.</p>
+    <div class="meta">Écrite le 3 mars 2026 · relue il y a 2 jours · toujours vraie ✓</div>
+  </section>
+  <section class="pyr">
+    <div class="glass layers">
+      <div class="layer l1"><b>Raison d'être</b><span>Intemporel</span></div>
+      <div class="layer l2"><b>Vision long terme</b><span>3 à 20 ans</span></div>
+      <div class="layer l3"><b>Stratégie moyen terme</b><span>2 à 4 ans</span></div>
+      <div class="layer l4"><b>Objectifs court terme</b><span>1 an · 4 actifs</span></div>
+    </div>
+    <div class="qcol">
+      <div class="glass q"><span class="k">Pourquoi</span><b>Pourquoi tu te lèves le matin ?</b><p>Ta raison d'être, ancrée — celle qui tient quand tout vacille.</p></div>
+      <div class="glass q"><span class="k">Comment</span><b>Comment tu y vas ?</b><p>Stratégie 2-4 ans : l'accompagnement CFO des solopreneurs, sans hustle.</p></div>
+      <div class="glass q"><span class="k">Quoi</span><b>Quel plan pour démarrer ?</b><p>Horizon 90 jours : 3 jalons, mesurables, reliés à l'énergie réelle.</p></div>
+    </div>
+  </section>
+  <section class="fams">
+    <div class="glass fam"><span class="k">Objectifs · Business</span><b>12 clients accompagnés</b><p>KR · 5 nouveaux contrats signés d'ici décembre</p><p>KR · 8 000 € de revenu mensuel récurrent</p></div>
+    <div class="glass fam"><span class="k">Objectifs · Produits</span><b>Offre CFO packagée</b><p>KR · 1 offre vendue 3 fois</p><p>KR · 1 pilote de formation livré</p></div>
+    <div class="glass fam"><span class="k">Objectifs · Interne</span><b>Tenir sans se cramer</b><p>KR · énergie moyenne ≥ 65% sur le trimestre</p><p>KR · 0 semaine à plus de 45 h</p></div>
+  </section>
+  <section class="glass decs">
+    <div class="eyebrow">Décisions à clarifier</div>
+    <div class="dec"><span class="dot"></span>Facturer l'offre CFO au forfait ou à l'heure ?<span class="st">À trancher</span></div>
+    <div class="dec"><span class="dot"></span>Ouvrir un créneau de formation ce trimestre ?<span class="st">À trancher</span></div>
+    <div class="dec"><span class="dot ok"></span>Refuser le partenariat non aligné<span class="st done">Tranchée ✓</span></div>
+  </section>
+  <section class="glass decs">
+    <div class="eyebrow">Idées en réserve · en attente de tri</div>
+    <div class="idees">
+      <span class="chip2">Dashboard burn-out clients</span>
+      <span class="chip2">Newsletter finance consciente</span>
+      <span class="chip2">Atelier « prix sans culpabilité »</span>
+      <span class="chip2 more">+ 9 autres · le Copilote t'aide à trier</span>
+    </div>
+  </section>
+</main>
+</div>
+<div class="cop"><div class="h">Une idée pour ta vision ? Dis-la-moi.</div><div class="b">✦</div></div>
+<div class="tag">Disposition A · sidebar — page Ma Vision</div>
+</body>
+</html>

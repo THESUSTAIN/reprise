@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A — Aujourd'hui · Sidebar</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--gold1:#F1E2CC;--gold2:#DEC2A3;--line:rgba(255,255,255,.12)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Poppins',sans-serif;font-size:14px;color:#fff;min-height:100vh;
+background:linear-gradient(180deg,#172C5C 0%,#101F47 42%,#0B1F3A 76%,#081734 100%);background-attachment:fixed}
+h1,h2,h3{font-family:'Fraunces',serif;font-weight:550}
+.gold{background:linear-gradient(90deg,#F1E2CC,#DEC2A3);-webkit-background-clip:text;background-clip:text;color:transparent}
+.glass{background:rgba(255,255,255,.055);border:1px solid var(--line);border-radius:20px;backdrop-filter:blur(12px)}
+.layout{display:grid;grid-template-columns:230px 1fr;min-height:100vh}
+.side{border-right:1px solid rgba(255,255,255,.08);padding:26px 16px;display:flex;flex-direction:column;gap:4px;background:rgba(8,23,52,.55);backdrop-filter:blur(14px);position:sticky;top:0;height:100vh}
+.logo{display:flex;align-items:center;gap:11px;padding:0 8px 28px}
+.lm{width:36px;height:36px;border-radius:12px;background:linear-gradient(135deg,#F1E2CC,#DEC2A3);display:grid;place-items:center;font-family:'Fraunces',serif;font-style:italic;color:#0B1F3A;font-size:18px;font-weight:700}
+.ln b{font-size:13.5px;display:block}.ln span{font-size:9.5px;color:rgba(255,255,255,.45);letter-spacing:.08em}
+.ni{display:flex;align-items:center;gap:11px;padding:11px 12px;border-radius:13px;font-size:13px;color:rgba(255,255,255,.62);cursor:pointer;border:1px solid transparent;transition:.2s}
+.ni.on{background:rgba(255,255,255,.1);color:#fff;border-color:rgba(222,194,163,.35)}
+.ni .ic{font-size:15px}
+.ni.plus{margin-top:14px;border:1px dashed rgba(255,255,255,.2);justify-content:center;color:rgba(255,255,255,.5);font-size:12px}
+.foi{margin-top:auto;background:rgba(222,194,163,.08);border:1px solid rgba(222,194,163,.25);border-radius:14px;padding:12px;font-size:11px;color:#E8D5BC}
+.foi b{display:flex;gap:7px;align-items:center;font-size:11.5px;margin-bottom:4px}
+.foi .d{width:7px;height:7px;border-radius:50%;background:#DEC2A3;box-shadow:0 0 8px #DEC2A3}
+.main{padding:30px 38px 120px}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px}
+.date{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#DEC2A3;font-weight:600}
+.avatar{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.12);display:grid;place-items:center;font-size:11.5px;font-weight:600;border:1px solid var(--line)}
+h1{font-size:clamp(30px,3.4vw,42px);line-height:1.1;margin:4px 0 6px}
+.sub{font-size:13px;color:rgba(255,255,255,.5)}
+.mode{display:inline-flex;background:rgba(255,255,255,.06);border:1px solid var(--line);border-radius:999px;padding:4px;margin:22px 0 26px}
+.mode button{border:0;background:transparent;color:rgba(255,255,255,.55);font-family:'Poppins';font-size:12.5px;padding:9px 20px;border-radius:999px;cursor:pointer}
+.mode button.on{background:linear-gradient(135deg,#F1E2CC,#DEC2A3);color:#0B1F3A;font-weight:600}
+.grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:16px}
+.card{padding:22px}
+.card h3{font-size:16px;margin-bottom:2px}
+.eyebrow{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(222,194,163,.85);font-weight:600;margin-bottom:10px}
+.card .s{font-size:11.5px;color:rgba(255,255,255,.45);margin-bottom:14px}
+.cap{display:flex;gap:8px;margin-bottom:12px}
+.cap input{flex:1;background:rgba(0,0,0,.25);border:1px solid var(--line);border-radius:11px;padding:10px 13px;color:#fff;font-family:'Poppins';font-size:12.5px;outline:none}
+.cap input::placeholder{color:rgba(255,255,255,.3)}
+.cap button{border:0;background:linear-gradient(135deg,#F1E2CC,#DEC2A3);color:#0B1F3A;font-weight:600;border-radius:11px;padding:0 15px;cursor:pointer}
+.act{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.07);font-size:13px}
+.act:last-child{border:0}
+.ck{width:18px;height:18px;border-radius:6px;border:1.5px solid rgba(255,255,255,.25);flex-shrink:0;display:grid;place-items:center;font-size:10px;color:#0B1F3A}
+.ck.d{background:linear-gradient(135deg,#F1E2CC,#DEC2A3);border:0}
+.act .p{margin-left:auto;font-size:9px;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:99px;background:rgba(222,194,163,.12);color:#E8D5BC;border:1px solid rgba(222,194,163,.3);font-weight:600}
+.ring{width:84px;height:84px;border-radius:50%;background:conic-gradient(#DEC2A3 0 62%,rgba(255,255,255,.08) 62% 100%);display:grid;place-items:center;flex-shrink:0}
+.ring i{width:64px;height:64px;border-radius:50%;background:#101F47;display:grid;place-items:center;font-family:'Fraunces',serif;font-size:20px;font-style:normal}
+.gauge{display:flex;align-items:center;gap:14px;margin:10px 0 14px}
+.bars{display:flex;gap:5px;align-items:flex-end;height:42px}
+.bars b{flex:1;border-radius:4px 4px 2px 2px;background:linear-gradient(180deg,#DEC2A3,rgba(222,194,163,.25))}
+.warn{margin-top:12px;padding:10px 12px;border-radius:12px;background:rgba(232,146,124,.1);border:1px solid rgba(232,146,124,.3);font-size:11.5px;color:#F2B8A5}
+.quo{font-family:'Fraunces',serif;font-style:italic;font-size:17px;line-height:1.5;color:#F3E9DB;margin:6px 0 13px}
+.vs{border-left:2px solid #DEC2A3;padding:8px 12px;background:rgba(222,194,163,.06);border-radius:0 10px 10px 0;font-size:11px;color:rgba(255,255,255,.6)}
+.vs b{display:block;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:#DEC2A3;margin-bottom:3px;font-family:'Poppins';font-weight:600}
+.strip{margin-top:16px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.mini{padding:15px 19px;display:flex;gap:12px;align-items:center;font-size:12.5px}
+.mini small{display:block;color:rgba(255,255,255,.45);font-size:11px}
+.mini .ic{width:36px;height:36px;border-radius:11px;background:rgba(222,194,163,.12);border:1px solid rgba(222,194,163,.25);display:grid;place-items:center;font-size:14px}
+.cop{position:fixed;right:26px;bottom:26px;display:flex;align-items:center;gap:12px;z-index:10}
+.cop .h{background:rgba(8,23,52,.92);border:1px solid rgba(222,194,163,.3);padding:9px 15px;border-radius:14px 14px 4px 14px;font-size:12px;color:#E8D5BC;backdrop-filter:blur(12px)}
+.cop .b{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#F1E2CC,#DEC2A3);display:grid;place-items:center;cursor:pointer;box-shadow:0 14px 32px -8px rgba(222,194,163,.5);font-size:22px;color:#0B1F3A;transition:.25s}
+.cop .b:hover{transform:scale(1.08)}
+.tag{position:fixed;left:254px;bottom:22px;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.3)}
+</style>
+</head>
+<body>
+<div class="layout">
+<aside class="side">
+  <div class="logo"><div class="lm">M</div><div class="ln"><b>MyExtension</b><span>BUSINESS · ZAYADO</span></div></div>
+  <div class="ni on"><span class="ic">☀</span>Aujourd'hui</div>
+  <div class="ni"><span class="ic">🔭</span>Ma Vision</div>
+  <div class="ni"><span class="ic">✦</span>Copilote</div>
+  <div class="ni"><span class="ic">🕊</span>Mon Refuge</div>
+  <div class="ni plus">＋ Tout mon espace</div>
+  <div class="foi"><b><span class="d"></span>Mode Foi · activé</b>Verset du jour visible ici et dans Mon Refuge.</div>
+</aside>
+<main class="main">
+  <div class="top"><div class="date">Mardi 14 juillet 2026 · Mode Élan</div><div class="avatar">SA</div></div>
+  <h1>Bonjour Sarah, <em class="gold" style="font-style:italic">ce qui compte maintenant.</em></h1>
+  <div class="sub">3 actions prévues · énergie à 62% · 1 décision à clarifier</div>
+  <div class="mode"><button class="on">⚡ Élan</button><button>🕊 Refuge</button></div>
+  <section class="grid">
+    <div class="glass card">
+      <div class="eyebrow">Priorité du jour</div>
+      <h3>Envoyer la proposition chiffrée à Mme Leroy</h3>
+      <div class="s">Reliée à ta vision : « Libérer les indépendants du flou financier »</div>
+      <div class="cap"><input placeholder="Une idée qui fuse ? Capture-la ici…"><button>+</button></div>
+      <div class="act"><div class="ck d">✓</div>Cadrage de l'offre CFO validé<span class="p">Fait</span></div>
+      <div class="act"><div class="ck"></div>Structurer l'offre "accompagnement CFO"<span class="p">Produit</span></div>
+      <div class="act"><div class="ck"></div>20 min de marche sans téléphone<span class="p">Équilibre</span></div>
+    </div>
+    <div class="glass card">
+      <div class="eyebrow">Énergie & burn-out</div>
+      <h3>Ta batterie</h3>
+      <div class="gauge"><div class="ring"><i>62%</i></div><div style="font-size:11.5px;color:rgba(255,255,255,.5)">Correcte, en baisse depuis jeudi.</div></div>
+      <div class="bars"><b style="height:55%"></b><b style="height:70%"></b><b style="height:78%"></b><b style="height:64%"></b><b style="height:58%"></b><b style="height:52%"></b><b style="height:62%"></b></div>
+      <div class="warn">⚠ Risque modéré — souffle jeudi aprem</div>
+    </div>
+    <div class="glass card">
+      <div class="eyebrow">Encouragement</div>
+      <h3>Une marche suffit</h3>
+      <p class="quo">« Tu n'as pas besoin de voir tout l'escalier. Juste la première marche. »</p>
+      <div class="vs"><b>Psaume 37:5 · Mode Foi</b>« Remets ton sort à l'Éternel, confie-toi en lui, et il agira. »</div>
+    </div>
+  </section>
+  <section class="strip">
+    <div class="glass mini"><div class="ic">🔭</div><div><b>Ma Vision</b><small>Pyramide de clarté · 4 objectifs actifs</small></div></div>
+    <div class="glass mini"><div class="ic">💡</div><div><b>12 idées en réserve</b><small>3 prêtes à passer en action</small></div></div>
+    <div class="glass mini"><div class="ic">🌱</div><div><b>Série de 9 jours</b><small>Tu reviens chaque jour, bravo</small></div></div>
+  </section>
+</main>
+</div>
+<div class="cop"><div class="h">On trie tes idées ensemble ?</div><div class="b">✦</div></div>
+<div class="tag">Disposition A · sidebar — page Aujourd'hui</div>
+</body>
+</html>
