@@ -1,0 +1,170 @@
+{
+  "project_overview": {
+    "app_name": "MyExtension Business",
+    "tagline": "l'extension qui aide les entrepreneurs à passer de la vision à l'action sans oublier leur équilibre personnel",
+    "app_type": "saas_app",
+    "target_user": "Entrepreneurs, consultants, financial analysis experts, faith-driven founders",
+    "emotional_tone": "Empowering, serene, structured, deeply encouraging, professional SaaS polish (Linear/Notion level)"
+  },
+  "typography": {
+    "headings": {
+      "font_family": "'Fraunces', serif",
+      "weights": ["400", "600", "700", "900"],
+      "usage": "H1, H2, H3 headings, key metrics numbers, quote highlights"
+    },
+    "body": {
+      "font_family": "'Poppins', sans-serif",
+      "weights": ["300", "400", "500", "600", "700"],
+      "usage": "Body text, UI labels, descriptions, inputs, buttons, chat messages"
+    },
+    "font_import_url": "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;600;700;900&family=Poppins:wght@300;400;500;600;700&display=swap",
+    "hierarchy": {
+      "h1": "text-4xl sm:text-5xl lg:text-6xl font-serif font-bold tracking-tight",
+      "h2": "text-2xl sm:text-3xl lg:text-4xl font-serif font-semibold tracking-tight",
+      "h3": "text-xl sm:text-2xl font-serif font-medium",
+      "h4": "text-lg sm:text-xl font-serif font-medium",
+      "body_large": "text-base sm:text-lg font-sans leading-relaxed",
+      "body_main": "text-sm sm:text-base font-sans leading-relaxed",
+      "small_label": "text-xs font-sans uppercase tracking-widest font-semibold"
+    }
+  },
+  "colors": {
+    "dark_theme": {
+      "bg_primary": "#0B132B",
+      "bg_secondary": "#0F172A",
+      "card_bg": "rgba(24, 34, 59, 0.75)",
+      "card_border": "rgba(255, 255, 255, 0.08)",
+      "text_main": "#F8FAFC",
+      "text_muted": "#94A3B8",
+      "accent_gradient": "bg-gradient-to-r from-blue-600 via-indigo-500 to-pink-500",
+      "gradient_text": "bg-gradient-to-r from-blue-400 via-indigo-300 to-pink-400 bg-clip-text text-transparent",
+      "elan_mode_glow": "rgba(59, 130, 246, 0.25)",
+      "refuge_mode_glow": "rgba(236, 72, 153, 0.25)"
+    },
+    "light_theme": {
+      "bg_primary": "#FAF9F6",
+      "bg_secondary": "#F3F0E8",
+      "card_bg": "#FFFFFF",
+      "card_border": "rgba(15, 23, 42, 0.08)",
+      "text_main": "#0F172A",
+      "text_muted": "#64748B",
+      "accent_gradient": "bg-gradient-to-r from-blue-600 via-indigo-600 to-pink-600",
+      "gradient_text": "bg-gradient-to-r from-blue-700 via-indigo-700 to-pink-700 bg-clip-text text-transparent",
+      "elan_mode_glow": "rgba(59, 130, 246, 0.15)",
+      "refuge_mode_glow": "rgba(236, 72, 153, 0.15)"
+    },
+    "energy_levels": {
+      "high": { "color": "#10B981", "label": "Plein Élan (80-100%)" },
+      "medium": { "color": "#F59E0B", "label": "Énergie Modérée (40-79%)" },
+      "low": { "color": "#EF4444", "label": "Besoin de Refuge (0-39%)" }
+    }
+  },
+  "modes_and_toggles": {
+    "elan_refuge_toggle": {
+      "elan_mode": {
+        "title": "Mode Élan",
+        "description": "Orientation Action, Capture d'idées, Priorités du jour, Momentum",
+        "accent": "blue-500",
+        "badge_style": "bg-blue-500/10 text-blue-400 border-blue-500/20"
+      },
+      "refuge_mode": {
+        "title": "Mode Refuge",
+        "description": "Recul, Sérénité, Prévention du burnout, Respiration, Ancrage",
+        "accent": "pink-500",
+        "badge_style": "bg-pink-500/10 text-pink-400 border-pink-500/20"
+      }
+    },
+    "faith_mode_toggle": {
+      "state_key": "myextension_faith_mode",
+      "when_on": "Affiche le Verset du jour, la section Stratégie Évangélisation/Impact dans Ma Vision, et des encouragements spirituels subtils.",
+      "when_off": "100% professionnel et neutre, aucune référence religieuse visible pour garantir l'universalité d'usage."
+    }
+  },
+  "navigation": {
+    "items": [
+      { "id": "aujourdhui", "label": "Aujourd'hui", "icon": "LayoutDashboard" },
+      { "id": "ma-vision", "label": "Ma Vision", "icon": "Compass" },
+      { "id": "copilote", "label": "Copilote", "icon": "Bot" },
+      { "id": "mon-refuge", "label": "Mon Refuge", "icon": "HeartHandshake" }
+    ],
+    "header_actions": [
+      "Élan / Refuge mode switcher pill",
+      "Mode Foi toggle switch (Christian encouragement)",
+      "Dark / Light theme toggle switch",
+      "User profile / Energy indicator status"
+    ],
+    "floating_widget": {
+      "name": "Bulle Copilote Flottante",
+      "position": "bottom-4 right-4 sm:bottom-6 sm:right-6 fixed z-50",
+      "type": "Floating trigger button with pulse ring, opens quick chat drawer"
+    }
+  },
+  "key_views": {
+    "aujourdhui": {
+      "title": "Tableau de Bord Adaptive — Aujourd'hui",
+      "features": [
+        "Mode Élan vs Refuge adaptive Hero banner",
+        "Barge d'énergie du jour (slider interactive 0-100%)",
+        "Capture rapide d'idées à la volée",
+        "Focus du jour (3 actions prioritaires maximisant l'impact)",
+        "Jauge de risque de Burnout (Vert / Orange / Rouge)"
+      ]
+    },
+    "ma_vision": {
+      "title": "Pyramide de la Clarté & Vision Board",
+      "pyramid_levels": [
+        "1. Raison d'Être & Valeurs (Fondation)",
+        "2. Vision Long Terme (3-5 ans)",
+        "3. Stratégie Moyen Terme (1 an)",
+        "4. Objectifs Court Terme (Trimestre / Mois)",
+        "5. Plan d'Action Opérationnel (Business, Produit, Interne)"
+      ],
+      "additional_sections": [
+        "Vision Board Interactif (Cartes d'inspiration, photos, citations)",
+        "Organisateur d'Idées (Boîte à idées filtrable par statut/potentiel)",
+        "Section Stratégie Évangélisation & Impact (Visible uniquement en Mode Foi)"
+      ]
+    },
+    "copilote": {
+      "title": "Copilote Intelligent & Assistant d'Action",
+      "features": [
+        "Chat conversationnel local interactif (reponses scriptées intelligentes)",
+        "Boutons de prompteurs rapides ('Aide-moi à structurer cette idée', 'Je me sens débordé(e)', 'Revue de ma semaine')",
+        "Adaptation du ton selon le mode Élan (dynamique) ou Refuge (apaisant)"
+      ]
+    },
+    "mon_refuge": {
+      "title": "Espace Ressource & Équilibre Personnel",
+      "features": [
+        "Espace de décompression & journal de gratitude",
+        "Guide de respiration cohérence cardiaque interactif (4-7-8 timer)",
+        "Verset du jour & Méditation (si Mode Foi activé)",
+        "Analyse de l'historique d'énergie & indicateur d'alerte surmenage"
+      ]
+    }
+  },
+  "image_urls": [
+    {
+      "category": "vision_board",
+      "image_url": "https://images.unsplash.com/photo-1541359927273-d76820fc43f9?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODF8MHwxfHNlYXJjaHwxfHxlbnRyZXByZW5ldXIlMjBwZWFjZWZ1bCUyMHZpc2lvbiUyMGJvYXJkJTIwYWVzdGhldGljfGVufDB8fHx8MTc4OTczNjMyMHww&ixlib=rb-4.1.0&q=85",
+      "description": "Collage d'inspiration et mots d'ancrage pour Vision Board"
+    },
+    {
+      "category": "workspace",
+      "image_url": "https://images.pexels.com/photos/7818098/pexels-photo-7818098.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "description": "Espace de travail moderne et épuré avec ordinateur et notes"
+    },
+    {
+      "category": "corkboard_notes",
+      "image_url": "https://images.pexels.com/photos/6931845/pexels-photo-6931845.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "description": "Tableau d'idées et notes d'organisation"
+    }
+  ],
+  "instructions_to_main_agent": [
+    "Load Google Fonts 'Fraunces' and 'Poppins' in index.html or index.css.",
+    "Persist all state (Energy level, Élan/Refuge mode, Mode Foi toggle, Theme preference, Ideas list, Today's actions, Chat history) in localStorage.",
+    "Ensure every interactive element (buttons, tabs, toggles, inputs) includes a explicit data-testid attribute in kebab-case (e.g. data-testid='elan-refuge-toggle', data-testid='faith-mode-switch').",
+    "Never use transparent backgrounds without blur/solid fallbacks for dropdowns or modals.",
+    "All text must meet high contrast ratios in both dark and light themes."
+  ]
+}
