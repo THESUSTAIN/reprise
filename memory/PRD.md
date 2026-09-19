@@ -72,15 +72,50 @@ Créer la nouvelle interface du cockpit SaaS :
 - ÉCRAN DE PRÉPARATION : fin d'onboarding animée « Je prépare votre cockpit, {prénom}… » — checklist progressive (4 items ✓), barre de progression, redirection auto ~4s. BUG CRITIQUE intercepté par l'agent de test (useEffect non importé → crash) : corrigé
 - Tests : 3/3 PASS (testing agent, iteration_3.json) — parcours complet capture → Mouvement → coche → « Ce qui a bougé », Explorer sans lien mort, préparation avec items progressifs et redirection
 
-## Backlog priorisé (checklist actualisée)
+## DÉCISIONS PAR MODULE — récap au 19/09/2026 (demande utilisateur « j'ai oublié ce qu'on avait dit »)
+
+### Refondus et validés ✅
+- **Aujourd'hui** (`/`) : la JOURNÉE — priorité du jour, capture d'actions, anneau d'énergie, encouragement, bandeau « Votre impact », graphiques réels (énergie 30 j + actions 7 j), bascule Élan/Refuge
+- **Ma Vision** (`/vision`) : pyramide de clarté en 6 cartes (raison d'être, long terme, stratégie, jalons, décisions, idées) + atelier visuel `/vision/atelier`
+- **Copilote** : tiroir droit PC / plein écran mobile, onglets Discussion + Actualité (style « B » validé), bulle flottante navy sur PC
+- **Mon Refuge** (`/refuge`) : ex-page « Mindset & Capacité » → devenue Mon Refuge (check-in énergie, respiration 4·4·6, pensée du jour, Mode Foi avec verset). Mindset n'est donc PLUS une page à refondre séparément
+- **Mouvement** (`/mouvement`) : page créée légère (En cours / Ce qui a bougé). VALIDÉ le 19/09 : la faire évoluer en **tableau d'avancement À faire → En cours → Terminé** (option a, recommandée par l'agent). Rôle distinct : Aujourd'hui = le jour, Mouvement = la semaine/exécution
+
+### Que deviennent les anciennes sections du Mouvement de production (Engagement, Projet semaine, Résultat, Ressources) ?
+- **Projet semaine** → absorbé par le tableau d'avancement du nouveau Mouvement
+- **Résultat** → absorbé par « Ce qui a bougé » (Mouvement) + bandeau « Votre impact » (Aujourd'hui)
+- **Engagement** → PROPOSITION : devient les rituels (check-in quotidien, respiration) déjà dans Mon Refuge — pas de page dédiée
+- **Ressources** → PROPOSITION : ira dans un futur lot Campus (bibliothèque) — pas de page dédiée pour l'instant
+- ⚠️ À CONFIRMER par l'utilisateur
+
+### Masqués dans l'Explorer (« Bientôt refondu », routes redirigent vers /)
+- **Pilotage** (finances : sources Pennylane/Qonto, factures, trésorerie) → PROCHAIN module à refondre (P1)
+- **Croissance** (Radar du jour, Campagnes & ICP, Signaux, Prospects) → refonte APRÈS Pilotage (P2)
+- **Agents IA** (WhatsApp QR, Telegram token…) → refonte plus tard (P2)
+- **Campus** → lot suivant (P2) ; accueillera « Ressources » si validé
+- **Contexte** → DÉCISION : PAS de refonte en page dédiée. Son rôle (décrire son activité) est déjà couvert par l'onboarding + le contexte Copilote. La page reste masquée → de fait supprimée du parcours. ⚠️ À CONFIRMER
+- **Collaborateur, Roadmap** → masqués, lots suivants (P2/P3)
+
+### Liens externes (déjà dans l'Explorer)
+- **Équiper mon business** (boutique zayado.net), **Espace membres** (espace.zayado.net), **TheSustain** (conditionné)
+- Marketplace/Espace Membre : déplacement vers Paramètres reste en P2
+
+### Autres décisions du 19/09
+- Login v2 : split desktop (preuve + témoignage réel Theodora) / landing mobile + bottom-sheet
+- Onboarding : 3 étapes suffisent + écran de préparation animé en fin
+- Boutons : navy dégradé + liseré/texte beige partout ; cartes arrondies 26px façon Seonsaengnim ; alertes en rouge
+- À prendre de festive-keldysh (validé par utilisateur) : citation du jour AVEC auteur réel + carte « Inspiration du jour » depuis le Vision Board sur Aujourd'hui ; plus tard : sparklines, score bien-être segmenté, score d'alignement
+
+## Backlog priorisé (checklist actualisée au 19/09/2026)
 - P0 : (aucun bloquant)
+- P1 : Mouvement → tableau d'avancement À faire → En cours → Terminé (VALIDÉ)
+- P1 : Citation du jour avec auteur + carte « Inspiration du jour » (Vision Board) sur Aujourd'hui (VALIDÉ)
 - P1 : Refondre la page Pilotage (finances : CA, trésorerie) dans le style validé — prochain module de l'Explorer
 - P2 : Bilan hebdo « ce que l'app a fait pour vous » dans le Copilote
-- P2 : Bilan hebdo « ce que l'app a fait pour vous » dans le Copilote
+- P2 : Refondre Croissance (radar, campagnes, prospects) puis Agents IA
 - P2 : Marketplace / Espace Membre → section Compte/Paramètres
 - P2 : WelcomeTour à mettre à jour (mentionne des modules cachés)
-- P2 : Reprendre de festive-keldysh : citation du jour avec auteur, sparklines, carrousel Vision Board
-- P2 : Refondre les autres pages cachées une par une (Croissance, Pilotage, Mindset…)
+- P2 : Reprendre de festive-keldysh : sparklines, score bien-être segmenté, score d'alignement
 - P3 : WP_CONNECTOR_SECRET manquant (backend, non bloquant)
 
 ## Notes
