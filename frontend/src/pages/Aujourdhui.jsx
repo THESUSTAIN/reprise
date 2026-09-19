@@ -13,6 +13,21 @@ const CLE_AMBIANCE = "mx_ambiance";
 const openCopilot = (ask) =>
   window.dispatchEvent(new CustomEvent("cours:open-copilot", { detail: ask ? { ask } : {} }));
 
+// Citations du jour AVEC auteur réel (validé — reprend festive-keldysh) :
+// l'attribution donne du poids, l'anonymat enlevait de la crédibilité.
+const PENSEES = [
+  { texte: "« La foi, c'est prendre le premier pas, même quand on ne voit pas tout l'escalier. »", auteur: "Martin Luther King" },
+  { texte: "« Le succès, c'est tomber sept fois et se relever huit. »", auteur: "Proverbe japonais" },
+  { texte: "« Il ne sert à rien de courir, il faut partir à point. »", auteur: "Jean de La Fontaine" },
+  { texte: "« La discipline est le pont entre les objectifs et l'accomplissement. »", auteur: "Jim Rohn" },
+  { texte: "« Tu n'as pas besoin de voir tout l'escalier. Juste la première marche. »", auteur: "Martin Luther King" },
+];
+const PENSEES_REFUGE = [
+  { texte: "« Aujourd'hui, tenir compte autant que construire. Tu n'as pas à tout porter. »", auteur: null },
+  { texte: "« Une marche suffit. Elle compte déjà. »", auteur: null },
+  { texte: "« La journée s'adapte à ta batterie, pas l'inverse. »", auteur: null },
+];
+
 // Aujourd'hui — refonte C+.
 // La page VOIT (priorité, énergie, encouragement) ; le Copilote DÉCIDE et
 // PRÉPARE. Toutes les données sont réelles (vision, check-ins, tâches) et un
@@ -163,6 +178,13 @@ export default function Aujourdhui() {
   const checkinsTotal = humeur.length;
   const capDefini = Boolean(vision?.why || vision?.value);
   const aDejaAvance = actionsBouclees7j > 0 || checkinsTotal > 0 || capDefini;
+
+  // Citation du jour (rotation quotidienne) + inspiration issue de la VRAIE
+  // vision de l'utilisateur (ses propres mots, jamais d'image factice).
+  const jourDuMois = new Date().getDate();
+  const pensee = (refuge ? PENSEES_REFUGE : PENSEES)[jourDuMois % (refuge ? PENSEES_REFUGE : PENSEES).length];
+  const inspirations = (vision?.items || []).filter(Boolean);
+  const inspiration = inspirations.length ? inspirations[jourDuMois % inspirations.length] : null;
 
   const tooltipStyle = {
     background: "#0B1F3A", border: "1px solid rgba(222,194,163,.35)", borderRadius: 12,
@@ -412,11 +434,10 @@ export default function Aujourdhui() {
         {/* Encouragement (+ verset si Mode Foi) */}
         <section className={`glass p-6 md:col-span-2 ${refuge ? "border-[#DEC2A3]/50" : ""}`} data-testid="aujourdhui-encouragement">
           <p className="eyebrow-chip mb-3">Encouragement</p>
-          <p className="font-head italic text-[16px] leading-relaxed text-[#F3E9DB]">
-            {refuge
-              ? "« Aujourd'hui, tenir compte autant que construire. Tu n'as pas à tout porter. »"
-              : "« Tu n'as pas besoin de voir tout l'escalier. Juste la première marche. »"}
-          </p>
+          <p className="font-head italic text-[16px] leading-relaxed text-[#F3E9DB]">{pensee.texte}</p>
+          {pensee.auteur && (
+            <p className="mt-1.5 text-[11.5px] text-[#DEC2A3]/80 font-semibold" data-testid="encouragement-auteur">— {pensee.auteur}</p>
+          )}
           {foi && (
             <div className="mt-3 border-l-2 border-[#DEC2A3] bg-[#DEC2A3]/[.06] rounded-r-xl px-3.5 py-2.5 text-[11px] text-white/65" data-testid="verset-du-jour">
               <span className="block text-[9px] uppercase tracking-[.14em] text-[#DEC2A3] font-semibold font-sans not-italic mb-1">Psaume 37:5 · Mode Foi</span>
@@ -442,6 +463,22 @@ export default function Aujourdhui() {
           <span className="w-9 h-9 rounded-xl border border-[#DEC2A3]/30 bg-[#DEC2A3]/[.12] grid place-items-center shrink-0">💡</span>
           <span><b className="block text-[13px] text-white">Une idée qui fuse ?</b><small className="text-[11px] text-white/50">Confie-la au Copilote</small></span>
         </button>
+
+        {/* Inspiration du jour — les PROPRES mots de la vision de l'utilisateur.
+            Jamais d'image factice : les images arriveront quand l'atelier
+            Vision Board sera branché sur de vraies données. */}
+        {inspiration && (
+          <section className="glass p-5 md:col-span-4 flex flex-wrap items-center gap-4" data-testid="inspiration-du-jour">
+            <div className="min-w-0 flex-1">
+              <p className="eyebrow-chip" style={{ marginBottom: 6 }}>Inspiration du jour · Votre Vision Board</p>
+              <p className="font-head italic text-[15.5px] leading-relaxed text-[#F3E9DB]">« {inspiration} »</p>
+            </div>
+            <button onClick={() => navigate("/vision/atelier")} data-testid="inspiration-ouvrir-board"
+              className="shrink-0 inline-flex items-center gap-1.5 rounded-full gold-bg px-4 py-2 text-sm font-semibold">
+              Ouvrir mon Vision Board <ArrowRight size={13} />
+            </button>
+          </section>
+        )}
       </div>
 
       {/* Graphiques — courbes & barres calculées uniquement sur tes vraies données */}
