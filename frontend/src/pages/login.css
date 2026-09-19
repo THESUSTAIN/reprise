@@ -12,17 +12,21 @@
 }
 .login-sky {
   position: absolute; inset: 0;
-  /* Formule exacte du reprise-main d'origine : halos bleus + voile
-     d'assombrissement du bas, identique à l'app live. */
+  /* Couches strictement identiques au .sky-bg de l'app : même dégradé de
+     base (sur .login-screen), mêmes halos bleus, même voile de nuages
+     clairs — sans le voile sombre du bas ni la texture de points, pour que
+     le login affiche exactement la même couleur que le cockpit. */
   background:
     radial-gradient(ellipse at 20% 10%, rgba(45,81,150,0.45) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 8%, rgba(30,60,110,0.35) 0%, transparent 55%),
-    radial-gradient(ellipse at 50% 90%, rgba(5,8,20,0.95) 0%, transparent 60%);
+    radial-gradient(ellipse at 80% 8%, rgba(30,60,110,0.35) 0%, transparent 55%);
 }
 .login-sky::after {
   content: ""; position: absolute; inset: 0;
-  background-image: radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
-  background-size: 22px 22px; opacity: 0.5;
+  background-image:
+    radial-gradient(ellipse 800px 300px at 15% 25%, rgba(255,255,255,0.10) 0%, transparent 55%),
+    radial-gradient(ellipse 900px 250px at 40% 60%, rgba(255,255,255,0.05) 0%, transparent 60%);
+  filter: blur(20px);
+  animation: cloudDrift 90s ease-in-out infinite alternate;
 }
 .login-inner { position: relative; z-index: 1; width: 100%; max-width: 420px; }
 
