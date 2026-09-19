@@ -14,7 +14,7 @@ const Num = ({ n }) => (
   <span className="inline-grid place-items-center w-8 h-8 rounded-lg border border-[#DEC2A3]/35 bg-[#DEC2A3]/12 font-head italic text-sm text-[#E8D5BC] mb-3">{n}</span>
 );
 const Eyebrow = ({ children }) => (
-  <p className="text-[11px] font-semibold uppercase tracking-[.16em] text-[#DEC2A3] mb-2">{children}</p>
+  <p className="eyebrow-chip">{children}</p>
 );
 const Callout = ({ mot, children }) => (
   <div className="mt-4 rounded-xl border border-dashed border-[#DEC2A3]/40 bg-[#DEC2A3]/[.06] px-3.5 py-2.5 text-[12.5px] text-[#E8D5BC]">

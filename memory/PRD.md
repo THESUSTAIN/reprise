@@ -49,6 +49,10 @@ Créer la nouvelle interface du cockpit SaaS :
 - `.gold-bg` global = navy dégradé noir + texte beige → tous les CTA du SaaS (3 pages refondues + pages cachées)
 - Maquettes m1-m4 écartées par l'utilisateur ; c1/c2 (chat) : B retenue et appliquée
 
+### 2026-09-19 (format de cartes — inspiration Seonsaengnim, validée par utilisateur)
+- Mise en forme des cartes appliquée aux 3 pages + modales, PC et mobile : cartes `.glass` arrondies 26px, eyebrows devenues des chips dorées bordées (classe `.eyebrow-chip`), tous les CTA `.gold-bg` en pilules, modale « Premiers pas » en bottom-sheet avec poignée sur mobile
+- Vérifié par captures PC + mobile
+
 ## Backlog priorisé
 - P0 : (aucun bloquant connu)
 - P1 : Menu « + » (Explorer) regroupant les modules cachés (Mouvement, Croissance, Pilotage, Mindset…) — les routes existent mais redirigent vers `/`

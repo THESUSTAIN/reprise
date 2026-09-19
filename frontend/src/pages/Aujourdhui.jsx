@@ -166,7 +166,7 @@ export default function Aujourdhui() {
       {/* En-tête + bascule Élan/Refuge */}
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
-          <p className="text-[11px] font-semibold uppercase tracking-[.16em] text-[#DEC2A3]">{dateDuJour} · Mode {refuge ? "Refuge" : "Élan"}</p>
+          <p className="eyebrow-chip">{dateDuJour} · Mode {refuge ? "Refuge" : "Élan"}</p>
           <h1 className="font-head text-2xl sm:text-3xl font-semibold text-white mt-1">
             {refuge
               ? <>On ralentit. <em className="gold-text">Une marche suffit.</em></>
@@ -218,7 +218,7 @@ export default function Aujourdhui() {
             onClick={(e) => e.stopPropagation()}>
             <div className="flex items-start justify-between gap-3">
               <div>
-                <p className="text-[11px] font-semibold uppercase tracking-[.14em] text-[#DEC2A3]">Premiers pas</p>
+                <p className="eyebrow-chip">Premiers pas</p>
                 <h2 id="premiers-pas-titre" className="font-head text-lg font-semibold text-white mt-1">Trois gestes pour que le cockpit se remplisse.</h2>
                 <p className="text-[13px] text-white/55 mt-1 leading-relaxed">
                   Les chiffres de cette page sont calculés à partir de vos données. Tant que vous n'avez rien saisi,
@@ -265,7 +265,7 @@ export default function Aujourdhui() {
       <div className="grid grid-cols-1 md:grid-cols-6 gap-4">
         {/* Priorité du jour + capture */}
         <section className="glass p-6 md:col-span-4" data-testid="aujourdhui-priorite">
-          <p className="text-[11px] font-semibold uppercase tracking-[.16em] text-[#DEC2A3] mb-2">Priorité du jour</p>
+          <p className="eyebrow-chip mb-2">Priorité du jour</p>
           <h2 className="font-head text-xl font-semibold text-white">Ta journée, réduite à l'essentiel</h2>
           <p className="text-[12px] text-white/50 mt-1 mb-4">Le reste attend dans la réserve — rien ne se perd.</p>
 
@@ -324,7 +324,7 @@ export default function Aujourdhui() {
 
         {/* Énergie & burn-out */}
         <section className="glass p-6 md:col-span-2" data-testid="aujourdhui-energie">
-          <p className="text-[11px] font-semibold uppercase tracking-[.16em] text-[#DEC2A3] mb-3">Énergie & burn-out</p>
+          <p className="eyebrow-chip mb-3">Énergie & burn-out</p>
           <div className="flex items-center gap-4">
             <div className="relative w-20 h-20 shrink-0">
               <svg className="w-20 h-20 -rotate-90">
@@ -368,7 +368,7 @@ export default function Aujourdhui() {
 
         {/* Encouragement (+ verset si Mode Foi) */}
         <section className={`glass p-6 md:col-span-2 ${refuge ? "border-[#DEC2A3]/50" : ""}`} data-testid="aujourdhui-encouragement">
-          <p className="text-[11px] font-semibold uppercase tracking-[.16em] text-[#DEC2A3] mb-3">Encouragement</p>
+          <p className="eyebrow-chip mb-3">Encouragement</p>
           <p className="font-head italic text-[16px] leading-relaxed text-[#F3E9DB]">
             {refuge
               ? "« Aujourd'hui, tenir compte autant que construire. Tu n'as pas à tout porter. »"
@@ -404,7 +404,7 @@ export default function Aujourdhui() {
       {/* Graphiques — courbes & barres calculées uniquement sur tes vraies données */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4" data-testid="aujourdhui-graphiques">
         <section className="glass p-6" data-testid="graphique-energie">
-          <p className="text-[11px] font-semibold uppercase tracking-[.16em] text-[#DEC2A3] mb-1">Ton énergie</p>
+          <p className="eyebrow-chip mb-1">Ton énergie</p>
           <h3 className="font-head text-base font-semibold text-white mb-4">30 derniers jours</h3>
           {energieSerie.length >= 2 ? (
             <ResponsiveContainer width="100%" height={190}>
@@ -430,7 +430,7 @@ export default function Aujourdhui() {
         </section>
 
         <section className="glass p-6" data-testid="graphique-actions">
-          <p className="text-[11px] font-semibold uppercase tracking-[.16em] text-[#DEC2A3] mb-1">Ton rythme d'actions</p>
+          <p className="eyebrow-chip mb-1">Ton rythme d'actions</p>
           <h3 className="font-head text-base font-semibold text-white mb-4">7 derniers jours</h3>
           {aDesActions ? (
             <ResponsiveContainer width="100%" height={190}>

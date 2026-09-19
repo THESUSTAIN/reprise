@@ -97,7 +97,7 @@ export default function MonRefuge() {
       {/* En-tête */}
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
-          <p className="text-[11px] font-semibold uppercase tracking-[.16em] text-[#DEC2A3]">Mon Refuge · Souffle &amp; ancrage</p>
+          <p className="eyebrow-chip">Mon Refuge · Souffle &amp; ancrage</p>
           <h1 className="font-head text-2xl sm:text-3xl font-semibold text-white mt-1">
             {prenom ? `${prenom}, ici` : "Ici"}, <em className="gold-text">on souffle.</em>
           </h1>
@@ -116,7 +116,7 @@ export default function MonRefuge() {
       <div className="grid grid-cols-1 md:grid-cols-6 gap-4">
         {/* Check-in d'énergie */}
         <section className="glass p-6 md:col-span-3" data-testid="refuge-checkin">
-          <p className="text-[11px] font-semibold uppercase tracking-[.16em] text-[#DEC2A3] mb-2">Check-in du moment</p>
+          <p className="eyebrow-chip mb-2">Check-in du moment</p>
           <h2 className="font-head text-lg font-semibold text-white">Comment est ta batterie, là, maintenant ?</h2>
 
           <label htmlFor="refuge-energie" className="mt-4 flex items-center justify-between text-[12.5px] text-white/65">
@@ -150,7 +150,7 @@ export default function MonRefuge() {
 
         {/* Respiration guidée */}
         <section className="glass p-6 md:col-span-3 flex flex-col" data-testid="refuge-respiration">
-          <p className="text-[11px] font-semibold uppercase tracking-[.16em] text-[#DEC2A3] mb-2">Respiration 4 · 4 · 6</p>
+          <p className="eyebrow-chip mb-2">Respiration 4 · 4 · 6</p>
           <h2 className="font-head text-lg font-semibold text-white">Trois cycles suffisent à descendre la pression.</h2>
 
           <div className="flex-1 grid place-items-center py-8">
@@ -180,7 +180,7 @@ export default function MonRefuge() {
         {/* Pensée du jour + Mode Foi */}
         <section className="glass p-6 md:col-span-3" data-testid="refuge-pensee">
           <div className="flex items-start justify-between gap-3">
-            <p className="text-[11px] font-semibold uppercase tracking-[.16em] text-[#DEC2A3]">Pensée du jour</p>
+            <p className="eyebrow-chip">Pensée du jour</p>
             <button onClick={() => setFoi((f) => !f)} data-testid="refuge-foi-toggle" aria-pressed={foi}
               className={`shrink-0 inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-[11px] font-semibold transition-colors ${foi ? "gold-bg border-transparent text-[#0A1128]" : "border-white/20 bg-white/5 text-white/60 hover:text-white"}`}>
               <Wind size={12} /> Mode Foi {foi ? "activé" : "désactivé"}
@@ -198,7 +198,7 @@ export default function MonRefuge() {
 
         {/* Derniers check-ins — données réelles */}
         <section className="glass p-6 md:col-span-3" data-testid="refuge-historique">
-          <p className="text-[11px] font-semibold uppercase tracking-[.16em] text-[#DEC2A3] mb-3">Tes derniers check-ins</p>
+          <p className="eyebrow-chip mb-3">Tes derniers check-ins</p>
           {dernier ? (
             <ul className="divide-y divide-white/[.07] list-none p-0 m-0">
               {humeur.slice(0, 5).map((h, i) => (

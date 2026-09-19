@@ -946,3 +946,31 @@ html.ambiance-clarte .onboarding-back { background:rgba(255,255,255,.62); color:
 .news-signal-actions button { background: linear-gradient(135deg, #1E3468 0%, #0B1F3A 70%); border: 1px solid rgba(222,194,163,.5); color: #F1E2CC; }
 .news-signal-actions button:hover { border-color: #DEC2A3; color: #fff; }
 .copilot-collab-submit { background: linear-gradient(135deg, #1E3468 0%, #0B1F3A 70%); color: #F1E2CC; border: 1px solid rgba(222,194,163,.55); }
+
+/* ── Mise en forme des cartes — inspiration Seonsaengnim (validée) ─────────
+   Grands arrondis, bordures douces, eyebrows en pilule, CTA en pilule,
+   modale en bottom-sheet sur mobile. */
+.glass { border-radius: 26px; border-color: rgba(255,255,255,.18); }
+.gold-bg { border-radius: 999px; }
+
+/* Étiquette en pilule bordée (remplace les eyebrows texte simples) */
+.eyebrow-chip {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: 10.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+  color: #DEC2A3; border: 1px solid rgba(222,194,163,.4); border-radius: 999px;
+  padding: 5px 13px; margin-bottom: 10px;
+}
+.eyebrow-chip::before { content: "✦"; font-size: 9px; color: rgba(222,194,163,.8); }
+
+/* Modale Premiers pas : bottom-sheet avec poignée sur mobile */
+@media (max-width: 768px) {
+  [data-testid="aujourdhui-premiers-pas-modal-backdrop"] { align-items: flex-end !important; padding: 0 !important; }
+  [data-testid="aujourdhui-premiers-pas"] {
+    border-radius: 28px 28px 0 0 !important; max-height: 86vh !important; width: 100% !important;
+    position: relative; padding-top: 26px !important;
+  }
+  [data-testid="aujourdhui-premiers-pas"]::before {
+    content: ""; position: absolute; top: 9px; left: 50%; transform: translateX(-50%);
+    width: 42px; height: 4.5px; border-radius: 99px; background: rgba(255,255,255,.28);
+  }
+}
