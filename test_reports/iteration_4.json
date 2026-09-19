@@ -1,0 +1,38 @@
+{
+  "summary": "Tested Kanban Mouvement, citation with author, inspiration card and non-regression. Kanban 3-columns (À faire → En cours → Terminé) works end-to-end incl. avance/recule buttons visibility per column, counters, progression bar, success toast on Terminé, and persistence after reload. Citation attribution works: 'Martin Luther King' shown in Élan, absent in Refuge (voulu). CRITICAL BUG: inspiration-du-jour card never appears — the frontend reads vision.items[] but the backend /api/vision does not expose an items[] field, and api.setVision uses PUT with {key,value} shape which returns 405 (only PATCH with flat fields why/where/... is supported). Non-regression /vision, /refuge OK. Cap défini badge shows 'Oui' correctly after PATCH.",
+  "backend_issues": {
+    "critical": [],
+    "minor": [
+      {"endpoint": "PUT /api/vision", "issue": "Not implemented (405 Method Not Allowed). Only GET and PATCH are exposed via routes/missing_apis.py. Frontend api.js setVision() therefore fails silently. Either add a PUT alias or update the frontend to use PATCH."}
+    ]
+  },
+  "frontend_issues": {
+    "ui_bugs": [
+      {"component": "Aujourdhui.jsx (inspiration card)", "issue": "CRITICAL: [data-testid=inspiration-du-jour] never renders. Code reads `vision?.items || []` but GET /api/vision returns flat fields (why/where/what/who/when/how/notes) and only surfaces `items:[]` in the empty state. After defining a vision (why='Structurer…', where='Libre…'), the persisted document contains no `items` array, so `inspirations` is empty and the card is hidden. Expected behavior per review: rotate through items from real vision. Needs either (a) backend to derive items:[why,where,what,...] filter-truthy, or (b) frontend to build inspirations from why/where/what/who/when/how.", "selector": "[data-testid=inspiration-du-jour]", "priority": "HIGH"},
+      {"component": "lib/api.js setVision", "issue": "Uses `api.put('/vision', { key:'vision', value })` — returns 405. Backend only supports PATCH with flat fields. This blocks any future UI action calling setVision().", "selector": "n/a", "priority": "HIGH"}
+    ],
+    "integration_issues": [
+      {"flow": "Vision → Inspiration du jour (Aujourd'hui)", "issue": "Schema mismatch between the review's suggested API payload ({pourquoi,ou}) and the actual backend fields (why/where). Even bypassing api.setVision and PATCHing with correct fields, the inspiration card still stays hidden because of the vision.items dependency described above.", "affected_selectors": ["[data-testid=inspiration-du-jour]","[data-testid=inspiration-ouvrir-board]"]}
+    ],
+    "design_issues": []
+  },
+  "test_report_links": [],
+  "action_items": [
+    "Fix inspiration card data source: either extend GET /api/vision to return items:[why,where,what,who,when,how].filter(Boolean) OR change Aujourdhui.jsx to build inspirations from vision.why/where/what/... directly.",
+    "Fix lib/api.js setVision(): switch to PATCH /api/vision with flat fields (why, where, what, who, when, how, notes) — or add a PUT alias on the backend that accepts {key:'vision', value:{...}}.",
+    "Optional: seed at least one truthy item so the card can be validated in a fresh account."
+  ],
+  "critical_code_review_comments": [
+    "Aujourdhui.jsx line 186-187 assumes vision.items[] but the API contract exposes flat fields — dead code path, card is effectively never rendered.",
+    "api.js setVision (line 170) is out-of-sync with the backend (wrong verb + wrong payload shape). ESLint/type-check wouldn't catch this — needs an integration test.",
+    "Mouvement.jsx: clean optimistic UI update with rollback on API failure. deplacer() correctly clamps index and computes cible; buttons hidden by column index. Good."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A", "frontend": "Kanban 100%, Citation 100%, Inspiration 0% (blocked by schema bug)"},
+  "test_credentials": "thomas@zayado.fr via POST /api/auth/demo-login (whitelist only, no password).",
+  "seed_data_creation": "Created 2 tasks 'Kanban test A/B' (kept), moved A through columns. Vision PATCHed with why='Structurer sans m epuiser', where='Libre et present pour ma famille' — persisted.",
+  "retest_needed": true,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "Kanban flow is solid. The inspiration card bug is a contract mismatch between backend (flat fields) and frontend (expects items[]). Fix either side and re-test /aujourdhui with an active vision. header-apps-btn is present at desktop widths (visible in screenshot) — the transient miss during the automated flow was likely due to page navigation timing, not a real bug.",
+  "rca of the issue": "GET /api/vision returns {why,where,what,who,when,how,progress,notes,id,items:[]}. The `items:[]` is only set in the empty-state fallback and is never populated even after PATCH. Aujourdhui.jsx reads `vision?.items || []` to build the inspiration list — always empty → card hidden. Additionally, api.js setVision hits PUT /api/vision with {key,value} payload, but the backend exposes only PATCH with flat fields → 405. Two independent bugs on the same feature."
+}

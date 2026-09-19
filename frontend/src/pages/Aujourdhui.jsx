@@ -183,7 +183,10 @@ export default function Aujourdhui() {
   // vision de l'utilisateur (ses propres mots, jamais d'image factice).
   const jourDuMois = new Date().getDate();
   const pensee = (refuge ? PENSEES_REFUGE : PENSEES)[jourDuMois % (refuge ? PENSEES_REFUGE : PENSEES).length];
-  const inspirations = (vision?.items || []).filter(Boolean);
+  // L'API /vision renvoie des champs plats (why/where/what/who/how) — pas de
+  // tableau items (bug remonté par l'agent de test : la carte ne s'affichait
+  // jamais). On construit la liste depuis ces champs réels.
+  const inspirations = [vision?.why, vision?.where, vision?.what, vision?.who, vision?.how].filter(Boolean);
   const inspiration = inspirations.length ? inspirations[jourDuMois % inspirations.length] : null;
 
   const tooltipStyle = {

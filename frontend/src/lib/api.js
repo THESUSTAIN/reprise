@@ -167,7 +167,10 @@ export const getVisionDocument = () => api.get("/vision/document").then((r) => r
 export const generateVisionDocument = () => api.post("/vision/document/generate").then((r) => r.data);
 
 export const getVision = () => api.get("/vision").then((r) => r.data);
-export const setVision = (value) => api.put("/vision", { key: "vision", value }).then((r) => r.data);
+// Corrigé (agent de test) : le backend n'expose que PATCH /vision avec des
+// champs plats (why, where, what, who, when, how, notes) — le PUT {key,value}
+// renvoyait 405.
+export const setVision = (value) => api.patch("/vision", value).then((r) => r.data);
 
 export const getRituels = () => api.get("/wellness/habits").then((r) => listOf(r.data).map(normalizeHabit));
 export const createRituel = (d) => api.post("/wellness/habits", { name: d.nom || d.name || "Habitude" }).then((r) => normalizeHabit(r.data));
