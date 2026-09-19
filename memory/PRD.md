@@ -59,12 +59,24 @@ Créer la nouvelle interface du cockpit SaaS :
 - PREUVE DE VALEUR (demande « l'user ne doit pas utiliser l'app pour rien ») : bandeau « Votre impact » en haut d'Aujourd'hui — actions bouclées 7 j, check-ins d'énergie, cap défini (compteurs 100% réels) + phrase d'ancrage ; toast de réussite « Bien joué — une action de plus bouclée » quand on termine une tâche
 - Vérifié par captures : login, onboarding étapes 1-2, bandeau impact (2 check-ins réels affichés)
 
-## Backlog priorisé
-- P0 : (aucun bloquant connu)
-- P1 : Menu « + » (Explorer) regroupant les modules cachés (Mouvement, Croissance, Pilotage, Mindset…) — les routes existent mais redirigent vers `/`
-- P2 : Déplacer Marketplace / Espace Membre dans une section Compte/Paramètres
-- P2 : Mettre à jour le WelcomeTour (mentionne encore « Mouvement & Croissance », modules cachés)
-- P2 : Refondre les pages restantes une par une dans le nouveau style (Mouvement, Croissance, Pilotage…)
+### 2026-09-19 (login v2 — preuve + bottom-sheet)
+- LOGIN desktop : écran scindé — à gauche logo + titre « Votre entreprise, pilotée avec clarté. » + 5 étoiles + VRAI témoignage Theodora (Trustpilot août 2025, déjà public sur zayado.net/temoignages) ; à droite la carte de connexion
+- LOGIN mobile : page d'accueil (logo, titre, étoiles, témoignage, CTA « Commencer » + « J'ai déjà un compte ») → au clic, bottom-sheet avec poignée « Content de vous revoir ! » contenant Google/Microsoft/email — modèle validé par vidéo de référence
+- festive-keldysh-8 (ancien proto MyExtension) passé en revue : à reprendre plus tard = citation du jour avec auteur, sparklines dans les cartes stats, carrousel Vision Board avec images
+- Onboarding : 3 étapes confirmées suffisantes (identité/activité/cap — faible friction) ; l'écran de préparation animé reste en backlog comme moment émotionnel de fin
+- Vérifié par captures : split desktop, landing mobile, sheet ouverte + saisie email fonctionnelle
+
+## Backlog priorisé (checklist actualisée)
+- P0 : (aucun bloquant)
+- P1 : Menu « + » (Explorer) regroupant les modules cachés (Mouvement, Croissance, Pilotage, Mindset, Campus, Agents, Collaborateur…)
+- P1 : Refondre la page Mouvement (exécution quotidienne) dans le style validé
+- P2 : Écran de préparation animé en fin d'onboarding (« Je prépare votre cockpit… », checklist animée)
+- P2 : Bilan hebdo « ce que l'app a fait pour vous » dans le Copilote
+- P2 : Marketplace / Espace Membre → section Compte/Paramètres
+- P2 : WelcomeTour à mettre à jour (mentionne des modules cachés)
+- P2 : Reprendre de festive-keldysh : citation du jour avec auteur, sparklines, carrousel Vision Board
+- P2 : Refondre les autres pages cachées une par une (Croissance, Pilotage, Mindset…)
+- P3 : WP_CONNECTOR_SECRET manquant (backend, non bloquant)
 
 ## Notes
 - Service worker PWA en network-first : une simple recharge suffit pour voir la nouvelle version

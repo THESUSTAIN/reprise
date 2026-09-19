@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Mail, ShieldCheck, Loader2, RotateCcw, Server, Lock } from "lucide-react";
+import { Mail, ShieldCheck, Loader2, RotateCcw, Server, Lock, Star, X } from "lucide-react";
 import { toast } from "sonner";
 import {
   sendMagicLink, verifyMagicLink, demoLogin, oauthStart, oauthExchange, setLanguage,
@@ -50,6 +50,12 @@ const STR = {
     trustHosting: "Hébergement Railway",
     trustEncryption: "Connexion chiffrée (HTTPS)",
     thesustain: "Continuer avec thesustain.net",
+    landingTitleA: "Votre entreprise,", landingTitleB: "pilotée avec clarté.",
+    proofRating: "Avis vérifiés · Trustpilot & Google",
+    proofQuote: "« Zayado m'a aidée sur plusieurs plans : création d'entreprise, flyers, structuration des idées. Vraiment professionnels et à l'écoute. »",
+    proofAuthor: "Theodora", proofMeta: "Avis Trustpilot · août 2025",
+    startCta: "Commencer", haveAccount: "J'ai déjà un compte",
+    welcomeBack: "Content de vous revoir !", sheetSub: "Connectez-vous pour retrouver votre cockpit.",
   },
   en: {
     welcome: "Welcome to", subtitle: "Sign in or create your account in one click — no password to remember.",
@@ -72,6 +78,12 @@ const STR = {
     trustHosting: "Hosted on Railway",
     trustEncryption: "Encrypted connection (HTTPS)",
     thesustain: "Continue with thesustain.net",
+    landingTitleA: "Your business,", landingTitleB: "driven with clarity.",
+    proofRating: "Verified reviews · Trustpilot & Google",
+    proofQuote: "“Zayado helped me on so many levels: company setup, flyers, structuring my ideas. Truly professional and caring.”",
+    proofAuthor: "Theodora", proofMeta: "Trustpilot review · Aug 2025",
+    startCta: "Get started", haveAccount: "I already have an account",
+    welcomeBack: "Great to see you again!", sheetSub: "Sign in to get back to your cockpit.",
   },
 };
 
@@ -90,6 +102,15 @@ export default function Login() {
   const [sent, setSent] = useState(false);
   const [devLink, setDevLink] = useState(null);
   const [oauthProvider, setOauthProvider] = useState(null); // "Google" | "Microsoft" | null
+  // Nouveau gabarit : desktop = preuve à gauche + connexion à droite ;
+  // mobile = page d'accueil + bottom-sheet de connexion au clic (modèle validé).
+  const [isMobile, setIsMobile] = useState(() => typeof window !== "undefined" && window.innerWidth < 900);
+  const [sheetOpen, setSheetOpen] = useState(false);
+  useEffect(() => {
+    const update = () => setIsMobile(window.innerWidth < 900);
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
 
   // Vérification du lien magique : le backend renvoie vers /login?token=...
   // (voir routes/auth.py, dev_link). Sans cet effet, cliquer sur le lien
@@ -237,40 +258,9 @@ export default function Login() {
 
   const emailContinue = (e) => { e.preventDefault(); sendLink(email); };
 
-  return (
-    <div className="login-screen" data-testid="login-page">
-      <div className="login-sky" />
-
-      {oauthProvider && (
-        <div className="login-oauth-overlay" data-testid="login-oauth-overlay">
-          <Loader2 size={34} className="spin" style={{ color: "#F1E2CC" }} />
-          <p>{t.redirecting(oauthProvider)}</p>
-        </div>
-      )}
-
-      <motion.div className="login-inner"
-        initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-
-        <div className="login-topbar">
-          <div className="login-lang" data-testid="login-lang-switch" role="group" aria-label="Language">
-            <button className={lang === "fr" ? "active" : ""} onClick={() => changeLang("fr")} data-testid="login-lang-fr">FR</button>
-            <button className={lang === "en" ? "active" : ""} onClick={() => changeLang("en")} data-testid="login-lang-en">EN</button>
-          </div>
-        </div>
-
-        <div className="login-brand">
-          <img src="/logo-icon.png" alt="MyExtension Business" className="login-logo-img" data-testid="login-logo" />
-        </div>
-
-        <h1 className="login-title-wrap" data-testid="login-title">
-          <span className="login-title">
-            {t.welcome} MyExtension <span className="login-brand-name-accent">Business</span>
-            <span className="login-title-by" data-testid="login-title-by"><em>by</em> Zayado</span>
-          </span>
-        </h1>
-        <p className="login-subtitle login-subtitle-plain">{t.subtitle}</p>
-
-        <div className="login-card" data-testid="login-card">
+  const blocConnexion = (
+    <>
+      <div className="login-card" data-testid="login-card">
 
           {errorMessage && (
             <div className="login-error-banner" data-testid="login-error-banner">
@@ -358,25 +348,117 @@ export default function Login() {
               </button>
             </>
           )}
+      </div>
+
+      <p className="login-foot">
+        <ShieldCheck size={13} />{" "}
+        <a href={CGU_URL} target="_blank" rel="noopener noreferrer">{t.cgu}</a>
+        <span className="login-link-dot">·</span>
+        <a href={PRIVACY_URL} target="_blank" rel="noopener noreferrer" data-testid="login-privacy-link">{t.privacy}</a>
+      </p>
+
+      <div className="login-trust" data-testid="login-trust-footer"
+        style={{ display: "flex", flexWrap: "wrap", gap: 14, justifyContent: "center", marginTop: 14, opacity: 0.7, color: "rgba(255,255,255,0.7)" }}>
+        <span style={{ display: "inline-flex", alignItems: "center", gap: 5, fontSize: 11 }} title={t.trustHosting}>
+          <Server size={12} /> {t.trustHosting}
+        </span>
+        <span style={{ display: "inline-flex", alignItems: "center", gap: 5, fontSize: 11 }} title={t.trustEncryption}>
+          <Lock size={12} /> {t.trustEncryption}
+        </span>
+      </div>
+    </>
+  );
+
+  const etoiles = (
+    <span className="login-proof-stars" aria-label="5 sur 5">
+      {[...Array(5)].map((_, i) => <Star key={i} size={15} fill="#E8C96A" color="#E8C96A" />)}
+    </span>
+  );
+
+  return (
+    <div className="login-screen" data-testid="login-page">
+      <div className="login-sky" />
+
+      {oauthProvider && (
+        <div className="login-oauth-overlay" data-testid="login-oauth-overlay">
+          <Loader2 size={34} className="spin" style={{ color: "#F1E2CC" }} />
+          <p>{t.redirecting(oauthProvider)}</p>
+        </div>
+      )}
+
+      <motion.div className={`login-inner ${isMobile ? "is-landing" : "is-split"}`}
+        initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
+
+        <div className="login-topbar">
+          <div className="login-lang" data-testid="login-lang-switch" role="group" aria-label="Language">
+            <button className={lang === "fr" ? "active" : ""} onClick={() => changeLang("fr")} data-testid="login-lang-fr">FR</button>
+            <button className={lang === "en" ? "active" : ""} onClick={() => changeLang("en")} data-testid="login-lang-en">EN</button>
+          </div>
         </div>
 
-        <p className="login-foot">
-          <ShieldCheck size={13} />{" "}
-          <a href={CGU_URL} target="_blank" rel="noopener noreferrer">{t.cgu}</a>
-          <span className="login-link-dot">·</span>
-          <a href={PRIVACY_URL} target="_blank" rel="noopener noreferrer" data-testid="login-privacy-link">{t.privacy}</a>
-        </p>
+        {!isMobile && (
+          <aside className="login-proof" data-testid="login-proof">
+            <img src="/logo-icon.png" alt="MyExtension Business" className="login-logo-img" />
+            <h1 className="login-proof-headline">
+              {t.landingTitleA} <em>{t.landingTitleB}</em>
+            </h1>
+            <div className="login-proof-rating">{etoiles}<span>{t.proofRating}</span></div>
+            <figure className="login-proof-card">
+              <blockquote>{t.proofQuote}</blockquote>
+              <figcaption>
+                <span className="login-proof-avatar">TH</span>
+                <span><b>{t.proofAuthor}</b><small>{t.proofMeta}</small></span>
+              </figcaption>
+            </figure>
+          </aside>
+        )}
 
-        <div className="login-trust" data-testid="login-trust-footer"
-          style={{ display: "flex", flexWrap: "wrap", gap: 14, justifyContent: "center", marginTop: 14, opacity: 0.7, color: "rgba(255,255,255,0.7)" }}>
-          <span style={{ display: "inline-flex", alignItems: "center", gap: 5, fontSize: 11 }} title={t.trustHosting}>
-            <Server size={12} /> {t.trustHosting}
-          </span>
-          <span style={{ display: "inline-flex", alignItems: "center", gap: 5, fontSize: 11 }} title={t.trustEncryption}>
-            <Lock size={12} /> {t.trustEncryption}
-          </span>
-        </div>
+        {isMobile ? (
+          <div className="login-landing" data-testid="login-landing">
+            <img src="/logo-icon.png" alt="MyExtension Business" className="login-logo-img" data-testid="login-logo" />
+            <h1 className="login-proof-headline" data-testid="login-title">
+              {t.landingTitleA} <em>{t.landingTitleB}</em>
+            </h1>
+            <div className="login-proof-rating">{etoiles}<span>{t.proofRating}</span></div>
+            <figure className="login-proof-card">
+              <blockquote>{t.proofQuote}</blockquote>
+              <figcaption>
+                <span className="login-proof-avatar">TH</span>
+                <span><b>{t.proofAuthor}</b><small>{t.proofMeta}</small></span>
+              </figcaption>
+            </figure>
+            <button className="login-btn login-cta-start" onClick={() => setSheetOpen(true)} data-testid="login-start-btn">
+              {t.startCta}
+            </button>
+            <button className="login-have-account" onClick={() => setSheetOpen(true)} data-testid="login-have-account">
+              {t.haveAccount}
+            </button>
+          </div>
+        ) : (
+          <>
+            <h1 className="login-title-wrap" data-testid="login-title">
+              <span className="login-title">
+                {t.welcome} MyExtension <span className="login-brand-name-accent">Business</span>
+                <span className="login-title-by" data-testid="login-title-by"><em>by</em> Zayado</span>
+              </span>
+            </h1>
+            <p className="login-subtitle login-subtitle-plain">{t.subtitle}</p>
+            {blocConnexion}
+          </>
+        )}
       </motion.div>
+
+      {isMobile && sheetOpen && (
+        <div className="login-sheet-backdrop" data-testid="login-sheet-backdrop" onClick={(e) => { if (e.target === e.currentTarget) setSheetOpen(false); }}>
+          <section className="login-sheet" role="dialog" aria-modal="true" data-testid="login-sheet">
+            <button className="login-sheet-close" onClick={() => setSheetOpen(false)} aria-label="Fermer" data-testid="login-sheet-close"><X size={17} /></button>
+            <h2 className="login-sheet-title">{t.welcomeBack}</h2>
+            <p className="login-sheet-sub">{t.sheetSub}</p>
+            {blocConnexion}
+          </section>
+        </div>
+      )}
+
       <InstallBanner />
     </div>
   );

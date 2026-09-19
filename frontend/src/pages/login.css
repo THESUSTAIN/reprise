@@ -247,3 +247,36 @@
 .login-btn-dark:hover, .login-btn-teal:hover, .login-btn-gold:hover {
   border-color: #DEC2A3; box-shadow: 0 12px 28px rgba(4,10,26,.5), inset 0 1px 0 rgba(241,226,204,.2);
 }
+
+/* ── Gabarit desktop : preuve à gauche, connexion à droite (modèle validé) ── */
+@media (min-width: 900px) {
+  .login-inner.is-split { display: grid; grid-template-columns: 1.05fr .95fr; gap: 0 64px; max-width: 1060px; }
+  .login-inner.is-split > *:not(.login-proof) { grid-column: 2; }
+  .login-inner.is-split .login-proof { grid-column: 1; grid-row: 1 / 30; align-self: center; }
+  .login-inner.is-split .login-title-wrap { text-align: left; }
+  .login-inner.is-split .login-subtitle { text-align: left; }
+  .login-inner.is-split .login-topbar { display: flex; justify-content: flex-end; }
+}
+.login-proof-headline { font-family: 'Outfit', 'Manrope', sans-serif; font-weight: 600; font-size: clamp(30px, 3.2vw, 44px); line-height: 1.08; color: #fff; margin: 20px 0 14px; letter-spacing: -0.02em; }
+.login-proof-headline em { font-style: italic; background: linear-gradient(90deg,#F1E2CC,#DEC2A3); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+.login-proof-rating { display: flex; align-items: center; gap: 9px; font-size: 12px; color: rgba(255,255,255,.6); margin-bottom: 20px; }
+.login-proof-stars { display: inline-flex; gap: 2px; }
+.login-proof-card { margin: 0; border: 1px solid rgba(255,255,255,.18); border-radius: 26px; background: linear-gradient(135deg, rgba(69,103,164,.20), rgba(255,255,255,.10)); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); padding: 20px 22px; }
+.login-proof-card blockquote { margin: 0; font-size: 14.5px; line-height: 1.65; color: rgba(255,255,255,.88); font-style: italic; }
+.login-proof-card figcaption { display: flex; align-items: center; gap: 11px; margin-top: 14px; }
+.login-proof-avatar { width: 38px; height: 38px; border-radius: 99px; background: linear-gradient(135deg,#F1E2CC,#DEC2A3); color: #0B1F3A; display: grid; place-items: center; font-size: 12px; font-weight: 800; flex-shrink: 0; }
+.login-proof-card figcaption b { display: block; font-size: 13px; color: #fff; }
+.login-proof-card figcaption small { font-size: 11px; color: rgba(255,255,255,.5); }
+
+/* ── Mobile : landing + bottom-sheet de connexion ── */
+.login-landing { display: flex; flex-direction: column; align-items: center; text-align: center; padding-top: 12px; }
+.login-landing .login-proof-headline { font-size: clamp(28px, 8vw, 36px); }
+.login-landing .login-proof-card { text-align: left; margin-top: 6px; }
+.login-cta-start { width: 100%; height: 52px; margin-top: 22px; border-radius: 999px; background: linear-gradient(135deg,#1E3468 0%,#0B1F3A 70%); border: 1px solid rgba(222,194,163,.55); color: #F1E2CC; font-weight: 700; font-size: 15px; box-shadow: 0 12px 30px rgba(4,10,26,.45); }
+.login-have-account { margin-top: 14px; background: none; border: none; color: rgba(255,255,255,.75); font-size: 13.5px; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.login-sheet-backdrop { position: fixed; inset: 0; z-index: 60; background: rgba(4,10,24,.62); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); display: flex; align-items: flex-end; }
+.login-sheet { position: relative; width: 100%; max-height: 92vh; overflow-y: auto; border-radius: 28px 28px 0 0; background: linear-gradient(180deg,#172C5C 0%,#101F47 42%,#0B1F3A 76%,#081734 100%); border-top: 1px solid rgba(222,194,163,.35); padding: 30px 18px 26px; }
+.login-sheet::before { content: ""; position: absolute; top: 10px; left: 50%; transform: translateX(-50%); width: 42px; height: 4.5px; border-radius: 99px; background: rgba(255,255,255,.28); }
+.login-sheet-close { position: absolute; top: 14px; right: 14px; width: 34px; height: 34px; border-radius: 99px; border: 1px solid rgba(255,255,255,.18); background: rgba(255,255,255,.06); color: rgba(255,255,255,.75); display: grid; place-items: center; cursor: pointer; }
+.login-sheet-title { font-family: 'Outfit','Manrope',sans-serif; font-size: 21px; font-weight: 600; color: #fff; margin: 0 0 4px; }
+.login-sheet-sub { font-size: 13px; color: rgba(255,255,255,.6); margin: 0 0 16px; }
