@@ -414,7 +414,7 @@ html.ambiance-clarte [data-testid="campus-bottom-nav"] [class*="text-white/"] { 
 
 /* ─────────── Mobile : shell repris du comportement Final-main ─────────── */
 @media (max-width: 768px) {
-  .app-header { display: flex; position: sticky; top: 0; z-index: 130; height: 58px; padding: 8px 10px; gap: 8px; background: linear-gradient(135deg, #172C5C 0%, #0B1F3A 100%); border-bottom: 1px solid rgba(255,255,255,.16); box-shadow: 0 8px 22px rgba(3,12,32,.18); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); }
+  .app-header { display: flex; position: sticky; top: 0; z-index: 130; height: 58px; padding: 8px 10px; gap: 8px; background: transparent; border-bottom: 1px solid rgba(255,255,255,.10); box-shadow: none; backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); }
   .header-mobile-brand { display: inline-flex; width: 42px; height: 42px; padding: 0; overflow: hidden; flex: 0 0 42px; border: 0; border-radius: 12px; background: transparent; box-shadow: 0 4px 14px rgba(0,0,0,.2); cursor: pointer; }
   .header-mobile-brand img { width: 100%; height: 100%; object-fit: contain; }
   .header-cockpit-chip { display: inline-flex; align-items: center; gap: 6px; min-width: 0; margin-left: auto; border: 1px solid rgba(241, 226, 204,.42); border-radius: 999px; background: rgba(11,31,58,.32); color: #F1E2CC; padding: 8px 11px; font-size: 12px; font-weight: 700; white-space: nowrap; }

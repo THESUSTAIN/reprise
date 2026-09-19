@@ -1,7 +1,7 @@
 import { NavLink, Outlet, useLocation, useNavigate, Navigate } from "react-router-dom";
 import { useState, useEffect, useCallback, useRef } from "react";
 import {
-  Compass, Eye, HeartPulse, MessageCircle, Gem, Search, Bell, Gauge,
+  Compass, Eye, HeartPulse, MessageCircle, Gem, Search, Bell, Gauge, Feather,
   LayoutGrid, LayoutDashboard, ListChecks, Handshake, ChevronDown, Settings as SettingsIcon, HelpCircle, LogOut, X, Mail, Globe, TrendingUp, Rocket, Briefcase, GraduationCap, Sun, Moon, Map, Bot,
 } from "lucide-react";
 import { toast } from "sonner";
@@ -34,6 +34,7 @@ const ITEMS = [
   { id: "aujourdhui", label: "Aujourd'hui", shortLabel: "Aujourd'hui", sub: "Votre journée en un coup d'œil", Icon: LayoutDashboard, path: "/", exact: true },
   { id: "moncap", label: "Ma Vision", shortLabel: "Vision", sub: "Cap & décisions", Icon: Eye, path: "/vision" },
   { id: "copilote", label: "Copilote", shortLabel: "Copilote", sub: "L'IA prépare, vous décidez", Icon: MessageCircle, action: "copilot", center: true },
+  { id: "refuge", label: "Mon Refuge", shortLabel: "Refuge", sub: "Souffle & ancrage", Icon: Feather, path: "/refuge" },
 ];
 const MENU_GROUP_STARTS = new Set(["contexte"]);
 
@@ -488,6 +489,7 @@ export default function Layout() {
   const baseContext = {
     "/": "Vision de l'entrepreneur: objectifs, alignement, mindset.",
     "/vision": "Vision de l'entrepreneur: objectifs, alignement, mindset.",
+    "/refuge": "Mon Refuge: espace de calme, check-in d'énergie, respiration guidée, encouragement. Ton apaisé, aucune performance attendue.",
     "/pilotage": "Pilotage financier: trésorerie, factures, dépenses.",
     "/roadmap": "Roadmap 30/60/90: sprints Build-Measure-Learn générés par IA à partir du projet, du marché cible et de l'hypothèse à tester.",
     "/bien-etre": "Bien-être et énergie: focus, rituels, mindset anti-abandon.",
@@ -513,13 +515,14 @@ export default function Layout() {
           {!isMobile && <button
             type="button"
             onClick={() => setCopilotOpen((open) => !open)}
-            className={`hidden md:flex fixed top-1/2 z-[70] -translate-y-1/2 items-center gap-2 rounded-l-2xl border border-r-0 border-white/20 bg-white/[0.10] px-3 py-3 text-sm font-semibold text-white shadow-2xl backdrop-blur-xl transition-[right] duration-200 ${copilotOpen ? "right-[380px]" : "right-0"}`}
+            className={`hidden md:flex fixed bottom-6 z-[70] h-14 w-14 items-center justify-center rounded-full border border-[#DEC2A3]/60 text-[#0A1128] shadow-[0_10px_30px_rgba(10,17,40,.45)] transition-all duration-200 hover:scale-105 ${copilotOpen ? "right-[400px]" : "right-6"}`}
+            style={{ background: "linear-gradient(135deg,#F1E2CC,#DEC2A3)" }}
             aria-label={copilotOpen ? "Replier le Copilote" : "Déplier le Copilote"}
             title={copilotOpen ? "Replier le Copilote" : "Déplier le Copilote"}
-            data-testid="copilot-drawer-toggle"
+            data-testid="copilot-fab"
           >
-            {unseenNewsCount > 0 && <span className="absolute -left-1 top-1 h-2.5 w-2.5 rounded-full bg-red-500" data-testid="copilot-news-badge" title="Nouvelle actualité" />}
-            <span className="[writing-mode:vertical-rl] rotate-180 tracking-wide">Copilote</span>
+            {unseenNewsCount > 0 && <span className="absolute -right-0.5 -top-0.5 h-3.5 w-3.5 rounded-full bg-red-500 border-2 border-[#0B1F3A]" data-testid="copilot-news-badge" title="Nouvelle actualité" />}
+            {copilotOpen ? <X size={22} /> : <MessageCircle size={24} />}
           </button>}
           {!isMobile && (
             <aside className={`hidden md:flex fixed right-0 top-0 z-[60] h-screen w-[380px] shrink-0 border-l border-white/20 bg-white/[0.08] backdrop-blur-xl shadow-2xl transition-transform duration-300 ${copilotOpen ? "translate-x-0" : "translate-x-full"}`} data-testid="copilot-right-drawer">

@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { ArrowRight, Sparkles, X, Plus, Heart } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import {
+  ResponsiveContainer, LineChart, Line, BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid,
+} from "recharts";
 import { getVision, getHumeur, getTaches, createTache, updateTacheStatut, authMe } from "../lib/api";
 
 const CLE_GUIDE_MASQUE = "zay_guide_premiers_pas_masque";
@@ -45,7 +48,9 @@ export default function Aujourdhui() {
       setTaches(Array.isArray(t) ? t : []);
       if (u) {
         setPrenom(u.first_name || u.name || "");
-        setFoi((u.settings || {}).ambiance === "foi");
+        let foiLocal = false;
+        try { foiLocal = localStorage.getItem("mx_foi") === "1"; } catch { /* noop */ }
+        setFoi((u.settings || {}).ambiance === "foi" || foiLocal);
       }
     }).finally(() => setLoading(false));
   }, []);
@@ -125,6 +130,36 @@ export default function Aujourdhui() {
 
   const dateDuJour = new Intl.DateTimeFormat("fr-FR", { weekday: "long", day: "numeric", month: "long", year: "numeric" }).format(new Date());
   const refuge = mode === "refuge";
+
+  // ── Séries réelles pour les graphiques (aucune donnée fabriquée) ──
+  const energieSerie = humeur
+    .filter((h) => h.date && h.energie != null)
+    .slice()
+    .sort((a, b) => new Date(a.date) - new Date(b.date))
+    .slice(-30)
+    .map((h) => ({
+      jour: new Intl.DateTimeFormat("fr-FR", { day: "numeric", month: "short" }).format(new Date(h.date)),
+      energie: h.energie,
+    }));
+  const jours7 = [...Array(7)].map((_, i) => {
+    const d = new Date();
+    d.setDate(d.getDate() - (6 - i));
+    return d;
+  });
+  const actionsSerie = jours7.map((d) => {
+    const duJour = taches.filter((t) => t.created_at && new Date(t.created_at).toDateString() === d.toDateString());
+    return {
+      jour: new Intl.DateTimeFormat("fr-FR", { weekday: "short" }).format(d),
+      notées: duJour.length,
+      terminées: duJour.filter((t) => t.statut === "Terminé").length,
+    };
+  });
+  const aDesActions = taches.some((t) => t.created_at);
+
+  const tooltipStyle = {
+    background: "#0B1F3A", border: "1px solid rgba(222,194,163,.35)", borderRadius: 12,
+    color: "#fff", fontSize: 12, boxShadow: "0 10px 24px rgba(0,0,0,.4)",
+  };
 
   return (
     <div className="space-y-4" data-testid="page-aujourdhui">
@@ -364,6 +399,62 @@ export default function Aujourdhui() {
           <span className="w-9 h-9 rounded-xl border border-[#DEC2A3]/30 bg-[#DEC2A3]/[.12] grid place-items-center shrink-0">💡</span>
           <span><b className="block text-[13px] text-white">Une idée qui fuse ?</b><small className="text-[11px] text-white/50">Confie-la au Copilote</small></span>
         </button>
+      </div>
+
+      {/* Graphiques — courbes & barres calculées uniquement sur tes vraies données */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4" data-testid="aujourdhui-graphiques">
+        <section className="glass p-6" data-testid="graphique-energie">
+          <p className="text-[11px] font-semibold uppercase tracking-[.16em] text-[#DEC2A3] mb-1">Ton énergie</p>
+          <h3 className="font-head text-base font-semibold text-white mb-4">30 derniers jours</h3>
+          {energieSerie.length >= 2 ? (
+            <ResponsiveContainer width="100%" height={190}>
+              <LineChart data={energieSerie} margin={{ top: 6, right: 10, bottom: 0, left: -22 }}>
+                <CartesianGrid stroke="rgba(255,255,255,.07)" vertical={false} />
+                <XAxis dataKey="jour" tick={{ fill: "rgba(255,255,255,.45)", fontSize: 11 }} axisLine={false} tickLine={false} />
+                <YAxis domain={[0, 100]} tick={{ fill: "rgba(255,255,255,.45)", fontSize: 11 }} axisLine={false} tickLine={false} />
+                <Tooltip contentStyle={tooltipStyle} labelStyle={{ color: "#DEC2A3" }} formatter={(v) => [`${v}%`, "Énergie"]} />
+                <Line type="monotone" dataKey="energie" stroke="#DEC2A3" strokeWidth={2.5} dot={{ r: 3, fill: "#DEC2A3", strokeWidth: 0 }} activeDot={{ r: 5 }} />
+              </LineChart>
+            </ResponsiveContainer>
+          ) : (
+            <div className="py-6">
+              <p className="text-[13px] text-white/50 leading-relaxed">
+                La courbe apparaîtra après tes deux premiers check-ins d'énergie — dix secondes chacun, depuis Mon Refuge ou le Copilote.
+              </p>
+              <button onClick={() => navigate("/refuge")} data-testid="graphique-energie-cta"
+                className="mt-3 inline-flex items-center gap-1.5 rounded-xl gold-bg px-4 py-2 text-sm font-semibold text-[#0A1128]">
+                Faire un check-in <ArrowRight size={13} />
+              </button>
+            </div>
+          )}
+        </section>
+
+        <section className="glass p-6" data-testid="graphique-actions">
+          <p className="text-[11px] font-semibold uppercase tracking-[.16em] text-[#DEC2A3] mb-1">Ton rythme d'actions</p>
+          <h3 className="font-head text-base font-semibold text-white mb-4">7 derniers jours</h3>
+          {aDesActions ? (
+            <ResponsiveContainer width="100%" height={190}>
+              <BarChart data={actionsSerie} margin={{ top: 6, right: 10, bottom: 0, left: -28 }} barGap={3}>
+                <CartesianGrid stroke="rgba(255,255,255,.07)" vertical={false} />
+                <XAxis dataKey="jour" tick={{ fill: "rgba(255,255,255,.45)", fontSize: 11 }} axisLine={false} tickLine={false} />
+                <YAxis allowDecimals={false} tick={{ fill: "rgba(255,255,255,.45)", fontSize: 11 }} axisLine={false} tickLine={false} />
+                <Tooltip contentStyle={tooltipStyle} labelStyle={{ color: "#DEC2A3" }} cursor={{ fill: "rgba(255,255,255,.05)" }} />
+                <Bar dataKey="notées" fill="#6483B4" radius={[5, 5, 0, 0]} maxBarSize={22} />
+                <Bar dataKey="terminées" fill="#DEC2A3" radius={[5, 5, 0, 0]} maxBarSize={22} />
+              </BarChart>
+            </ResponsiveContainer>
+          ) : (
+            <div className="py-6">
+              <p className="text-[13px] text-white/50 leading-relaxed">
+                L'histogramme se remplira dès ta première action capturée dans « Priorité du jour », juste au-dessus.
+              </p>
+              <button onClick={() => document.querySelector('[data-testid="capture-input"]')?.focus()} data-testid="graphique-actions-cta"
+                className="mt-3 inline-flex items-center gap-1.5 rounded-xl gold-bg px-4 py-2 text-sm font-semibold text-[#0A1128]">
+                Noter une action <ArrowRight size={13} />
+              </button>
+            </div>
+          )}
+        </section>
       </div>
     </div>
   );

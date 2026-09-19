@@ -12,10 +12,11 @@
 }
 .login-sky {
   position: absolute; inset: 0;
+  /* Mêmes halos bleus que le .sky-bg de l'app — sans le voile noir du bas,
+     pour que le login affiche exactement le bleu du cockpit. */
   background:
     radial-gradient(ellipse at 20% 10%, rgba(45,81,150,0.45) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 8%, rgba(30,60,110,0.35) 0%, transparent 55%),
-    radial-gradient(ellipse at 50% 90%, rgba(5,8,20,0.95) 0%, transparent 60%);
+    radial-gradient(ellipse at 80% 8%, rgba(30,60,110,0.35) 0%, transparent 55%);
 }
 .login-sky::after {
   content: ""; position: absolute; inset: 0;
