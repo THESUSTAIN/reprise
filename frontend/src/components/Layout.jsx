@@ -32,7 +32,7 @@ const ITEMS = [
   // Refonte en cours : seules les pages retravaillées sont visibles.
   // Les autres modules reviendront page par page.
   { id: "aujourdhui", label: "Aujourd'hui", shortLabel: "Aujourd'hui", sub: "Votre journée en un coup d'œil", Icon: LayoutDashboard, path: "/", exact: true },
-  { id: "moncap", label: "Ma Vision", shortLabel: "Vision", sub: "Cap & décisions", Icon: Eye, path: "/vision" },
+  { id: "vision", label: "Ma Vision", shortLabel: "Vision", sub: "Cap & décisions", Icon: Eye, path: "/vision" },
   { id: "copilote", label: "Copilote", shortLabel: "Copilote", sub: "L'IA prépare, vous décidez", Icon: MessageCircle, action: "copilot", center: true },
   { id: "refuge", label: "Mon Refuge", shortLabel: "Refuge", sub: "Souffle & ancrage", Icon: Feather, path: "/refuge" },
 ];

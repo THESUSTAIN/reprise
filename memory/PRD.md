@@ -30,15 +30,19 @@ Créer la nouvelle interface du cockpit SaaS :
 
 ### 2026-09-19 (cette session)
 - BUG CORRIGÉ : sur mobile, l'accueil affichait encore l'ANCIEN chat plein écran (« Hub IA · Discussion/Actualité »). La branche mobile de `AppHome` dans `App.jsx` a été supprimée — l'accueil mobile affiche maintenant la nouvelle page « Aujourd'hui » avec nav basse ; le Copilote s'ouvre en surcouche plein écran depuis la nav basse
-- Vérifié par captures : desktop + mobile affichent la nouvelle version
+- LOGIN : voile noir (`rgba(5,8,20,0.95)`) retiré de `.login-sky` — le login affiche maintenant le même bleu que l'app (`#2E4370→#44609A→#6483B4`), validé par l'utilisateur
+- HEADER mobile : devenu transparent (était dégradé navy opaque) ; desktop l'était déjà
+- GRAPHIQUES réels sur Aujourd'hui (recharts) : courbe « Ton énergie · 30 jours » (check-ins wellness) + histogramme « Ton rythme d'actions · 7 jours » (tâches created_at). États vides honnêtes avec CTA, aucune donnée fabriquée
+- BULLE COPILOTE flottante dorée en bas à droite sur desktop (remplace la languette verticale), ouvre/replie le panneau Copilote, badge actualité
+- MON REFUGE : nouvelle page `/refuge` (4e onglet nav desktop + mobile) — check-in énergie réel (POST wellness/checkin), respiration guidée 4-4-6 animée, pensée du jour, bascule Mode Foi (verset du jour, persistée localStorage `mx_foi`, lue aussi par Aujourd'hui), historique des check-ins
+- Tests : 9/9 scénarios PASS (testing agent, iteration_1.json), dont check-in réel + courbe qui apparaît avec 2 points, Mode Foi persistant, login sans noir, mobile sans débordement
 
 ## Backlog priorisé
 - P0 : (aucun bloquant connu)
-- P1 : Bulle Copilote flottante sur desktop (aujourd'hui panneau latéral + languette)
-- P1 : Onglet « Mon Refuge » (4e entrée de nav) avec bascule Mode Foi — reprendre la page Mindset & Capacité ou page neuve simple (CHOIX UTILISATEUR EN ATTENTE, question posée)
-- P2 : Menu « + » (Explorer) regroupant les modules cachés (Mouvement, Croissance, Pilotage…)
+- P1 : Menu « + » (Explorer) regroupant les modules cachés (Mouvement, Croissance, Pilotage, Mindset…) — les routes existent mais redirigent vers `/`
 - P2 : Déplacer Marketplace / Espace Membre dans une section Compte/Paramètres
 - P2 : Mettre à jour le WelcomeTour (mentionne encore « Mouvement & Croissance », modules cachés)
+- P2 : Refondre les pages restantes une par une dans le nouveau style (Mouvement, Croissance, Pilotage…)
 
 ## Notes
 - Service worker PWA en network-first : une simple recharge suffit pour voir la nouvelle version

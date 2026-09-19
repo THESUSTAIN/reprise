@@ -1,0 +1,41 @@
+{
+  "summary": "Full end-to-end frontend testing of Zayado cockpit refonte (Aujourd'hui, Mon Refuge, Copilote FAB, Login, Mobile responsive). Backend demo-login verified. All 9 requested scenarios pass functionally. Only minor issue is a data-testid naming mismatch for the Vision entry (side-moncap / bottomnav-moncap instead of side-vision / bottomnav-vision as stated in the review request); the entry itself is present, labeled 'Ma Vision' and navigates to /vision correctly.",
+  "backend_issues": {
+    "critical": [],
+    "minor": []
+  },
+  "frontend_issues": {
+    "ui_bugs": [
+      {"component": "Layout sidebar/bottomnav", "issue": "Vision item uses data-testid 'side-moncap' and 'bottomnav-moncap' instead of 'side-vision' / 'bottomnav-vision' (ITEMS[1].id === 'moncap' in Layout.jsx L35). Functionally the entry exists and works.", "selector": "[data-testid='side-moncap']", "priority": "LOW"}
+    ],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": [],
+  "action_items": [
+    "OPTIONAL: rename ITEMS[1].id from 'moncap' to 'vision' in /app/frontend/src/components/Layout.jsx so data-testids match the review-request contract (side-vision / bottomnav-vision)."
+  ],
+  "critical_code_review_comments": [
+    "Layout.jsx is 560 lines and mixes sidebar, header, search modal, ecosystem grid, copilot drawer/mobile fullscreen. Consider splitting into subcomponents.",
+    "Some inline JSX lines in Layout.jsx are extremely long (single-line DropdownMenus > 500 chars), harming readability and diffs.",
+    "React Router v6 future flag warnings surface on every page load — add v7_startTransition and v7_relativeSplatPath future flags to silence and be v7-ready."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "100%", "frontend": "100% (all 9 scenarios pass; 1 low-priority testid naming note)"},
+  "test_credentials": "thomas@zayado.fr via POST /api/auth/demo-login (whitelisted, no password).",
+  "seed_data_creation": "None (used existing Thomas demo seed; a second check-in was added by the refuge test — expected side-effect used to verify the chart appears with 2 datapoints).",
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "Preview URL: https://refugio-vision.preview.emergentagent.com. Auth via POST /api/auth/demo-login {email:thomas@zayado.fr} then localStorage.setItem('cours_auth_token', <token>). Note: Cloudflare rate-limits (429) if you hammer the domain — throttle requests. Sidebar Vision item id is 'moncap' (data-testid side-moncap / bottomnav-moncap), not 'vision'. First-visit modals: [data-testid=welcome-tour-skip] and [data-testid=premiers-pas-close].",
+  "detailed_scenario_results": {
+    "1_desktop_copilot_fab": "PASS — [data-testid=copilot-fab] visible bottom-right, click opens right drawer (translate-x-0), close button restores translate-x-full.",
+    "2_desktop_graphiques_empty_states": "PASS — [data-testid=aujourdhui-graphiques] visible with both graphique-energie and graphique-actions cards. With only 1 check-in and 0 tasks, honest empty states with CTAs (graphique-energie-cta 'Faire un check-in', graphique-actions-cta 'Noter une action') are shown. No fake data.",
+    "3_desktop_sidebar_4_entries": "PARTIAL/NOTE — 4 entries render correctly (Aujourd'hui, Ma Vision, Copilote, Mon Refuge) and clicking Ma Vision / Mon Refuge navigate correctly. However Vision uses data-testid 'side-moncap' (spec said 'side-vision').",
+    "4_refuge_checkin_flow": "PASS — slider set to 65 (value display '60%'/updated), humeur 'Motivé' selected, submit worked, history grew from 1 to 2 entries. Back on /, graphique-energie now renders an SVG chart (no more empty CTA).",
+    "5_refuge_respiration": "PASS — phase text changed Inspirez → Retenez after ~4s, toggle stops the cycle.",
+    "6_refuge_mode_foi": "PASS — [data-testid=refuge-verset] hidden by default; toggle shows it; after page reload verset still visible and aria-pressed=true (persists via localStorage).",
+    "7_login_no_black_overlay": "PASS — login body backgroundImage = linear-gradient(#2E4370 0%, #44609A 48%, #6483B4 100%). Screenshot confirms full blue gradient, no black band at bottom.",
+    "8_mobile_390x844": "PASS — header background rgba(0,0,0,0) transparent with backdrop blur; bottom-nav shows 4 entries (aujourdhui, moncap, copilote, refuge); no horizontal overflow (scrollWidth=clientWidth=390); Refuge page usable on mobile.",
+    "9_regression_vision": "PASS — /vision loads correctly with pyramide de clarté content."
+  }
+}
