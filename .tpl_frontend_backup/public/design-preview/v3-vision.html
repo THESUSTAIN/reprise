@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>C+ — Ma Vision</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--gold1:#F1E2CC;--gold2:#DEC2A3;--line:rgba(255,255,255,.16);--card:rgba(10,25,52,.52)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Poppins',sans-serif;font-size:14px;color:#fff;min-height:100vh;
+background:linear-gradient(180deg,#2E4370 0%,#44609A 48%,#6483B4 100%);background-attachment:fixed}
+h1,h2,h3{font-family:'Fraunces',serif;font-weight:550}
+.gold{background:linear-gradient(90deg,#F1E2CC,#DEC2A3);-webkit-background-clip:text;background-clip:text;color:transparent}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;backdrop-filter:blur(14px);box-shadow:0 2px 8px rgba(8,20,42,.25);transition:.25s}
+.card:hover{border-color:rgba(222,194,163,.4)}
+.wrap{max-width:1200px;margin:0 auto;padding:22px 28px 150px}
+.topbar{display:flex;justify-content:space-between;align-items:center;padding:6px 0 26px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:600;font-size:13.5px}
+.lm{width:34px;height:34px;border-radius:11px;background:linear-gradient(135deg,#F1E2CC,#DEC2A3);display:grid;place-items:center;font-family:'Fraunces',serif;font-style:italic;color:#1E2F52;font-size:17px;font-weight:700}
+.nav{display:flex;gap:22px;align-items:center}
+.nav a{font-size:13px;color:rgba(255,255,255,.6);text-decoration:none;padding-bottom:3px;border-bottom:2px solid transparent}
+.nav a.on{color:#fff;border-bottom-color:#DEC2A3}
+.nav .plus{color:#DEC2A3;font-size:15px}
+.right{display:flex;gap:12px;align-items:center}
+.foi{font-size:10.5px;color:#E8D5BC;display:flex;gap:6px;align-items:center}
+.foi .d{width:6px;height:6px;border-radius:50%;background:#DEC2A3;box-shadow:0 0 8px #DEC2A3}
+.avatar{width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.15);display:grid;place-items:center;font-size:11px;font-weight:600;border:1px solid var(--line)}
+.head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:20px}
+.date{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:#E8D5BC;font-weight:600;margin-bottom:8px}
+h1{font-size:clamp(28px,3.4vw,40px);line-height:1.1}
+.sub{font-size:12.5px;color:rgba(255,255,255,.6);margin-top:7px}
+/* synthèse chiffrée — la "somme" visible */
+.somme{display:flex;gap:26px;flex-wrap:wrap;padding:14px 20px;margin-bottom:16px;align-items:center}
+.somme .it b{font-family:'Fraunces',serif;font-size:19px;font-weight:550;display:block}
+.somme .it span{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+.somme .sep{width:1px;height:30px;background:rgba(255,255,255,.15)}
+/* grille façon okyai : tailles mixtes */
+.grid{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+.s4{grid-column:span 4}.s3{grid-column:span 3}.s2{grid-column:span 2}.s6{grid-column:span 6}
+.pad{padding:22px}
+.chipnum{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:9px;background:rgba(222,194,163,.15);border:1px solid rgba(222,194,163,.35);font-family:'Fraunces',serif;font-style:italic;font-size:14px;color:#E8D5BC;margin-bottom:12px}
+.eyebrow{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(232,213,188,.9);font-weight:600;margin-bottom:10px}
+.card h2{font-size:clamp(18px,2.2vw,24px);margin-bottom:6px}
+.card h3{font-size:16px;margin-bottom:4px}
+.card .s{font-size:11.5px;color:rgba(255,255,255,.55)}
+/* encarts Pourquoi/Comment (reprises de A) */
+.callout{margin-top:14px;border:1px dashed rgba(222,194,163,.4);border-radius:11px;padding:10px 13px;font-size:12px;color:#E8D5BC;background:rgba(222,194,163,.06)}
+.callout b{font-family:'Fraunces',serif;font-style:italic;font-weight:550}
+.bigq{font-family:'Fraunces',serif;font-size:clamp(19px,2.2vw,25px);font-style:italic;line-height:1.4;color:#F7EDDE;margin:6px 0 12px}
+.meta{font-size:11px;color:rgba(255,255,255,.5)}
+.pilier{display:flex;flex-direction:column;gap:9px;margin-top:10px}
+.pilier .it{display:flex;justify-content:space-between;align-items:center;border:1px solid var(--line);border-radius:11px;padding:10px 14px;font-size:12.5px}
+.pilier .it span{font-size:10px;color:rgba(255,255,255,.5)}
+.pilier .it.g{background:linear-gradient(135deg,#F1E2CC,#DEC2A3);color:#1E2F52;border:0;font-weight:600}
+.pilier .it.g span{color:rgba(30,47,82,.65)}
+/* vraie mesure, pas de déco */
+.jalon{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px dashed rgba(255,255,255,.1);font-size:12.5px}
+.jalon:last-child{border:0}
+.jalon .st{margin-left:auto;font-size:10px;letter-spacing:.07em;text-transform:uppercase;color:rgba(255,255,255,.45)}
+.jalon .st.ok{color:#7DE3A8}
+.jalon .dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.25);flex-shrink:0}
+.jalon .dot.ok{background:#10B981}
+.jalon .dot.run{background:#DEC2A3}
+.prog-wrap{margin-top:14px}
+.prog-lbl{display:flex;justify-content:space-between;font-size:10.5px;color:rgba(255,255,255,.55);margin-bottom:5px}
+.prog{height:6px;background:rgba(255,255,255,.1);border-radius:99px;overflow:hidden}
+.prog i{display:block;height:100%;width:38%;background:linear-gradient(90deg,#F1E2CC,#DEC2A3);border-radius:99px}
+.fams3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.fam{border:1px solid var(--line);border-radius:12px;padding:15px 17px;background:rgba(6,16,36,.3)}
+.fam .k{font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:#E8D5BC;font-weight:600;display:block;margin-bottom:5px}
+.fam b{font-family:'Fraunces',serif;font-size:15px;font-weight:550;display:block;margin-bottom:8px}
+.kr{display:flex;gap:9px;align-items:baseline;font-size:11.5px;color:rgba(255,255,255,.6);padding:5px 0;border-top:1px dashed rgba(255,255,255,.1)}
+.kr::before{content:"KR";font-size:8.5px;letter-spacing:.1em;color:#DEC2A3;font-weight:600;flex-shrink:0}
+.dec{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:12.5px;text-align:left}
+.dec:last-child{border:0}
+.dec .dot{width:8px;height:8px;border-radius:50%;background:#E8927C;flex-shrink:0}
+.dec .dot.ok{background:#10B981}
+.dec .st{margin-left:auto;font-size:9.5px;letter-spacing:.07em;text-transform:uppercase;color:rgba(255,255,255,.45);flex-shrink:0}
+.dec .st.done{color:#7DE3A8}
+.idees{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+.chip2{font-size:11px;padding:6px 13px;border-radius:999px;border:1px solid rgba(222,194,163,.35);background:rgba(222,194,163,.1);color:#E8D5BC}
+.chip2.more{border-style:dashed;color:rgba(255,255,255,.5)}
+/* atelier visuel = le canvas */
+.atelier{display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center;padding:22px}
+.atelier .prev{display:flex;gap:8px}
+.atelier .thumb{width:74px;height:54px;border-radius:9px;border:1px solid var(--line);background:linear-gradient(135deg,rgba(222,194,163,.25),rgba(70,96,154,.5));display:grid;place-items:center;font-size:16px}
+.btn-atelier{border:0;background:linear-gradient(135deg,#F1E2CC,#DEC2A3);color:#1E2F52;font-weight:600;font-family:'Poppins';font-size:13px;padding:12px 22px;border-radius:999px;cursor:pointer;white-space:nowrap}
+.cop{position:fixed;right:26px;bottom:26px;z-index:30;text-align:right;transition:.3s}
+.cop .h{display:inline-block;background:rgba(10,25,52,.92);border:1px solid rgba(222,194,163,.35);padding:9px 15px;border-radius:14px 14px 4px 14px;font-size:12px;color:#E8D5BC;backdrop-filter:blur(12px);margin-bottom:10px;transition:.3s}
+.cop .b{width:62px;height:62px;border-radius:20px;background:linear-gradient(135deg,#F1E2CC,#DEC2A3);display:grid;place-items:center;cursor:pointer;box-shadow:0 16px 36px -8px rgba(20,35,70,.6);font-size:25px;color:#1E2F52;margin-left:auto;transition:.3s}
+.cop.mini .h{opacity:0;transform:translateY(6px);pointer-events:none}
+.cop.mini .b{width:48px;height:48px;border-radius:50%;font-size:20px;opacity:.92}
+.tag{position:fixed;left:22px;bottom:22px;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.45)}
+@media (max-width:900px){
+  .wrap{padding:16px 16px 170px}
+  .nav{display:none}
+  .grid,.fams3{grid-template-columns:1fr}
+  .s4,.s3,.s2,.s6{grid-column:span 1}
+  .atelier{grid-template-columns:1fr}
+  .head{flex-direction:column;align-items:flex-start}
+  .somme{gap:16px}
+  .somme .sep{display:none}
+  .mobilenav{position:fixed;bottom:0;left:0;right:0;z-index:25;display:flex;background:rgba(10,25,52,.95);border-top:1px solid var(--line);backdrop-filter:blur(14px);padding:8px 6px calc(8px + env(safe-area-inset-bottom))}
+  .mobilenav a{flex:1;text-align:center;font-size:10px;color:rgba(255,255,255,.55);text-decoration:none;padding:6px 0}
+  .mobilenav a.on{color:#E8D5BC}
+  .mobilenav a b{display:block;font-size:16px;margin-bottom:2px}
+  .cop{bottom:76px;right:16px}
+  .tag{display:none}
+}
+@media (min-width:901px){.mobilenav{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="topbar">
+  <div class="logo"><div class="lm">M</div>MyExtension Business</div>
+  <nav class="nav"><a href="v3-aujourdhui.html">Aujourd'hui</a><a class="on" href="#">Ma Vision</a><a href="#">Copilote</a><a href="#">Mon Refuge</a><a class="plus" href="#">＋</a></nav>
+  <div class="right"><div class="foi"><span class="d"></span>Mode Foi</div><div class="avatar">SA</div></div>
+</header>
+<div class="head">
+  <div>
+    <div class="date">Ma Vision · Pyramide de clarté</div>
+    <h1>D'abord le <em class="gold" style="font-style:italic">pourquoi.</em></h1>
+    <div class="sub">La vision ne sert à rien si elle ne descend pas jusqu'à la décision d'aujourd'hui.</div>
+  </div>
+</div>
+
+<section class="card somme">
+  <div class="it"><b>8 000 €</b><span>Revenu mensuel visé</span></div><div class="sep"></div>
+  <div class="it"><b>12</b><span>Clients à accompagner</span></div><div class="sep"></div>
+  <div class="it"><b>1/3</b><span>Jalons du trimestre</span></div><div class="sep"></div>
+  <div class="it"><b>≥ 65%</b><span>Énergie à préserver</span></div>
+</section>
+
+<section class="grid">
+  <div class="card pad s4">
+    <div class="chipnum">01</div>
+    <div class="eyebrow">Raison d'être · intemporel</div>
+    <p class="bigq">« Libérer les indépendants du flou financier, pour qu'ils construisent sans s'épuiser. »</p>
+    <div class="meta">Écrite le 3 mars 2026 · relue il y a 2 jours · toujours vraie ✓</div>
+    <div class="callout"><b>Pourquoi</b> — Pourquoi tu te lèves le matin ? C'est elle qui tient quand tout vacille.</div>
+  </div>
+  <div class="card pad s2">
+    <div class="chipnum">02</div>
+    <div class="eyebrow">Vision long terme · 3 à 20 ans</div>
+    <h3>Qui tu deviens</h3>
+    <p style="font-size:12.5px;color:rgba(255,255,255,.6);line-height:1.65;margin-top:6px">La référence de l'accompagnement financier des solopreneurs francophones — celui qui protège leur énergie autant que leur trésorerie.</p>
+  </div>
+  <div class="card pad s3">
+    <div class="chipnum">03</div>
+    <div class="eyebrow">Stratégie · 2 à 4 ans</div>
+    <h3>Trois piliers</h3>
+    <div class="pilier">
+      <div class="it g">Offre CFO<span>En cours</span></div>
+      <div class="it">Formation<span>2027</span></div>
+      <div class="it">Outil SaaS<span>2028</span></div>
+    </div>
+    <div class="callout"><b>Comment</b> — Comment tu y vas ? Un pilier à la fois, jamais trois.</div>
+  </div>
+  <div class="card pad s3">
+    <div class="chipnum">04</div>
+    <div class="eyebrow">Objectifs · horizon 90 jours</div>
+    <h3>Les jalons du trimestre</h3>
+    <div style="margin-top:10px">
+      <div class="jalon"><span class="dot ok"></span>Cadrage de l'offre CFO<span class="st ok">Atteint ✓</span></div>
+      <div class="jalon"><span class="dot run"></span>3 premières ventes de l'offre<span class="st">En cours</span></div>
+      <div class="jalon"><span class="dot"></span>Pilote de formation livré<span class="st">Septembre</span></div>
+    </div>
+    <div class="prog-wrap">
+      <div class="prog-lbl"><span>Temps du trimestre écoulé</span><span>38%</span></div>
+      <div class="prog"><i></i></div>
+    </div>
+    <div class="callout"><b>Quoi</b> — Quel plan pour démarrer ? Celui-ci, mesurable, à ton rythme.</div>
+  </div>
+  <div class="card pad s6">
+    <div class="chipnum">05</div>
+    <div class="eyebrow">Trois familles d'objectifs · résultats clés</div>
+    <div class="fams3" style="margin-top:8px">
+      <div class="fam"><span class="k">Business</span><b>12 clients accompagnés</b><div class="kr">5 nouveaux contrats signés d'ici décembre</div><div class="kr">8 000 € de revenu mensuel récurrent</div></div>
+      <div class="fam"><span class="k">Produits</span><b>Offre CFO packagée</b><div class="kr">1 offre vendue 3 fois</div><div class="kr">1 pilote de formation livré</div></div>
+      <div class="fam"><span class="k">Interne</span><b>Tenir sans se cramer</b><div class="kr">Énergie moyenne ≥ 65% sur le trimestre</div><div class="kr">0 semaine à plus de 45 h</div></div>
+    </div>
+  </div>
+  <div class="card pad s3">
+    <div class="chipnum">06</div>
+    <div class="eyebrow">Décisions à clarifier</div>
+    <div class="dec"><span class="dot"></span>Facturer l'offre CFO au forfait ou à l'heure ?<span class="st">À trancher</span></div>
+    <div class="dec"><span class="dot"></span>Ouvrir un créneau de formation ce trimestre ?<span class="st">À trancher</span></div>
+    <div class="dec"><span class="dot ok"></span>Refuser le partenariat non aligné<span class="st done">Tranchée ✓</span></div>
+  </div>
+  <div class="card pad s3">
+    <div class="eyebrow">Idées en réserve · en attente de tri</div>
+    <div class="idees">
+      <span class="chip2">Dashboard burn-out clients</span>
+      <span class="chip2">Newsletter finance consciente</span>
+      <span class="chip2">Atelier « prix sans culpabilité »</span>
+      <span class="chip2 more">+ 9 autres · le Copilote t'aide à trier</span>
+    </div>
+  </div>
+  <div class="card atelier s6">
+    <div>
+      <div class="eyebrow">Atelier visuel · le Vision Board complet</div>
+      <h3>Canvas libre, moodboard, génération IA, export PDF</h3>
+      <div class="s" style="margin-top:4px">Ton outil de création actuel — il vit ici, un cran plus loin, sans écraser ta clarté du jour.</div>
+      <div class="prev" style="margin-top:12px"><div class="thumb">🎨</div><div class="thumb">🖼</div><div class="thumb">📄</div><div class="thumb">🎬</div></div>
+    </div>
+    <button class="btn-atelier">Ouvrir l'atelier visuel →</button>
+  </div>
+</section>
+</div>
+<nav class="mobilenav">
+  <a href="v3-aujourdhui.html"><b>☀</b>Aujourd'hui</a><a href="#" class="on"><b>🔭</b>Vision</a><a href="#"><b>✦</b>Copilote</a><a href="#"><b>🕊</b>Refuge</a>
+</nav>
+<div class="cop" id="cop"><div class="h">Une idée pour ta vision ? Dis-la-moi.</div><div class="b">✦</div></div>
+<div class="tag">Version C+ · Ma Vision — bleu corrigé + responsive</div>
+<script>
+let lastY=0;const cop=document.getElementById('cop');
+window.addEventListener('scroll',()=>{const y=window.scrollY;if(y>60&&y>lastY)cop.classList.add('mini');else if(y<lastY-4||y<60)cop.classList.remove('mini');lastY=y;},{passive:true});
+</script>
+</body>
+</html>

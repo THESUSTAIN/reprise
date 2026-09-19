@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0B1B3A" />
+    <title>ZAYADO | Marketplace pour indépendants et petites structures</title>
+    <meta name="description" content="ZAYADO réunit une boutique sélectionnée, des avantages négociés et des services professionnels pour aider les indépendants et petites structures à entreprendre avec sens, clarté et équilibre." />
+    <meta property="og:title" content="ZAYADO | Marketplace pour indépendants et petites structures" />
+    <meta property="og:description" content="Produits, avantages, services et MyExtension AI dans un même écosystème." />
+    <meta property="og:image" content="https://zayado.net/og-image.svg" />
+    <meta property="og:url" content="https://zayado.net" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Zayado" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="ZAYADO | Marketplace pour indépendants et petites structures" />
+    <meta name="twitter:description" content="Boutique, avantages, services et MyExtension AI réunis dans un même écosystème." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  </head>
+  <body class="font-sans antialiased" style="background:#FDFBF6">
+    <div id="root">
+      <!-- Loader minimal anti écran blanc -->
+      <div id="boot-loader" style="position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:#FDFBF6;z-index:9999">
+        <div style="width:36px;height:36px;border:3px solid #E8E2D8;border-top-color:#0B1B3A;border-radius:50%;animation:spin .8s linear infinite"></div>
+        <style>@keyframes spin{to{transform:rotate(360deg)}}</style>
+      </div>
+    </div>
+    <script type="module" src="/src/main.jsx"></script>
+    <script>
+      /* Chien de garde : si le bundle JS ne se charge pas du tout (coupure
+         réseau, fichier absent après un déploiement, extension qui bloque le
+         script), React ne démarre jamais et l'utilisateur reste devant une
+         page blanche muette. Au bout de 12 s sans montage, on remplace le
+         spinner par un message actionnable plutôt que par du vide. */
+      (function () {
+        setTimeout(function () {
+          if (window.__ZAYADO_MOUNTED__) return;
+          var root = document.getElementById('root');
+          if (!root) return;
+          root.innerHTML =
+            '<div style="min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;font-family:Inter,system-ui,sans-serif;color:#0B1B3A">' +
+            '<div style="max-width:480px;background:#fff;border:1px solid #E8E2D8;border-radius:20px;padding:32px 28px;box-shadow:0 10px 40px rgba(11,27,58,.08)">' +
+            '<h1 style="font-size:20px;font-weight:700;margin:0">L\'application n\'a pas pu démarrer</h1>' +
+            '<p style="font-size:14px;line-height:1.6;color:#5C6472;margin-top:10px">Le chargement a échoué, le plus souvent à cause de la connexion ou d\'une version en cache. Rechargez la page pour réessayer.</p>' +
+            '<button onclick="location.reload()" style="margin-top:20px;background:#0B1B3A;color:#fff;border:none;border-radius:999px;padding:11px 20px;font-size:14px;font-weight:600;cursor:pointer">Recharger la page</button>' +
+            '<p style="font-size:12.5px;color:#8A8578;margin-top:18px">Si cela se reproduit, écrivez à <a href="mailto:support@zayado.net" style="color:#0B1B3A">support@zayado.net</a>.</p>' +
+            '</div></div>';
+        }, 12000);
+      })();
+    </script>
+  </body>
+</html>

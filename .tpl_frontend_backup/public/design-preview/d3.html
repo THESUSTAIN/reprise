@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Direction 3 — Méridien · Studio bicolore</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0C1B33; --navy2:#122548; --paper:#FBFAF7; --surface:#FFFFFF;
+  --ink:#16233B; --muted:#6E7A90; --line:#E7E4DC; --blue:#3D63DD;
+  --grad:linear-gradient(120deg,#3D63DD,#8B5CF6 60%,#E05C8A); --radius:16px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:'Poppins',sans-serif;font-size:15px;line-height:1.6}
+h1,h2,h3{font-family:'Fraunces',serif;font-weight:500;letter-spacing:-.01em}
+.grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.layout{display:grid;grid-template-columns:260px 1fr;min-height:100vh}
+/* SIDEBAR */
+.sidebar{background:var(--navy);color:#C9D4E8;padding:28px 20px;display:flex;flex-direction:column;gap:6px;position:sticky;top:0;height:100vh}
+.logo{display:flex;align-items:center;gap:12px;padding:0 8px;margin-bottom:34px}
+.logo-mark{width:36px;height:36px;border-radius:10px;background:var(--grad);display:grid;place-items:center;font-family:'Fraunces',serif;font-size:18px;font-style:italic;color:#fff}
+.logo-name{font-weight:600;font-size:14px;color:#fff}.logo-tag{font-size:10px;color:#7C8CAB;letter-spacing:.04em}
+.side-label{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#5F7093;padding:0 12px;margin:14px 0 8px}
+.snav a{display:flex;align-items:center;gap:11px;padding:11px 12px;border-radius:11px;font-size:13.5px;color:#A9B7D2;text-decoration:none;transition:.2s;margin-bottom:3px}
+.snav a:hover{background:rgba(255,255,255,.06);color:#fff}
+.snav a.on{background:rgba(255,255,255,.1);color:#fff;box-shadow:inset 2px 0 0 #8B5CF6}
+.snav a .n{margin-left:auto;font-size:10.5px;background:rgba(255,255,255,.1);padding:2px 8px;border-radius:99px}
+.side-foot{margin-top:auto;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:14px;padding:14px;font-size:11.5px;color:#8FA0BE}
+.side-foot b{color:#E8EEF9;display:flex;align-items:center;gap:7px;font-size:12px;margin-bottom:5px}
+.side-foot .dot{width:7px;height:7px;border-radius:50%;background:#E0B25C}
+/* MAIN */
+.main{padding:34px 40px 120px}
+.main-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:30px}
+.crumb{font-size:12px;color:var(--muted)}
+.crumb b{color:var(--ink)}
+.main-actions{display:flex;gap:10px;align-items:center}
+.chip-btn{border:1px solid var(--line);background:var(--surface);border-radius:99px;padding:8px 15px;font-size:12px;color:var(--muted);font-family:'Poppins';cursor:pointer}
+.avatar{width:34px;height:34px;border-radius:50%;background:var(--navy);color:#fff;display:grid;place-items:center;font-size:12px;font-weight:600}
+.hero{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:28px;gap:20px;flex-wrap:wrap;padding-bottom:26px;border-bottom:1px solid var(--line)}
+.kicker{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--blue);margin-bottom:8px;font-weight:500}
+h1{font-size:clamp(30px,3.6vw,44px);line-height:1.1}
+.date{color:var(--muted);font-size:13px;margin-top:8px}
+.mode{display:flex;background:#EFEDE7;border-radius:12px;padding:4px;gap:4px}
+.mode button{border:0;cursor:pointer;padding:10px 20px;border-radius:9px;font-family:'Poppins';font-size:12.5px;font-weight:500;background:transparent;color:var(--muted);transition:.2s}
+.mode button.elan.on{background:var(--navy);color:#fff}
+.mode button.refuge.on{background:#fff;color:var(--ink);box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.grid{display:grid;grid-template-columns:1.35fr 1fr 1fr;gap:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px;transition:.25s}
+.card:hover{border-color:#C9C4B8}
+.card h3{font-size:17px;margin-bottom:3px}
+.card .sub{font-size:11.5px;color:var(--muted);margin-bottom:15px}
+.capture{display:flex;gap:8px;margin-bottom:16px}
+.capture input{flex:1;border:1px solid var(--line);background:var(--paper);border-radius:10px;padding:11px 13px;font-family:'Poppins';font-size:13px;outline:none}
+.capture input:focus{border-color:var(--blue)}
+.capture button{border:0;background:var(--navy);color:#fff;border-radius:10px;padding:0 16px;cursor:pointer}
+.action{display:flex;align-items:center;gap:11px;padding:10px 0;border-bottom:1px solid #F0EEE8}
+.action:last-child{border:0}
+.check{width:19px;height:19px;border-radius:6px;border:1.5px solid #D5D1C7;display:grid;place-items:center;font-size:10.5px;color:#fff;flex-shrink:0}
+.check.done{background:var(--blue);border-color:var(--blue)}
+.action span{flex:1;font-size:13px}
+.action .pill{font-size:9.5px;letter-spacing:.07em;text-transform:uppercase;padding:3px 8px;border-radius:4px;background:#EDF1FD;color:var(--blue);font-weight:600}
+.gauge{display:flex;align-items:center;gap:16px;margin:12px 0 18px}
+.ring{width:80px;height:80px;border-radius:50%;background:conic-gradient(var(--navy) 0 62%, #EDEBE4 62% 100%);display:grid;place-items:center;flex-shrink:0}
+.ring i{width:60px;height:60px;border-radius:50%;background:var(--surface);display:grid;place-items:center;font-family:'Fraunces',serif;font-size:20px;font-style:normal}
+.bars{display:flex;gap:5px;align-items:flex-end;height:46px;margin-top:4px}
+.bars b{flex:1;border-radius:3px 3px 1px 1px;background:var(--navy);opacity:.8}
+.burnout{margin-top:13px;padding:11px 13px;border-radius:11px;background:#FBF6EA;border:1px solid #EFE3C6;font-size:11.5px;color:#8A6A35}
+.encourage{font-family:'Fraunces',serif;font-size:19px;font-style:italic;line-height:1.45;margin:8px 0 16px;color:#2A3A56}
+.verse{border-left:3px solid var(--navy);padding:9px 13px;background:#F5F4EF;border-radius:0 10px 10px 0;font-size:12px;color:#6E7A90}
+.verse b{display:block;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);margin-bottom:4px;font-family:'Poppins';font-weight:600}
+.breath{display:flex;align-items:center;justify-content:space-between;margin-top:16px;padding:12px 14px;border-radius:11px;background:var(--navy);color:#DDE6F5;font-size:12px;font-weight:500}
+.strip{margin-top:16px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.mini{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:16px 20px;display:flex;align-items:center;gap:13px}
+.mini .ic{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;font-size:15px;flex-shrink:0;background:#F0EFE9}
+.mini b{font-size:13px;display:block}.mini small{font-size:11px;color:var(--muted)}
+.copilote{position:fixed;right:28px;bottom:28px;display:flex;align-items:center;gap:12px}
+.copilote .hint{background:var(--navy);color:#DDE6F5;padding:10px 16px;border-radius:13px 13px 4px 13px;font-size:12.5px;box-shadow:0 14px 30px -12px rgba(12,27,51,.5)}
+.copilote .bubble{width:56px;height:56px;border-radius:18px;background:var(--grad);display:grid;place-items:center;cursor:pointer;box-shadow:0 14px 30px -10px rgba(139,92,246,.55);transition:.3s}
+.copilote .bubble:hover{transform:translateY(-3px) rotate(-4deg)}
+.copilote svg{width:25px;height:25px;stroke:#fff}
+.tag-design{position:fixed;left:284px;bottom:24px;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:#A9B7D2;mix-blend-mode:multiply;color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar">
+    <div class="logo"><div class="logo-mark">M</div><div><div class="logo-name">MyExtension</div><div class="logo-tag">BUSINESS</div></div></div>
+    <nav class="snav">
+      <a href="#" class="on">☀ Aujourd'hui<span class="n">3</span></a>
+      <a href="#">🔭 Ma Vision</a>
+      <a href="#">✦ Copilote</a>
+      <a href="#">🕊 Mon Refuge</a>
+    </nav>
+    <div class="side-label">Cette semaine</div>
+    <nav class="snav">
+      <a href="#">💡 Idées capturées<span class="n">12</span></a>
+      <a href="#">✓ Actions terminées<span class="n">7</span></a>
+    </nav>
+    <div class="side-foot"><b><span class="dot"></span>Mode Foi · activé</b>Verset du jour visible dans Aujourd'hui et Mon Refuge.</div>
+  </aside>
+
+  <main class="main">
+    <div class="main-top">
+      <div class="crumb">MyExtension Business / <b>Aujourd'hui</b></div>
+      <div class="main-actions"><button class="chip-btn">Exporter</button><button class="chip-btn">Réglages</button><div class="avatar">SA</div></div>
+    </div>
+
+    <section class="hero">
+      <div>
+        <div class="kicker">Mardi 14 juillet 2026</div>
+        <h1>Bonjour Sarah, on avance<br><span class="grad-text" style="font-style:italic">doucement mais sûrement.</span></h1>
+        <div class="date">3 actions prévues · énergie stable · 1 idée à creuser</div>
+      </div>
+      <div class="mode">
+        <button class="elan on">⚡ Élan</button>
+        <button class="refuge">🕊 Refuge</button>
+      </div>
+    </section>
+
+    <section class="grid">
+      <div class="card">
+        <h3>Capture & Actions</h3>
+        <div class="sub">Les idées fusent ? Pose-les ici, on les trie après.</div>
+        <div class="capture"><input placeholder="Une idée, une intuition…"><button>+</button></div>
+        <div class="action"><div class="check done">✓</div><span>Envoyer la proposition chiffrée à Mme Leroy</span><span class="pill">Business</span></div>
+        <div class="action"><div class="check"></div><span>Structurer l'offre "accompagnement CFO"</span><span class="pill">Produit</span></div>
+        <div class="action"><div class="check"></div><span>20 min de marche sans téléphone</span><span class="pill">Équilibre</span></div>
+      </div>
+
+      <div class="card">
+        <h3>Énergie & Burnout</h3>
+        <div class="sub">Ta batterie de la semaine</div>
+        <div class="gauge">
+          <div class="ring"><i>62%</i></div>
+          <div>
+            <div style="font-weight:600;font-size:13.5px">Niveau correct</div>
+            <div style="font-size:11.5px;color:var(--muted)">En baisse depuis jeudi — pense à souffler.</div>
+          </div>
+        </div>
+        <div class="bars"><b style="height:55%"></b><b style="height:70%"></b><b style="height:78%"></b><b style="height:64%"></b><b style="height:58%"></b><b style="height:52%"></b><b style="height:62%"></b></div>
+        <div class="burnout">⚠ Risque de burnout : <b>modéré</b> — 2 signaux détectés</div>
+      </div>
+
+      <div class="card">
+        <h3>Encouragement du jour</h3>
+        <div class="sub">Tu ne portes pas tout ça seule</div>
+        <p class="encourage">« Tu n'as pas besoin de voir tout l'escalier. Juste la première marche. »</p>
+        <div class="verse"><b>Verset · Mode Foi</b>« Remets ton sort à l'Éternel, confie-toi en lui, et il agira. » — Ps 37:5</div>
+        <div class="breath"><span>Respiration guidée · 3 min</span><span>▶</span></div>
+      </div>
+    </section>
+
+    <section class="strip">
+      <div class="mini"><div class="ic">🔭</div><div><b>Ma Vision</b><small>Pyramide de clarté · 4 objectifs actifs</small></div></div>
+      <div class="mini"><div class="ic">💡</div><div><b>12 idées en réserve</b><small>3 prêtes à passer en action</small></div></div>
+      <div class="mini"><div class="ic">🌱</div><div><b>Série de 9 jours</b><small>Tu reviens chaque jour, bravo</small></div></div>
+    </section>
+  </main>
+</div>
+
+<div class="copilote">
+  <div class="hint">Besoin de trier tes idées ? Je suis là.</div>
+  <div class="bubble"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3z"/><circle cx="19" cy="18" r="2"/></svg></div>
+</div>
+<div class="tag-design">Direction 3 · Méridien — studio bicolore</div>
+</body>
+</html>

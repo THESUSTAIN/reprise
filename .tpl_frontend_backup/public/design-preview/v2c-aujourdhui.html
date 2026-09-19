@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>C — Aujourd'hui · Bento asymétrique</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--gold1:#F1E2CC;--gold2:#DEC2A3;--line:rgba(255,255,255,.12)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Poppins',sans-serif;font-size:14px;color:#fff;min-height:100vh;
+background:linear-gradient(180deg,#172C5C 0%,#101F47 42%,#0B1F3A 76%,#081734 100%);background-attachment:fixed}
+h1,h2,h3{font-family:'Fraunces',serif;font-weight:550}
+.gold{background:linear-gradient(90deg,#F1E2CC,#DEC2A3);-webkit-background-clip:text;background-clip:text;color:transparent}
+.glass{background:rgba(255,255,255,.055);border:1px solid var(--line);border-radius:20px;backdrop-filter:blur(12px);transition:.25s}
+.glass:hover{border-color:rgba(222,194,163,.35)}
+.wrap{max-width:1200px;margin:0 auto;padding:22px 28px 130px}
+.topbar{display:flex;justify-content:space-between;align-items:center;padding:6px 0 26px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:600;font-size:13.5px}
+.lm{width:34px;height:34px;border-radius:11px;background:linear-gradient(135deg,#F1E2CC,#DEC2A3);display:grid;place-items:center;font-family:'Fraunces',serif;font-style:italic;color:#0B1F3A;font-size:17px;font-weight:700}
+.nav{display:flex;gap:22px;align-items:center}
+.nav a{font-size:13px;color:rgba(255,255,255,.55);text-decoration:none;padding-bottom:3px;border-bottom:2px solid transparent}
+.nav a.on{color:#fff;border-bottom-color:#DEC2A3}
+.nav .plus{color:#DEC2A3;font-size:15px}
+.right{display:flex;gap:12px;align-items:center}
+.foi{font-size:10.5px;color:rgba(222,194,163,.9);display:flex;gap:6px;align-items:center}
+.foi .d{width:6px;height:6px;border-radius:50%;background:#DEC2A3;box-shadow:0 0 8px #DEC2A3}
+.avatar{width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.12);display:grid;place-items:center;font-size:11px;font-weight:600;border:1px solid var(--line)}
+.head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:22px}
+.date{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:#DEC2A3;font-weight:600;margin-bottom:8px}
+h1{font-size:clamp(28px,3.4vw,40px);line-height:1.1}
+.sub{font-size:12.5px;color:rgba(255,255,255,.5);margin-top:7px}
+.mode{display:flex;background:rgba(255,255,255,.06);border:1px solid var(--line);border-radius:999px;padding:4px}
+.mode button{border:0;background:transparent;color:rgba(255,255,255,.55);font-family:'Poppins';font-size:12px;padding:8px 18px;border-radius:999px;cursor:pointer}
+.mode button.on{background:linear-gradient(135deg,#F1E2CC,#DEC2A3);color:#0B1F3A;font-weight:600}
+.bento{display:grid;grid-template-columns:1.5fr 1fr 1fr;grid-template-rows:auto auto;gap:14px}
+.big{grid-row:span 2;padding:26px}
+.card{padding:20px}
+.eyebrow{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(222,194,163,.85);font-weight:600;margin-bottom:10px}
+.big h2{font-size:clamp(20px,2.4vw,27px);margin-bottom:8px}
+.big .s{font-size:12px;color:rgba(255,255,255,.45);margin-bottom:18px}
+.prio{border:1px solid rgba(222,194,163,.4);background:rgba(222,194,163,.08);border-radius:16px;padding:16px 18px;margin-bottom:18px}
+.prio b{font-family:'Fraunces',serif;font-size:16.5px;font-weight:550;display:block;margin-bottom:4px}
+.prio p{font-size:11.5px;color:rgba(255,255,255,.5)}
+.cap{display:flex;gap:8px;margin-bottom:16px}
+.cap input{flex:1;background:rgba(0,0,0,.25);border:1px solid var(--line);border-radius:11px;padding:10px 13px;color:#fff;font-family:'Poppins';font-size:12.5px;outline:none}
+.cap input::placeholder{color:rgba(255,255,255,.3)}
+.cap button{border:0;background:linear-gradient(135deg,#F1E2CC,#DEC2A3);color:#0B1F3A;font-weight:600;border-radius:11px;padding:0 15px;cursor:pointer}
+.act{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.07);font-size:12.5px}
+.act:last-child{border:0}
+.ck{width:17px;height:17px;border-radius:6px;border:1.5px solid rgba(255,255,255,.25);flex-shrink:0;display:grid;place-items:center;font-size:9.5px;color:#0B1F3A}
+.ck.d{background:linear-gradient(135deg,#F1E2CC,#DEC2A3);border:0}
+.act .p{margin-left:auto;font-size:9px;letter-spacing:.07em;text-transform:uppercase;padding:2px 8px;border-radius:99px;background:rgba(222,194,163,.12);color:#E8D5BC;border:1px solid rgba(222,194,163,.3);font-weight:600}
+.ring{width:70px;height:70px;border-radius:50%;background:conic-gradient(#DEC2A3 0 62%,rgba(255,255,255,.08) 62% 100%);display:grid;place-items:center;flex-shrink:0}
+.ring i{width:52px;height:52px;border-radius:50%;background:#101F47;display:grid;place-items:center;font-family:'Fraunces',serif;font-size:17px;font-style:normal}
+.gauge{display:flex;align-items:center;gap:13px}
+.warn{margin-top:11px;padding:9px 11px;border-radius:11px;background:rgba(232,146,124,.1);border:1px solid rgba(232,146,124,.3);font-size:11px;color:#F2B8A5}
+.quo{font-family:'Fraunces',serif;font-style:italic;font-size:15.5px;line-height:1.5;color:#F3E9DB;margin:2px 0 11px}
+.vs{border-left:2px solid #DEC2A3;padding:7px 11px;background:rgba(222,194,163,.06);border-radius:0 10px 10px 0;font-size:10.5px;color:rgba(255,255,255,.6)}
+.vs b{display:block;font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:#DEC2A3;margin-bottom:3px;font-family:'Poppins';font-weight:600}
+.strip{margin-top:14px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.mini{padding:14px 18px;display:flex;gap:11px;align-items:center;font-size:12px}
+.mini small{display:block;color:rgba(255,255,255,.45);font-size:10.5px}
+.mini .ic{width:34px;height:34px;border-radius:10px;background:rgba(222,194,163,.12);border:1px solid rgba(222,194,163,.25);display:grid;place-items:center;font-size:14px}
+.cop{position:fixed;right:26px;bottom:26px;z-index:10;text-align:right}
+.cop .h{display:inline-block;background:rgba(8,23,52,.92);border:1px solid rgba(222,194,163,.3);padding:9px 15px;border-radius:14px 14px 4px 14px;font-size:12px;color:#E8D5BC;backdrop-filter:blur(12px);margin-bottom:10px}
+.cop .b{width:64px;height:64px;border-radius:22px;background:linear-gradient(135deg,#F1E2CC,#DEC2A3);display:grid;place-items:center;cursor:pointer;box-shadow:0 16px 36px -8px rgba(222,194,163,.55);font-size:26px;color:#0B1F3A;margin-left:auto;transition:.25s}
+.cop .b:hover{transform:scale(1.06) rotate(-4deg)}
+.tag{position:fixed;left:22px;bottom:22px;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.3)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="topbar">
+  <div class="logo"><div class="lm">M</div>MyExtension Business</div>
+  <nav class="nav"><a class="on" href="#">Aujourd'hui</a><a href="#">Ma Vision</a><a href="#">Copilote</a><a href="#">Mon Refuge</a><a class="plus" href="#">＋</a></nav>
+  <div class="right"><div class="foi"><span class="d"></span>Mode Foi</div><div class="avatar">SA</div></div>
+</header>
+<div class="head">
+  <div>
+    <div class="date">Mardi 14 juillet 2026 · Mode Élan</div>
+    <h1>Bonjour Sarah, <em class="gold" style="font-style:italic">ce qui compte maintenant.</em></h1>
+    <div class="sub">3 actions prévues · énergie à 62% · 1 décision à clarifier</div>
+  </div>
+  <div class="mode"><button class="on">⚡ Élan</button><button>🕊 Refuge</button></div>
+</div>
+<section class="bento">
+  <div class="glass big">
+    <div class="eyebrow">Priorité du jour</div>
+    <h2>Ta journée, réduite à l'essentiel</h2>
+    <div class="s">Le reste attend dans la réserve — rien ne se perd.</div>
+    <div class="prio"><b>Envoyer la proposition chiffrée à Mme Leroy</b><p>Reliée à ta vision : « Libérer les indépendants du flou financier »</p></div>
+    <div class="cap"><input placeholder="Une idée qui fuse ? Capture-la ici…"><button>+</button></div>
+    <div class="act"><div class="ck d">✓</div>Cadrage de l'offre CFO validé<span class="p">Fait</span></div>
+    <div class="act"><div class="ck"></div>Structurer l'offre "accompagnement CFO"<span class="p">Produit</span></div>
+    <div class="act"><div class="ck"></div>20 min de marche sans téléphone<span class="p">Équilibre</span></div>
+  </div>
+  <div class="glass card">
+    <div class="eyebrow">Énergie & burn-out</div>
+    <div class="gauge"><div class="ring"><i>62%</i></div><div style="font-size:11px;color:rgba(255,255,255,.5)">Correcte, en baisse depuis jeudi.</div></div>
+    <div class="warn">⚠ Risque modéré — souffle jeudi aprem</div>
+  </div>
+  <div class="glass card">
+    <div class="eyebrow">Encouragement</div>
+    <p class="quo">« Tu n'as pas besoin de voir tout l'escalier. Juste la première marche. »</p>
+    <div class="vs"><b>Psaume 37:5 · Mode Foi</b>« Remets ton sort à l'Éternel, confie-toi en lui, et il agira. »</div>
+  </div>
+</section>
+<section class="strip">
+  <div class="glass mini"><div class="ic">🔭</div><div><b>Ma Vision</b><small>Pyramide de clarté · 4 objectifs</small></div></div>
+  <div class="glass mini"><div class="ic">💡</div><div><b>12 idées en réserve</b><small>3 prêtes pour l'action</small></div></div>
+  <div class="glass mini"><div class="ic">🌱</div><div><b>Série de 9 jours</b><small>Tu reviens chaque jour</small></div></div>
+</section>
+</div>
+<div class="cop"><div class="h">On trie tes idées ensemble ?</div><div class="b">✦</div></div>
+<div class="tag">Disposition C · bento asymétrique — page Aujourd'hui</div>
+</body>
+</html>

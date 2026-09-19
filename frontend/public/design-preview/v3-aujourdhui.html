@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>C+ — Aujourd'hui</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--gold1:#F1E2CC;--gold2:#DEC2A3;--line:rgba(255,255,255,.16);--card:rgba(10,25,52,.52)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Poppins',sans-serif;font-size:14px;color:#fff;min-height:100vh;
+background:linear-gradient(180deg,#2E4370 0%,#44609A 48%,#6483B4 100%);background-attachment:fixed}
+h1,h2,h3{font-family:'Fraunces',serif;font-weight:550}
+.gold{background:linear-gradient(90deg,#F1E2CC,#DEC2A3);-webkit-background-clip:text;background-clip:text;color:transparent}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;backdrop-filter:blur(14px);box-shadow:0 2px 8px rgba(8,20,42,.25);transition:.25s}
+.card:hover{border-color:rgba(222,194,163,.4)}
+.wrap{max-width:1200px;margin:0 auto;padding:22px 28px 150px}
+.topbar{display:flex;justify-content:space-between;align-items:center;padding:6px 0 26px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:600;font-size:13.5px}
+.lm{width:34px;height:34px;border-radius:11px;background:linear-gradient(135deg,#F1E2CC,#DEC2A3);display:grid;place-items:center;font-family:'Fraunces',serif;font-style:italic;color:#1E2F52;font-size:17px;font-weight:700}
+.nav{display:flex;gap:22px;align-items:center}
+.nav a{font-size:13px;color:rgba(255,255,255,.6);text-decoration:none;padding-bottom:3px;border-bottom:2px solid transparent}
+.nav a.on{color:#fff;border-bottom-color:#DEC2A3}
+.nav .plus{color:#DEC2A3;font-size:15px}
+.right{display:flex;gap:12px;align-items:center}
+.foi{font-size:10.5px;color:#E8D5BC;display:flex;gap:6px;align-items:center}
+.foi .d{width:6px;height:6px;border-radius:50%;background:#DEC2A3;box-shadow:0 0 8px #DEC2A3}
+.avatar{width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.15);display:grid;place-items:center;font-size:11px;font-weight:600;border:1px solid var(--line)}
+.head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:22px}
+.date{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:#E8D5BC;font-weight:600;margin-bottom:8px}
+h1{font-size:clamp(28px,3.4vw,40px);line-height:1.1}
+.sub{font-size:12.5px;color:rgba(255,255,255,.6);margin-top:7px}
+.mode{display:flex;background:rgba(10,25,52,.45);border:1px solid var(--line);border-radius:999px;padding:4px}
+.mode button{border:0;background:transparent;color:rgba(255,255,255,.6);font-family:'Poppins';font-size:12px;padding:8px 18px;border-radius:999px;cursor:pointer}
+.mode button.on{background:linear-gradient(135deg,#F1E2CC,#DEC2A3);color:#1E2F52;font-weight:600}
+/* grille façon okyai : tailles mixtes sur 6 colonnes */
+.grid{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+.s4{grid-column:span 4}.s3{grid-column:span 3}.s2{grid-column:span 2}.s6{grid-column:span 6}
+.pad{padding:22px}
+.eyebrow{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(232,213,188,.9);font-weight:600;margin-bottom:10px}
+.card h2{font-size:clamp(18px,2.2vw,24px);margin-bottom:6px}
+.card h3{font-size:16px;margin-bottom:4px}
+.card .s{font-size:11.5px;color:rgba(255,255,255,.55);margin-bottom:14px}
+.prio{border:1px solid rgba(222,194,163,.45);background:rgba(222,194,163,.1);border-radius:13px;padding:15px 17px;margin-bottom:16px}
+.prio b{font-family:'Fraunces',serif;font-size:16px;font-weight:550;display:block;margin-bottom:4px}
+.prio p{font-size:11.5px;color:rgba(255,255,255,.55)}
+.cap{display:flex;gap:8px;margin-bottom:14px}
+.cap input{flex:1;background:rgba(6,16,36,.5);border:1px solid var(--line);border-radius:11px;padding:10px 13px;color:#fff;font-family:'Poppins';font-size:12.5px;outline:none}
+.cap input::placeholder{color:rgba(255,255,255,.35)}
+.cap button{border:0;background:linear-gradient(135deg,#F1E2CC,#DEC2A3);color:#1E2F52;font-weight:600;border-radius:11px;padding:0 15px;cursor:pointer}
+.act{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:12.5px}
+.act:last-child{border:0}
+.ck{width:17px;height:17px;border-radius:6px;border:1.5px solid rgba(255,255,255,.3);flex-shrink:0;display:grid;place-items:center;font-size:9.5px;color:#1E2F52}
+.ck.d{background:linear-gradient(135deg,#F1E2CC,#DEC2A3);border:0}
+.act .p{margin-left:auto;font-size:9px;letter-spacing:.07em;text-transform:uppercase;padding:2px 8px;border-radius:99px;background:rgba(222,194,163,.14);color:#E8D5BC;border:1px solid rgba(222,194,163,.3);font-weight:600}
+.ring{width:74px;height:74px;border-radius:50%;background:conic-gradient(#DEC2A3 0 62%,rgba(255,255,255,.1) 62% 100%);display:grid;place-items:center;flex-shrink:0}
+.ring i{width:56px;height:56px;border-radius:50%;background:#1E3260;display:grid;place-items:center;font-family:'Fraunces',serif;font-size:18px;font-style:normal}
+.gauge{display:flex;align-items:center;gap:13px}
+.warn{margin-top:12px;padding:10px 12px;border-radius:11px;background:rgba(232,146,124,.14);border:1px solid rgba(232,146,124,.35);font-size:11px;color:#F8CDBD}
+.quo{font-family:'Fraunces',serif;font-style:italic;font-size:16.5px;line-height:1.5;color:#F7EDDE;margin:2px 0 12px}
+.vs{border-left:2px solid #DEC2A3;padding:8px 12px;background:rgba(222,194,163,.08);border-radius:0 10px 10px 0;font-size:11px;color:rgba(255,255,255,.65)}
+.vs b{display:block;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:#E8D5BC;margin-bottom:3px;font-family:'Poppins';font-weight:600}
+.mini{padding:15px 18px;display:flex;gap:11px;align-items:center;font-size:12px}
+.mini small{display:block;color:rgba(255,255,255,.5);font-size:10.5px}
+.mini .ic{width:34px;height:34px;border-radius:10px;background:rgba(222,194,163,.14);border:1px solid rgba(222,194,163,.3);display:grid;place-items:center;font-size:14px;flex-shrink:0}
+/* bulle copilote : recule au scroll */
+.cop{position:fixed;right:26px;bottom:26px;z-index:30;text-align:right;transition:.3s}
+.cop .h{display:inline-block;background:rgba(10,25,52,.92);border:1px solid rgba(222,194,163,.35);padding:9px 15px;border-radius:14px 14px 4px 14px;font-size:12px;color:#E8D5BC;backdrop-filter:blur(12px);margin-bottom:10px;transition:.3s}
+.cop .b{width:62px;height:62px;border-radius:20px;background:linear-gradient(135deg,#F1E2CC,#DEC2A3);display:grid;place-items:center;cursor:pointer;box-shadow:0 16px 36px -8px rgba(20,35,70,.6);font-size:25px;color:#1E2F52;margin-left:auto;transition:.3s}
+.cop.mini .h{opacity:0;transform:translateY(6px);pointer-events:none}
+.cop.mini .b{width:48px;height:48px;border-radius:50%;font-size:20px;opacity:.92}
+.tag{position:fixed;left:22px;bottom:22px;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.45)}
+/* ── mobile 390px ── */
+@media (max-width:900px){
+  .wrap{padding:16px 16px 170px}
+  .nav{display:none}
+  .grid{grid-template-columns:1fr}
+  .s4,.s3,.s2,.s6{grid-column:span 1}
+  .head{flex-direction:column;align-items:flex-start}
+  .topbar{padding-bottom:18px}
+  .mobilenav{position:fixed;bottom:0;left:0;right:0;z-index:25;display:flex;background:rgba(10,25,52,.95);border-top:1px solid var(--line);backdrop-filter:blur(14px);padding:8px 6px calc(8px + env(safe-area-inset-bottom))}
+  .mobilenav a{flex:1;text-align:center;font-size:10px;color:rgba(255,255,255,.55);text-decoration:none;padding:6px 0}
+  .mobilenav a.on{color:#E8D5BC}
+  .mobilenav a b{display:block;font-size:16px;margin-bottom:2px}
+  .cop{bottom:76px;right:16px}
+  .tag{display:none}
+}
+@media (min-width:901px){.mobilenav{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="topbar">
+  <div class="logo"><div class="lm">M</div>MyExtension Business</div>
+  <nav class="nav"><a class="on" href="#">Aujourd'hui</a><a href="v3-vision.html">Ma Vision</a><a href="#">Copilote</a><a href="#">Mon Refuge</a><a class="plus" href="#">＋</a></nav>
+  <div class="right"><div class="foi"><span class="d"></span>Mode Foi</div><div class="avatar">SA</div></div>
+</header>
+<div class="head">
+  <div>
+    <div class="date">Mardi 14 juillet 2026 · Mode Élan</div>
+    <h1>Bonjour Sarah, <em class="gold" style="font-style:italic">ce qui compte maintenant.</em></h1>
+    <div class="sub">3 actions prévues · énergie à 62% · 1 décision à clarifier</div>
+  </div>
+  <div class="mode"><button class="on">⚡ Élan</button><button>🕊 Refuge</button></div>
+</div>
+<section class="grid">
+  <div class="card pad s4">
+    <div class="eyebrow">Priorité du jour</div>
+    <h2>Ta journée, réduite à l'essentiel</h2>
+    <div class="s">Le reste attend dans la réserve — rien ne se perd.</div>
+    <div class="prio"><b>Envoyer la proposition chiffrée à Mme Leroy</b><p>Reliée à ta vision : « Libérer les indépendants du flou financier »</p></div>
+    <div class="cap"><input placeholder="Une idée qui fuse ? Capture-la ici…"><button>+</button></div>
+    <div class="act"><div class="ck d">✓</div>Cadrage de l'offre CFO validé<span class="p">Fait</span></div>
+    <div class="act"><div class="ck"></div>Structurer l'offre "accompagnement CFO"<span class="p">Produit</span></div>
+    <div class="act"><div class="ck"></div>20 min de marche sans téléphone<span class="p">Équilibre</span></div>
+  </div>
+  <div class="card pad s2">
+    <div class="eyebrow">Énergie & burn-out</div>
+    <div class="gauge"><div class="ring"><i>62%</i></div><div style="font-size:11px;color:rgba(255,255,255,.55)">Correcte, en baisse depuis jeudi.</div></div>
+    <div class="warn">⚠ Risque modéré — souffle jeudi aprem</div>
+  </div>
+  <div class="card pad s2">
+    <div class="eyebrow">Encouragement</div>
+    <p class="quo">« Tu n'as pas besoin de voir tout l'escalier. Juste la première marche. »</p>
+    <div class="vs"><b>Psaume 37:5 · Mode Foi</b>« Remets ton sort à l'Éternel, confie-toi en lui, et il agira. »</div>
+  </div>
+  <div class="card mini s2"><div class="ic">🔭</div><div><b>Ma Vision</b><small>Pyramide de clarté · 4 objectifs</small></div></div>
+  <div class="card mini s2"><div class="ic">💡</div><div><b>12 idées en réserve</b><small>3 prêtes pour l'action</small></div></div>
+  <div class="card mini s2"><div class="ic">🌱</div><div><b>Série de 9 jours</b><small>Tu reviens chaque jour</small></div></div>
+  <div class="card mini s2"><div class="ic">⚖️</div><div><b>1 décision à clarifier</b><small>Forfait ou à l'heure ? → Ma Vision</small></div></div>
+  <div class="card mini s2"><div class="ic">🕊</div><div><b>Mon Refuge</b><small>Respiration guidée · 3 min</small></div></div>
+</section>
+</div>
+<nav class="mobilenav">
+  <a href="#" class="on"><b>☀</b>Aujourd'hui</a><a href="v3-vision.html"><b>🔭</b>Vision</a><a href="#"><b>✦</b>Copilote</a><a href="#"><b>🕊</b>Refuge</a>
+</nav>
+<div class="cop" id="cop"><div class="h">On trie tes idées ensemble ?</div><div class="b">✦</div></div>
+<div class="tag">Version C+ · Aujourd'hui — bleu corrigé + responsive</div>
+<script>
+let lastY=0;const cop=document.getElementById('cop');
+window.addEventListener('scroll',()=>{const y=window.scrollY;if(y>60&&y>lastY)cop.classList.add('mini');else if(y<lastY-4||y<60)cop.classList.remove('mini');lastY=y;},{passive:true});
+</script>
+</body>
+</html>

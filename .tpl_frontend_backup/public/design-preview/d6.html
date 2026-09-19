@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>6 — Atelier · Esprit Attio / Notion (clair & net)</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FCFCFA;--surface:#fff;--ink:#101828;--muted:#667085;--line:#EAECF0;
+--ind:#4F46E5;--indbg:#EEF0FF;--r:14px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:'Poppins',sans-serif;font-size:14.5px;line-height:1.55}
+h1,h2,h3{font-family:'Fraunces',serif;font-weight:550;letter-spacing:-.01em}
+.wrap{max-width:1140px;margin:0 auto;padding:24px 28px 120px}
+.top{display:flex;align-items:center;justify-content:space-between;padding:6px 0 24px;border-bottom:1px solid var(--line);margin-bottom:28px}
+.logo{display:flex;align-items:center;gap:11px;font-weight:600}
+.lm{width:34px;height:34px;border-radius:10px;background:var(--ind);display:grid;place-items:center;font-family:'Fraunces',serif;font-style:italic;color:#fff;font-size:17px}
+.ls{font-size:10px;color:var(--muted);display:block;font-weight:400;letter-spacing:.05em}
+.nav{display:flex;gap:2px}
+.nav a{padding:8px 15px;border-radius:9px;font-size:13px;color:var(--muted);text-decoration:none}
+.nav a.on{background:var(--indbg);color:var(--ind);font-weight:500}
+.tgl{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted)}
+.tgl .sw{width:34px;height:19px;border-radius:99px;background:var(--ind);position:relative}
+.tgl .sw::after{content:"";position:absolute;right:2.5px;top:2.5px;width:14px;height:14px;border-radius:50%;background:#fff}
+.hero{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:26px;gap:18px;flex-wrap:wrap}
+.kick{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ind);font-weight:600;margin-bottom:10px}
+h1{font-size:clamp(32px,4vw,46px);line-height:1.08}
+h1 em{font-style:italic;color:var(--ind)}
+.date{font-size:12.5px;color:var(--muted);margin-top:10px}
+.mode{display:flex;border:1px solid var(--line);background:var(--surface);border-radius:11px;padding:4px;gap:4px;box-shadow:0 1px 3px rgba(16,24,40,.06)}
+.mode button{border:0;background:transparent;font-family:'Poppins';font-size:12.5px;padding:9px 18px;border-radius:8px;cursor:pointer;color:var(--muted)}
+.mode button.on{background:var(--ink);color:#fff;font-weight:500}
+.grid{display:grid;grid-template-columns:1.35fr 1fr 1fr;gap:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:20px 22px;box-shadow:0 1px 2px rgba(16,24,40,.04);transition:.2s}
+.card:hover{box-shadow:0 8px 24px -12px rgba(16,24,40,.12)}
+.card h3{font-size:16px;margin-bottom:2px}
+.card .s{font-size:11.5px;color:var(--muted);margin-bottom:14px}
+.cap{display:flex;gap:8px;margin-bottom:12px}
+.cap input{flex:1;border:1px dashed #C7CDD8;background:var(--bg);border-radius:10px;padding:10px 13px;font-family:'Poppins';font-size:12.5px;outline:none}
+.cap input:focus{border-color:var(--ind);border-style:solid}
+.cap button{border:0;background:var(--ind);color:#fff;border-radius:10px;padding:0 15px;cursor:pointer}
+.act{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid #F2F4F7;font-size:13px}
+.act:last-child{border:0}
+.ck{width:17px;height:17px;border-radius:5px;border:1.5px solid #D0D5DD;flex-shrink:0;display:grid;place-items:center;font-size:9.5px;color:#fff}
+.ck.d{background:var(--ind);border-color:var(--ind)}
+.act .p{margin-left:auto;font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:99px;font-weight:600}
+.p-b{background:#EEF0FF;color:#4F46E5}.p-p{background:#FDF2FA;color:#C11574}.p-e{background:#ECFDF3;color:#027A48}
+.ring{width:82px;height:82px;border-radius:50%;background:conic-gradient(var(--ind) 0 62%,#F2F4F7 62% 100%);display:grid;place-items:center;flex-shrink:0}
+.ring i{width:62px;height:62px;border-radius:50%;background:#fff;display:grid;place-items:center;font-family:'Fraunces',serif;font-size:20px;font-style:normal}
+.gauge{display:flex;align-items:center;gap:15px;margin:10px 0 16px}
+.bars{display:flex;gap:5px;align-items:flex-end;height:42px}
+.bars b{flex:1;border-radius:3px;background:var(--ind);opacity:.75}
+.warn{margin-top:12px;padding:10px 12px;border-radius:10px;background:#FFFAEB;border:1px solid #FEDF89;font-size:11.5px;color:#B54708}
+.quo{font-family:'Fraunces',serif;font-style:italic;font-size:18px;line-height:1.5;color:#344054;margin:6px 0 14px}
+.vs{border-left:3px solid var(--ind);padding:8px 12px;background:var(--indbg);border-radius:0 10px 10px 0;font-size:11.5px;color:#4A5578}
+.vs b{display:block;font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--ind);margin-bottom:3px;font-family:'Poppins';font-weight:600}
+.breath{display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding:11px 14px;border-radius:10px;background:var(--ink);color:#EAECF0;font-size:12px;font-weight:500}
+.strip{margin-top:16px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.mini{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px 18px;display:flex;gap:12px;align-items:center;font-size:12.5px}
+.mini small{display:block;color:var(--muted);font-size:11px}
+.mini .ic{width:34px;height:34px;border-radius:9px;background:#F2F4F7;display:grid;place-items:center;font-size:14px}
+.cop{position:fixed;right:26px;bottom:26px;display:flex;align-items:center;gap:12px}
+.cop .h{background:#fff;border:1px solid var(--line);padding:9px 15px;border-radius:13px 13px 4px 13px;font-size:12px;color:#475467;box-shadow:0 10px 26px -12px rgba(16,24,40,.25)}
+.cop .b{width:54px;height:54px;border-radius:50%;background:var(--ind);display:grid;place-items:center;cursor:pointer;box-shadow:0 12px 28px -8px rgba(79,70,229,.55);transition:.25s}
+.cop .b:hover{transform:scale(1.08)}
+.cop svg{width:23px;height:23px;stroke:#fff;stroke-width:1.9}
+.tag{position:fixed;left:22px;bottom:22px;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#98A2B3}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <div class="logo"><div class="lm">M</div><div>MyExtension Business<span class="ls">DE LA VISION À L'ACTION, EN ÉQUILIBRE</span></div></div>
+  <nav class="nav"><a class="on" href="#">Aujourd'hui</a><a href="#">Ma Vision</a><a href="#">Copilote</a><a href="#">Mon Refuge</a></nav>
+  <div class="tgl">Mode Foi<div class="sw"></div></div>
+</header>
+<section class="hero">
+  <div>
+    <div class="kick">Aujourd'hui — 14 juillet 2026</div>
+    <h1>Bonjour Sarah,<br>on avance <em>une marche à la fois.</em></h1>
+    <div class="date">3 actions prévues · énergie stable · 12 idées en réserve</div>
+  </div>
+  <div class="mode"><button class="on">⚡ Élan</button><button>🕊 Refuge</button></div>
+</section>
+<section class="grid">
+  <div class="card">
+    <h3>Capture & Actions</h3><div class="s">Glisse une idée, on la trie ensuite</div>
+    <div class="cap"><input placeholder="+ Ajouter une idée ou une action…"><button>OK</button></div>
+    <div class="act"><div class="ck d">✓</div>Envoyer la proposition chiffrée à Mme Leroy<span class="p p-b">Business</span></div>
+    <div class="act"><div class="ck"></div>Structurer l'offre "accompagnement CFO"<span class="p p-p">Produit</span></div>
+    <div class="act"><div class="ck"></div>20 min de marche sans téléphone<span class="p p-e">Équilibre</span></div>
+  </div>
+  <div class="card">
+    <h3>Énergie & Burnout</h3><div class="s">Ta batterie de la semaine</div>
+    <div class="gauge"><div class="ring"><i>62%</i></div><div><b style="font-size:13.5px">Niveau correct</b><div style="font-size:11.5px;color:var(--muted)">En baisse depuis jeudi</div></div></div>
+    <div class="bars"><b style="height:55%"></b><b style="height:70%"></b><b style="height:78%"></b><b style="height:64%"></b><b style="height:58%"></b><b style="height:52%"></b><b style="height:62%"></b></div>
+    <div class="warn">⚠ Burnout : risque modéré — 2 signaux détectés</div>
+  </div>
+  <div class="card">
+    <h3>Encouragement</h3><div class="s">Tu ne portes pas tout seule</div>
+    <p class="quo">« Tu n'as pas besoin de voir tout l'escalier. Juste la première marche. »</p>
+    <div class="vs"><b>Verset du jour</b>« Remets ton sort à l'Éternel, confie-toi en lui, et il agira. » — Ps 37:5</div>
+    <div class="breath"><span>Respiration guidée · 3 min</span><span>▶</span></div>
+  </div>
+</section>
+<section class="strip">
+  <div class="mini"><div class="ic">🔭</div><div><b>Ma Vision</b><small>Pyramide de clarté · 4 objectifs</small></div></div>
+  <div class="mini"><div class="ic">💡</div><div><b>12 idées en réserve</b><small>3 prêtes pour l'action</small></div></div>
+  <div class="mini"><div class="ic">🌱</div><div><b>Série de 9 jours</b><small>Tu reviens chaque jour</small></div></div>
+</section>
+</div>
+<div class="cop"><div class="h">Je peux t'aider à prioriser ?</div><div class="b"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3z"/></svg></div></div>
+<div class="tag">06 · Atelier — esprit Attio / Notion</div>
+</body>
+</html>

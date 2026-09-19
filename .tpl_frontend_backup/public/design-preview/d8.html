@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>8 — Aurora · Glass & aurores boréales</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--ink:#EAF2F4;--muted:#8FA3AD;--line:rgba(255,255,255,.09);--teal:#2DD4BF;--blue:#38BDF8;--vio:#A78BFA;--r:22px}
+body{font-family:'Poppins',sans-serif;font-size:14.5px;line-height:1.55;color:var(--ink);background:#04070F;min-height:100vh;overflow-x:hidden}
+.glow{position:fixed;border-radius:50%;filter:blur(90px);opacity:.5;pointer-events:none;z-index:0}
+.g1{width:600px;height:500px;background:radial-gradient(circle,rgba(45,212,191,.35),transparent 70%);top:-150px;left:-100px}
+.g2{width:550px;height:500px;background:radial-gradient(circle,rgba(56,189,248,.3),transparent 70%);top:10%;right:-150px}
+.g3{width:500px;height:450px;background:radial-gradient(circle,rgba(167,139,250,.28),transparent 70%);bottom:-120px;left:35%}
+h1,h2,h3{font-family:'Fraunces',serif;font-weight:500;letter-spacing:-.01em}
+.gt{background:linear-gradient(100deg,var(--teal),var(--blue) 55%,var(--vio));-webkit-background-clip:text;background-clip:text;color:transparent}
+.wrap{max-width:1160px;margin:0 auto;padding:26px 26px 120px;position:relative;z-index:1}
+.top{display:flex;align-items:center;justify-content:space-between;padding:8px 0 30px}
+.logo{display:flex;align-items:center;gap:11px;font-weight:600}
+.lm{width:34px;height:34px;border-radius:11px;background:linear-gradient(120deg,var(--teal),var(--vio));display:grid;place-items:center;font-family:'Fraunces',serif;font-style:italic;color:#04070F;font-size:17px}
+.ls{font-size:10px;color:var(--muted);display:block;font-weight:400;letter-spacing:.05em}
+.nav{display:flex;gap:3px;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:99px;padding:4px;backdrop-filter:blur(16px)}
+.nav a{padding:8px 16px;border-radius:99px;font-size:12.5px;color:var(--muted);text-decoration:none}
+.nav a.on{background:rgba(45,212,191,.14);color:#7CF3E3;border:1px solid rgba(45,212,191,.3)}
+.foi{font-size:11.5px;color:var(--muted);display:flex;gap:8px;align-items:center}
+.foi .d{width:7px;height:7px;border-radius:50%;background:var(--teal);box-shadow:0 0 10px var(--teal)}
+.hero{display:flex;justify-content:space-between;align-items:flex-end;margin:16px 0 30px;gap:18px;flex-wrap:wrap}
+.kick{font-size:11px;letter-spacing:.24em;text-transform:uppercase;margin-bottom:12px;font-weight:500;background:linear-gradient(100deg,var(--teal),var(--blue));-webkit-background-clip:text;background-clip:text;color:transparent}
+h1{font-size:clamp(34px,4.6vw,54px);line-height:1.06}
+.date{color:var(--muted);font-size:13px;margin-top:12px}
+.mode{display:flex;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:999px;padding:5px;backdrop-filter:blur(16px)}
+.mode button{border:0;background:transparent;color:var(--muted);font-family:'Poppins';font-size:12.5px;padding:10px 20px;border-radius:999px;cursor:pointer;display:flex;gap:8px;align-items:center}
+.mode button.on{background:linear-gradient(100deg,var(--teal),var(--blue));color:#04070F;font-weight:600;box-shadow:0 8px 26px -8px rgba(45,212,191,.6)}
+.grid{display:grid;grid-template-columns:1.35fr 1fr 1fr;gap:16px}
+.card{background:rgba(255,255,255,.035);border:1px solid var(--line);border-radius:var(--r);padding:22px;backdrop-filter:blur(20px);transition:.3s}
+.card:hover{border-color:rgba(45,212,191,.35);transform:translateY(-3px)}
+.card h3{font-size:17px;margin-bottom:2px}
+.card .s{font-size:11.5px;color:var(--muted);margin-bottom:15px}
+.cap{display:flex;gap:8px;margin-bottom:14px}
+.cap input{flex:1;border:1px solid var(--line);background:rgba(0,0,0,.3);border-radius:12px;padding:11px 13px;font-family:'Poppins';font-size:12.5px;color:var(--ink);outline:none}
+.cap input:focus{border-color:var(--teal)}
+.cap button{border:0;background:linear-gradient(100deg,var(--teal),var(--blue));color:#04070F;font-weight:600;border-radius:12px;padding:0 15px;cursor:pointer}
+.act{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:13px}
+.act:last-child{border:0}
+.ck{width:18px;height:18px;border-radius:6px;border:1.5px solid rgba(255,255,255,.18);flex-shrink:0;display:grid;place-items:center;font-size:10px;color:#04070F}
+.ck.d{background:linear-gradient(100deg,var(--teal),var(--blue));border:0;box-shadow:0 0 14px rgba(45,212,191,.5)}
+.act .p{margin-left:auto;font-size:9.5px;letter-spacing:.07em;text-transform:uppercase;padding:3px 8px;border-radius:99px;background:rgba(56,189,248,.12);color:#7CD4FD;border:1px solid rgba(56,189,248,.25);font-weight:600}
+.ring{width:84px;height:84px;border-radius:50%;background:conic-gradient(var(--teal) 0 40%,var(--blue) 40% 62%,rgba(255,255,255,.07) 62% 100%);display:grid;place-items:center;flex-shrink:0;box-shadow:0 0 28px -6px rgba(45,212,191,.45)}
+.ring i{width:64px;height:64px;border-radius:50%;background:#0A1020;display:grid;place-items:center;font-family:'Fraunces',serif;font-size:20px;font-style:normal}
+.gauge{display:flex;align-items:center;gap:15px;margin:12px 0 16px}
+.bars{display:flex;gap:5px;align-items:flex-end;height:44px}
+.bars b{flex:1;border-radius:4px;background:linear-gradient(180deg,var(--teal),rgba(45,212,191,.15));opacity:.9}
+.warn{margin-top:12px;padding:10px 12px;border-radius:12px;background:rgba(167,139,250,.08);border:1px solid rgba(167,139,250,.3);font-size:11.5px;color:#C4B5FD}
+.quo{font-family:'Fraunces',serif;font-style:italic;font-size:18.5px;line-height:1.5;color:#DCE9EE;margin:8px 0 14px}
+.vs{border-left:2px solid;border-image:linear-gradient(180deg,var(--teal),var(--vio)) 1;padding:8px 12px;background:rgba(255,255,255,.03);border-radius:0 10px 10px 0;font-size:11.5px;color:#A5BCC7}
+.vs b{display:block;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:3px;font-family:'Poppins';font-weight:600;background:linear-gradient(100deg,var(--teal),var(--vio));-webkit-background-clip:text;background-clip:text;color:transparent}
+.breath{display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding:11px 14px;border-radius:13px;background:rgba(45,212,191,.1);border:1px solid rgba(45,212,191,.3);font-size:12px;color:#7CF3E3;font-weight:500}
+.strip{margin-top:16px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.mini{background:rgba(255,255,255,.035);border:1px solid var(--line);border-radius:var(--r);padding:15px 19px;display:flex;gap:12px;align-items:center;font-size:12.5px;backdrop-filter:blur(20px)}
+.mini small{display:block;color:var(--muted);font-size:11px}
+.mini .ic{width:36px;height:36px;border-radius:11px;background:rgba(45,212,191,.1);border:1px solid rgba(45,212,191,.22);display:grid;place-items:center;font-size:14px}
+.cop{position:fixed;right:26px;bottom:26px;display:flex;align-items:center;gap:12px;z-index:10}
+.cop .h{background:rgba(10,16,32,.9);border:1px solid var(--line);padding:9px 15px;border-radius:14px 14px 4px 14px;font-size:12px;color:#C7D8DF;backdrop-filter:blur(14px)}
+.cop .b{width:56px;height:56px;border-radius:50%;background:linear-gradient(120deg,var(--teal),var(--blue),var(--vio));display:grid;place-items:center;cursor:pointer;box-shadow:0 14px 34px -8px rgba(56,189,248,.55);transition:.25s;animation:p 3.5s infinite}
+@keyframes p{0%,100%{box-shadow:0 0 0 0 rgba(56,189,248,.35)}50%{box-shadow:0 0 0 13px rgba(56,189,248,0)}}
+.cop .b:hover{transform:scale(1.08)}
+.cop svg{width:24px;height:24px;stroke:#04070F;stroke-width:2}
+.tag{position:fixed;left:22px;bottom:22px;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#4A5B66}
+</style>
+</head>
+<body>
+<div class="glow g1"></div><div class="glow g2"></div><div class="glow g3"></div>
+<div class="wrap">
+<header class="top">
+  <div class="logo"><div class="lm">M</div><div>MyExtension Business<span class="ls">VISION · ACTION · ÉQUILIBRE</span></div></div>
+  <nav class="nav"><a class="on" href="#">Aujourd'hui</a><a href="#">Ma Vision</a><a href="#">Copilote</a><a href="#">Mon Refuge</a></nav>
+  <div class="foi"><span class="d"></span>Mode Foi</div>
+</header>
+<section class="hero">
+  <div>
+    <div class="kick">Mardi 14 juillet 2026</div>
+    <h1>Bonjour Sarah,<br>avance <em class="gt">à ton rythme.</em></h1>
+    <div class="date">3 actions prévues · énergie à 62% · 12 idées en réserve</div>
+  </div>
+  <div class="mode"><button class="on">⚡ Élan</button><button>🕊 Refuge</button></div>
+</section>
+<section class="grid">
+  <div class="card">
+    <h3>Capture & Actions</h3><div class="s">Les idées fusent ? Pose-les ici</div>
+    <div class="cap"><input placeholder="Une idée, une intuition…"><button>+</button></div>
+    <div class="act"><div class="ck d">✓</div>Envoyer la proposition chiffrée à Mme Leroy<span class="p">Business</span></div>
+    <div class="act"><div class="ck"></div>Structurer l'offre "accompagnement CFO"<span class="p">Produit</span></div>
+    <div class="act"><div class="ck"></div>20 min de marche sans téléphone<span class="p">Équilibre</span></div>
+  </div>
+  <div class="card">
+    <h3>Énergie & Burnout</h3><div class="s">Ta batterie de la semaine</div>
+    <div class="gauge"><div class="ring"><i>62%</i></div><div><b style="font-size:13.5px">Niveau correct</b><div style="font-size:11.5px;color:var(--muted)">En baisse depuis jeudi</div></div></div>
+    <div class="bars"><b style="height:55%"></b><b style="height:70%"></b><b style="height:78%"></b><b style="height:64%"></b><b style="height:58%"></b><b style="height:52%"></b><b style="height:62%"></b></div>
+    <div class="warn">⚠ Burnout : risque modéré — 2 signaux détectés</div>
+  </div>
+  <div class="card">
+    <h3>Encouragement</h3><div class="s">Tu ne portes pas tout seule</div>
+    <p class="quo">« Tu n'as pas besoin de voir tout l'escalier. Juste la première marche. »</p>
+    <div class="vs"><b>Verset du jour</b>« Remets ton sort à l'Éternel, confie-toi en lui, et il agira. » — Ps 37:5</div>
+    <div class="breath"><span>Respiration guidée · 3 min</span><span>▶</span></div>
+  </div>
+</section>
+<section class="strip">
+  <div class="mini"><div class="ic">🔭</div><div><b>Ma Vision</b><small>Pyramide de clarté · 4 objectifs</small></div></div>
+  <div class="mini"><div class="ic">💡</div><div><b>12 idées en réserve</b><small>3 prêtes pour l'action</small></div></div>
+  <div class="mini"><div class="ic">🌱</div><div><b>Série de 9 jours</b><small>Tu reviens chaque jour</small></div></div>
+</section>
+</div>
+<div class="cop"><div class="h">On trie tes idées ensemble ?</div><div class="b"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3z"/></svg></div></div>
+<div class="tag">08 · Aurora — glass & aurores boréales</div>
+</body>
+</html>

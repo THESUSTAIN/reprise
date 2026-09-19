@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>7 — Aube · Esprit Calm / wellness (dégradé crépuscule)</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--ink:#2B2440;--muted:rgba(43,36,64,.6);--r:26px}
+body{font-family:'Poppins',sans-serif;font-size:14.5px;line-height:1.6;color:var(--ink);min-height:100vh;
+background:linear-gradient(160deg,#171A3F 0%,#3A2A5E 38%,#8E4A6E 68%,#E8927C 88%,#F7C89B 100%);background-attachment:fixed}
+h1,h2,h3{font-family:'Fraunces',serif;font-weight:500;letter-spacing:-.01em}
+.glass{background:rgba(255,251,247,.82);backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.65);border-radius:var(--r);box-shadow:0 20px 50px -20px rgba(23,26,63,.35)}
+.wrap{max-width:1120px;margin:0 auto;padding:26px 26px 130px}
+.top{display:flex;align-items:center;justify-content:space-between;padding:6px 0 30px}
+.logo{display:flex;align-items:center;gap:11px;color:#FFF3EA;font-weight:600}
+.lm{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.92);display:grid;place-items:center;font-family:'Fraunces',serif;font-style:italic;color:#3A2A5E;font-size:18px}
+.ls{font-size:10px;opacity:.75;display:block;font-weight:400;letter-spacing:.06em}
+.nav{display:flex;gap:4px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:5px;backdrop-filter:blur(14px)}
+.nav a{padding:8px 17px;border-radius:999px;font-size:12.5px;color:rgba(255,255,255,.85);text-decoration:none}
+.nav a.on{background:rgba(255,255,255,.92);color:#3A2A5E;font-weight:500}
+.foi{font-size:11.5px;color:rgba(255,255,255,.85);display:flex;gap:8px;align-items:center}
+.foi .d{width:7px;height:7px;border-radius:50%;background:#F7C89B;box-shadow:0 0 10px #F7C89B}
+.hero{text-align:left;margin:22px 0 30px;color:#FFF6EE;max-width:640px}
+.kick{font-size:11px;letter-spacing:.24em;text-transform:uppercase;opacity:.75;margin-bottom:12px}
+h1{font-size:clamp(36px,4.8vw,56px);line-height:1.06}
+h1 em{font-style:italic;color:#FBE3C5}
+.sub{opacity:.8;margin-top:12px;font-size:13.5px}
+.mode{display:inline-flex;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:5px;margin-top:24px;backdrop-filter:blur(14px)}
+.mode button{border:0;background:transparent;color:rgba(255,255,255,.85);font-family:'Poppins';font-size:12.5px;padding:10px 22px;border-radius:999px;cursor:pointer}
+.mode button.on{background:rgba(255,255,255,.94);color:#3A2A5E;font-weight:600}
+.grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:18px}
+.card{padding:24px}
+.card h3{font-size:18px;margin-bottom:3px;color:#2B2440}
+.card .s{font-size:11.5px;color:var(--muted);margin-bottom:16px}
+.cap{display:flex;gap:8px;margin-bottom:14px}
+.cap input{flex:1;border:1px solid rgba(43,36,64,.14);background:rgba(255,255,255,.7);border-radius:14px;padding:11px 14px;font-family:'Poppins';font-size:12.5px;outline:none}
+.cap button{border:0;background:#3A2A5E;color:#FFF3EA;border-radius:14px;padding:0 16px;cursor:pointer}
+.act{display:flex;align-items:center;gap:11px;padding:10px 0;border-bottom:1px solid rgba(43,36,64,.08);font-size:13px}
+.act:last-child{border:0}
+.ck{width:19px;height:19px;border-radius:50%;border:1.5px solid rgba(43,36,64,.25);flex-shrink:0;display:grid;place-items:center;font-size:10px;color:#FFF3EA}
+.ck.d{background:#8E4A6E;border-color:transparent}
+.act .p{margin-left:auto;font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border-radius:99px;background:rgba(58,42,94,.08);color:#3A2A5E;font-weight:600}
+.ring{width:86px;height:86px;border-radius:50%;background:conic-gradient(#3A2A5E 0 62%,rgba(43,36,64,.08) 62% 100%);display:grid;place-items:center;flex-shrink:0}
+.ring i{width:66px;height:66px;border-radius:50%;background:rgba(255,251,247,.95);display:grid;place-items:center;font-family:'Fraunces',serif;font-size:21px;font-style:normal}
+.gauge{display:flex;align-items:center;gap:15px;margin:12px 0 16px}
+.bars{display:flex;gap:5px;align-items:flex-end;height:44px}
+.bars b{flex:1;border-radius:99px;background:linear-gradient(180deg,#8E4A6E,#3A2A5E);opacity:.8}
+.warn{margin-top:13px;padding:11px 13px;border-radius:14px;background:rgba(232,146,124,.16);border:1px solid rgba(232,146,124,.4);font-size:11.5px;color:#8E4A4A}
+.quo{font-family:'Fraunces',serif;font-style:italic;font-size:19px;line-height:1.5;color:#3A2A5E;margin:8px 0 14px}
+.vs{border-left:3px solid #C98A5E;padding:9px 13px;background:rgba(247,200,155,.22);border-radius:0 12px 12px 0;font-size:11.5px;color:#6B5B4A}
+.vs b{display:block;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:#B0703E;margin-bottom:4px;font-family:'Poppins';font-weight:600}
+.breath{display:flex;justify-content:space-between;align-items:center;margin-top:15px;padding:12px 15px;border-radius:16px;background:#3A2A5E;color:#FBE3C5;font-size:12.5px;font-weight:500}
+.strip{margin-top:18px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.mini{padding:16px 20px;display:flex;gap:13px;align-items:center;font-size:12.5px;color:#2B2440}
+.mini small{display:block;color:var(--muted);font-size:11px}
+.mini .ic{width:38px;height:38px;border-radius:50%;background:rgba(58,42,94,.09);display:grid;place-items:center;font-size:15px}
+.cop{position:fixed;right:28px;bottom:28px;display:flex;align-items:center;gap:12px}
+.cop .h{background:rgba(255,251,247,.92);padding:10px 16px;border-radius:16px 16px 4px 16px;font-size:12.5px;color:#3A2A5E;box-shadow:0 14px 30px -12px rgba(23,26,63,.5)}
+.cop .b{width:58px;height:58px;border-radius:50%;background:rgba(255,255,255,.94);display:grid;place-items:center;cursor:pointer;box-shadow:0 16px 36px -10px rgba(23,26,63,.6);transition:.3s}
+.cop .b:hover{transform:scale(1.08)}
+.cop svg{width:25px;height:25px;stroke:#8E4A6E;stroke-width:1.8}
+.tag{position:fixed;left:24px;bottom:24px;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <div class="logo"><div class="lm">M</div><div>MyExtension Business<span class="ls">VISION · ACTION · ÉQUILIBRE</span></div></div>
+  <nav class="nav"><a class="on" href="#">Aujourd'hui</a><a href="#">Ma Vision</a><a href="#">Copilote</a><a href="#">Mon Refuge</a></nav>
+  <div class="foi"><span class="d"></span>Mode Foi</div>
+</header>
+<section class="hero">
+  <div class="kick">Mardi 14 juillet 2026</div>
+  <h1>Respire, Sarah.<br>Aujourd'hui, <em>une marche suffit.</em></h1>
+  <div class="sub">3 actions prévues · énergie à 62% · 12 idées t'attendent sagement</div>
+  <div class="mode"><button class="on">⚡ Élan</button><button>🕊 Refuge</button></div>
+</section>
+<section class="grid">
+  <div class="glass card">
+    <h3>Capture & Actions</h3><div class="s">Les idées fusent ? Pose-les ici</div>
+    <div class="cap"><input placeholder="Une idée, une intuition…"><button>+</button></div>
+    <div class="act"><div class="ck d">✓</div>Envoyer la proposition chiffrée à Mme Leroy<span class="p">Business</span></div>
+    <div class="act"><div class="ck"></div>Structurer l'offre "accompagnement CFO"<span class="p">Produit</span></div>
+    <div class="act"><div class="ck"></div>20 min de marche sans téléphone<span class="p">Équilibre</span></div>
+  </div>
+  <div class="glass card">
+    <h3>Énergie & Burnout</h3><div class="s">Ta batterie de la semaine</div>
+    <div class="gauge"><div class="ring"><i>62%</i></div><div><b style="font-size:13.5px;color:#2B2440">Niveau correct</b><div style="font-size:11.5px;color:var(--muted)">En baisse depuis jeudi</div></div></div>
+    <div class="bars"><b style="height:55%"></b><b style="height:70%"></b><b style="height:78%"></b><b style="height:64%"></b><b style="height:58%"></b><b style="height:52%"></b><b style="height:62%"></b></div>
+    <div class="warn">⚠ Risque de burnout modéré — pense à souffler jeudi aprem</div>
+  </div>
+  <div class="glass card">
+    <h3>Encouragement</h3><div class="s">Tu ne portes pas tout seule</div>
+    <p class="quo">« Tu n'as pas besoin de voir tout l'escalier. Juste la première marche. »</p>
+    <div class="vs"><b>Verset du jour</b>« Remets ton sort à l'Éternel, confie-toi en lui, et il agira. » — Ps 37:5</div>
+    <div class="breath"><span>Respiration guidée · 3 min</span><span>▶</span></div>
+  </div>
+</section>
+<section class="strip">
+  <div class="glass mini"><div class="ic">🔭</div><div><b>Ma Vision</b><small>Pyramide de clarté · 4 objectifs</small></div></div>
+  <div class="glass mini"><div class="ic">💡</div><div><b>12 idées en réserve</b><small>3 prêtes pour l'action</small></div></div>
+  <div class="glass mini"><div class="ic">🌱</div><div><b>Série de 9 jours</b><small>Tu reviens chaque jour</small></div></div>
+</section>
+</div>
+<div class="cop"><div class="h">Comment tu te sens, là, maintenant ?</div><div class="b"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3z"/></svg></div></div>
+<div class="tag">07 · Aube — esprit Calm / wellness</div>
+</body>
+</html>

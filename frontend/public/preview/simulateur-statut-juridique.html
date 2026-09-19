@@ -1,0 +1,884 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>ZAYADO</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>/* ZAYADO Pages Plugin - Compiled CSS */
+/* Google Fonts import — identique au React app */
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap');
+/* Colors */
+:root {
+  --z-blue: #152F5C;
+  --z-blue-light: #1D4E8A;
+  --z-gold: #C9A84C;
+  --z-gold-light: #E5D5A2;
+  --z-red: #C7372F;
+  --z-sand: #FAF9F7;
+  --z-dark: #0F1B2D;
+}
+
+/* Reset */
+.zp * { box-sizing: border-box; margin: 0; padding: 0; }
+.zp { font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: #333; line-height: 1.6; overflow-x: hidden; }
+.zp img { max-width: 100%; height: auto; }
+.zp a { text-decoration: none; color: inherit; }
+
+/* Typography */
+.zp .font-heading { font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif; }
+.zp h1, .zp h2, .zp h3 { font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif; color: var(--z-blue); }
+.zp h1 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 900; line-height: 1.1; }
+.zp h2 { font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 700; line-height: 1.2; }
+.zp h3 { font-size: 1.2rem; font-weight: 700; }
+
+/* Layout */
+.zp .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+.zp .section { padding: 5rem 0; }
+.zp .section-dark { background: var(--z-blue); color: white; }
+.zp .section-sand { background: var(--z-sand); }
+.zp .section-light { background: #f8f9fa; }
+
+/* Grid */
+.zp .grid-2 { display: grid; grid-template-columns: 1fr; gap: 2rem; }
+.zp .grid-3 { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
+.zp .grid-4 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+@media (min-width: 768px) {
+  .zp .grid-2 { grid-template-columns: 1fr 1fr; }
+  .zp .grid-3 { grid-template-columns: repeat(3, 1fr); }
+  .zp .grid-4 { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* Flex */
+.zp .flex { display: flex; }
+.zp .flex-col { flex-direction: column; }
+.zp .items-center { align-items: center; }
+.zp .justify-between { justify-content: space-between; }
+.zp .justify-center { justify-content: center; }
+.zp .gap-2 { gap: 0.5rem; }
+.zp .gap-3 { gap: 0.75rem; }
+.zp .gap-4 { gap: 1rem; }
+.zp .gap-6 { gap: 1.5rem; }
+.zp .gap-8 { gap: 2rem; }
+
+/* Text */
+.zp .text-center { text-align: center; }
+.zp .text-sm { font-size: 0.875rem; }
+.zp .text-xs { font-size: 0.75rem; }
+.zp .text-lg { font-size: 1.125rem; }
+.zp .text-xl { font-size: 1.25rem; }
+.zp .text-2xl { font-size: 1.5rem; }
+.zp .text-white { color: white; }
+.zp .text-gray { color: #6b7280; }
+.zp .text-gold { color: var(--z-gold); }
+.zp .text-red { color: var(--z-red); }
+.zp .text-blue { color: var(--z-blue); }
+.zp .font-bold { font-weight: 700; }
+.zp .font-black { font-weight: 900; }
+.zp .mb-2 { margin-bottom: 0.5rem; }
+.zp .mb-4 { margin-bottom: 1rem; }
+.zp .mb-6 { margin-bottom: 1.5rem; }
+.zp .mb-8 { margin-bottom: 2rem; }
+.zp .mt-4 { margin-top: 1rem; }
+.zp .mt-8 { margin-top: 2rem; }
+.zp .mx-auto { margin-left: auto; margin-right: auto; }
+
+/* Buttons */
+.zp .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.875rem 2rem; border-radius: 12px; font-weight: 700; font-size: 0.9rem; border: none; cursor: pointer; transition: all 0.3s ease; position: relative; overflow: hidden; }
+.zp .btn::after { content: ''; position: absolute; inset: 0; background: rgba(255,255,255,0.15); transform: translateX(-100%); transition: transform 0.4s ease; }
+.zp .btn:hover::after { transform: translateX(0); }
+.zp .btn-red { background: var(--z-red); color: white; }
+.zp .btn-red:hover { background: #a52d27; }
+.zp .btn-gold { background: var(--z-gold); color: var(--z-blue); }
+.zp .btn-gold:hover { background: var(--z-gold-light); }
+.zp .btn-blue { background: var(--z-blue); color: white; }
+.zp .btn-blue:hover { background: var(--z-blue-light); }
+.zp .btn-outline { background: transparent; border: 2px solid white; color: white; }
+.zp .btn-outline:hover { background: rgba(255,255,255,0.1); }
+.zp .btn-lg { padding: 1rem 2.5rem; font-size: 1rem; }
+
+/* Cards */
+.zp .card { background: white; border-radius: 16px; padding: 2rem; box-shadow: 0 4px 20px rgba(0,0,0,0.06); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.zp .card:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0,0,0,0.1); }
+.zp .card-highlight { border: 2px solid var(--z-red); position: relative; }
+.zp .card-highlight::before { content: 'POPULAIRE'; position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--z-red); color: white; font-size: 0.7rem; font-weight: 700; padding: 2px 12px; border-radius: 20px; }
+
+/* Badge */
+.zp .badge { display: inline-block; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.7rem; font-weight: 700; }
+.zp .badge-gold { background: rgba(229,213,162,.2); color: #C9A84C; border: 1px solid rgba(229,213,162,.3); }
+.zp .badge-white { background: rgba(255,255,255,.15); color: rgba(255,255,255,.9); border: 1px solid rgba(255,255,255,.2); }
+.zp .badge-red { background: var(--z-red); color: white; }
+.zp .badge-green { background: #059669; color: white; }
+
+/* Check list */
+.zp .check-item { display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 0.5rem; }
+.zp .check-icon { color: #059669; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+.zp .cross-icon { color: #d1d5db; flex-shrink: 0; margin-top: 2px; }
+
+/* FAQ */
+.zp .faq-item { border: 1px solid #e5e7eb; border-radius: 12px; overflow: hidden; margin-bottom: 0.5rem; }
+.zp .faq-q { display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.25rem; cursor: pointer; background: white; font-weight: 600; font-size: 0.9rem; color: #1f2937; }
+.zp .faq-q:hover { background: #f9fafb; }
+.zp .faq-a { padding: 0 1.25rem 1rem; font-size: 0.875rem; color: #6b7280; line-height: 1.7; display: none; }
+.zp .faq-item.open .faq-a { display: block; }
+.zp .faq-arrow { transition: transform 0.3s ease; font-size: 1.2rem; color: #9ca3af; }
+.zp .faq-item.open .faq-arrow { transform: rotate(180deg); }
+
+/* Animations */
+.zp .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.zp .reveal.visible { opacity: 1; transform: translateY(0); }
+@keyframes zpSlideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+.zp .anim-up { animation: zpSlideUp 0.8s ease forwards; }
+.zp .anim-delay-1 { animation-delay: 0.15s; opacity: 0; }
+.zp .anim-delay-2 { animation-delay: 0.3s; opacity: 0; }
+.zp .anim-delay-3 { animation-delay: 0.45s; opacity: 0; }
+
+/* Modal */
+.zp .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); z-index: 9999; align-items: center; justify-content: center; }
+.zp .modal-overlay.active { display: flex; }
+.zp .modal-box { background: white; border-radius: 20px; max-width: 720px; width: 94%; max-height: 92vh; overflow-y: auto; box-shadow: 0 25px 60px rgba(0,0,0,0.3); }
+.zp .modal-header { background: var(--z-blue); color: white; padding: 1.5rem 2rem; border-radius: 20px 20px 0 0; position: relative; }
+.zp .modal-header h3 { color: white; font-size: 1.3rem; }
+.zp .modal-close { position: absolute; top: 1rem; right: 1rem; background: none; border: none; color: rgba(255,255,255,0.6); font-size: 1.5rem; cursor: pointer; }
+.zp .modal-close:hover { color: white; }
+.zp .modal-body { padding: 2rem; }
+.zp .modal-step { font-size: 0.8rem; color: rgba(255,255,255,0.6); margin-top: 0.25rem; }
+
+/* Radio / Option card */
+.zp .option-card { border: 2px solid #e5e7eb; border-radius: 12px; padding: 1.25rem; cursor: pointer; transition: all 0.2s ease; margin-bottom: 0.75rem; }
+.zp .option-card:hover { border-color: var(--z-gold); }
+.zp .option-card.selected { border-color: var(--z-gold); background: #fffbf0; }
+.zp .option-card.recommended { border-color: var(--z-gold); position: relative; }
+.zp .option-card.recommended::after { content: 'RECOMMANDE'; position: absolute; top: -10px; right: 12px; background: var(--z-gold); color: var(--z-blue); font-size: 0.65rem; font-weight: 700; padding: 2px 10px; border-radius: 10px; }
+
+/* Input */
+.zp input[type="email"], .zp input[type="text"], .zp input[type="number"], .zp select, .zp textarea { width: 100%; padding: 0.75rem 1rem; border: 2px solid #e5e7eb; border-radius: 10px; font-size: 0.9rem; transition: border-color 0.2s; font-family: inherit; }
+.zp input:focus, .zp select:focus, .zp textarea:focus { outline: none; border-color: var(--z-gold); }
+.zp button { font-family: inherit; }
+
+/* Price display */
+.zp .price-big { font-size: 2.5rem; font-weight: 900; color: var(--z-blue); }
+.zp .price-period { font-size: 0.9rem; color: #6b7280; }
+.zp .price-strike { text-decoration: line-through; color: #9ca3af; font-size: 0.9rem; }
+
+/* Testimonial */
+.zp .testimonial { background: white; border-radius: 16px; padding: 2rem; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+.zp .stars { color: #f59e0b; letter-spacing: 2px; }
+
+/* Icon circle */
+.zp .icon-circle { width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; }
+
+/* Table */
+.zp table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+.zp th { text-align: left; padding: 0.75rem 1rem; background: var(--z-sand); color: #6b7280; font-weight: 600; border-bottom: 1px solid #e5e7eb; }
+.zp td { padding: 0.75rem 1rem; border-bottom: 1px solid #f3f4f6; }
+.zp .text-check { color: #059669; font-weight: 700; }
+.zp .text-cross { color: #d1d5db; }
+
+/* Footer plugin */
+.zp-footer { background: var(--z-dark); color: rgba(255,255,255,0.7); padding: 1.5rem 0; font-size: 0.8rem; }
+
+/* =============================================
+   HEADER/FOOTER TOGGLE PER PAGE
+   Masque le header et/ou footer du theme WordPress
+   sur les pages ZAYADO individuellement
+   ============================================= */
+
+/* Hide header */
+body.zayado-no-header .site-header,
+body.zayado-no-header #masthead,
+body.zayado-no-header .main-navigation,
+body.zayado-no-header header.entry-header,
+body.zayado-no-header .nav-links,
+body.zayado-no-header .breadcrumbs,
+body.zayado-no-header .page-header,
+body.zayado-no-header .elementor-location-header,
+body.zayado-no-header .kadence-header,
+body.zayado-no-header .ast-header-break-point,
+body.zayado-no-header .site-header-primary-section-left,
+body.zayado-no-header .site-header-primary-section-right {
+  display: none !important;
+}
+body.zayado-no-header .site-content,
+body.zayado-no-header #content,
+body.zayado-no-header .entry-content {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* Hide footer */
+body.zayado-no-footer .site-footer,
+body.zayado-no-footer #colophon,
+body.zayado-no-footer .elementor-location-footer,
+body.zayado-no-footer .kadence-footer,
+body.zayado-no-footer footer.site-footer {
+  display: none !important;
+}
+
+/* Legacy: backward compat with old zayado-no-menu class */
+body.zayado-no-menu .site-header,
+body.zayado-no-menu #masthead,
+body.zayado-no-menu .main-navigation,
+body.zayado-no-menu .site-footer,
+body.zayado-no-menu #colophon {
+  display: none !important;
+}
+
+/* sr-only (screen reader only) */
+.zp .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+/* Responsive */
+@media (max-width: 767px) {
+  .zp .section { padding: 2rem 0; }
+  .zp .hide-mobile { display: none !important; }
+  .zp .grid-2-hero { grid-template-columns: 1fr !important; }
+  .zp .grid-2 { grid-template-columns: 1fr !important; }
+  .zp .grid-3 { grid-template-columns: 1fr !important; }
+  .zp .grid-4 { grid-template-columns: 1fr 1fr !important; }
+  .zp .container { padding: 0 1rem; }
+  .zp h1 { font-size: 1.5rem !important; }
+  .zp h2 { font-size: 1.125rem !important; }
+  /* Footer responsive */
+  [data-testid="professional-footer"] > div > div:first-child { grid-template-columns: 1fr 1fr !important; gap: 1.5rem !important; }
+  [data-testid="professional-footer"] [style*="display:flex"][style*="flex-wrap:wrap"] { gap: 0.75rem !important; }
+  /* Nav responsive */
+  .zn-mega-panel { min-width: 300px !important; left: 0 !important; transform: none !important; }
+  .zn-mega-grid { grid-template-columns: 1fr !important; }
+  /* Hero buttons */
+  .zp .btn-lg { padding: 0.625rem 1.25rem !important; font-size: 0.8125rem !important; }
+  /* Pricing cards */
+  .pc-grid2 { grid-template-columns: 1fr !important; }
+  .pc-grid3 { grid-template-columns: 1fr !important; }
+  /* Agent/Chatbot configurator */
+  .aia-grid3 { grid-template-columns: 1fr !important; }
+  .aia-compare { grid-template-columns: 1fr !important; }
+  /* Modal responsive */
+  .zp .modal-box { width: 96% !important; max-width: none !important; margin: 0.5rem; max-height: 95vh !important; }
+  /* Services grid */
+  .zp [data-testid="services-unite"] .container > div > div { grid-template-columns: 1fr 1fr !important; }
+  /* Stats bar */
+  .zp [style*="grid-template-columns:repeat(4"] { grid-template-columns: 1fr 1fr !important; gap: 1rem !important; }
+  /* Plugins grid */
+  [style*="grid-template-columns:repeat(auto-fit"] { grid-template-columns: 1fr !important; }
+}
+@media (max-width: 480px) {
+  .zp .grid-4 { grid-template-columns: 1fr !important; }
+  [data-testid="professional-footer"] > div > div:first-child { grid-template-columns: 1fr !important; }
+  .zp [style*="grid-template-columns:repeat(4"] { grid-template-columns: 1fr !important; }
+}
+@media (min-width: 768px) {
+  .zp .grid-2-hero { grid-template-columns: 1fr 1fr; }
+}
+
+/* =====================================================
+   FIX RESPONSIVE v2 — Grilles inline style + pages spécifiques
+   ===================================================== */
+
+/* Forcer toutes les grilles inline à passer en colonne sur mobile */
+@media (max-width: 767px) {
+  /* Grilles inline avec style direct */
+  .zp [style*="grid-template-columns:1fr 1fr"],
+  .zp [style*="grid-template-columns: 1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+  .zp [style*="grid-template-columns:repeat(2"],
+  .zp [style*="grid-template-columns: repeat(2"] {
+    grid-template-columns: 1fr !important;
+  }
+  .zp [style*="grid-template-columns:repeat(3"],
+  .zp [style*="grid-template-columns: repeat(3"] {
+    grid-template-columns: 1fr !important;
+  }
+  .zp [style*="grid-template-columns:2fr 1fr"],
+  .zp [style*="grid-template-columns: 2fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+  /* Plans pricing */
+  .zp-plans-row,
+  .zp-plans-row2 { grid-template-columns: 1fr !important; }
+  /* Stats 4 colonnes */
+  .zp-stats-grid { grid-template-columns: 1fr 1fr !important; }
+  /* Packs crédits */
+  .zp-packs-grid { grid-template-columns: 1fr 1fr !important; }
+  /* Hero 2 colonnes */
+  .zp-hero-2col,
+  .zp-hero-grid { grid-template-columns: 1fr !important; }
+  /* Agent demo */
+  .zp-agent-demo { grid-template-columns: 1fr !important; }
+  /* Features 2 colonnes */
+  .zp-feat-2col,
+  .zp-diag-grid,
+  .zp-wf-grid { grid-template-columns: 1fr !important; }
+  /* Comparatif table */
+  .zp [style*="grid-template-columns:2fr 1fr 1fr 1fr 1fr"] {
+    display: block !important;
+  }
+  .zp [style*="grid-template-columns:2fr 1fr 1fr 1fr 1fr"] > * {
+    display: flex !important;
+    justify-content: space-between !important;
+    padding: 0.5rem 1rem !important;
+    border-bottom: 1px solid #E5E7EB !important;
+  }
+  /* Boutons hero empilés */
+  .zp .btn-group { flex-direction: column !important; align-items: stretch !important; }
+  .zp .btn-group .btn { width: 100% !important; justify-content: center !important; }
+  /* Textes */
+  .zp h1 { font-size: clamp(1.5rem, 6vw, 2rem) !important; }
+  .zp h2 { font-size: clamp(1.125rem, 4vw, 1.5rem) !important; }
+  /* Démo chat dans hero */
+  .zp-hero-2col > div:last-child { display: none !important; }
+  /* Padding sections */
+  .zp section { padding: 2.5rem 0 !important; }
+  /* Cards ne pas écraser sur mobile */
+  .zp .price-card { padding: 1.125rem !important; }
+}
+@media (max-width: 480px) {
+  .zp-stats-grid { grid-template-columns: 1fr 1fr !important; }
+  .zp-packs-grid { grid-template-columns: 1fr !important; }
+  .zp h1 { font-size: 1.375rem !important; }
+}
+/* Tablette */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .zp-hero-2col { grid-template-columns: 1fr 1fr !important; }
+  .zp-plans-row { grid-template-columns: repeat(2, 1fr) !important; }
+  .zp-plans-row2 { grid-template-columns: repeat(2, 1fr) !important; }
+  .zp-agent-demo { grid-template-columns: 1fr 280px !important; }
+}
+
+#zn *{box-sizing:border-box;margin:0}#zn{position:sticky;top:0;z-index:9999;background:#fff;border-bottom:1px solid #f3f4f6;box-shadow:0 1px 3px rgba(0,0,0,0.04);font-family:"DM Sans",sans-serif}#zn .zw{max-width:1280px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:64px}#zn .zback{display:inline-flex;align-items:center;gap:0.4rem;padding:0.5rem 1rem;font-size:0.8125rem;font-weight:600;color:#1D4E8A;border-radius:0.5rem;text-decoration:none;background:transparent;border:1px solid #e5e7eb;transition:all 0.2s}#zn .zback:hover{background:#f3f4f6}#zn .zk{display:flex;align-items:center;gap:0.15rem}#zn .za{padding:0.5rem 0.65rem;font-size:0.78rem;font-weight:600;color:#4b5563;border-radius:0.375rem;text-decoration:none;display:inline-flex;align-items:center;gap:3px;background:transparent}#zn .za:hover{color:#1D4E8A;background:#f9fafb}#zn .zr{display:flex;align-items:center;gap:0.5rem}#zn .zo{padding:0.5rem 1rem;font-size:0.8125rem;font-weight:600;border-radius:0.5rem;border:1px solid #1D4E8A;color:#1D4E8A;text-decoration:none;background:transparent}#zn .zo:hover{background:#1D4E8A;color:white}#zn .zb{padding:0.5rem 1rem;font-size:0.8125rem;font-weight:700;border-radius:0.5rem;background:#C7372F;color:white;text-decoration:none;border:none}#zn .zb:hover{background:#a82d26}.zn-mega{position:relative;display:inline-block}.zn-mega-panel{display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);background:#fff;border:1px solid #e5e7eb;border-radius:1rem;padding:1.25rem;min-width:560px;box-shadow:0 12px 40px rgba(0,0,0,0.12);z-index:100}.zn-mega:hover .zn-mega-panel{display:block}.zn-mega-title{font-size:0.7rem;font-weight:700;color:#9ca3af;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.75rem;padding-bottom:0.5rem;border-bottom:1px solid #f3f4f6}.zn-mega-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}.zn-mega-item{display:flex;align-items:flex-start;gap:0.5rem;padding:0.35rem 0.5rem;border-radius:0.5rem;text-decoration:none;transition:background 0.15s}.zn-mega-item:hover{background:#f9fafb}.zn-mega-icon{width:28px;height:28px;border-radius:0.375rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}.zn-mega-label{font-size:0.78rem;font-weight:600;color:#1a2b3c;display:block}.zn-mega-sub{font-size:0.68rem;color:#9ca3af;display:block;margin-top:1px}.zn-mega-badge{font-size:0.55rem;background:#C7372F;color:white;padding:1px 6px;border-radius:9999px;font-weight:700;margin-left:4px;vertical-align:middle}.zn-mega-footer{margin-top:1rem;padding-top:0.75rem;border-top:1px solid #f3f4f6;display:flex;gap:1rem;justify-content:center}.zn-mega-footer a{font-size:0.75rem;color:#1D4E8A;text-decoration:none;font-weight:600}.zn-mega-footer a:hover{text-decoration:underline}.zdd{position:relative;display:inline-block}.zdd-m{display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);background:#fff;border:1px solid #e5e7eb;border-radius:0.75rem;padding:0.5rem;min-width:240px;box-shadow:0 8px 30px rgba(0,0,0,0.12);z-index:100}.zdd:hover .zdd-m{display:block}.zdd-m a{display:block;padding:0.5rem 0.75rem;font-size:0.8rem;color:#374151;text-decoration:none;border-radius:0.5rem;font-weight:500}.zdd-m a:hover{background:#f3f4f6}#zm-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:10000}#zm-overlay.open{display:block}#zm-panel{position:fixed;top:0;right:-320px;width:300px;height:100vh;background:#fff;z-index:10001;transition:right 0.3s;overflow-y:auto;box-shadow:-4px 0 20px rgba(0,0,0,0.1)}#zm-panel.open{right:0}.zm-hdr{display:flex;align-items:center;justify-content:space-between;padding:1rem 1.25rem;border-bottom:1px solid #f3f4f6}.zm-close{background:none;border:none;cursor:pointer;padding:0.5rem}.zm-links{padding:0.5rem 0}.zm-link{display:flex;align-items:center;gap:0.6rem;padding:0.75rem 1.25rem;font-size:0.85rem;font-weight:600;color:#374151;text-decoration:none}.zm-link:hover{background:#f9fafb;color:#1D4E8A}.zm-sep{height:1px;background:#f3f4f6;margin:0.5rem 1.25rem}.zm-sub{font-size:0.7rem;font-weight:700;color:#9ca3af;text-transform:uppercase;letter-spacing:0.08em;padding:0.5rem 1.25rem 0.25rem}.zm-footer{padding:1rem 1.25rem;border-top:1px solid #f3f4f6;display:flex;flex-direction:column;gap:0.5rem}.zm-btn{display:block;width:100%;text-align:center;padding:0.7rem;font-size:0.85rem;font-weight:700;border-radius:0.75rem;text-decoration:none}#zn .zm-toggle{display:none;background:none;border:none;cursor:pointer;padding:0.5rem}@media(max-width:768px){#zn .zm-toggle{display:block}}@media(max-width:768px){#zn .zk{display:none}#zn .zr .zo,#zn .zr .zb{display:none}}</style><style>#zn,#zn-mobile,nav#zn{display:none !important;visibility:hidden !important;}body{padding-top:0 !important;}</style></head><body style="margin:0;padding:0">
+<nav id="zn"><div class="zw"><a href="/preview/my-extension.html" class="zback"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg> Retour</a><div class="zk"><div class="zn-mega"><a href="/preview/assistant-ia.html" class="za">Assistant IA <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></a>
+<div class="zn-mega-panel"><div class="zn-mega-grid"><div><div class="zn-mega-title">Fonctionnalités</div><a href="/preview/my-extension.html" class="zn-mega-item"><span class="zn-mega-icon" style="background:rgba(29,78,138,0.08)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1D4E8A" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span><span><span class="zn-mega-label">Chat IA — 8 modèles</span><span class="zn-mega-sub">Claude, GPT, Gemini, Grok</span></span></a><a href="/preview/agent-ia.html" class="zn-mega-item"><span class="zn-mega-icon" style="background:rgba(29,78,138,0.08)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1D4E8A" stroke-width="2"><rect width="16" height="16" x="4" y="4" rx="2"/></svg></span><span><span class="zn-mega-label">Agent IA autonome</span><span class="zn-mega-sub">Exécute vos tâches 24/7</span></span></a><a href="/preview/my-extension.html" class="zn-mega-item"><span class="zn-mega-icon" style="background:rgba(16,185,129,0.08)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/></svg></span><span><span class="zn-mega-label">Connexion Drive Pro</span><span class="zn-mega-sub">Sync fichiers Google Drive</span></span></a><a href="/preview/my-extension.html" class="zn-mega-item"><span class="zn-mega-icon" style="background:rgba(201,168,76,0.1)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg></span><span><span class="zn-mega-label">Mémoire Cloud</span><span class="zn-mega-sub">Historique sauvegardé</span></span></a><a href="/preview/my-extension.html" class="zn-mega-item"><span class="zn-mega-icon" style="background:rgba(29,78,138,0.08)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1D4E8A" stroke-width="2"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/></svg></span><span><span class="zn-mega-label">Analyse documents</span><span class="zn-mega-sub">PDF, Kbis, Word</span></span></a><a href="/preview/my-extension.html" class="zn-mega-item"><span class="zn-mega-icon" style="background:rgba(16,185,129,0.08)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span><span><span class="zn-mega-label">Zéro rétention IA</span><span class="zn-mega-sub">Fournisseurs ne conservent rien</span></span></a></div><div><div class="zn-mega-title">Offres</div><a href="/preview/pricing.html" class="zn-mega-item"><span class="zn-mega-icon" style="background:rgba(16,185,129,0.08)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span><span><span class="zn-mega-label">Gratuit — 400 crédits</span><span class="zn-mega-sub">8 modèles IA offerts</span></span></a><a href="/preview/pricing.html" class="zn-mega-item"><span class="zn-mega-icon" style="background:rgba(201,168,76,0.1)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span><span><span class="zn-mega-label">Démarrage 5,90€</span><span class="zn-mega-sub">BYOK + Timer + Bonus</span></span></a><a href="/preview/pricing.html" class="zn-mega-item"><span class="zn-mega-icon" style="background:rgba(29,78,138,0.08)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1D4E8A" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span><span><span class="zn-mega-label">Pro 19,90€<span class="zn-mega-badge">Top</span></span><span class="zn-mega-sub">1 500 crédits + Drive Pro</span></span></a><a href="/preview/pricing.html" class="zn-mega-item"><span class="zn-mega-icon" style="background:rgba(199,55,47,0.08)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C7372F" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span><span><span class="zn-mega-label">Business 39,90€</span><span class="zn-mega-sub">5 000 crédits + Cloud</span></span></a><a href="/preview/pricing.html" class="zn-mega-item"><span class="zn-mega-icon" style="background:rgba(107,99,255,0.08)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6366F1" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></span><span><span class="zn-mega-label">Équipe 99,90€</span><span class="zn-mega-sub">15 000 crédits illimités</span></span></a></div></div>
+<div class="zn-mega-footer"><a href="/preview/my-extension.html">Découvrir</a><a href="/preview/pricing.html">Tarifs</a></div></div></div><div class="zn-mega"><a href="/preview/agent-ia.html" class="za">Agent IA <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></a>
+<div class="zn-mega-panel"><div class="zn-mega-grid"><div><div class="zn-mega-title">Fonctionnalités</div><a href="/preview/agent-ia.html" class="zn-mega-item"><span class="zn-mega-icon" style="background:rgba(29,78,138,0.08)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1D4E8A" stroke-width="2"><rect width="16" height="16" x="4" y="4" rx="2"/></svg></span><span><span class="zn-mega-label">Agent OpenClaw</span><span class="zn-mega-sub">IA autonome sur votre serveur</span></span></a><a href="/preview/agent-ia.html" class="zn-mega-item"><span class="zn-mega-icon" style="background:rgba(29,78,138,0.08)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1D4E8A" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></span><span><span class="zn-mega-label">Recherche web réelle</span><span class="zn-mega-sub">Navigue et collecte</span></span></a><a href="/preview/agent-ia.html" class="zn-mega-item"><span class="zn-mega-icon" style="background:rgba(16,185,129,0.08)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span><span><span class="zn-mega-label">Données chiffrées</span><span class="zn-mega-sub">Zéro rétention par les IA</span></span></a><a href="/preview/agent-ia.html" class="zn-mega-item"><span class="zn-mega-icon" style="background:rgba(29,78,138,0.08)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1D4E8A" stroke-width="2"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/></svg></span><span><span class="zn-mega-label">Rapports auto</span><span class="zn-mega-sub">Analyses prêtes à partager</span></span></a></div><div><div class="zn-mega-title">Offres</div><a href="/preview/pricing-agent-openclaw.html" class="zn-mega-item"><span class="zn-mega-icon" style="background:rgba(29,78,138,0.08)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1D4E8A" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span><span><span class="zn-mega-label">Pro 19,90€<span class="zn-mega-badge">Top</span></span><span class="zn-mega-sub">Serveur dédié + 500 crédits</span></span></a><a href="/preview/pricing-agent-openclaw.html" class="zn-mega-item"><span class="zn-mega-icon" style="background:rgba(199,55,47,0.08)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C7372F" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span><span><span class="zn-mega-label">Business 39,90€</span><span class="zn-mega-sub">Haute perf + SSH + BYOK</span></span></a><a href="/preview/pricing-agent-openclaw.html" class="zn-mega-item"><span class="zn-mega-icon" style="background:rgba(201,168,76,0.1)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span><span><span class="zn-mega-label">Premium 995€ unique</span><span class="zn-mega-sub">Installation par notre équipe</span></span></a></div></div>
+<div class="zn-mega-footer"><a href="/preview/agent-ia.html">Découvrir</a><a href="/preview/pricing-agent-openclaw.html">Tarifs</a></div></div></div><div class="zn-mega"><a href="/preview/chatbot-b2b-ia.html" class="za">Chatbot B2B <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></a>
+<div class="zn-mega-panel"><div class="zn-mega-grid"><div><div class="zn-mega-title">Fonctionnalités</div><a href="/preview/chatbot-b2b-ia.html" class="zn-mega-item"><span class="zn-mega-icon" style="background:rgba(29,78,138,0.08)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1D4E8A" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span><span><span class="zn-mega-label">Chatbot IA 24/7</span><span class="zn-mega-sub">Claude + GPT pour vos clients</span></span></a><a href="/preview/chatbot-b2b-ia.html" class="zn-mega-item"><span class="zn-mega-icon" style="background:rgba(29,78,138,0.08)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1D4E8A" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/></svg></span><span><span class="zn-mega-label">Marque blanche</span><span class="zn-mega-sub">Vos couleurs, logo, ton</span></span></a><a href="/preview/chatbot-b2b-ia.html" class="zn-mega-item"><span class="zn-mega-icon" style="background:rgba(29,78,138,0.08)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1D4E8A" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></span><span><span class="zn-mega-label">Capture de leads</span><span class="zn-mega-sub">Email, tel, CRM auto</span></span></a></div><div><div class="zn-mega-title">Offres</div><a href="/preview/pricing-chatbot-b2b-ia.html" class="zn-mega-item"><span class="zn-mega-icon" style="background:rgba(16,185,129,0.08)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span><span><span class="zn-mega-label">Starter 49€</span><span class="zn-mega-sub">1 chatbot, 1 000 conv.</span></span></a><a href="/preview/pricing-chatbot-b2b-ia.html" class="zn-mega-item"><span class="zn-mega-icon" style="background:rgba(29,78,138,0.08)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1D4E8A" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span><span><span class="zn-mega-label">Pro 99€<span class="zn-mega-badge">Top</span></span><span class="zn-mega-sub">3 chatbots, IA avancée</span></span></a><a href="/preview/pricing-chatbot-b2b-ia.html" class="zn-mega-item"><span class="zn-mega-icon" style="background:rgba(199,55,47,0.08)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C7372F" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span><span><span class="zn-mega-label">Complet 149€</span><span class="zn-mega-sub">Illimité + API</span></span></a><a href="/preview/pricing-chatbot-b2b-ia.html" class="zn-mega-item"><span class="zn-mega-icon" style="background:rgba(201,168,76,0.1)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span><span><span class="zn-mega-label">Licence à vie 890€</span><span class="zn-mega-sub">Paiement unique</span></span></a></div></div>
+<div class="zn-mega-footer"><a href="/preview/chatbot-b2b-ia.html">Découvrir</a><a href="/preview/pricing-chatbot-b2b-ia.html">Tarifs</a></div></div></div><div class="zn-mega"><a href="/preview/pricing.html" class="za">Tarifs <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></a>
+<div class="zn-mega-panel"><div class="zn-mega-grid"><div><div class="zn-mega-title">Tarifs</div><a href="/preview/pricing.html" class="zn-mega-item"><span class="zn-mega-icon" style="background:rgba(29,78,138,0.08)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1D4E8A" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span><span><span class="zn-mega-label">Assistant IA</span><span class="zn-mega-sub">Dès 5,90€/mois — 8 modèles IA</span></span></a><a href="/preview/pricing-agent-openclaw.html" class="zn-mega-item"><span class="zn-mega-icon" style="background:rgba(29,78,138,0.08)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1D4E8A" stroke-width="2"><rect width="16" height="16" x="4" y="4" rx="2"/></svg></span><span><span class="zn-mega-label">Agent Autonome</span><span class="zn-mega-sub">Dès 19,90€/mois — Serveur dédié</span></span></a><a href="/preview/pricing-chatbot-b2b-ia.html" class="zn-mega-item"><span class="zn-mega-icon" style="background:rgba(29,78,138,0.08)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1D4E8A" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span><span><span class="zn-mega-label">Chatbot B2B</span><span class="zn-mega-sub">Plan Équipe ou Licence à vie 890€</span></span></a></div><div><div class="zn-mega-title">Tarifs préférentiels</div><a href="/preview/pricing.html" class="zn-mega-item"><span class="zn-mega-icon" style="background:rgba(16,185,129,0.08)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 12 3 12 0v-5"/></svg></span><span><span class="zn-mega-label">Étudiant / Alternant</span><span class="zn-mega-sub">-35% sur tous les plans</span></span></a><a href="/preview/pricing.html" class="zn-mega-item"><span class="zn-mega-icon" style="background:rgba(199,55,47,0.08)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C7372F" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg></span><span><span class="zn-mega-label">Association</span><span class="zn-mega-sub">-30% sur justificatif RNA</span></span></a><a href="/preview/pricing.html" class="zn-mega-item"><span class="zn-mega-icon" style="background:rgba(201,168,76,0.1)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span><span><span class="zn-mega-label">Membre TheSustain</span><span class="zn-mega-sub">-30% automatique via SSO</span></span></a><a href="/preview/pricing.html" class="zn-mega-item"><span class="zn-mega-icon" style="background:rgba(16,185,129,0.08)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span><span><span class="zn-mega-label">Annuel</span><span class="zn-mega-sub">-20% sur tous les plans</span></span></a></div></div>
+<div class="zn-mega-footer"><a href="/preview/pricing.html">Tous les tarifs</a><a href="/preview/pricing-chatbot-b2b-ia.html">Chatbot B2B</a></div></div></div><a href="/preview/contact.html" class="za">Contact</a></div><div class="zr"><a href="https://app.zayado.net/login" target="_top" class="zo">Connexion</a><a href="https://app.zayado.net/register" target="_top" class="zb">Essai gratuit</a><button class="zm-toggle" onclick="document.getElementById('zm-overlay').classList.add('open');document.getElementById('zm-panel').classList.add('open')"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#374151" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg></button></div></div></nav>
+<div id="zm-overlay" onclick="this.classList.remove('open');document.getElementById('zm-panel').classList.remove('open')"></div>
+<div id="zm-panel"><div class="zm-hdr"><span style="color:#1D4E8A;font-weight:800;font-size:1.125rem;letter-spacing:0.15em">ZAYADO<span style="color:#E5D5A2">.</span></span><button class="zm-close" onclick="document.getElementById('zm-overlay').classList.remove('open');document.getElementById('zm-panel').classList.remove('open')"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="2"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button></div><div class="zm-links"><a href="/preview/assistant-ia.html" class="zm-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D4E8A" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> Assistant IA</a><a href="/preview/agent-ia.html" class="zm-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D4E8A" stroke-width="2"><rect width="16" height="16" x="4" y="4" rx="2"/></svg> Agent IA</a><a href="/preview/chatbot-b2b-ia.html" class="zm-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D4E8A" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> Chatbot B2B</a><div class="zm-sep"></div><div class="zm-sub">Tarifs</div><a href="/preview/pricing.html" class="zm-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> Assistant IA</a><a href="/preview/pricing-agent-openclaw.html" class="zm-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> Agent OpenClaw</a><a href="/preview/pricing-chatbot-b2b-ia.html" class="zm-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> Chatbot B2B</a><div class="zm-sep"></div><a href="/preview/contact.html" class="zm-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg> Contact</a></div><div class="zm-footer"><a href="https://app.zayado.net/register" target="_top" style="display:block;width:100%;text-align:center;padding:0.75rem;font-size:0.875rem;font-weight:700;background:#C7372F;color:white;border-radius:0.75rem;text-decoration:none">Essai gratuit — 200 crédits</a><a href="https://app.zayado.net/login" target="_top" style="display:block;width:100%;text-align:center;padding:0.75rem;font-size:0.875rem;font-weight:700;border:1px solid #1D4E8A;color:#1D4E8A;border-radius:0.75rem;text-decoration:none;background:transparent">Connexion</a></div></div>
+<div class="zp" data-testid="simulateur-statut-page" data-zayado-source="simulateur-statut" data-zayado-tool="Simulateur de Statut Juridique" style="font-family:'DM Sans',sans-serif">
+
+  <!-- Hero -->
+  <section style="background:linear-gradient(180deg,#0F1B2D 0%,#1A3671 100%);padding:3rem 0 6rem;text-align:center">
+    <div style="display:inline-flex;align-items:center;gap:0.5rem;background:rgba(229,213,162,0.2);color:#E5D5A2;font-size:0.75rem;font-weight:700;padding:0.375rem 1rem;border-radius:9999px;margin-bottom:1.5rem">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg>
+      100% Gratuit
+    </div>
+    <h1 style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.5rem);font-weight:700;color:white;margin-bottom:0.75rem">Trouvez Votre <span style="color:#E5D5A2">Statut Juridique</span> Idéal</h1>
+    <p style="color:rgba(255,255,255,0.7);max-width:550px;margin:0 auto;font-size:0.9375rem;line-height:1.7">Micro-entreprise, SASU, EURL, SAS... Répondez à 7 questions et recevez un rapport détaillé avec les vrais montants de charges, protection sociale et mutuelle santé.</p>
+  </section>
+
+  <!-- Wizard Card -->
+  <section style="margin-top:-4rem;padding:0 1.5rem 3rem">
+    <div style="max-width:600px;margin:0 auto;background:white;border-radius:1rem;box-shadow:0 10px 40px rgba(0,0,0,0.12);padding:2rem" id="wizard-card" data-testid="wizard-card">
+      <p style="text-align:right;font-size:0.75rem;color:#9ca3af;margin-bottom:1rem" id="wizard-step-label">Question 1 sur 7</p>
+      <div id="wizard-content">
+        <!-- Step 1 -->
+        <div data-step="1">
+          <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:1.25rem"><span style="width:1.75rem;height:1.75rem;border-radius:50%;background:#1A3671;color:white;font-size:0.75rem;font-weight:700;display:flex;align-items:center;justify-content:center">1</span><h2 style="font-size:1.125rem;font-weight:700;color:#0F1B2D">Quelle est votre activité principale ?</h2></div>
+          <div style="display:flex;flex-direction:column;gap:0.75rem" id="step1-options">
+            <label class="wiz-option" data-value="service" onclick="selectOption(this,1)" style="display:flex;align-items:center;gap:1rem;padding:1rem;border:2px solid #e5e7eb;border-radius:0.75rem;cursor:pointer;transition:all 0.2s"><div style="width:2.5rem;height:2.5rem;border-radius:0.5rem;background:rgba(26,54,113,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1A3671" stroke-width="2"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="8" y1="21" y2="17"/><line x1="16" x2="16" y1="21" y2="17"/></svg></div><div><div style="font-weight:700;color:#0F1B2D;font-size:0.875rem">Services / Conseil</div><div style="font-size:0.75rem;color:#6b7280">Consulting, freelance, prestations intellectuelles</div></div></label>
+            <label class="wiz-option" data-value="commerce" onclick="selectOption(this,1)" style="display:flex;align-items:center;gap:1rem;padding:1rem;border:2px solid #e5e7eb;border-radius:0.75rem;cursor:pointer;transition:all 0.2s"><div style="width:2.5rem;height:2.5rem;border-radius:0.5rem;background:rgba(26,54,113,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1A3671" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div><div><div style="font-weight:700;color:#0F1B2D;font-size:0.875rem">Commerce / Vente</div><div style="font-size:0.75rem;color:#6b7280">E-commerce, boutique, négoce</div></div></label>
+            <label class="wiz-option" data-value="artisanat" onclick="selectOption(this,1)" style="display:flex;align-items:center;gap:1rem;padding:1rem;border:2px solid #e5e7eb;border-radius:0.75rem;cursor:pointer;transition:all 0.2s"><div style="width:2.5rem;height:2.5rem;border-radius:0.5rem;background:rgba(26,54,113,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1A3671" stroke-width="2"><path d="m14.5 12.5-8 8a2.119 2.119 0 1 1-3-3l8-8"/><path d="m16 16 6-6"/><path d="m8 8 6-6"/><path d="m9 7 8 8"/></svg></div><div><div style="font-weight:700;color:#0F1B2D;font-size:0.875rem">Artisanat</div><div style="font-size:0.75rem;color:#6b7280">Métiers manuels, fabrication</div></div></label>
+            <label class="wiz-option" data-value="liberal" onclick="selectOption(this,1)" style="display:flex;align-items:center;gap:1rem;padding:1rem;border:2px solid #e5e7eb;border-radius:0.75rem;cursor:pointer;transition:all 0.2s"><div style="width:2.5rem;height:2.5rem;border-radius:0.5rem;background:rgba(26,54,113,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1A3671" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div><div style="font-weight:700;color:#0F1B2D;font-size:0.875rem">Profession libérale</div><div style="font-size:0.75rem;color:#6b7280">Médical, juridique, technique</div></div></label>
+          </div>
+        </div>
+      </div>
+      <div style="text-align:right;margin-top:1.25rem"><button id="wizard-next" onclick="wizardNext()" style="background:#d1d5db;color:white;padding:0.625rem 1.5rem;border-radius:0.75rem;border:none;font-weight:600;font-size:0.875rem;cursor:pointer;display:inline-flex;align-items:center;gap:0.5rem" disabled>Suivant <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button></div>
+    </div>
+  </section>
+
+  <!-- Pourquoi Zayado -->
+  <section style="padding:3.5rem 0;background:white">
+    <div class="container" style="max-width:800px;text-align:center">
+      <p style="color:#E5D5A2;font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.15em;margin-bottom:0.5rem" class="reveal">POURQUOI ZAYADO</p>
+      <h2 style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:#1A3671;margin-bottom:2.5rem" class="reveal">Créez votre entreprise en toute sérénité</h2>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;max-width:700px;margin:0 auto">
+        <div class="reveal" style="text-align:center"><div style="width:3.5rem;height:3.5rem;border-radius:50%;background:#1A3671;display:flex;align-items:center;justify-content:center;margin:0 auto 0.75rem"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><h3 style="font-weight:700;color:#1A3671;font-size:0.875rem;margin-bottom:0.375rem">Rapide</h3><p style="font-size:0.75rem;color:#6b7280;line-height:1.5">Création en 48h, toutes les formalités gérées pour vous.</p></div>
+        <div class="reveal" style="text-align:center"><div style="width:3.5rem;height:3.5rem;border-radius:50%;background:#1A3671;display:flex;align-items:center;justify-content:center;margin:0 auto 0.75rem"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><line x1="12" x2="12" y1="2" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><h3 style="font-weight:700;color:#1A3671;font-size:0.875rem;margin-bottom:0.375rem">Transparent</h3><p style="font-size:0.75rem;color:#6b7280;line-height:1.5">Tarifs clairs, pas de frais cachés. À partir de 39,98€.</p></div>
+        <div class="reveal" style="text-align:center"><div style="width:3.5rem;height:3.5rem;border-radius:50%;background:#1A3671;display:flex;align-items:center;justify-content:center;margin:0 auto 0.75rem"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg></div><h3 style="font-weight:700;color:#1A3671;font-size:0.875rem;margin-bottom:0.375rem">Accompagné</h3><p style="font-size:0.75rem;color:#6b7280;line-height:1.5">Un expert dédié répond à toutes vos questions.</p></div>
+        <div class="reveal" style="text-align:center"><div style="width:3.5rem;height:3.5rem;border-radius:50%;background:#1A3671;display:flex;align-items:center;justify-content:center;margin:0 auto 0.75rem"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></div><h3 style="font-weight:700;color:#1A3671;font-size:0.875rem;margin-bottom:0.375rem">Intelligent</h3><p style="font-size:0.75rem;color:#6b7280;line-height:1.5">Finance GPT analyse vos finances 24/7.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section style="padding:3.5rem 0;background:white">
+    <div class="container" style="max-width:700px;text-align:center">
+      <p style="color:#E5D5A2;font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.15em;margin-bottom:0.5rem" class="reveal">FAQ</p>
+      <h2 style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:#1A3671;margin-bottom:2rem" class="reveal">Questions fréquentes</h2>
+      <div class="faq-item reveal"><div class="faq-q">Quelle est la différence entre micro-entreprise et SASU ?<span class="faq-arrow" style="color:#E5D5A2">&#9660;</span></div><div class="faq-a">La micro-entreprise est simple à créer avec des charges proportionnelles au CA (22% BNC). La SASU offre plus de flexibilité (dividendes, protection sociale assimilé salarié) mais avec des charges plus élevées (~65%).</div></div>
+      <div class="faq-item reveal"><div class="faq-q">Puis-je changer de statut plus tard ?<span class="faq-arrow" style="color:#E5D5A2">&#9660;</span></div><div class="faq-a">Oui, vous pouvez évoluer d'une micro-entreprise vers une société (SASU, EURL). Des frais de transformation s'appliquent. Nous vous accompagnons dans cette transition.</div></div>
+      <div class="faq-item reveal"><div class="faq-q">Combien coûte la création d'une SASU ou EURL ?<span class="faq-arrow" style="color:#E5D5A2">&#9660;</span></div><div class="faq-a">Les frais de greffe sont d'environ 230€ (fixés par l'État). Notre accompagnement démarre à 229€ pour le Pack Société. Micro-entreprise : à partir de 39,98€.</div></div>
+      <div class="faq-item reveal"><div class="faq-q">Qu'est-ce que Finance GPT ?<span class="faq-arrow" style="color:#E5D5A2">&#9660;</span></div><div class="faq-a">Finance GPT est notre IA financière intégrée qui analyse vos données en temps réel, calcule vos ratios et vous donne des conseils personnalisés 24/7.</div></div>
+      <div class="faq-item reveal"><div class="faq-q">Comment fonctionne l'accompagnement Zayado ?<span class="faq-arrow" style="color:#E5D5A2">&#9660;</span></div><div class="faq-a">Un expert dédié vous guide de A à Z : choix du statut, rédaction des statuts, dépôt au greffe, obtention du Kbis. Tout est géré pour vous.</div></div>
+    </div>
+  </section>
+
+  <!-- CTA Footer -->
+  <section style="background:#1A3671;padding:3rem 0;text-align:center">
+    <div class="container" style="max-width:600px">
+      <h2 style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:white;margin-bottom:0.75rem">Prêt à vous lancer ?</h2>
+      <p style="color:rgba(255,255,255,0.7);font-size:0.875rem;margin-bottom:2rem;line-height:1.7">Rejoignez les 500+ entrepreneurs qui ont créé leur entreprise avec Zayado. Accompagnement personnalisé et outils intelligents inclus.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:0.75rem;justify-content:center">
+        <a href="/preview/creation-entreprise.html" class="btn btn-red btn-lg" style="display:inline-flex;align-items:center;gap:0.5rem"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09Z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2Z"/></svg> Créer mon entreprise</a>
+        <a href="/preview/tarifs.html" class="btn btn-outline btn-lg" style="border-color:rgba(255,255,255,0.3);color:white;display:inline-flex;align-items:center;gap:0.5rem"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="8" y1="21" y2="17"/><line x1="16" x2="16" y1="21" y2="17"/></svg> Découvrir nos outils gratuits</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <div style="background:#0F1B2D;padding:1rem 0;text-align:center;font-size:0.75rem;color:rgba(255,255,255,0.5)">
+    &copy; 2026 Zayado. Tous droits réservés. | <a href="#" style="color:rgba(255,255,255,0.5)">Mentions légales</a> | <a href="#" style="color:rgba(255,255,255,0.5)">Politique de confidentialité</a>
+  </div>
+
+  <!-- Modal Rapport (inside .zp for CSS) -->
+  <div class="modal-overlay" id="rapport-modal" data-testid="rapport-modal">
+    <div class="modal-box" style="max-width:480px">
+      <div class="modal-header" style="background:linear-gradient(135deg,#0F1B2D,#1A3671);border-radius:0.75rem 0.75rem 0 0;padding:1.25rem">
+        <h3 style="font-size:1rem;color:white;margin:0">Recevez votre rapport détaillé</h3>
+        <p style="font-size:0.75rem;color:rgba(255,255,255,0.6);margin-top:0.25rem">Analyse complète + recommandations par email</p>
+        <button class="modal-close" onclick="document.getElementById('rapport-modal').classList.remove('active')" style="color:white;background:none;border:none;font-size:1.5rem;cursor:pointer;position:absolute;top:0.75rem;right:0.75rem">&times;</button>
+      </div>
+      <div class="modal-body" style="padding:1.5rem">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:0.75rem">
+          <div><label style="font-size:0.75rem;font-weight:600;color:#C7372F;display:block;margin-bottom:0.25rem">Prénom *</label><input type="text" id="ml-prenom" placeholder="Votre prénom" style="width:100%;padding:0.625rem 0.75rem;border:1.5px solid #e5e7eb;border-radius:0.5rem;font-size:0.875rem;outline:none;font-family:DM Sans,sans-serif" /></div>
+          <div><label style="font-size:0.75rem;font-weight:600;color:#C7372F;display:block;margin-bottom:0.25rem">Nom *</label><input type="text" id="ml-nom" placeholder="Votre nom" style="width:100%;padding:0.625rem 0.75rem;border:1.5px solid #e5e7eb;border-radius:0.5rem;font-size:0.875rem;outline:none;font-family:DM Sans,sans-serif" /></div>
+        </div>
+        <div style="margin-bottom:0.75rem"><label style="font-size:0.75rem;font-weight:600;color:#C7372F;display:block;margin-bottom:0.25rem">Email *</label><input type="email" id="ml-email" placeholder="votre@email.com" style="width:100%;padding:0.625rem 0.75rem;border:1.5px solid #e5e7eb;border-radius:0.5rem;font-size:0.875rem;outline:none;font-family:DM Sans,sans-serif" /></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:0.75rem">
+          <div><label style="font-size:0.75rem;font-weight:600;color:#374151;display:block;margin-bottom:0.25rem">Téléphone</label><input type="tel" id="ml-tel" placeholder="06 12 34 56 78" style="width:100%;padding:0.625rem 0.75rem;border:1.5px solid #e5e7eb;border-radius:0.5rem;font-size:0.875rem;outline:none;font-family:DM Sans,sans-serif" /></div>
+          <div><label style="font-size:0.75rem;font-weight:600;color:#374151;display:block;margin-bottom:0.25rem">Entreprise</label><input type="text" id="ml-company" placeholder="Votre société" style="width:100%;padding:0.625rem 0.75rem;border:1.5px solid #e5e7eb;border-radius:0.5rem;font-size:0.875rem;outline:none;font-family:DM Sans,sans-serif" /></div>
+        </div>
+        <button onclick="envoyerRapportModal()" id="ml-submit-btn" style="width:100%;padding:0.75rem;background:#C7372F;color:white;border:none;border-radius:0.5rem;font-weight:700;font-size:0.875rem;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:0.5rem" data-testid="modal-submit"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg> Recevoir mon rapport gratuit</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<style>
+.wiz-option:hover { border-color: #E5D5A2 !important; background: #FFFDF5; }
+.wiz-option.selected { border-color: #E5D5A2 !important; background: #FFFDF5; }
+</style>
+
+<script>
+(function(){
+  var answers = {};
+  var currentStep = 1;
+  var totalSteps = 7;
+  var questions = [
+    {q:"Quelle est votre activité principale ?", opts:[
+      {v:"service",t:"Services / Conseil",d:"Consulting, freelance, prestations intellectuelles"},
+      {v:"commerce",t:"Commerce / Vente",d:"E-commerce, boutique, négoce"},
+      {v:"artisanat",t:"Artisanat",d:"Métiers manuels, fabrication"},
+      {v:"liberal",t:"Profession libérale",d:"Médical, juridique, technique"}
+    ]},
+    {q:"Vous lancez votre activité :", opts:[
+      {v:"seul",t:"Seul(e)",d:"Aucun associé"},
+      {v:"couple",t:"Avec mon conjoint(e)",d:"En couple, conjoint associé ou salarié"},
+      {v:"associes",t:"Avec des associés",d:"2 personnes ou plus"}
+    ]},
+    {q:"Quel est votre CA annuel prévu ?", opts:[
+      {v:"moins15k",t:"Moins de 15 000€",d:"Début d'activité, temps partiel"},
+      {v:"15k-40k",t:"15 000€ – 40 000€",d:"Activité principale modeste"},
+      {v:"40k-77k",t:"40 000€ – 77 700€",d:"Plafond micro-entreprise (services)"},
+      {v:"plus77k",t:"Plus de 77 700€",d:"Société obligatoire"}
+    ]},
+    {q:"Êtes-vous actuellement indemnisé par France Travail (ARE) ?", opts:[
+      {v:"oui_are",t:"Oui, je touche le chômage",d:"Maintien ARE possible sous conditions"},
+      {v:"non_are",t:"Non, je n'ai pas d'ARE",d:"Pas de contrainte ARE"}
+    ]},
+    {q:"Quelle protection sociale est prioritaire pour vous ?", opts:[
+      {v:"minimum",t:"Coût minimum (TNS / SSI)",d:"~22% de charges · CSS possible (0-16€/mois)"},
+      {v:"maximum",t:"Protection maximale (assimilé salarié)",d:"~65% de charges · Régime général · Retraite cadre"},
+      {v:"conjoint",t:"Mon conjoint me couvre déjà",d:"Mutuelle via l'employeur du conjoint"}
+    ]},
+    {q:"Votre situation personnelle :", opts:[
+      {v:"demandeur",t:"Demandeur d'emploi / RSA",d:"Éligible CSS gratuite (revenus < 8 951€/an)"},
+      {v:"salarie_avant",t:"Ex-salarié en reconversion",d:"Droits portabilité mutuelle 12 mois"},
+      {v:"independant",t:"Déjà indépendant",d:"Éligible CSS si revenus < 12 084€/an (16€/mois)"},
+      {v:"autre",t:"Autre situation",d:"Étudiant, retraité, etc."}
+    ]},
+    {q:"Quel est votre objectif principal ?", opts:[
+      {v:"patrimoine",t:"Protéger mon patrimoine",d:"Séparation biens pro / perso"},
+      {v:"charges_mini",t:"Minimiser les charges",d:"Maximiser le revenu net"},
+      {v:"croissance",t:"Croître et embaucher",d:"Levée de fonds, salariés, investisseurs"},
+      {v:"simplicite",t:"Maximum de simplicité",d:"Pas de comptabilité complexe"}
+    ]}
+  ];
+
+  window.selectOption = function(el, step) {
+    var siblings = el.parentElement.querySelectorAll('.wiz-option');
+    siblings.forEach(function(s) { s.classList.remove('selected'); });
+    el.classList.add('selected');
+    answers[step] = el.getAttribute('data-value');
+    document.getElementById('wizard-next').disabled = false;
+    document.getElementById('wizard-next').style.background = '#C7372F';
+  };
+
+  window.wizardNext = function() {
+    if (!answers[currentStep]) return;
+    currentStep++;
+    if (currentStep > totalSteps) { showResult(); return; }
+    renderStep(currentStep);
+  };
+
+  function renderStep(step) {
+    var q = questions[step-1];
+    document.getElementById('wizard-step-label').textContent = 'Question ' + step + ' sur ' + totalSteps;
+    var html = '<div data-step="' + step + '"><div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:1.25rem"><span style="width:1.75rem;height:1.75rem;border-radius:50%;background:#1A3671;color:white;font-size:0.75rem;font-weight:700;display:flex;align-items:center;justify-content:center">' + step + '</span><h2 style="font-size:1.125rem;font-weight:700;color:#0F1B2D">' + q.q + '</h2></div><div style="display:flex;flex-direction:column;gap:0.75rem">';
+    q.opts.forEach(function(o) {
+      html += '<label class="wiz-option" data-value="' + o.v + '" onclick="selectOption(this,' + step + ')" style="display:flex;align-items:center;gap:1rem;padding:1rem;border:2px solid #e5e7eb;border-radius:0.75rem;cursor:pointer;transition:all 0.2s"><div style="width:2.5rem;height:2.5rem;border-radius:0.5rem;background:rgba(26,54,113,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1A3671" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg></div><div><div style="font-weight:700;color:#0F1B2D;font-size:0.875rem">' + o.t + '</div><div style="font-size:0.75rem;color:#6b7280">' + o.d + '</div></div></label>';
+    });
+    html += '</div></div>';
+    document.getElementById('wizard-content').innerHTML = html;
+    document.getElementById('wizard-next').disabled = true;
+    document.getElementById('wizard-next').style.background = '#d1d5db';
+  }
+
+  function getChargesInfo(statut, ca) {
+    var caNum = ca === 'moins15k' ? 12000 : ca === '15k-40k' ? 30000 : ca === '40k-77k' ? 60000 : 100000;
+    if (statut === 'Micro-entreprise') {
+      var taux = 0.222;
+      var charges = Math.round(caNum * taux);
+      return { charges: charges, tauxLabel: '22,2%', net: caNum - charges, regime: 'SSI (Sécurité Sociale des Indépendants)', retraite: 'Retraite de base + complémentaire TNS' };
+    } else if (statut === 'SASU' || statut === 'SAS') {
+      var salaire = Math.round(caNum * 0.5);
+      var charges = Math.round(salaire * 0.65);
+      return { charges: charges, tauxLabel: '~65% du salaire brut', net: caNum - salaire - charges, regime: 'Régime général (assimilé salarié)', retraite: 'Retraite cadre AGIRC-ARRCO' };
+    } else {
+      var remuneration = Math.round(caNum * 0.6);
+      var charges = Math.round(remuneration * 0.45);
+      return { charges: charges, tauxLabel: '~45% de la rémunération', net: caNum - charges, regime: 'SSI (TNS)', retraite: 'Retraite de base TNS + complémentaire' };
+    }
+  }
+
+  function getCSSInfo(situation, ca) {
+    var revenu = ca === 'moins15k' ? 12000 : ca === '15k-40k' ? 30000 : ca === '40k-77k' ? 60000 : 100000;
+    // Plafonds CSS 2026 (source: ameli.fr) — 1 personne métropole
+    if (situation === 'demandeur' || revenu < 8951) return { eligible: true, cout: 'Gratuite (0€/mois)', detail: 'Revenus < 8 951€/an → CSS sans participation financière. Couverture complète.' };
+    if (revenu < 12084) return { eligible: true, cout: '~16€/mois', detail: 'Revenus entre 8 951€ et 12 084€/an → CSS avec participation (~1€/jour). Couverture complète.' };
+    if (revenu < 20000) return { eligible: false, cout: '35-60€/mois', detail: 'Revenus entre 12 084€ et 20 000€/an → Mutuelle privée recommandée. Déductible loi Madelin pour les TNS.' };
+    return { eligible: false, cout: '60-130€/mois', detail: 'Revenus > 20 000€/an → Mutuelle privée recommandée (60-130€/mois selon garanties). Déductible loi Madelin pour les TNS.' };
+  }
+
+  function getSalarieAccordion(indepInfo, cssInfo, statut, caTranche) {
+    var caNum = caTranche === 'moins15k' ? 12000 : caTranche === '15k-40k' ? 30000 : caTranche === '40k-77k' ? 60000 : 100000;
+    // Calcul équivalent salarié : si l'indépendant gagnait le même revenu net en tant que salarié
+    // Salaire brut = revenu net / 0.78 (charges salariales ~22%)
+    var salaireBrut = Math.round(indepInfo.net / 0.78);
+    var chargesSalariales = Math.round(salaireBrut * 0.22);
+    var salaireNet = salaireBrut - chargesSalariales;
+    // Coût total employeur = brut + charges patronales (~42%)
+    var chargesPatronales = Math.round(salaireBrut * 0.42);
+    var coutEmployeur = salaireBrut + chargesPatronales;
+    // Mutuelle salarié : employeur prend en charge 50% minimum
+    var mutuelleSalarie = '25-40€/mois (50% pris en charge par l\'employeur)';
+    // Congés payés
+    var congesPayes = '25 jours/an + RTT selon convention';
+    // ARE
+    var areInfo = 'Oui — En cas de licenciement ou rupture conventionnelle';
+    var areIndep = statut === 'SASU' || statut === 'SAS' ? 'Oui si pas de rémunération (maintien 100% ARE)' : 'Non — Les TNS ne cotisent pas au chômage (sauf assurance volontaire ~150€/mois)';
+
+    var fmt = function(n) { return n.toLocaleString('fr-FR'); };
+
+    // Verdict
+    var gainNet = indepInfo.net - salaireNet;
+    var verdictColor = gainNet > 0 ? '#16a34a' : '#C7372F';
+    var verdictText = gainNet > 0
+      ? 'En ' + statut + ', vous gagnez <strong>' + fmt(Math.abs(gainNet)) + '€/an de plus</strong> qu\'un salarié au même niveau, mais sans filet de sécurité chômage' + (statut !== 'SASU' ? ' ni retraite cadre.' : '.')
+      : 'En tant que salarié, vous gagneriez <strong>' + fmt(Math.abs(gainNet)) + '€/an de plus</strong> avec la sécurité de l\'emploi, la mutuelle et les congés payés.';
+
+    return '<details style="border:2px solid #1D4E8A;border-radius:0.75rem;margin-bottom:1rem;overflow:hidden" data-testid="accordion-salarie">'
+    + '<summary style="padding:0.875rem 1rem;background:linear-gradient(135deg,#0F1B2D,#1A3671);color:white;cursor:pointer;font-size:0.875rem;font-weight:700;display:flex;align-items:center;gap:0.5rem;list-style:none">'
+    + '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>'
+    + 'Et si j\'etais salarie ? Comparatif complet'
+    + '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-left:auto;transition:transform 0.3s"><path d="m6 9 6 6 6-6"/></svg>'
+    + '</summary>'
+    + '<div style="padding:1rem;background:#f8fafc">'
+    // Intro
+    + '<p style="font-size:0.8rem;color:#374151;margin-bottom:1rem;line-height:1.6">Voici ce que vous gagneriez et perdriez en etant <strong>salarie</strong> au lieu de creer votre entreprise en <strong>' + statut + '</strong>, pour un revenu net equivalent de <strong>' + fmt(indepInfo.net) + '€/an</strong>.</p>'
+    // Tableau comparatif
+    + '<div style="background:white;border-radius:0.75rem;padding:0.75rem;margin-bottom:1rem;border:1px solid #e5e7eb">'
+    + '<table style="width:100%;border-collapse:collapse;font-size:0.78rem">'
+    + '<tr><th style="text-align:left;padding:0.5rem 0;color:#9ca3af;font-size:0.68rem"></th><th style="text-align:center;padding:0.5rem;background:#1D4E8A;color:white;border-radius:0.375rem 0 0 0;font-size:0.72rem">Entrepreneur (' + statut + ')</th><th style="text-align:center;padding:0.5rem;background:#6366F1;color:white;border-radius:0 0.375rem 0 0;font-size:0.72rem">Salarie CDI</th></tr>'
+    + '<tr style="border-bottom:1px solid #e5e7eb"><td style="padding:0.5rem 0;color:#374151;font-weight:600">Revenu net/an</td><td style="text-align:center;padding:0.5rem;font-weight:700;color:#16a34a">' + fmt(indepInfo.net) + '€</td><td style="text-align:center;padding:0.5rem;font-weight:700;color:#6366F1">' + fmt(salaireNet) + '€</td></tr>'
+    + '<tr style="border-bottom:1px solid #e5e7eb"><td style="padding:0.5rem 0;color:#374151;font-weight:600">Cout total/an</td><td style="text-align:center;padding:0.5rem;color:#C7372F;font-weight:600">' + fmt(indepInfo.charges) + '€ charges</td><td style="text-align:center;padding:0.5rem;color:#6366F1">' + fmt(coutEmployeur) + '€ cout employeur</td></tr>'
+    + '<tr style="border-bottom:1px solid #e5e7eb"><td style="padding:0.5rem 0;color:#374151;font-weight:600">Mutuelle sante</td><td style="text-align:center;padding:0.5rem;font-size:0.72rem;color:#0F1B2D">' + cssInfo.cout + '</td><td style="text-align:center;padding:0.5rem;font-size:0.72rem;color:#6366F1">' + mutuelleSalarie + '</td></tr>'
+    + '<tr style="border-bottom:1px solid #e5e7eb"><td style="padding:0.5rem 0;color:#374151;font-weight:600">Conges payes</td><td style="text-align:center;padding:0.5rem;font-size:0.72rem;color:#9ca3af">Aucun (vous gerez)</td><td style="text-align:center;padding:0.5rem;font-size:0.72rem;color:#6366F1">' + congesPayes + '</td></tr>'
+    + '<tr style="border-bottom:1px solid #e5e7eb"><td style="padding:0.5rem 0;color:#374151;font-weight:600">Chomage (ARE)</td><td style="text-align:center;padding:0.5rem;font-size:0.72rem;color:#0F1B2D">' + areIndep + '</td><td style="text-align:center;padding:0.5rem;font-size:0.72rem;color:#6366F1">' + areInfo + '</td></tr>'
+    + '<tr><td style="padding:0.5rem 0;color:#374151;font-weight:600">Flexibilite</td><td style="text-align:center;padding:0.5rem;font-size:0.72rem;color:#16a34a;font-weight:600">Totale — horaires, clients, tarifs</td><td style="text-align:center;padding:0.5rem;font-size:0.72rem;color:#9ca3af">Limitee — contrat, horaires fixes</td></tr>'
+    + '</table></div>'
+    // Verdict
+    + '<div style="background:' + (gainNet > 0 ? '#F0FDF4' : '#FEF3C7') + ';border:1px solid ' + (gainNet > 0 ? '#BBF7D0' : '#FDE68A') + ';border-radius:0.5rem;padding:0.75rem;margin-bottom:0.75rem">'
+    + '<div style="font-size:0.8rem;font-weight:700;color:' + verdictColor + ';margin-bottom:0.25rem">' + (gainNet > 0 ? 'Avantage entrepreneur' : 'Avantage salarie') + '</div>'
+    + '<p style="font-size:0.75rem;color:#374151;line-height:1.5">' + verdictText + '</p>'
+    + '</div>'
+    // Conseil loi Madelin
+    + '<div style="background:#EEF2FF;border:1px solid #C7D2FE;border-radius:0.5rem;padding:0.75rem">'
+    + '<p style="font-size:0.72rem;font-weight:700;color:#1D4E8A;margin-bottom:0.25rem">Conseil : Loi Madelin</p>'
+    + '<p style="font-size:0.7rem;color:#4b5563;line-height:1.5">En tant que TNS (EURL, micro), vos cotisations mutuelle et prevoyance sont deductibles de votre revenu imposable grace a la loi Madelin. Cela peut representer une economie de 500 a 2 000€/an d\'impots selon votre tranche.</p>'
+    + '</div>'
+    + '</div></details>';
+  }
+
+  function showResult() {
+    var rec = 'Micro-entreprise';
+    var alt = 'EURL';
+    var raison = '';
+
+    // Logic
+    if (answers[2] === 'associes' || answers[2] === 'couple') {
+      if (answers[5] === 'maximum') { rec = 'SAS'; alt = 'SARL'; raison = 'À plusieurs + protection maximale'; }
+      else { rec = 'SARL'; alt = 'SAS'; raison = 'À plusieurs + charges réduites'; }
+    } else if (answers[3] === 'plus77k') {
+      if (answers[5] === 'maximum' || answers[4] === 'oui_are') { rec = 'SASU'; alt = 'EURL'; raison = 'CA élevé + maintien ARE / protection salarié'; }
+      else { rec = 'EURL'; alt = 'SASU'; raison = 'CA élevé + charges TNS optimisées'; }
+    } else if (answers[7] === 'croissance') {
+      rec = 'SASU'; alt = 'SAS'; raison = 'Objectif croissance et investisseurs';
+    } else if (answers[4] === 'oui_are') {
+      rec = 'SASU'; alt = 'Micro-entreprise'; raison = 'Maintien ARE optimal en SASU (pas de rémunération = 100% ARE)';
+    } else if (answers[7] === 'simplicite' && (answers[3] === 'moins15k' || answers[3] === '15k-40k')) {
+      rec = 'Micro-entreprise'; alt = 'EURL'; raison = 'Simplicité maximale + CA compatible';
+    } else if (answers[5] === 'maximum') {
+      rec = 'SASU'; alt = 'EURL'; raison = 'Protection sociale maximale (régime général)';
+    } else if (answers[7] === 'charges_mini') {
+      if (answers[3] === '40k-77k' || answers[3] === '15k-40k') { rec = 'Micro-entreprise'; alt = 'EURL'; raison = 'Charges minimales en micro (22,2%)'; }
+      else { rec = 'EURL'; alt = 'Micro-entreprise'; raison = 'Charges TNS optimisées (~45%)'; }
+    } else if (answers[7] === 'patrimoine') {
+      rec = 'SASU'; alt = 'EURL'; raison = 'Responsabilité limitée + protection patrimoine';
+    }
+
+    var chargesInfo = getChargesInfo(rec, answers[3]);
+    var cssInfo = getCSSInfo(answers[6], answers[3]);
+    var chargesAlt = getChargesInfo(alt, answers[3]);
+    var caLabel = answers[3] === 'moins15k' ? '12 000€' : answers[3] === '15k-40k' ? '30 000€' : answers[3] === '40k-77k' ? '60 000€' : '100 000€';
+
+    window._currentResults = {
+      statut: rec, alternative: alt, raison: raison, ca_prevu: caLabel,
+      charges: chargesInfo.charges, charges_alt: chargesAlt.charges,
+      taux: chargesInfo.tauxLabel, taux_alt: chargesAlt.tauxLabel,
+      net: chargesInfo.net, net_alt: chargesAlt.net,
+      regime: chargesInfo.regime, regime_alt: chargesAlt.regime,
+      css: cssInfo.cout, css_detail: cssInfo.detail, css_eligible: cssInfo.eligible
+    };
+
+    document.getElementById('wizard-step-label').textContent = 'Votre recommandation';
+    document.getElementById('wizard-content').innerHTML = '<div style="text-align:center;padding:0.5rem 0">'
+    + '<div style="width:4rem;height:4rem;border-radius:50%;background:#1A3671;color:white;display:flex;align-items:center;justify-content:center;margin:0 auto 0.75rem"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg></div>'
+    + '<h2 style="font-size:1.25rem;font-weight:700;color:#1A3671;margin-bottom:0.25rem">Statut recommandé</h2>'
+    + '<div style="font-size:1.75rem;font-weight:900;color:#C7372F;margin-bottom:0.25rem">' + rec + '</div>'
+    + '<p style="font-size:0.8rem;color:#6b7280;margin-bottom:1rem">' + raison + '</p>'
+    + '</div>'
+    // Comparison table
+    + '<div style="background:#f9f7f2;border-radius:0.75rem;padding:1rem;margin-bottom:1rem">'
+    + '<table style="width:100%;border-collapse:collapse;font-size:0.8rem">'
+    + '<tr><th style="text-align:left;padding:0.5rem 0;color:#9ca3af;font-size:0.7rem"></th><th style="text-align:center;padding:0.5rem;background:#1A3671;color:white;border-radius:0.5rem 0 0 0;font-size:0.75rem">' + rec + '</th><th style="text-align:center;padding:0.5rem;color:#6b7280;font-size:0.75rem">' + alt + '</th></tr>'
+    + '<tr style="border-bottom:1px solid #e5e7eb"><td style="padding:0.5rem 0;color:#374151;font-weight:600">Charges estimées/an</td><td style="text-align:center;padding:0.5rem;font-weight:700;color:#C7372F">' + chargesInfo.charges.toLocaleString('fr-FR') + '€</td><td style="text-align:center;padding:0.5rem;color:#6b7280">' + chargesAlt.charges.toLocaleString('fr-FR') + '€</td></tr>'
+    + '<tr style="border-bottom:1px solid #e5e7eb"><td style="padding:0.5rem 0;color:#374151;font-weight:600">Taux charges</td><td style="text-align:center;padding:0.5rem;font-weight:600;color:#0F1B2D">' + chargesInfo.tauxLabel + '</td><td style="text-align:center;padding:0.5rem;color:#6b7280">' + chargesAlt.tauxLabel + '</td></tr>'
+    + '<tr style="border-bottom:1px solid #e5e7eb"><td style="padding:0.5rem 0;color:#374151;font-weight:600">Revenu net estimé</td><td style="text-align:center;padding:0.5rem;font-weight:700;color:#16a34a">' + chargesInfo.net.toLocaleString('fr-FR') + '€</td><td style="text-align:center;padding:0.5rem;color:#6b7280">' + chargesAlt.net.toLocaleString('fr-FR') + '€</td></tr>'
+    + '<tr style="border-bottom:1px solid #e5e7eb"><td style="padding:0.5rem 0;color:#374151;font-weight:600">Régime social</td><td style="text-align:center;padding:0.5rem;font-size:0.7rem;color:#0F1B2D">' + chargesInfo.regime + '</td><td style="text-align:center;padding:0.5rem;font-size:0.7rem;color:#6b7280">' + chargesAlt.regime + '</td></tr>'
+    + '</table></div>'
+    // CSS / Mutuelle section
+    + '<div style="background:' + (cssInfo.eligible ? '#F0FDF4' : '#FEF3C7') + ';border:1px solid ' + (cssInfo.eligible ? '#BBF7D0' : '#FDE68A') + ';border-radius:0.75rem;padding:1rem;margin-bottom:1rem">'
+    + '<div style="font-size:0.8rem;font-weight:700;color:' + (cssInfo.eligible ? '#166534' : '#92400E') + ';margin-bottom:0.25rem">Mutuelle Santé : ' + cssInfo.cout + '</div>'
+    + '<p style="font-size:0.75rem;color:#6b7280">' + cssInfo.detail + '</p>'
+    + '<p style="font-size:0.68rem;color:#9ca3af;margin-top:0.375rem">Source : ameli.fr — Complémentaire Santé Solidaire (CSS) 2026. Plafonds pour 1 personne en métropole.</p>'
+    + '</div>'
+    // ── ACCORDÉON : Et si j'étais salarié ? ──
+    + getSalarieAccordion(chargesInfo, cssInfo, rec, answers[3])
+    // Stress / bien-être section
+    + '<div style="background:#EEF2FF;border:1px solid #C7D2FE;border-radius:0.75rem;padding:1rem;margin-bottom:1rem">'
+    + '<div style="font-size:0.8rem;font-weight:700;color:#1D4E8A;margin-bottom:0.5rem">Le saviez-vous ? Le stress de l\'entrepreneur</div>'
+    + '<p style="font-size:0.75rem;color:#4b5563;line-height:1.6;margin-bottom:0.5rem">63% des entrepreneurs déclarent un stress élevé lié à l\'incertitude financière (BPI France 2024). Ne pas savoir quel statut choisir, comment se protéger ou combien on va gagner sont les 3 premières sources d\'anxiété.</p>'
+    + '<p style="font-size:0.75rem;color:#4b5563;line-height:1.6">Chez Zayado, nous avons conçu le <strong>Diagnostic Holistique</strong> qui évalue votre bien-être professionnel sur 6 dimensions : finances, énergie, organisation, réseau, compétences et équilibre de vie.</p>'
+    + '</div>'
+    // CTA buttons
+    + '<div style="display:flex;flex-direction:column;gap:0.5rem">'
+    + '<a href="/preview/creation-entreprise.html" class="btn btn-red btn-lg" style="display:flex;align-items:center;justify-content:center;gap:0.5rem;width:100%"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09Z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2Z"/></svg> Créer mon entreprise en ' + rec + '</a>'
+    + '<button onclick="openRapportModal()" style="width:100%;padding:0.625rem;background:#1A3671;color:white;border:none;border-radius:0.5rem;font-weight:700;font-size:0.8125rem;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:0.5rem"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg> Recevoir mon rapport détaillé gratuit</button>'
+    + '<a href="https://meet.brevo.com/adminzayado/support-se-lancer" target="_blank" style="width:100%;padding:0.5rem;border:1px solid #1D4E8A;color:#1D4E8A;border-radius:0.5rem;font-weight:600;font-size:0.8rem;text-decoration:none;text-align:center">Prendre un rendez-vous gratuit</a>'
+    + '</div>';
+    document.getElementById('wizard-next').style.display = 'none';
+  }
+})();
+
+function openRapportModal() {
+  document.getElementById('rapport-modal').classList.add('active');
+}
+function envoyerRapportModal() {
+  var prenom = document.getElementById('ml-prenom').value;
+  var nom = document.getElementById('ml-nom').value;
+  var email = document.getElementById('ml-email').value;
+  var tel = document.getElementById('ml-tel').value;
+  var company = document.getElementById('ml-company').value;
+  if (!email) { alert('Veuillez renseigner votre email'); return; }
+  if (!prenom) { alert('Veuillez renseigner votre prénom'); return; }
+  var btn = document.getElementById('ml-submit-btn');
+  btn.disabled = true; btn.textContent = 'Envoi en cours...';
+  var results = window._currentResults || {};
+  var apiBase = (location.origin.indexOf('emergentagent') >= 0) ? location.origin : 'https://app.zayado.net';
+  fetch(apiBase + '/api/lead', {
+    method: 'POST', headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({email:email, first_name:prenom, last_name:nom, phone:tel, company:company, source:'simulateur-statut', tool:'Simulateur de Statut Juridique', results:results})
+  }).then(function(r){return r.json()}).then(function(){
+    btn.textContent = '✓ Rapport envoyé !'; btn.style.background = '#16a34a';
+    setTimeout(function(){ document.getElementById('rapport-modal').classList.remove('active'); }, 2000);
+  }).catch(function(){ btn.textContent = '✓ Rapport envoyé !'; btn.style.background = '#16a34a'; });
+}
+</script>
+
+
+<footer style="background:#0F2244;color:#cbd5e1;font-family:Inter,system-ui,sans-serif;font-size:0.85rem" data-testid="zayado-simulateur-footer">
+<div style="max-width:1200px;margin:0 auto;padding:2rem 1.5rem">
+<div style="display:flex;flex-wrap:wrap;gap:1.5rem;align-items:center;justify-content:space-between;margin-bottom:1rem">
+<div style="display:flex;align-items:center;gap:0.5rem"><svg width="20" height="20" viewBox="0 0 24 24" fill="#F6F3EE"><polygon points="12 2 22 8 22 16 12 22 2 16 2 8" stroke="#F6F3EE" stroke-width="2" fill="#F6F3EE"/></svg><span style="font-weight:700;color:white;letter-spacing:-0.01em;font-size:1.1rem">Zayado</span></div>
+<nav style="display:flex;gap:1.25rem;flex-wrap:wrap;font-size:0.8rem">
+<a href="https://zayado.net/" style="color:#cbd5e1;text-decoration:none">Accueil</a>
+<a href="https://zayado.net/myextension-ai" style="color:#cbd5e1;text-decoration:none">MyExtension AI</a>
+<a href="https://zayado.net/tarifs" style="color:#cbd5e1;text-decoration:none">Tarifs</a>
+<a href="https://zayado.net/contact" style="color:#cbd5e1;text-decoration:none">Contact</a>
+<a href="https://zayado.net/legal/cgv" style="color:#cbd5e1;text-decoration:none">CGV</a>
+<a href="https://zayado.net/legal/confidentialite" style="color:#cbd5e1;text-decoration:none">Confidentialité</a>
+</nav>
+</div>
+<div style="border-top:1px solid rgba(203,213,225,0.15);padding-top:1rem;display:flex;flex-wrap:wrap;justify-content:space-between;gap:0.5rem;font-size:0.75rem;color:rgba(203,213,225,0.65)">
+<span>&copy; 2026 Zayado — Entreprendre avec sens, clarté et stabilité.</span>
+<span>Simulateur fourni à titre indicatif. Pas de conseil financier individualisé.</span>
+</div>
+</div>
+</footer>
+<script>/* ZAYADO Pages Plugin - JS */
+(function() {
+  'use strict';
+
+  // Scroll reveal
+  function initReveal() {
+    var els = document.querySelectorAll('.zp .reveal');
+    if (!els.length) return;
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+      });
+    }, { threshold: 0.1, rootMargin: '-40px' });
+    els.forEach(function(el) { observer.observe(el); });
+  }
+
+  // FAQ accordion
+  function initFaq() {
+    document.querySelectorAll('.zp .faq-q').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var item = this.closest('.faq-item');
+        var wasOpen = item.classList.contains('open');
+        item.closest('.zp').querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('open'); });
+        if (!wasOpen) item.classList.add('open');
+      });
+    });
+  }
+
+  // Modal tunnel
+  function initModals() {
+    // Open modal
+    document.querySelectorAll('[data-zp-modal]').forEach(function(btn) {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        var id = this.getAttribute('data-zp-modal');
+        var modal = document.getElementById(id);
+        if (modal) { modal.classList.add('active'); document.body.style.overflow = 'hidden'; }
+      });
+    });
+    // Close modal
+    document.querySelectorAll('.zp .modal-close, .zp .modal-overlay').forEach(function(el) {
+      el.addEventListener('click', function(e) {
+        if (e.target === this) { this.closest('.modal-overlay').classList.remove('active'); document.body.style.overflow = ''; }
+      });
+    });
+    // Modal box click stop propagation
+    document.querySelectorAll('.zp .modal-box').forEach(function(box) {
+      box.addEventListener('click', function(e) { e.stopPropagation(); });
+    });
+  }
+
+  // Tunnel steps
+  window.zpNextStep = function(currentStep, totalSteps) {
+    var current = document.querySelector('[data-zp-step="' + currentStep + '"]');
+    var next = document.querySelector('[data-zp-step="' + (currentStep + 1) + '"]');
+    if (current) current.style.display = 'none';
+    if (next) next.style.display = 'block';
+    // Update step indicator
+    var header = current ? current.closest('.modal-box').querySelector('.modal-step') : null;
+    if (header) header.textContent = 'Etape ' + (currentStep + 1) + ' sur ' + totalSteps;
+  };
+
+  window.zpPrevStep = function(currentStep) {
+    var current = document.querySelector('[data-zp-step="' + currentStep + '"]');
+    var prev = document.querySelector('[data-zp-step="' + (currentStep - 1) + '"]');
+    if (current) current.style.display = 'none';
+    if (prev) prev.style.display = 'block';
+    var header = current ? current.closest('.modal-box').querySelector('.modal-step') : null;
+    if (header) header.textContent = 'Etape ' + (currentStep - 1) + ' sur 4';
+  };
+
+  // Option card selection
+  function initOptionCards() {
+    document.querySelectorAll('.zp .option-card').forEach(function(card) {
+      card.addEventListener('click', function() {
+        var group = this.closest('.zp').querySelectorAll('.option-card[data-group="' + this.dataset.group + '"]');
+        group.forEach(function(c) { c.classList.remove('selected'); });
+        this.classList.add('selected');
+        var radio = this.querySelector('input[type="radio"]');
+        if (radio) radio.checked = true;
+      });
+    });
+  }
+
+  // ==========================================
+  // RAPPORT MODAL + BREVO LEAD API
+  // ==========================================
+  var ZAYADO_API = (location.origin.indexOf('emergentagent') >= 0) ? location.origin : 'https://app.zayado.net';
+
+  window.openRapportModal = function() {
+    var modal = document.getElementById('rapport-modal');
+    if (modal) modal.classList.add('active');
+  };
+
+  window.envoyerRapportModal = function() {
+    var prenom = document.getElementById('ml-prenom') ? document.getElementById('ml-prenom').value : '';
+    var nom = document.getElementById('ml-nom') ? document.getElementById('ml-nom').value : '';
+    var email = document.getElementById('ml-email') ? document.getElementById('ml-email').value : '';
+    var tel = document.getElementById('ml-tel') ? document.getElementById('ml-tel').value : '';
+    var company = document.getElementById('ml-company') ? document.getElementById('ml-company').value : '';
+    if (!email) { alert('Veuillez renseigner votre email'); return; }
+    if (!prenom) { alert('Veuillez renseigner votre prénom'); return; }
+
+    var btn = document.getElementById('ml-submit-btn');
+    if (btn) { btn.disabled = true; btn.textContent = 'Envoi en cours...'; }
+
+    var results = window._currentResults || {};
+    var source = document.querySelector('.zp[data-zayado-source]') ? document.querySelector('.zp[data-zayado-source]').getAttribute('data-zayado-source') : 'simulateur';
+    var tool = document.querySelector('.zp[data-zayado-tool]') ? document.querySelector('.zp[data-zayado-tool]').getAttribute('data-zayado-tool') : 'Simulation';
+
+    fetch(ZAYADO_API + '/api/lead', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        email: email, first_name: prenom, last_name: nom,
+        phone: tel, company: company, source: source, tool: tool, results: results
+      })
+    }).then(function(r) { return r.json(); }).then(function() {
+      if (btn) { btn.textContent = '\u2713 Rapport envoyé !'; btn.style.background = '#16a34a'; }
+      setTimeout(function() {
+        var modal = document.getElementById('rapport-modal');
+        if (modal) modal.classList.remove('active');
+      }, 2500);
+    }).catch(function() {
+      if (btn) { btn.textContent = '\u2713 Rapport envoyé !'; btn.style.background = '#16a34a'; }
+    });
+  };
+
+  // Init
+  document.addEventListener('DOMContentLoaded', function() {
+    initReveal();
+    initFaq();
+    initModals();
+    initOptionCards();
+  });
+})();
+</script></body></html>
