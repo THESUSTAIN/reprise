@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Modèle C — Inspiration Linear · Dense et clavier</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#DEC2A3;--gold-b:#F1E2CC;}
+*{box-sizing:border-box;margin:0}
+body{font-family:'Plus Jakarta Sans',sans-serif;color:#fff;min-height:100vh;overflow:hidden;
+background:linear-gradient(180deg,#172C5C 0%,#101F47 42%,#0B1F3A 76%,#081734 100%)}
+.sky{position:fixed;inset:0;pointer-events:none;
+background:radial-gradient(ellipse at 20% 10%,rgba(45,81,150,.45) 0%,transparent 50%),radial-gradient(ellipse at 80% 8%,rgba(30,60,110,.35) 0%,transparent 55%)}
+.sky::before{content:"";position:absolute;inset:0;filter:blur(20px);
+background-image:radial-gradient(ellipse 800px 300px at 15% 25%,rgba(255,255,255,.10) 0%,transparent 55%),radial-gradient(ellipse 900px 250px at 40% 60%,rgba(255,255,255,.05) 0%,transparent 60%)}
+.shell{position:relative;display:grid;grid-template-columns:210px 1fr;height:100vh}
+/* ── sidebar sombre unie, sections en petites majuscules ── */
+.side{background:rgba(4,9,22,.45);border-right:1px solid rgba(255,255,255,.08);padding:12px 10px;display:flex;flex-direction:column}
+.ws{display:flex;align-items:center;gap:9px;padding:6px 8px 14px;font-weight:700;font-size:13.5px;font-family:Outfit}
+.ws .mark{width:26px;height:26px;border-radius:7px;background:linear-gradient(135deg,#F1E2CC,#DEC2A3);color:#0A1128;display:grid;place-items:center;font-size:12px;font-weight:800}
+.sec{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.35);padding:12px 8px 5px}
+.si{display:flex;align-items:center;gap:9px;padding:6px 8px;border-radius:7px;font-size:12.5px;color:rgba(255,255,255,.7);cursor:pointer}
+.si:hover{background:rgba(255,255,255,.05)}
+.si.on{background:rgba(222,194,163,.13);color:var(--gold-b)}
+.si kbd{margin-left:auto;font-family:inherit;font-size:9.5px;color:rgba(255,255,255,.3);border:1px solid rgba(255,255,255,.12);border-radius:4px;padding:1px 5px}
+.sfoot{margin-top:auto;font-size:11.5px;color:rgba(255,255,255,.45);padding:8px;border-top:1px solid rgba(255,255,255,.07);display:flex;gap:8px;align-items:center}
+.avatar{width:24px;height:24px;border-radius:99px;background:#E85842;display:grid;place-items:center;font-size:10px;font-weight:700}
+/* ── main ── */
+.main{display:flex;flex-direction:column;overflow:hidden}
+.cmd{display:flex;align-items:center;gap:12px;padding:10px 20px;border-bottom:1px solid rgba(255,255,255,.08);font-size:12.5px}
+.cmd .search{flex:1;max-width:420px;display:flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);border-radius:8px;padding:6px 11px;color:rgba(255,255,255,.4)}
+.cmd kbd{font-family:inherit;font-size:10px;color:rgba(255,255,255,.35);border:1px solid rgba(255,255,255,.14);border-radius:4px;padding:1px 6px}
+.cmd .who{margin-left:auto;display:flex;gap:8px;align-items:center;font-size:12px;color:rgba(255,255,255,.6)}
+.head{display:flex;align-items:baseline;gap:14px;padding:20px 24px 4px}
+.head h1{font-family:Outfit;font-size:22px;font-weight:600}
+.head .sub{color:rgba(255,255,255,.45);font-size:12.5px}
+.seg{margin-left:auto;display:flex;border:1px solid rgba(255,255,255,.13);border-radius:8px;overflow:hidden}
+.seg span{padding:5px 13px;font-size:11.5px;font-weight:600;color:rgba(255,255,255,.5)}
+.seg span.on{background:linear-gradient(135deg,#F1E2CC,#DEC2A3);color:#0A1128}
+/* bande stats dense */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.08);border-radius:10px;overflow:hidden;margin:14px 24px}
+.stat{background:#101f3f;padding:12px 16px}
+.stat small{font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.38);display:block}
+.stat b{font-family:Outfit;font-size:19px;font-weight:600}
+.stat .d{font-size:10.5px;color:#7EE2A8;margin-left:6px}
+/* liste de tâches dense façon Linear */
+.cols{display:grid;grid-template-columns:1.5fr 1fr;gap:20px;padding:4px 24px;min-height:0}
+.panel h3{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);padding:8px 0;border-bottom:1px solid rgba(255,255,255,.09);display:flex;justify-content:space-between}
+.panel h3 span{color:rgba(255,255,255,.3);letter-spacing:0;text-transform:none}
+.row{display:flex;align-items:center;gap:10px;padding:9px 2px;border-bottom:1px solid rgba(255,255,255,.06);font-size:13px;color:rgba(255,255,255,.85)}
+.row .st{width:14px;height:14px;border-radius:99px;border:1.5px solid rgba(255,255,255,.35);flex-shrink:0}
+.row .st.hi{border-color:#E85842}
+.row .st.done{border-color:transparent;background:linear-gradient(135deg,#F1E2CC,#DEC2A3)}
+.row .prio{margin-left:auto;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;border:1px solid rgba(222,194,163,.35);color:var(--gold-b);border-radius:5px;padding:2px 7px}
+.row.done span{color:rgba(255,255,255,.35);text-decoration:line-through}
+.add{padding:9px 2px;font-size:12.5px;color:rgba(255,255,255,.35)}
+.quote{margin-top:16px;border-left:2px solid var(--gold);padding:6px 0 6px 14px;font-family:Outfit;font-style:italic;font-size:14.5px;color:#F3E9DB;line-height:1.55}
+.quote small{display:block;font-style:normal;font-family:'Plus Jakarta Sans';font-size:10.5px;color:rgba(255,255,255,.4);margin-top:5px}
+.graph{margin-top:14px;border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:12px;background:rgba(255,255,255,.03)}
+.graph small{font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.38);display:block;margin-bottom:6px}
+</style>
+</head>
+<body>
+<div class="sky"></div>
+<div class="shell">
+  <aside class="side">
+    <div class="ws"><span class="mark">Z</span>MyExtension</div>
+    <div class="sec">Cockpit</div>
+    <div class="si on">◧ Aujourd'hui <kbd>G A</kbd></div>
+    <div class="si">◉ Ma Vision <kbd>G V</kbd></div>
+    <div class="si">✦ Copilote <kbd>G C</kbd></div>
+    <div class="si">❧ Mon Refuge <kbd>G R</kbd></div>
+    <div class="sec">Plus</div>
+    <div class="si">＋ Explorer les modules</div>
+    <div class="sfoot"><span class="avatar">T</span>Thomas</div>
+  </aside>
+
+  <main class="main">
+    <div class="cmd">
+      <div class="search">⌕ Rechercher ou commander… <kbd style="margin-left:auto">⌘K</kbd></div>
+      <div class="who"><kbd>⌘J</kbd> Copilote <span class="avatar">T</span></div>
+    </div>
+    <div class="head">
+      <h1>Aujourd'hui</h1><span class="sub">samedi 19 septembre · capacité 60%</span>
+      <div class="seg"><span class="on">⚡ Élan</span><span>🕊 Refuge</span></div>
+    </div>
+    <div class="stats">
+      <div class="stat"><small>Priorité du jour</small><b>1</b></div>
+      <div class="stat"><small>Énergie</small><b>60%</b><span class="d">▲ bon niveau</span></div>
+      <div class="stat"><small>Check-ins · 30 j</small><b>2</b></div>
+      <div class="stat"><small>Alignement cap</small><b>—</b></div>
+    </div>
+    <div class="cols">
+      <section class="panel">
+        <h3>Actions <span> entrée pour ajouter</span></h3>
+        <div class="row"><span class="st hi"></span><span>Lancer la campagne d'acquisition</span><span class="prio">Haute</span></div>
+        <div class="row"><span class="st"></span><span>Signer 3 partenaires stratégiques</span><span class="prio">Normale</span></div>
+        <div class="row done"><span class="st done"></span><span>Check-in d'énergie du matin</span></div>
+        <div class="add">＋ Une idée qui fuse, une action à ne pas oublier…</div>
+        <div class="quote">« Tu n'as pas besoin de voir tout l'escalier. Juste la première marche. »<small>Une pensée n'est pas une vérité.</small></div>
+      </section>
+      <section class="panel">
+        <h3>Énergie · 30 jours</h3>
+        <div class="graph"><small>Tendance</small>
+          <svg width="100%" height="70" viewBox="0 0 300 70" preserveAspectRatio="none">
+            <polyline points="0,50 43,34 86,42 129,26 172,32 215,16 258,22 300,18" fill="none" stroke="#DEC2A3" stroke-width="2"/>
+            <circle cx="300" cy="18" r="3.5" fill="#DEC2A3"/>
+          </svg>
+        </div>
+        <h3 style="margin-top:18px">Copilote <span>suggestions</span></h3>
+        <div class="row"><span class="st"></span><span style="font-size:12.5px">Relancer la facture Dupont (brouillon prêt)</span></div>
+        <div class="row"><span class="st"></span><span style="font-size:12.5px">Découper « campagne » en 3 actions de 20 min</span></div>
+      </section>
+    </div>
+  </main>
+</div>
+</body>
+</html>

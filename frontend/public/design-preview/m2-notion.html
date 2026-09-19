@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Modèle B — Inspiration Notion · Document vivant</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,600;1,500&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#DEC2A3;--gold-b:#F1E2CC;}
+*{box-sizing:border-box;margin:0}
+body{font-family:'Plus Jakarta Sans',sans-serif;color:#fff;min-height:100vh;overflow:hidden;
+background:linear-gradient(180deg,#172C5C 0%,#101F47 42%,#0B1F3A 76%,#081734 100%)}
+.sky{position:fixed;inset:0;pointer-events:none;
+background:radial-gradient(ellipse at 20% 10%,rgba(45,81,150,.45) 0%,transparent 50%),radial-gradient(ellipse at 80% 8%,rgba(30,60,110,.35) 0%,transparent 55%)}
+.sky::before{content:"";position:absolute;inset:0;filter:blur(20px);
+background-image:radial-gradient(ellipse 800px 300px at 15% 25%,rgba(255,255,255,.10) 0%,transparent 55%),radial-gradient(ellipse 900px 250px at 40% 60%,rgba(255,255,255,.05) 0%,transparent 60%)}
+.shell{position:relative;display:grid;grid-template-columns:260px 1fr;height:100vh}
+/* ── arborescence façon Notion ── */
+.tree{border-right:1px solid rgba(255,255,255,.09);padding:14px 10px;background:rgba(5,10,25,.22);display:flex;flex-direction:column}
+.tsearch{margin:2px 4px 12px;border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:7px 11px;font-size:12.5px;color:rgba(255,255,255,.45);background:rgba(255,255,255,.04);display:flex;gap:8px}
+.titem{display:flex;align-items:center;gap:8px;padding:6px 8px;border-radius:7px;font-size:13px;color:rgba(255,255,255,.75);cursor:pointer}
+.titem:hover{background:rgba(255,255,255,.06)}
+.titem.on{background:rgba(222,194,163,.12);color:var(--gold-b)}
+.titem .ic{width:20px;text-align:center}
+.tsub{padding-left:34px;font-size:12.5px;color:rgba(255,255,255,.5)}
+.caret{font-size:9px;color:rgba(255,255,255,.35);width:12px}
+.tfoot{margin-top:auto;padding:10px 8px;border-top:1px solid rgba(255,255,255,.08);font-size:12px;color:rgba(255,255,255,.55);display:flex;gap:9px;align-items:center}
+.avatar{width:26px;height:26px;border-radius:99px;background:#E85842;display:grid;place-items:center;font-size:11px;font-weight:700;color:#fff}
+/* ── document centré ── */
+.docwrap{overflow:hidden;display:flex;flex-direction:column}
+.crumb{display:flex;align-items:center;gap:8px;padding:13px 26px;font-size:12.5px;color:rgba(255,255,255,.45);border-bottom:1px solid rgba(255,255,255,.07)}
+.crumb b{color:#fff}
+.crumb .fav{margin-left:auto;color:var(--gold);font-size:14px}
+.doc{flex:1;max-width:780px;width:100%;margin:0 auto;padding:44px 40px;overflow:hidden}
+.doc .cover-ic{font-size:34px}
+.doc h1{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:44px;margin:8px 0 4px;letter-spacing:-.01em}
+.doc .date{color:rgba(255,255,255,.45);font-size:13px;margin-bottom:18px}
+.props{border-top:1px solid rgba(255,255,255,.09);border-bottom:1px solid rgba(255,255,255,.09);padding:6px 0;margin-bottom:26px}
+.prop{display:flex;align-items:center;gap:14px;padding:7px 0;font-size:13px}
+.prop .k{width:150px;color:rgba(255,255,255,.42);display:flex;gap:8px;align-items:center}
+.tag{background:rgba(222,194,163,.14);color:var(--gold-b);border-radius:6px;padding:3px 10px;font-size:12px;font-weight:600}
+.bar{width:130px;height:6px;border-radius:99px;background:rgba(255,255,255,.1);overflow:hidden}
+.bar i{display:block;height:100%;width:60%;background:linear-gradient(90deg,#F1E2CC,#DEC2A3);border-radius:99px}
+.doc h2{font-family:Outfit;font-size:19px;font-weight:600;margin:26px 0 10px;display:flex;gap:9px;align-items:center}
+.todo{display:flex;gap:11px;align-items:flex-start;padding:7px 0;font-size:14px;color:rgba(255,255,255,.85)}
+.todo .cb{width:17px;height:17px;border:1.5px solid rgba(255,255,255,.35);border-radius:5px;margin-top:2px;flex-shrink:0}
+.todo.done{color:rgba(255,255,255,.4);text-decoration:line-through}
+.todo.done .cb{background:linear-gradient(135deg,#F1E2CC,#DEC2A3);border-color:transparent}
+.callout{display:flex;gap:12px;background:rgba(222,194,163,.07);border:1px solid rgba(222,194,163,.25);border-radius:12px;padding:14px 16px;margin:14px 0;font-size:13.5px;line-height:1.6;color:#F3E9DB}
+.callout .ic{font-size:17px}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:6px}
+.mincol h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;font-weight:600}
+.mincol p{font-size:13px;color:rgba(255,255,255,.6);line-height:1.6}
+.slash{margin-top:30px;font-size:13px;color:rgba(255,255,255,.3)}
+.slash b{color:rgba(255,255,255,.55);font-weight:500}
+</style>
+</head>
+<body>
+<div class="sky"></div>
+<div class="shell">
+  <aside class="tree">
+    <div class="tsearch">⌕ Rechercher…</div>
+    <div class="titem on"><span class="ic">🏠</span>Aujourd'hui</div>
+    <div class="titem"><span class="caret">▸</span><span class="ic">🔭</span>Ma Vision</div>
+    <div class="titem tsub">Raison d'être</div>
+    <div class="titem tsub">Jalons du trimestre</div>
+    <div class="titem"><span class="caret">▾</span><span class="ic">🕊</span>Mon Refuge</div>
+    <div class="titem tsub">Check-ins d'énergie</div>
+    <div class="titem tsub">Respiration</div>
+    <div class="titem"><span class="ic">✨</span>Copilote</div>
+    <div class="tfoot"><span class="avatar">T</span>Thomas · Espace personnel</div>
+  </aside>
+
+  <main class="docwrap">
+    <div class="crumb">Thomas <span>›</span> <b>Aujourd'hui</b> <span class="fav">☆</span></div>
+    <div class="doc">
+      <div class="cover-ic">🌤</div>
+      <h1>Aujourd'hui</h1>
+      <p class="date">Samedi 19 septembre 2026</p>
+      <div class="props">
+        <div class="prop"><span class="k">◈ Mode</span><span class="tag">⚡ Élan</span><span class="tag" style="background:rgba(255,255,255,.06);color:rgba(255,255,255,.55)">🕊 Refuge</span></div>
+        <div class="prop"><span class="k">◉ Énergie</span><span class="bar"><i></i></span><span style="font-size:12.5px;color:var(--gold-b);font-weight:600">60% · Niveau correct</span></div>
+        <div class="prop"><span class="k">▤ Actions ouvertes</span><span style="font-size:13px">1 priorité · le reste attend en réserve</span></div>
+      </div>
+
+      <h2>✅ Priorité du jour</h2>
+      <div class="todo"><span class="cb"></span><span><b>Lancer la campagne d'acquisition</b> — reliée à votre cap « structurer sans s'épuiser »</span></div>
+      <div class="todo done"><span class="cb"></span><span>Check-in d'énergie du matin</span></div>
+      <div class="todo"><span class="cb"></span><span style="color:rgba(255,255,255,.4)">Une idée qui fuse, une action à ne pas oublier…</span></div>
+
+      <h2>📈 Ton énergie · 30 jours</h2>
+      <svg width="100%" height="90" viewBox="0 0 600 90" preserveAspectRatio="none" style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.1);border-radius:12px">
+        <polyline points="10,62 95,44 180,54 265,32 350,40 435,18 520,26 590,22" fill="none" stroke="#DEC2A3" stroke-width="2.5"/>
+        <circle cx="590" cy="22" r="4" fill="#DEC2A3"/>
+      </svg>
+
+      <div class="callout"><span class="ic">💡</span><span><i style="font-family:'Cormorant Garamond',serif;font-size:16px">« Tu n'as pas besoin de voir tout l'escalier. Juste la première marche. »</i><br><span style="font-size:11.5px;color:rgba(255,255,255,.45)">Une pensée n'est pas une vérité.</span></span></div>
+
+      <div class="cols">
+        <div class="mincol"><h4>Décision à clarifier</h4><p>Le Copilote la cadre avec vous, en trois questions.</p></div>
+        <div class="mincol"><h4>Idée qui fuse</h4><p>Confiez-la au Copilote — il la note et la trie plus tard.</p></div>
+      </div>
+
+      <p class="slash">Tapez <b>/</b> pour un bloc, ou <b>@copilote</b> pour demander de l'aide…</p>
+    </div>
+  </main>
+</div>
+</body>
+</html>

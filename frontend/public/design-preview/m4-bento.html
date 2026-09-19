@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Modèle D — Bento · Tuiles flottantes</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#DEC2A3;--gold-b:#F1E2CC;}
+*{box-sizing:border-box;margin:0}
+body{font-family:'Plus Jakarta Sans',sans-serif;color:#fff;min-height:100vh;overflow:hidden;
+background:linear-gradient(180deg,#172C5C 0%,#101F47 42%,#0B1F3A 76%,#081734 100%)}
+.sky{position:fixed;inset:0;pointer-events:none;
+background:radial-gradient(ellipse at 20% 10%,rgba(45,81,150,.45) 0%,transparent 50%),radial-gradient(ellipse at 80% 8%,rgba(30,60,110,.35) 0%,transparent 55%)}
+.sky::before{content:"";position:absolute;inset:0;filter:blur(20px);
+background-image:radial-gradient(ellipse 800px 300px at 15% 25%,rgba(255,255,255,.10) 0%,transparent 55%),radial-gradient(ellipse 900px 250px at 40% 60%,rgba(255,255,255,.05) 0%,transparent 60%)}
+.page{position:relative;max-width:1180px;margin:0 auto;padding:26px 28px 110px}
+.top{display:flex;align-items:center;gap:14px}
+.top .mark{width:36px;height:36px;border-radius:11px;background:linear-gradient(135deg,#F1E2CC,#DEC2A3);color:#0A1128;display:grid;place-items:center;font-weight:800;font-family:Outfit}
+.top .hello small{display:block;font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold)}
+.top .hello h1{font-family:Outfit;font-size:24px;font-weight:600}
+.pill{margin-left:auto;display:flex;border:1px solid rgba(255,255,255,.14);border-radius:99px;padding:4px;background:rgba(255,255,255,.05);backdrop-filter:blur(12px)}
+.pill span{padding:6px 16px;border-radius:99px;font-size:12px;font-weight:600;color:rgba(255,255,255,.55)}
+.pill span.on{background:linear-gradient(135deg,#F1E2CC,#DEC2A3);color:#0A1128}
+.avatar{width:38px;height:38px;border-radius:99px;background:#E85842;display:grid;place-items:center;font-weight:700}
+/* ── grille bento ── */
+.bento{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:150px;gap:16px;margin-top:24px}
+.tile{border-radius:24px;padding:20px 22px;background:linear-gradient(135deg,rgba(69,103,164,.20),rgba(255,255,255,.10));border:1px solid rgba(255,255,255,.22);backdrop-filter:blur(18px);box-shadow:0 14px 34px rgba(4,10,26,.3);display:flex;flex-direction:column;overflow:hidden}
+.tile small{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:600}
+.tile h2{font-family:Outfit;font-size:17px;font-weight:600;margin-top:6px}
+.t-graph{grid-column:span 4;grid-row:span 2}
+.t-ring{grid-column:span 2;grid-row:span 2;align-items:center;justify-content:center;text-align:center}
+.t-prio{grid-column:span 4}
+.t-quote{grid-column:span 2}
+.t-cap{grid-column:span 3}
+.t-dec{grid-column:span 3}
+.big-ring{position:relative;width:110px;height:110px;margin:6px auto}
+.big-ring .val{position:absolute;inset:0;display:grid;place-items:center;font-family:Outfit;font-size:22px;font-weight:700}
+.prio-body{margin-top:auto;margin-bottom:2px;border:1px solid rgba(222,194,163,.4);background:rgba(222,194,163,.08);border-radius:14px;padding:12px 14px}
+.prio-body b{font-family:Outfit;font-size:14.5px}
+.prio-body p{font-size:11px;color:rgba(255,255,255,.5);margin-top:3px}
+.capture{margin-top:10px;display:flex;gap:8px}
+.capture .in{flex:1;border:1px solid rgba(255,255,255,.14);background:rgba(0,0,0,.22);border-radius:11px;padding:8px 12px;font-size:12px;color:rgba(255,255,255,.35)}
+.capture .btn{border-radius:11px;background:linear-gradient(135deg,#F1E2CC,#DEC2A3);color:#0A1128;font-weight:700;font-size:12px;padding:8px 14px}
+.quote-t{font-family:Outfit;font-style:italic;font-size:15px;line-height:1.55;color:#F3E9DB;margin-top:8px}
+.quote-t small{display:block;font-style:normal;font-family:'Plus Jakarta Sans';font-size:10px;color:rgba(255,255,255,.4);margin-top:8px;letter-spacing:0;text-transform:none}
+.linkrow{margin-top:auto;display:flex;align-items:center;gap:10px;font-size:13px}
+.linkrow .ic{width:34px;height:34px;border-radius:11px;border:1px solid rgba(222,194,163,.3);background:rgba(222,194,163,.1);display:grid;place-items:center;font-size:15px}
+.linkrow b{font-size:13px}
+.linkrow span{display:block;font-size:10.5px;color:rgba(255,255,255,.45)}
+/* nav pilule flottante */
+.fnav{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);display:flex;gap:4px;align-items:center;border:1px solid rgba(255,255,255,.18);background:rgba(8,18,40,.72);backdrop-filter:blur(20px);border-radius:99px;padding:8px;box-shadow:0 18px 44px rgba(3,9,24,.5)}
+.fnav button{border:0;background:transparent;color:rgba(255,255,255,.65);font-family:inherit;font-size:12.5px;font-weight:600;padding:9px 16px;border-radius:99px;cursor:pointer;display:flex;gap:7px;align-items:center}
+.fnav button.on{background:rgba(255,255,255,.95);color:#0B1F3A}
+.fnav button.cop{width:44px;height:44px;padding:0;justify-content:center;border-radius:99px;background:linear-gradient(135deg,#F1E2CC,#DEC2A3);color:#0A1128;font-size:17px;margin:-16px 4px 0;box-shadow:0 10px 24px rgba(222,194,163,.4)}
+</style>
+</head>
+<body>
+<div class="sky"></div>
+<div class="page">
+  <div class="top">
+    <span class="mark">Z</span>
+    <div class="hello"><small>Samedi 19 septembre · Mode Élan</small><h1>Bonjour Thomas, ce qui compte maintenant.</h1></div>
+    <div class="pill"><span class="on">⚡ Élan</span><span>🕊 Refuge</span></div>
+    <span class="avatar">T</span>
+  </div>
+
+  <div class="bento">
+    <div class="tile t-graph"><small>Ton énergie · 30 derniers jours</small>
+      <h2>La batterie remonte cette semaine.</h2>
+      <svg width="100%" height="180" viewBox="0 0 640 180" preserveAspectRatio="none" style="margin-top:6px">
+        <defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#DEC2A3" stop-opacity=".28"/><stop offset="1" stop-color="#DEC2A3" stop-opacity="0"/></linearGradient></defs>
+        <path d="M0,120 L90,86 L180,102 L270,64 L360,80 L450,40 L540,56 L640,44 L640,180 L0,180 Z" fill="url(#g)"/>
+        <polyline points="0,120 90,86 180,102 270,64 360,80 450,40 540,56 640,44" fill="none" stroke="#DEC2A3" stroke-width="3"/>
+        <circle cx="640" cy="44" r="5" fill="#DEC2A3"/>
+      </svg>
+    </div>
+    <div class="tile t-ring"><small>Capacité du jour</small>
+      <div class="big-ring">
+        <svg width="110" height="110" viewBox="0 0 110 110"><circle cx="55" cy="55" r="46" stroke="rgba(255,255,255,.1)" stroke-width="8" fill="none"/><circle cx="55" cy="55" r="46" stroke="#DEC2A3" stroke-width="8" fill="none" stroke-dasharray="289" stroke-dashoffset="116" stroke-linecap="round" transform="rotate(-90 55 55)"/></svg>
+        <span class="val">60%</span>
+      </div>
+      <p style="font-size:11.5px;color:rgba(255,255,255,.5)">Niveau correct — la journée s'adapte à ta batterie.</p>
+    </div>
+    <div class="tile t-prio"><small>Priorité du jour</small>
+      <div class="prio-body"><b>Lancer la campagne d'acquisition</b><p>Reliée à ton cap : « structurer sans s'épuiser »</p></div>
+      <div class="capture"><span class="in">Une idée qui fuse, une action à ne pas oublier…</span><span class="btn">＋ Ajouter</span></div>
+    </div>
+    <div class="tile t-quote"><small>Encouragement</small>
+      <p class="quote-t">« Tu n'as pas besoin de voir tout l'escalier. Juste la première marche. »<small>Une pensée n'est pas une vérité.</small></p>
+    </div>
+    <div class="tile t-cap"><div class="linkrow"><span class="ic">🔭</span><div><b>Ma Vision</b><span>Relire ma raison d'être</span></div></div></div>
+    <div class="tile t-dec"><div class="linkrow"><span class="ic">⚖️</span><div><b>Une décision à clarifier ?</b><span>Le Copilote la cadre avec toi</span></div></div></div>
+  </div>
+</div>
+
+<nav class="fnav">
+  <button class="on">◧ Aujourd'hui</button>
+  <button>◉ Vision</button>
+  <button class="cop">✦</button>
+  <button>❧ Refuge</button>
+</nav>
+</body>
+</html>

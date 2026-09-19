@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ma Vision — placement des cartes</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#DEC2A3;--gold-b:#F1E2CC;--glass:linear-gradient(135deg,rgba(69,103,164,.20),rgba(255,255,255,.10));}
+*{box-sizing:border-box;margin:0}
+body{font-family:'Plus Jakarta Sans',sans-serif;color:#fff;min-height:100vh;
+background:linear-gradient(180deg,#172C5C 0%,#101F47 42%,#0B1F3A 76%,#081734 100%)}
+.sky{position:fixed;inset:0;pointer-events:none;
+background:radial-gradient(ellipse at 20% 10%,rgba(45,81,150,.45) 0%,transparent 50%),radial-gradient(ellipse at 80% 8%,rgba(30,60,110,.35) 0%,transparent 55%)}
+.sky::before{content:"";position:absolute;inset:0;filter:blur(20px);
+background-image:radial-gradient(ellipse 800px 300px at 15% 25%,rgba(255,255,255,.10) 0%,transparent 55%),radial-gradient(ellipse 900px 250px at 40% 60%,rgba(255,255,255,.05) 0%,transparent 60%)}
+.page{position:relative;max-width:1100px;margin:0 auto;padding:26px 28px 60px}
+.eyebrow{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:600}
+h1{font-family:Outfit;font-size:28px;font-weight:600;margin-top:6px}
+h1 em{color:var(--gold-b);font-style:italic}
+.sub{color:rgba(255,255,255,.55);font-size:13.5px;margin-top:5px}
+.bande{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid rgba(255,255,255,.2);border-radius:16px;background:var(--glass);backdrop-filter:blur(18px);margin:20px 0;overflow:hidden}
+.bcell{padding:16px 18px;border-right:1px solid rgba(255,255,255,.09)}
+.bcell:last-child{border-right:0}
+.bcell b{font-family:Outfit;font-size:21px;font-weight:600;display:block}
+.bcell small{font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.42)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.card{border:1px solid rgba(255,255,255,.2);border-radius:20px;background:var(--glass);backdrop-filter:blur(18px);padding:20px 22px;position:relative}
+.card .num{position:absolute;top:18px;right:20px;width:30px;height:30px;border-radius:9px;border:1px solid rgba(222,194,163,.35);background:rgba(222,194,163,.12);display:grid;place-items:center;font-family:Outfit;font-style:italic;font-size:13px;color:var(--gold-b)}
+.card h3{font-family:Outfit;font-size:16.5px;font-weight:600;margin-top:5px}
+.card p{font-size:12.5px;color:rgba(255,255,255,.55);line-height:1.55;margin-top:6px}
+.card .cta{display:inline-flex;align-items:center;gap:6px;margin-top:13px;border-radius:11px;background:linear-gradient(135deg,#F1E2CC,#DEC2A3);color:#0A1128;font-size:12.5px;font-weight:700;padding:8px 14px}
+.card .hint{margin-top:12px;border:1px dashed rgba(222,194,163,.4);background:rgba(222,194,163,.05);border-radius:11px;padding:9px 12px;font-size:11.5px;color:#E8D5BC}
+.card .hint b{font-family:Outfit;font-style:italic}
+.full{grid-column:span 2}
+.jalon{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.07);font-size:13px}
+.jalon:last-child{border:0}
+.jalon .st{width:15px;height:15px;border-radius:99px;border:1.5px solid rgba(255,255,255,.3);flex-shrink:0}
+.jalon.done .st{background:linear-gradient(135deg,#F1E2CC,#DEC2A3);border-color:transparent}
+.jalon.done span{color:rgba(255,255,255,.4);text-decoration:line-through}
+.jalon .pc{margin-left:auto;font-size:11px;color:var(--gold-b);font-weight:600}
+</style>
+</head>
+<body>
+<div class="sky"></div>
+<div class="page">
+  <p class="eyebrow">Ma Vision · Pyramide de clarté</p>
+  <h1>D'abord le <em>pourquoi.</em></h1>
+  <p class="sub">La vision ne sert à rien si elle ne descend pas jusqu'à la décision d'aujourd'hui.</p>
+
+  <div class="bande">
+    <div class="bcell"><b>25%</b><small>Progression de la vision</small></div>
+    <div class="bcell"><b>1/4</b><small>Jalons réalisés</small></div>
+    <div class="bcell"><b>2</b><small>Décisions à trancher</small></div>
+    <div class="bcell"><b>78%</b><small>Alignement</small></div>
+  </div>
+
+  <div class="grid">
+    <div class="card"><span class="num">01</span><p class="eyebrow">Raison d'être · intemporel</p>
+      <h3>Pourquoi tu te lèves le matin</h3>
+      <p>« Structurer mon entreprise sans m'épuiser, pour être présent à ce qui compte. »</p>
+      <div class="hint"><b>Pourquoi</b> — c'est elle qui tient quand tout vacille.</div></div>
+
+    <div class="card"><span class="num">02</span><p class="eyebrow">Vision long terme · 3 à 20 ans</p>
+      <h3>Qui tu deviens</h3>
+      <p>Où veux-tu être dans 10 ans — sans t'épuiser ?</p>
+      <span class="cta">L'écrire avec le Copilote →</span></div>
+
+    <div class="card"><span class="num">03</span><p class="eyebrow">Stratégie · 2 à 4 ans</p>
+      <h3>Comment tu y vas</h3>
+      <p>Un pilier à la fois, jamais trois. La stratégie est un choix de rythme autant que de moyens.</p>
+      <span class="cta">Définir mon pilier →</span></div>
+
+    <div class="card"><span class="num">04</span><p class="eyebrow">Objectifs · horizon 90 jours</p>
+      <h3>Les jalons du moment</h3>
+      <div class="jalon done"><span class="st"></span><span>Préparer l'offre de lancement</span><span class="pc">fait</span></div>
+      <div class="jalon"><span class="st"></span><span>Signer 3 partenaires stratégiques</span><span class="pc">60%</span></div>
+      <div class="jalon"><span class="st"></span><span>Lancer la campagne d'acquisition</span><span class="pc">10%</span></div>
+      <span class="cta">Préparer mes jalons →</span></div>
+
+    <div class="card"><span class="num">05</span><p class="eyebrow">Décisions à clarifier</p>
+      <h3>Ce qui te turlupine</h3>
+      <p>Posé ici, on le clarifie avec tes propres variables : coût, rendement, risque, alignement.</p>
+      <span class="cta">Clarifier une décision →</span></div>
+
+    <div class="card"><span class="num">06</span><p class="eyebrow">Idées en réserve</p>
+      <h3>Elles fusent ? Pose-les, on trie après.</h3>
+      <p>Chaque idée est gardée au chaud et triée quand tu es prête.</p>
+      <span class="cta">Confier une idée au Copilote →</span></div>
+  </div>
+</div>
+</body>
+</html>

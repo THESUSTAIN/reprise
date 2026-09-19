@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mon Refuge — placement des cartes</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#DEC2A3;--gold-b:#F1E2CC;--glass:linear-gradient(135deg,rgba(69,103,164,.20),rgba(255,255,255,.10));}
+*{box-sizing:border-box;margin:0}
+body{font-family:'Plus Jakarta Sans',sans-serif;color:#fff;min-height:100vh;
+background:linear-gradient(180deg,#172C5C 0%,#101F47 42%,#0B1F3A 76%,#081734 100%)}
+.sky{position:fixed;inset:0;pointer-events:none;
+background:radial-gradient(ellipse at 20% 10%,rgba(45,81,150,.45) 0%,transparent 50%),radial-gradient(ellipse at 80% 8%,rgba(30,60,110,.35) 0%,transparent 55%)}
+.sky::before{content:"";position:absolute;inset:0;filter:blur(20px);
+background-image:radial-gradient(ellipse 800px 300px at 15% 25%,rgba(255,255,255,.10) 0%,transparent 55%),radial-gradient(ellipse 900px 250px at 40% 60%,rgba(255,255,255,.05) 0%,transparent 60%)}
+.page{position:relative;max-width:1100px;margin:0 auto;padding:26px 28px 60px}
+.eyebrow{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:600}
+h1{font-family:Outfit;font-size:28px;font-weight:600;margin-top:6px}
+h1 em{color:var(--gold-b);font-style:italic}
+.sub{color:rgba(255,255,255,.55);font-size:13.5px;margin-top:5px}
+.top{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:7px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.05);border-radius:12px;padding:9px 15px;font-size:12.5px;font-weight:600;color:rgba(255,255,255,.85)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:22px}
+.card{border:1px solid rgba(255,255,255,.2);border-radius:20px;background:var(--glass);backdrop-filter:blur(18px);padding:20px 22px}
+.card h3{font-family:Outfit;font-size:16.5px;font-weight:600;margin-top:5px}
+.card p{font-size:12.5px;color:rgba(255,255,255,.55);line-height:1.55;margin-top:6px}
+.slider{appearance:none;width:100%;height:5px;border-radius:99px;background:rgba(255,255,255,.12);margin-top:14px}
+.slider::-webkit-slider-thumb{appearance:none;width:19px;height:19px;border-radius:99px;background:linear-gradient(135deg,#F1E2CC,#DEC2A3);box-shadow:0 3px 10px rgba(222,194,163,.45)}
+.humeurs{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}
+.humeurs span{font-size:11.5px;font-weight:600;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.05);color:rgba(255,255,255,.6);border-radius:99px;padding:6px 13px}
+.humeurs span.on{background:linear-gradient(135deg,#F1E2CC,#DEC2A3);color:#0A1128;border-color:transparent}
+.cta{display:inline-flex;align-items:center;gap:6px;margin-top:15px;border-radius:11px;background:linear-gradient(135deg,#F1E2CC,#DEC2A3);color:#0A1128;font-size:12.5px;font-weight:700;padding:9px 16px}
+.breath{display:flex;flex-direction:column;align-items:center;padding:10px 0 4px}
+.circ{width:118px;height:118px;border-radius:99px;border:1px solid rgba(222,194,163,.4);background:rgba(222,194,163,.08);display:grid;place-items:center;margin:14px 0}
+.circ b{font-family:Outfit;font-size:17px}
+.circ small{display:block;font-size:10px;color:rgba(255,255,255,.45);text-align:center}
+.foi{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+.foitoggle{flex-shrink:0;display:inline-flex;gap:6px;align-items:center;font-size:10.5px;font-weight:700;border-radius:99px;padding:6px 12px;background:linear-gradient(135deg,#F1E2CC,#DEC2A3);color:#0A1128}
+.verset{margin-top:13px;border-left:2px solid var(--gold);background:rgba(222,194,163,.06);border-radius:0 11px 11px 0;padding:10px 13px;font-size:12px;color:rgba(255,255,255,.7);line-height:1.6}
+.verset small{display:block;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:4px}
+.hist{display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.07);font-size:13px}
+.hist:last-child{border:0}
+.hist b{font-family:Outfit;color:var(--gold-b);width:44px}
+.hist .d{margin-left:auto;font-size:11px;color:rgba(255,255,255,.4)}
+</style>
+</head>
+<body>
+<div class="sky"></div>
+<div class="page">
+  <div class="top">
+    <div>
+      <p class="eyebrow">Mon Refuge · Souffle &amp; ancrage</p>
+      <h1>Thomas, ici, <em>on souffle.</em></h1>
+      <p class="sub">Dernier check-in : 60% · Motivé</p>
+    </div>
+    <span class="btn">❧ Parler au Copilote</span>
+  </div>
+
+  <div class="grid">
+    <div class="card"><p class="eyebrow">Check-in du moment</p>
+      <h3>Comment est ta batterie, là, maintenant ?</h3>
+      <p style="display:flex;justify-content:space-between;margin-top:12px"><span>Énergie</span><b style="color:var(--gold-b);font-family:Outfit">60%</b></p>
+      <input class="slider" type="range" value="60">
+      <p style="margin-top:14px">Humeur</p>
+      <div class="humeurs"><span>Épuisé</span><span>Fatigué</span><span class="on">Bien</span><span>Motivé</span><span>En feu</span></div>
+      <span class="cta">Enregistrer mon check-in →</span></div>
+
+    <div class="card breath"><p class="eyebrow" style="align-self:flex-start">Respiration 4 · 4 · 6</p>
+      <h3 style="align-self:flex-start">Trois cycles suffisent.</h3>
+      <div class="circ"><div><b>Inspirez</b><small>4 secondes</small></div></div>
+      <span class="cta">▶ Commencer</span></div>
+
+    <div class="card"><div class="foi"><p class="eyebrow">Pensée du jour</p><span class="foitoggle">❧ Mode Foi activé</span></div>
+      <p style="font-family:Outfit;font-style:italic;font-size:16.5px;color:#F3E9DB;margin-top:10px">« Une marche suffit. Elle compte déjà. »</p>
+      <div class="verset"><small>Psaume 46:2 · Mode Foi</small>« Dieu est pour nous un refuge et un appui, un secours qui ne manque jamais dans la détresse. »</div>
+      <p style="margin-top:12px;font-size:11px;color:rgba(255,255,255,.4)">Une pensée n'est pas une vérité. Elle passe, toi tu restes.</p></div>
+
+    <div class="card"><p class="eyebrow">Tes derniers check-ins</p>
+      <div class="hist"><b>60%</b><span>Motivé</span><span class="d">19 sept</span></div>
+      <div class="hist"><b>80%</b><span>Motivé</span><span class="d">14 sept</span></div>
+      <div class="hist"><b>55%</b><span>Fatigué</span><span class="d">9 sept</span></div>
+      <p style="margin-top:10px;font-size:11px;color:rgba(255,255,255,.4)">Cet historique alimente la courbe d'énergie de la page Aujourd'hui.</p></div>
+  </div>
+</div>
+</body>
+</html>

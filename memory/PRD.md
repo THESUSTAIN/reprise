@@ -37,6 +37,15 @@ Créer la nouvelle interface du cockpit SaaS :
 - MON REFUGE : nouvelle page `/refuge` (4e onglet nav desktop + mobile) — check-in énergie réel (POST wellness/checkin), respiration guidée 4-4-6 animée, pensée du jour, bascule Mode Foi (verset du jour, persistée localStorage `mx_foi`, lue aussi par Aujourd'hui), historique des check-ins
 - Tests : 9/9 scénarios PASS (testing agent, iteration_1.json), dont check-in réel + courbe qui apparaît avec 2 points, Mode Foi persistant, login sans noir, mobile sans débordement
 
+### 2026-09-19 (maquettes structure)
+- 4 modèles de structure pour « Aujourd'hui » (même bleu exact, mêmes contenus) — CHOIX UTILISATEUR EN ATTENTE :
+  - A · inspiration Emergent (conversation Copilote au centre) : /design-preview/m1-emergent.html
+  - B · inspiration Notion (document vivant + arborescence) : /design-preview/m2-notion.html
+  - C · inspiration Linear (dense, clavier, ⌘K) : /design-preview/m3-linear.html
+  - D · Bento (tuiles flottantes + nav pilule basse) : /design-preview/m4-bento.html
+- Maquettes de placement de cartes : /design-preview/m5-vision-cartes.html (Ma Vision) et /design-preview/m6-refuge-cartes.html (Mon Refuge)
+- Règle : une fois le modèle choisi, l'appliquer aux 3 pages (Aujourd'hui, Ma Vision, Mon Refuge)
+
 ## Backlog priorisé
 - P0 : (aucun bloquant connu)
 - P1 : Menu « + » (Explorer) regroupant les modules cachés (Mouvement, Croissance, Pilotage, Mindset…) — les routes existent mais redirigent vers `/`
