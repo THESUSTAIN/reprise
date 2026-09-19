@@ -1,0 +1,34 @@
+{
+  "summary": "Tested 3 new features: Menu Explorer (header-apps-btn), page /mouvement, and onboarding preparation screen. All 3 features are functional. Found and fixed one CRITICAL crash bug in Onboarding.jsx: `useEffect` was used but not imported — would have crashed the preparation screen (ReferenceError) as soon as user clicked 'Lancer mon cockpit'. Fixed by adding useEffect to the import. All flows now pass end-to-end.",
+  "backend_issues": {
+    "critical": [],
+    "minor": [
+      {"endpoint": "POST /api/auth/demo-login", "issue": "Rejects arbitrary emails like qa.prep.<random>@zayado.fr with 403 'Compte de démo non autorisé.' — the request's suggested QA flow (jetable emails) is blocked by an email whitelist. Only pre-provisioned demo accounts (thomas@zayado.fr etc.) work. Not a bug per se, but the review request's suggested procedure is not supported."}
+    ]
+  },
+  "frontend_issues": {
+    "ui_bugs": [
+      {"component": "Onboarding.jsx", "issue": "CRITICAL: useEffect used at line 50 but not imported (only useMemo, useState imported). Preparation screen would crash with 'useEffect is not defined' after clicking submit. FIXED by testing agent — added useEffect to import statement.", "selector": "[data-testid=onboarding-preparation]", "priority": "CRITICAL_FIXED"}
+    ],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": [],
+  "action_items": [
+    "Review the useEffect import fix applied to /app/frontend/src/pages/Onboarding.jsx (line 1) — confirm the change is acceptable.",
+    "Optional: If QA needs to use jetable emails for onboarding, extend /api/auth/demo-login whitelist or provide a dedicated QA endpoint."
+  ],
+  "critical_code_review_comments": [
+    "Onboarding.jsx: missing useEffect import was a blocking crash — ESLint react/no-undef would have caught this. Consider running lint pre-commit.",
+    "Layout.jsx (ECOSYSTEM_ITEMS + dropdown) is well structured with clear data-testid coverage. Toast for unavailable modules works as designed.",
+    "Mouvement.jsx is concise, optimistic UI update on check with rollback on API failure — good pattern."
+  ],
+  "updated_files": ["/app/frontend/src/pages/Onboarding.jsx"],
+  "success_rate": {"backend": "N/A (frontend-focused)", "frontend": "100% after fix (0% before fix on onboarding preparation)"},
+  "test_credentials": "thomas@zayado.fr via POST /api/auth/demo-login (only whitelisted demo accounts accepted)",
+  "seed_data_creation": "Created one task 'Test semaine mouvement' via /api/tasks, then marked it complete. It now appears in mouvement-bouge (completed section).",
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "All 3 new features verified end-to-end: (1) Menu Explorer shows 7 ecosystem items with correct testids; ecosystem-mouvement navigates to /mouvement, ecosystem-pilotage shows toast 'Pilotage sera disponible dans le prochain lot.' without navigation. (2) /mouvement shows page-mouvement, mouvement-en-cours, mouvement-bouge; capture -> appears in en-cours; check -> success toast + moves to bouge; mouvement-copilote-btn opens right drawer. (3) Onboarding preparation screen shows title with firstname, progressive checklist items (3 items visible after ~2.8s, bar at 75%), redirects to / after ~4s. Non-regression: /, /vision, /refuge load OK. NOTE: demo-login endpoint whitelist blocks jetable emails — use thomas@zayado.fr.",
+  "rca of the issue": "Onboarding.jsx crash: useEffect hook was referenced at line 50-59 to drive the animated preparation screen (progressive checklist + redirect via setTimeout), but only `useMemo, useState` were imported from 'react' on line 1. Reproduction: complete onboarding to step 3 and click 'Entrer dans mon cockpit' -> setPreparation(true) triggers re-render -> preparation screen mounts -> useEffect ReferenceError crashes React render. Mitigation applied: added useEffect to the react import."
+}

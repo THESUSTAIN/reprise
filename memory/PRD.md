@@ -66,11 +66,16 @@ Créer la nouvelle interface du cockpit SaaS :
 - Onboarding : 3 étapes confirmées suffisantes (identité/activité/cap — faible friction) ; l'écran de préparation animé reste en backlog comme moment émotionnel de fin
 - Vérifié par captures : split desktop, landing mobile, sheet ouverte + saisie email fonctionnelle
 
+### 2026-09-19 (Explorer, Mouvement, écran de préparation)
+- MENU EXPLORER : le bouton grille existant du header (à droite de la cloche) liste maintenant les modules internes — Mouvement actif (→ /mouvement), Pilotage/Croissance/Campus/Agents IA en « Bientôt refondu » (toast, jamais de lien mort) + liens externes
+- PAGE MOUVEMENT (/mouvement) : volontairement légère (2 cartes), complémentaire d'Aujourd'hui — « En cours » (toutes les actions ouvertes, cases à cocher) + « Ce qui a bougé » (terminées). Aujourd'hui = le jour, Mouvement = la semaine
+- ÉCRAN DE PRÉPARATION : fin d'onboarding animée « Je prépare votre cockpit, {prénom}… » — checklist progressive (4 items ✓), barre de progression, redirection auto ~4s. BUG CRITIQUE intercepté par l'agent de test (useEffect non importé → crash) : corrigé
+- Tests : 3/3 PASS (testing agent, iteration_3.json) — parcours complet capture → Mouvement → coche → « Ce qui a bougé », Explorer sans lien mort, préparation avec items progressifs et redirection
+
 ## Backlog priorisé (checklist actualisée)
 - P0 : (aucun bloquant)
-- P1 : Menu « + » (Explorer) regroupant les modules cachés (Mouvement, Croissance, Pilotage, Mindset, Campus, Agents, Collaborateur…)
-- P1 : Refondre la page Mouvement (exécution quotidienne) dans le style validé
-- P2 : Écran de préparation animé en fin d'onboarding (« Je prépare votre cockpit… », checklist animée)
+- P1 : Refondre la page Pilotage (finances : CA, trésorerie) dans le style validé — prochain module de l'Explorer
+- P2 : Bilan hebdo « ce que l'app a fait pour vous » dans le Copilote
 - P2 : Bilan hebdo « ce que l'app a fait pour vous » dans le Copilote
 - P2 : Marketplace / Espace Membre → section Compte/Paramètres
 - P2 : WelcomeTour à mettre à jour (mentionne des modules cachés)

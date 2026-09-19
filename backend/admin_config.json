@@ -555,6 +555,15 @@
   "email_log": [
     {
       "to": "thomas@zayado.fr",
+      "to_name": "QA",
+      "subject": "Bienvenue sur myextension ai \u2014 ton cockpit est pr\u00eat",
+      "brand": "myextension",
+      "status": "sent",
+      "message_id": "<202609190913.59701205188@smtp-relay.mailin.fr>",
+      "sent_at": "2026-09-19T09:13:47.755421+00:00"
+    },
+    {
+      "to": "thomas@zayado.fr",
       "to_name": "",
       "subject": "Votre lien de connexion \u2014 MyExtension-ai by Zayado",
       "brand": "myextension",
