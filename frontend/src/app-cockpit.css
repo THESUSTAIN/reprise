@@ -974,3 +974,24 @@ html.ambiance-clarte .onboarding-back { background:rgba(255,255,255,.62); color:
     width: 42px; height: 4.5px; border-radius: 99px; background: rgba(255,255,255,.28);
   }
 }
+
+/* ── Onboarding : format validé (inspiration Seonsaengnim, version navy) ──
+   Cartes de choix avec rond de sélection à droite, barre de progression à
+   point, kicker en pilule, CTA pilule navy dégradé beige. */
+.onboarding-card { border-radius: 28px; }
+.onboarding-kicker { border: 1px solid rgba(222,194,163,.4); border-radius: 999px; padding: 5px 12px; }
+.onboarding-progress { overflow: visible; }
+.onboarding-progress > span { position: relative; }
+.onboarding-progress > span::after { content: ""; position: absolute; right: 0; top: 50%; transform: translate(50%,-50%); width: 11px; height: 11px; border-radius: 99px; background: #DEC2A3; box-shadow: 0 0 0 3px rgba(222,194,163,.25); }
+.onboarding-option { position: relative; border-radius: 22px; padding: 16px 56px 16px 16px; min-height: 76px; }
+.onboarding-option::after { content: ""; position: absolute; right: 17px; top: 50%; transform: translateY(-50%); width: 24px; height: 24px; border-radius: 99px; border: 1.5px solid rgba(255,255,255,.32); transition: all .15s ease; }
+.onboarding-option.is-selected { border-color: #DEC2A3; background: linear-gradient(145deg, rgba(30,52,104,.6), rgba(11,31,58,.5)); box-shadow: 0 0 0 1px rgba(222,194,163,.35), 0 10px 26px rgba(4,10,26,.35); }
+.onboarding-option.is-selected::after { content: "✓"; display: grid; place-items: center; background: linear-gradient(135deg,#F1E2CC,#DEC2A3); border-color: transparent; color: #0B1F3A; font-size: 13px; font-weight: 800; }
+.onboarding-option-title svg { display: none; }
+.onboarding-chip.is-selected { color: #F1E2CC; border-color: rgba(222,194,163,.55); background: linear-gradient(135deg,#1E3468,#0B1F3A); }
+.onboarding-primary { border-radius: 999px; color: #F1E2CC; background: linear-gradient(135deg,#1E3468 0%,#0B1F3A 70%); border: 1px solid rgba(222,194,163,.55); box-shadow: 0 10px 26px rgba(4,10,26,.4); }
+.onboarding-back { border-radius: 999px; }
+.onboarding-field input, .onboarding-field textarea { border-radius: 16px; }
+html.ambiance-clarte .onboarding-option.is-selected { background: linear-gradient(145deg,#1E3468,#0B1F3A); border-color: #0B1F3A; }
+html.ambiance-clarte .onboarding-option.is-selected .onboarding-option-title { color: #F1E2CC; }
+html.ambiance-clarte .onboarding-option.is-selected .onboarding-option-description { color: rgba(241,226,204,.72); }

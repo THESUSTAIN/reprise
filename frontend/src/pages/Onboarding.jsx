@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { ArrowLeft, ArrowRight, Check, Loader2, Sparkles } from "lucide-react";
+import { ArrowLeft, ArrowRight, Loader2, Sparkles } from "lucide-react";
 import { toast } from "sonner";
 import { authOnboarding } from "../lib/api";
 
@@ -117,7 +117,7 @@ export default function Onboarding() {
               <div className="onboarding-option-grid onboarding-option-grid-2">
                 {INSPIRATIONS.map((item) => (
                   <button key={item.id} type="button" onClick={() => setInspiration(item.id)} className={`onboarding-option ${inspiration === item.id ? "is-selected" : ""}`} data-testid={`inspiration-${item.id}`}>
-                    <span className="onboarding-option-title">{item.label}{inspiration === item.id && <Check size={15} />}</span>
+                    <span className="onboarding-option-title">{item.label}</span>
                     <span className="onboarding-option-description">{item.description}</span>
                   </button>
                 ))}
@@ -137,7 +137,7 @@ export default function Onboarding() {
               <div className="onboarding-option-grid onboarding-option-grid-3">
                 {WORKSPACES.map((item) => (
                   <button key={item} type="button" onClick={() => setWorkspace(item)} className={`onboarding-option compact ${workspace === item ? "is-selected" : ""}`}>
-                    <span className="onboarding-option-title">{item}{workspace === item && <Check size={15} />}</span>
+                    <span className="onboarding-option-title">{item}</span>
                   </button>
                 ))}
               </div>
@@ -145,7 +145,7 @@ export default function Onboarding() {
               <div className="onboarding-option-grid onboarding-option-grid-3">
                 {PROJECT_TYPES.map((item) => (
                   <button key={item.id} type="button" onClick={() => setProjectType(item.id)} className={`onboarding-option compact ${projectType === item.id ? "is-selected" : ""}`}>
-                    <span className="onboarding-option-title">{item.label}{projectType === item.id && <Check size={15} />}</span>
+                    <span className="onboarding-option-title">{item.label}</span>
                   </button>
                 ))}
               </div>

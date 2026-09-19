@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { ArrowRight, Sparkles, X, Plus, Heart } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "sonner";
 import {
   ResponsiveContainer, LineChart, Line, BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid,
 } from "recharts";
@@ -87,6 +88,7 @@ export default function Aujourdhui() {
   const basculerTache = async (t) => {
     const cible = t.statut === "Terminé" ? "A faire" : "Terminé";
     setTaches((prev) => prev.map((x) => (x.id === t.id ? { ...x, statut: cible } : x)));
+    if (cible === "Terminé") toast.success("Bien joué — une action de plus bouclée. L'app la compte pour vous.");
     try { await updateTacheStatut(t.id, cible); }
     catch { setTaches((prev) => prev.map((x) => (x.id === t.id ? t : x))); }
   };
@@ -155,6 +157,12 @@ export default function Aujourdhui() {
     };
   });
   const aDesActions = taches.some((t) => t.created_at);
+
+  // Preuve de valeur — compteurs réels, jamais fabriqués
+  const actionsBouclees7j = taches.filter((t) => t.statut === "Terminé" && t.created_at && (Date.now() - new Date(t.created_at).getTime()) < 7 * 86400000).length;
+  const checkinsTotal = humeur.length;
+  const capDefini = Boolean(vision?.why || vision?.value);
+  const aDejaAvance = actionsBouclees7j > 0 || checkinsTotal > 0 || capDefini;
 
   const tooltipStyle = {
     background: "#0B1F3A", border: "1px solid rgba(222,194,163,.35)", borderRadius: 12,
@@ -259,6 +267,41 @@ export default function Aujourdhui() {
             </div>
           </section>
         </div>
+      )}
+
+      {/* Preuve de valeur — l'utilisateur voit que l'app ne sert pas à rien */}
+      {!loading && (
+        <section className="glass p-5 sm:p-6" data-testid="aujourdhui-impact">
+          <div className="flex flex-wrap items-center justify-between gap-4">
+            <div className="min-w-0">
+              <p className="eyebrow-chip" style={{ marginBottom: 8 }}>Votre impact</p>
+              <h2 className="font-head text-lg sm:text-xl font-semibold text-white">
+                {aDejaAvance
+                  ? <>Ça avance. <em className="gold-text">Vos gestes comptent.</em></>
+                  : <>Chaque geste ici travaille <em className="gold-text">pour vous.</em></>}
+              </h2>
+            </div>
+            <div className="flex gap-6 sm:gap-8 shrink-0">
+              <div className="text-center">
+                <p className="font-head text-2xl font-semibold text-[#F1E2CC]" data-testid="impact-actions">{actionsBouclees7j}</p>
+                <p className="text-[9.5px] uppercase tracking-[.12em] text-white/45 mt-0.5">actions bouclées · 7 j</p>
+              </div>
+              <div className="text-center">
+                <p className="font-head text-2xl font-semibold text-[#F1E2CC]" data-testid="impact-checkins">{checkinsTotal}</p>
+                <p className="text-[9.5px] uppercase tracking-[.12em] text-white/45 mt-0.5">check-ins d'énergie</p>
+              </div>
+              <div className="text-center">
+                <p className="font-head text-2xl font-semibold text-[#F1E2CC]" data-testid="impact-cap">{capDefini ? "Oui" : "—"}</p>
+                <p className="text-[9.5px] uppercase tracking-[.12em] text-white/45 mt-0.5">cap défini</p>
+              </div>
+            </div>
+          </div>
+          <p className="text-[12.5px] text-white/55 mt-3 leading-relaxed">
+            {aDejaAvance
+              ? "L'app retient chaque action bouclée, règle votre rythme sur votre énergie réelle et garde votre cap en vue — rien de ce que vous faites ici ne se perd."
+              : "Définissez votre cap, notez une action, faites un check-in : dès le premier geste, l'app commence à travailler pour vous — et elle vous le prouvera ici, chiffres à l'appui."}
+          </p>
+        </section>
       )}
 
       {/* Grille C+ */}

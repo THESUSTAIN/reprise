@@ -53,6 +53,12 @@ Créer la nouvelle interface du cockpit SaaS :
 - Mise en forme des cartes appliquée aux 3 pages + modales, PC et mobile : cartes `.glass` arrondies 26px, eyebrows devenues des chips dorées bordées (classe `.eyebrow-chip`), tous les CTA `.gold-bg` en pilules, modale « Premiers pas » en bottom-sheet avec poignée sur mobile
 - Vérifié par captures PC + mobile
 
+### 2026-09-19 (onboarding, login, preuve de valeur)
+- ONBOARDING au format validé : cartes de choix avec rond de sélection à droite (✓ beige sur navy quand sélectionné), barre de progression fine avec point doré, kicker en chip, CTA « Continuer » en pilule navy dégradé beige, carte 28px, champs 16px — coches en doublon retirées du JSX
+- LOGIN harmonisé : boutons « Recevoir mon lien » (ex-rouge), compte test (ex-vert) et gold → pilules navy dégradé beige ; Google/Microsoft conservés (marques) ; carte 26px
+- PREUVE DE VALEUR (demande « l'user ne doit pas utiliser l'app pour rien ») : bandeau « Votre impact » en haut d'Aujourd'hui — actions bouclées 7 j, check-ins d'énergie, cap défini (compteurs 100% réels) + phrase d'ancrage ; toast de réussite « Bien joué — une action de plus bouclée » quand on termine une tâche
+- Vérifié par captures : login, onboarding étapes 1-2, bandeau impact (2 check-ins réels affichés)
+
 ## Backlog priorisé
 - P0 : (aucun bloquant connu)
 - P1 : Menu « + » (Explorer) regroupant les modules cachés (Mouvement, Croissance, Pilotage, Mindset…) — les routes existent mais redirigent vers `/`

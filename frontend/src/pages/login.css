@@ -233,3 +233,17 @@
   cursor: pointer; display: inline-flex; align-items: center; gap: 8px; transition: background .15s ease;
 }
 .login-resend:hover { background: rgba(222,194,163,0.22); }
+
+/* ── Harmonisation navy/beige (format validé) ── */
+.login-card { border-radius: 26px; }
+.login-btn { border-radius: 999px; }
+.login-input { border-radius: 14px; }
+.login-btn-dark, .login-btn-teal, .login-btn-gold {
+  background: linear-gradient(135deg, #1E3468 0%, #0B1F3A 70%) !important;
+  color: #F1E2CC !important;
+  border: 1px solid rgba(222,194,163,.55);
+  box-shadow: 0 10px 26px rgba(4,10,26,.4), inset 0 1px 0 rgba(241,226,204,.16);
+}
+.login-btn-dark:hover, .login-btn-teal:hover, .login-btn-gold:hover {
+  border-color: #DEC2A3; box-shadow: 0 12px 28px rgba(4,10,26,.5), inset 0 1px 0 rgba(241,226,204,.2);
+}
