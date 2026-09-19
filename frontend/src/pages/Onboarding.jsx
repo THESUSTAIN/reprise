@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { ArrowLeft, ArrowRight, Loader2, Sparkles } from "lucide-react";
+import { ArrowLeft, ArrowRight, Check, Loader2, Sparkles } from "lucide-react";
 import { toast } from "sonner";
 import { authOnboarding } from "../lib/api";
 
@@ -35,6 +35,28 @@ export default function Onboarding() {
   const [objective, setObjective] = useState("");
   const [priorities, setPriorities] = useState([]);
   const [saving, setSaving] = useState(false);
+  // Écran de préparation animé (validé) : après la dernière étape, l'app
+  // montre qu'elle travaille pour l'utilisateur avant d'ouvrir le cockpit.
+  const [preparation, setPreparation] = useState(false);
+  const [etapePrep, setEtapePrep] = useState(0);
+
+  const ETAPES_PREP = [
+    "Je retiens votre cap",
+    "Je règle votre rythme sur votre énergie",
+    "Je prépare vos premières suggestions",
+    "Votre cockpit est prêt",
+  ];
+
+  useEffect(() => {
+    if (!preparation) return undefined;
+    if (etapePrep >= ETAPES_PREP.length) {
+      const t = setTimeout(() => navigate("/"), 900);
+      return () => clearTimeout(t);
+    }
+    const t = setTimeout(() => setEtapePrep((n) => n + 1), 700);
+    return () => clearTimeout(t);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [preparation, etapePrep]);
 
   const progress = useMemo(() => `${Math.round((step / STEPS.length) * 100)}%`, [step]);
   const togglePriority = (item) => setPriorities((current) => current.includes(item) ? current.filter((x) => x !== item) : [...current, item].slice(0, 3));
@@ -67,13 +89,40 @@ export default function Onboarding() {
         objectif_90j: objective.trim(),
         priorites: priorities,
       });
-      navigate("/");
+      setPreparation(true);
     } catch (error) {
       toast.error(error?.message || "Échec de l'enregistrement. Réessayez.");
     } finally {
       setSaving(false);
     }
   };
+
+  if (preparation) {
+    return (
+      <div className="onboarding-page" data-testid="onboarding-preparation">
+        <div className="onboarding-glow onboarding-glow-a" aria-hidden="true" />
+        <div className="onboarding-glow onboarding-glow-b" aria-hidden="true" />
+        <main className="onboarding-prep">
+          <div className="onboarding-prep-inner">
+            <div className="onboarding-logo onboarding-prep-logo">Z</div>
+            <h1 className="onboarding-prep-title">Je prépare votre cockpit{firstName.trim() ? `, ${firstName.trim()}` : ""}…</h1>
+            <p className="onboarding-prep-sub">Quelques secondes — je mets tout en place pour vous.</p>
+            <div className="onboarding-prep-list">
+              {ETAPES_PREP.slice(0, etapePrep).map((label) => (
+                <div key={label} className="onboarding-prep-item" data-testid="prep-item">
+                  <span className="onboarding-prep-check"><Check size={12} /></span>
+                  <span>{label}</span>
+                </div>
+              ))}
+            </div>
+            <div className="onboarding-prep-bar" data-testid="prep-bar">
+              <i style={{ width: `${Math.min(100, (etapePrep / ETAPES_PREP.length) * 100)}%` }} />
+            </div>
+          </div>
+        </main>
+      </div>
+    );
+  }
 
   return (
     <div className="onboarding-page" data-testid="page-onboarding">

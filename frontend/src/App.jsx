@@ -13,6 +13,7 @@ import VisionBoard from "./pages/VisionBoard";
 import MaVision from "./pages/MaVision";
 import Aujourdhui from "./pages/Aujourdhui";
 import MonRefuge from "./pages/MonRefuge";
+import Mouvement from "./pages/Mouvement";
 import { authMe } from "./lib/api";
 
 // Accueil : "Aujourd'hui" — identique sur mobile et PC. La navigation basse
@@ -102,6 +103,7 @@ function App() {
               <Route path="/vision" element={<MaVision />} />
               <Route path="/vision/atelier" element={<VisionBoard />} />
               <Route path="/refuge" element={<MonRefuge />} />
+              <Route path="/mouvement" element={<Mouvement />} />
             </Route>
           </Route>
           <Route path="/login" element={<Login />} />

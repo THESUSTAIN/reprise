@@ -995,3 +995,17 @@ html.ambiance-clarte .onboarding-back { background:rgba(255,255,255,.62); color:
 html.ambiance-clarte .onboarding-option.is-selected { background: linear-gradient(145deg,#1E3468,#0B1F3A); border-color: #0B1F3A; }
 html.ambiance-clarte .onboarding-option.is-selected .onboarding-option-title { color: #F1E2CC; }
 html.ambiance-clarte .onboarding-option.is-selected .onboarding-option-description { color: rgba(241,226,204,.72); }
+
+/* ── Écran de préparation (fin d'onboarding, validé) ── */
+.onboarding-prep { min-height: 100vh; display: grid; place-items: center; padding: 24px; position: relative; z-index: 1; }
+.onboarding-prep-inner { text-align: center; max-width: 430px; width: 100%; }
+.onboarding-prep-logo { margin: 0 auto 20px; animation: prepPulse 1.6s ease-in-out infinite; }
+@keyframes prepPulse { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.07); opacity: .85; } }
+.onboarding-prep-title { font-family: 'Outfit', 'Manrope', sans-serif; font-size: clamp(24px, 5vw, 32px); font-weight: 600; color: #fff; letter-spacing: -0.01em; }
+.onboarding-prep-sub { font-size: 13.5px; color: rgba(255,255,255,.55); margin-top: 8px; }
+.onboarding-prep-list { margin-top: 24px; }
+.onboarding-prep-item { display: flex; align-items: center; gap: 11px; text-align: left; border: 1px solid rgba(255,255,255,.14); border-radius: 16px; padding: 13px 15px; margin-top: 10px; background: rgba(255,255,255,.04); font-size: 14px; color: rgba(255,255,255,.88); opacity: 0; transform: translateY(8px); animation: prepIn .45s ease forwards; }
+@keyframes prepIn { to { opacity: 1; transform: none; } }
+.onboarding-prep-check { width: 22px; height: 22px; border-radius: 99px; background: linear-gradient(135deg,#F1E2CC,#DEC2A3); color: #0B1F3A; display: grid; place-items: center; flex-shrink: 0; }
+.onboarding-prep-bar { height: 5px; border-radius: 99px; background: rgba(255,255,255,.1); margin-top: 22px; overflow: hidden; }
+.onboarding-prep-bar i { display: block; height: 100%; background: linear-gradient(90deg,#F1E2CC,#DEC2A3); border-radius: 99px; transition: width .6s ease; }

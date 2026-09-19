@@ -47,9 +47,13 @@ const SEARCH_TARGETS = [
 ];
 
 const ECOSYSTEM_ITEMS = [
-  // Refonte en cours : les modules internes (Mouvement, Croissance, Pilotage,
-  // Mindset, Contexte, Collaborateur, Campus, Roadmap, Agents) sont cachés
-  // jusqu'à leur refonte. Restent les liens externes de l'écosystème.
+  // Modules internes : Mouvement est refondu et actif ; les autres reviennent
+  // lot par lot (badge « bientôt », toast informatif — jamais de lien mort).
+  { id: "mouvement", label: "Mouvement", sub: "Votre semaine d'actions", path: "/mouvement", Icon: Rocket, available: true },
+  { id: "pilotage", label: "Pilotage", sub: "Bientôt refondu", path: "/pilotage", Icon: Gauge, available: false },
+  { id: "croissance", label: "Croissance", sub: "Bientôt refondue", path: "/croissance", Icon: TrendingUp, available: false },
+  { id: "campus", label: "Campus", sub: "Bientôt refondu", path: "/campus", Icon: GraduationCap, available: false },
+  { id: "agents", label: "Agents IA", sub: "Bientôt refondus", path: "/agents", Icon: Bot, available: false },
   { id: "business", label: "Équiper mon business", sub: "Boutique & outils", path: "https://zayado.net/boutique", Icon: Gem, available: true, external: true },
   { id: "espace", label: "Espace", sub: "Espace membres", path: "https://espace.zayado.net", Icon: Briefcase, available: true, external: true },
   { id: "thesustain", label: "TheSustain · Foi & vocation", sub: "Foi & vocation", path: "/thesustain", Icon: Eye, available: true, requiresTheSustain: true },
@@ -490,6 +494,7 @@ export default function Layout() {
     "/": "Vision de l'entrepreneur: objectifs, alignement, mindset.",
     "/vision": "Vision de l'entrepreneur: objectifs, alignement, mindset.",
     "/refuge": "Mon Refuge: espace de calme, check-in d'énergie, respiration guidée, encouragement. Ton apaisé, aucune performance attendue.",
+    "/mouvement": "Mouvement: la semaine d'exécution de l'entrepreneur — actions en cours, ce qui a bougé. Aide à prioriser et découper.",
     "/pilotage": "Pilotage financier: trésorerie, factures, dépenses.",
     "/roadmap": "Roadmap 30/60/90: sprints Build-Measure-Learn générés par IA à partir du projet, du marché cible et de l'hypothèse à tester.",
     "/bien-etre": "Bien-être et énergie: focus, rituels, mindset anti-abandon.",
