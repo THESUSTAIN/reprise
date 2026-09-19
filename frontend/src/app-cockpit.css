@@ -100,7 +100,8 @@ h1, h2, h3, h4, .font-head { font-family: 'Outfit', sans-serif; letter-spacing: 
 }
 
 .gold-text { background: linear-gradient(90deg, #F1E2CC, #DEC2A3); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
-.gold-bg { background: linear-gradient(135deg, #F1E2CC, #DEC2A3); }
+/* Boutons : navy profond dégradé, liseré et texte beige (choix utilisateur). */
+.gold-bg { background: linear-gradient(135deg, #1E3468 0%, #0B1F3A 60%, #081734 100%); color: #F1E2CC; border: 1px solid rgba(222,194,163,.5); box-shadow: inset 0 1px 0 rgba(241,226,204,.16), 0 6px 18px rgba(4,10,26,.35); }
 
 /* ─────────── Sidebar (rail 96px — modèle exact) ─────────── */
 .side-nav {
@@ -917,3 +918,16 @@ html.ambiance-clarte .onboarding-back { background:rgba(255,255,255,.62); color:
 
 /* Conteneur du bloc Actualité (racine) */
 .news-conversation { display: flex; flex-direction: column; }
+
+/* Chat mobile : header compact — le titre ne s'empile plus sur 3 lignes.
+   Sous-titre et étiquette de contexte masqués, boutons réduits à l'icône. */
+@media (max-width: 768px) {
+  [data-testid="copilot-mobile-fullscreen"] .hub-product-subtitle,
+  [data-testid="copilot-mobile-fullscreen"] .hub-context-label { display: none; }
+  [data-testid="copilot-mobile-fullscreen"] .hub-product-name { font-size: 13px; white-space: nowrap; }
+  [data-testid="copilot-mobile-fullscreen"] .hub-product-mark { width: 32px; height: 32px; }
+  [data-testid="copilot-mobile-fullscreen"] .copilot-contact-button span { display: none; }
+  [data-testid="copilot-mobile-fullscreen"] .copilot-contact-button { width: 36px; padding: 0; justify-content: center; }
+  [data-testid="copilot-mobile-fullscreen"] [data-testid="copilot-back"] span { display: none; }
+  [data-testid="copilot-mobile-fullscreen"] [data-testid="copilot-back"] { width: 36px; padding: 0; justify-content: center; }
+}

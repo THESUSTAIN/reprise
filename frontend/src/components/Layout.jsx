@@ -534,19 +534,12 @@ export default function Layout() {
       </div>
 
       {/* Copilote mobile : même composant, même style que le panneau PC —
-          ouvert en plein écran par-dessus l'app, refermable. Avant, il
-          REMPLAÇAIT l'accueil mobile, ce qui faisait disparaître le header
-          et la navigation basse. */}
+          ouvert en plein écran par-dessus l'app. UN SEUL header : celui de
+          ChatPanel, auquel on passe onBack (bouton « Retour ») — avant, un
+          second header « Copilote » était empilé au-dessus (bug signalé). */}
       {isMobile && copilotOpen && (
         <div className="fixed inset-0 z-[120] flex flex-col bg-[#0B1F3A] md:hidden" data-testid="copilot-mobile-fullscreen">
-          <div className="flex items-center justify-between border-b border-white/12 px-4 py-3">
-            <span className="text-sm font-semibold text-white">Copilote</span>
-            <button onClick={() => setCopilotOpen(false)} aria-label="Fermer le Copilote" data-testid="copilot-mobile-close"
-              className="flex h-9 w-9 items-center justify-center rounded-full border border-white/15 text-white/80">
-              <X size={18} />
-            </button>
-          </div>
-          <div className="min-h-0 flex-1"><ChatPanel context={context} initialAsk={copilotAsk} /></div>
+          <div className="min-h-0 flex-1"><ChatPanel context={context} initialAsk={copilotAsk} onBack={() => setCopilotOpen(false)} /></div>
         </div>
       )}
 

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Proposition Chat PC — tiroir droit affiné</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#DEC2A3;--gold-b:#F1E2CC;}
+*{box-sizing:border-box;margin:0}
+body{font-family:'Plus Jakarta Sans',sans-serif;color:#fff;min-height:100vh;overflow:hidden;
+background:linear-gradient(180deg,#172C5C 0%,#101F47 42%,#0B1F3A 76%,#081734 100%)}
+.sky{position:fixed;inset:0;pointer-events:none;
+background:radial-gradient(ellipse at 20% 10%,rgba(45,81,150,.45) 0%,transparent 50%),radial-gradient(ellipse at 80% 8%,rgba(30,60,110,.35) 0%,transparent 55%)}
+.sky::before{content:"";position:absolute;inset:0;filter:blur(20px);
+background-image:radial-gradient(ellipse 800px 300px at 15% 25%,rgba(255,255,255,.10) 0%,transparent 55%),radial-gradient(ellipse 900px 250px at 40% 60%,rgba(255,255,255,.05) 0%,transparent 60%)}
+/* page floutée derrière */
+.pagefake{position:relative;padding:26px 60px;filter:blur(2px) brightness(.75)}
+.pf-title{font-family:Outfit;font-size:26px;font-weight:600}
+.pf-cards{display:grid;grid-template-columns:2fr 1fr;gap:16px;margin-top:20px}
+.pf-card{border:1px solid rgba(255,255,255,.16);border-radius:18px;background:rgba(255,255,255,.05);height:150px;padding:18px}
+.pf-card small{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold)}
+.pf-card h3{font-family:Outfit;font-size:16px;margin-top:6px}
+/* ── tiroir Copilote PC ── */
+.drawer{position:fixed;top:0;right:0;height:100vh;width:420px;display:flex;flex-direction:column;
+background:rgba(8,17,38,.86);backdrop-filter:blur(24px);border-left:1px solid rgba(255,255,255,.16);box-shadow:-24px 0 60px rgba(3,8,20,.5)}
+.dhead{display:flex;align-items:center;gap:11px;padding:15px 18px;border-bottom:1px solid rgba(255,255,255,.1)}
+.dhead .mark{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,#1E3468,#0B1F3A);border:1px solid rgba(222,194,163,.5);display:grid;place-items:center;font-family:Outfit;font-weight:800;font-size:14px;color:var(--gold-b)}
+.dhead .t b{display:block;font-family:Outfit;font-size:14.5px}
+.dhead .t small{font-size:10.5px;color:rgba(255,255,255,.45)}
+.dhead .x{margin-left:auto;width:32px;height:32px;border-radius:10px;border:1px solid rgba(255,255,255,.15);display:grid;place-items:center;color:rgba(255,255,255,.7);cursor:pointer;background:transparent}
+.tabs{display:flex;gap:6px;padding:10px 18px;border-bottom:1px solid rgba(255,255,255,.08)}
+.tab{flex:1;text-align:center;font-size:12px;font-weight:600;padding:8px;border-radius:99px;color:rgba(255,255,255,.55);cursor:pointer;border:1px solid transparent}
+.tab.on{background:linear-gradient(135deg,#1E3468,#0B1F3A);border-color:rgba(222,194,163,.5);color:var(--gold-b)}
+.tab .bdg{display:inline-grid;place-items:center;min-width:16px;height:16px;border-radius:99px;background:#E85842;font-size:9px;color:#fff;padding:0 4px;margin-left:4px}
+.feed{flex:1;overflow:hidden;padding:18px;display:flex;flex-direction:column;gap:14px}
+.stamp{font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;color:rgba(222,194,163,.6)}
+.msg-assistant{align-self:flex-start;max-width:88%;background:linear-gradient(135deg,rgba(69,103,164,.25),rgba(255,255,255,.08));border:1px solid rgba(255,255,255,.14);border-radius:4px 16px 16px 16px;padding:12px 14px;font-size:12.5px;line-height:1.6;color:rgba(255,255,255,.88)}
+.msg-user{align-self:flex-end;max-width:82%;background:linear-gradient(135deg,#1E3468,#0B1F3A);border:1px solid rgba(222,194,163,.4);color:var(--gold-b);border-radius:16px 4px 16px 16px;padding:11px 14px;font-size:12.5px}
+.point{border:1px solid rgba(222,194,163,.3);border-radius:16px;padding:14px;background:rgba(222,194,163,.05)}
+.point .ph{display:flex;justify-content:space-between;font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.point h4{font-family:Outfit;font-size:15px}
+.point .mini{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}
+.point .mini div{border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:8px;background:rgba(255,255,255,.03)}
+.point .mini small{display:block;font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4)}
+.point .mini b{font-family:Outfit;font-size:13px}
+.news{margin-top:2px;border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:13px;background:rgba(255,255,255,.04)}
+.news .nh{display:flex;gap:8px;align-items:center;font-size:11px;font-weight:700;color:var(--gold-b)}
+.news p{font-size:12px;color:rgba(255,255,255,.7);line-height:1.55;margin-top:6px}
+.news .acts{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.news .acts span{font-size:10.5px;border:1px solid rgba(222,194,163,.35);border-radius:99px;padding:4px 10px;color:var(--gold-b);cursor:pointer}
+.sugg{display:flex;flex-direction:column;gap:8px}
+.sugg div{border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:10px 13px;font-size:12px;color:rgba(255,255,255,.75);cursor:pointer;background:rgba(255,255,255,.03)}
+.inp{display:flex;gap:9px;align-items:center;margin:0 18px 18px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.05);border-radius:14px;padding:11px 13px;font-size:12.5px;color:rgba(255,255,255,.4)}
+.inp .send{margin-left:auto;width:32px;height:32px;border-radius:10px;background:linear-gradient(135deg,#1E3468,#0B1F3A);border:1px solid rgba(222,194,163,.5);display:grid;place-items:center;color:var(--gold-b);font-size:14px}
+</style>
+</head>
+<body>
+<div class="sky"></div>
+<div class="pagefake">
+  <div class="pf-title">Bonjour Thomas, ce qui compte maintenant.</div>
+  <div class="pf-cards">
+    <div class="pf-card"><small>Priorité du jour</small><h3>Ta journée, réduite à l'essentiel</h3></div>
+    <div class="pf-card"><small>Énergie</small><h3>60% · Niveau correct</h3></div>
+  </div>
+</div>
+
+<aside class="drawer">
+  <div class="dhead">
+    <span class="mark">Z</span>
+    <div class="t"><b>Copilote</b><small>MyExtension Business · par ZAYADO</small></div>
+    <button class="x">✕</button>
+  </div>
+  <div class="tabs">
+    <div class="tab on">💬 Discussion</div>
+    <div class="tab">📰 Actualité<span class="bdg">1</span></div>
+  </div>
+  <div class="feed">
+    <span class="stamp">MyExtension Business · 07:53</span>
+    <div class="msg-assistant">Bonjour. J'ai veillé sur votre activité. Voici votre point du jour et les actions qui méritent votre attention.</div>
+    <div class="point">
+      <div class="ph"><span>✦ Le point du jour</span><span>Samedi 19 sept</span></div>
+      <h4>Bonjour Thomas</h4>
+      <div class="mini">
+        <div><small>CA du mois</small><b>11 900 €</b></div>
+        <div><small>Énergie</small><b>60%</b></div>
+        <div><small>Alignement</small><b>78%</b></div>
+      </div>
+    </div>
+    <div class="news">
+      <div class="nh">📰 Signal du jour · Actualité</div>
+      <p>Votre secteur bouge : 2 signaux détectés depuis hier. Résumé en 30 secondes, sources citées.</p>
+      <div class="acts"><span>Quel impact pour moi ?</span><span>3 actions concrètes</span><span>Enregistrer</span></div>
+    </div>
+    <div class="msg-user">Aide-moi à lancer la campagne d'acquisition.</div>
+    <div class="msg-assistant">Je vous ai préparé 3 angles. Le plus aligné avec votre cap : <b style="color:var(--gold-b)">« signer 3 partenaires stratégiques »</b>. On le découpe en actions de 20 minutes ?</div>
+    <div class="sugg">
+      <div>Quelles sont mes priorités aujourd'hui ?</div>
+      <div>Aide-moi à relancer une facture en retard.</div>
+    </div>
+  </div>
+  <div class="inp">✎ Écrivez à votre copilote… <span class="send">↑</span></div>
+</aside>
+</body>
+</html>
