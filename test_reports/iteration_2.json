@@ -1,0 +1,32 @@
+{
+  "summary": "Complete E2E frontend testing of iteration 2 (navy/beige buttons, mobile chat double-header fix, densified mobile chat header, and full button coverage on Aujourd'hui, Ma Vision, Mon Refuge). All 7 scenarios from the review request PASS. Backend demo-login verified (200). Only note: heavy 429 Cloudflare rate-limits during the run — had to throttle and retry.",
+  "backend_issues": { "critical": [], "minor": [] },
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": [],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "Layout.jsx (553 lines) still mixes Sidebar/Header/BottomNav/AppShell — worth splitting further.",
+    "ChatPanel.jsx > 800 lines; consider extracting NewsConversation, ActionCard, DraftMessage into their own files for maintainability.",
+    "Heavy 429 rate-limits on the preview domain during automated runs — throttle documented for future testers."
+  ],
+  "updated_files": [],
+  "success_rate": { "backend": "100%", "frontend": "100% (all 7 review scenarios PASS)" },
+  "test_credentials": "thomas@zayado.fr via POST /api/auth/demo-login (whitelisted, no password).",
+  "seed_data_creation": "One capture task 'TEST_task_from_playwright' created on / and one task check toggle (side-effect expected by the review).",
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "Preview: https://refugio-vision.preview.emergentagent.com. Auth: POST /api/auth/demo-login {email:'thomas@zayado.fr'} then localStorage.setItem('cours_auth_token', <token>). Skip modals: mx_welcome_tour_done=1 and mx_premiers_pas_dismissed=1 in localStorage before nav. Cloudflare 429s occur when hammering — wait 60-90s between full runs. Sidebar Vision id is now 'vision' (data-testid side-vision / bottomnav-vision), consistent with review spec.",
+  "detailed_scenario_results": {
+    "1_bugfix_double_header_chat_mobile_390": "PASS — inside [data-testid=copilot-mobile-fullscreen]: identity=1 (single hub-product-identity), backBtn=1 (single copilot-back). No stacked 'Copilote' bar. hub-product-subtitle display:none. hub-context-label display:none. hub-product-name renders on single line (height 15.6px, text 'MyExtension Business'). Bouton Retour closes the panel and Aujourd'hui page ([data-testid=capture-input]) is visible again.",
+    "2_boutons_navy_beige": "PASS — computed style of .gold-bg = linear-gradient(135deg, rgb(30,52,104) 0%, rgb(11,31,58) 60%, rgb(8,23,52) 100%) with color rgb(241,226,204) (beige). Navy gradient, beige text, readable contrast.",
+    "3_page_aujourdhui": "PASS — mode-elan-btn / mode-refuge-btn toggle OK. ouvrir-copilote-btn opens copilot-panel. capture-input + capture-submit creates task, tache-check- toggles status. raccourci-vision navigates to /vision. raccourci-decision + raccourci-idee both open copilote. graphique-actions-cta / graphique-energie-cta not visible (Thomas already has data — expected fallback: charts render instead).",
+    "4_page_ma_vision": "PASS — /vision loads with data-testids: page-ma-vision, vision-synthese, vision-raison-etre, vision-long-terme, vision-strategie, vision-jalons, vision-decisions, vision-idees, vision-idees-copilot, vision-atelier, vision-open-atelier. No dead button.",
+    "5_page_mon_refuge": "PASS — refuge-energie-slider (set to 70 via input event), 6 refuge-humeur-* buttons selectable, refuge-note-input accepts text, refuge-respiration-toggle starts/stops the cycle, refuge-foi-toggle shows refuge-verset (visible=true after toggle), refuge-copilote-btn opens copilot-panel. Check-in submit not fired to avoid side-effects on shared Thomas seed.",
+    "6_responsive_390": "PASS — scrollWidth=clientWidth=390 on /, /vision, /refuge (no horizontal overflow). bottom-nav has exactly 4 entries: bottomnav-aujourdhui, bottomnav-vision, bottomnav-copilote, bottomnav-refuge.",
+    "7_desktop_copilot_fab": "PASS — [data-testid=copilot-fab] visible on desktop, click opens copilot-right-drawer + copilot-panel."
+  }
+}

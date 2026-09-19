@@ -931,3 +931,18 @@ html.ambiance-clarte .onboarding-back { background:rgba(255,255,255,.62); color:
   [data-testid="copilot-mobile-fullscreen"] [data-testid="copilot-back"] span { display: none; }
   [data-testid="copilot-mobile-fullscreen"] [data-testid="copilot-back"] { width: 36px; padding: 0; justify-content: center; }
 }
+
+/* ── Copilote : style validé par l'utilisateur (proposition B) ─────────────
+   Onglets en pilules navy/beige, bouton d'envoi visible (il était transparent
+   avec une icône sombre — quasiment invisible), CTA navy dégradé + contour
+   beige-or, alertes en rouge. */
+.copilot-tab { border: 1px solid transparent !important; border-radius: 999px !important; margin-bottom: 10px; }
+.copilot-tab.is-active { background: linear-gradient(135deg, #1E3468 0%, #0B1F3A 70%); border-color: rgba(222,194,163,.55) !important; color: #F1E2CC; }
+.copilot-send-button { background: linear-gradient(135deg, #1E3468 0%, #0B1F3A 70%); border: 1px solid rgba(222,194,163,.55); color: #F1E2CC; box-shadow: 0 4px 14px rgba(4,10,26,.4); }
+.copilot-send-button svg { color: #F1E2CC !important; }
+.copilot-send-button:hover:not(:disabled) { border-color: #DEC2A3; }
+[data-testid="copilot-suggestion"] { background: linear-gradient(135deg, rgba(30,52,104,.55), rgba(11,31,58,.55)); border-color: rgba(222,194,163,.35); color: rgba(241,226,204,.88); }
+[data-testid="copilot-suggestion"]:hover { border-color: rgba(222,194,163,.6); }
+.news-signal-actions button { background: linear-gradient(135deg, #1E3468 0%, #0B1F3A 70%); border: 1px solid rgba(222,194,163,.5); color: #F1E2CC; }
+.news-signal-actions button:hover { border-color: #DEC2A3; color: #fff; }
+.copilot-collab-submit { background: linear-gradient(135deg, #1E3468 0%, #0B1F3A 70%); color: #F1E2CC; border: 1px solid rgba(222,194,163,.55); }

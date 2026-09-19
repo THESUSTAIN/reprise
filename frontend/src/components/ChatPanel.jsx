@@ -716,7 +716,7 @@ export default function ChatPanel({ context, initialAsk, onBack }) {
         </div>
         <div className="mt-3 grid grid-cols-2 border-b border-white/10" data-testid="copilot-tabs">
           <button onClick={() => setTab("chat")} className={`copilot-tab inline-flex h-9 items-center justify-center gap-1.5 border-b-2 text-[11.5px] font-medium transition-colors ${tab === "chat" ? "is-active" : ""}`}><MessageCircle size={14} /> Discussion</button>
-          <button onClick={() => { setTab("news-conversation"); markNewsTabSeen(); }} className={`copilot-tab inline-flex h-9 items-center justify-center gap-1.5 border-b-2 text-[11.5px] font-medium transition-colors ${tab === "news-conversation" ? "is-active" : ""}`}><Newspaper size={14} /> Actualité{unseenNewsCount > 0 && <span className="ml-0.5 inline-flex h-4 min-w-[16px] items-center justify-center rounded-full bg-rose-500 px-1 text-[9px] font-bold text-white" data-testid="copilot-news-count">{unseenNewsCount}</span>}</button>
+          <button onClick={() => { setTab("news-conversation"); markNewsTabSeen(); }} className={`copilot-tab inline-flex h-9 items-center justify-center gap-1.5 border-b-2 text-[11.5px] font-medium transition-colors ${tab === "news-conversation" ? "is-active" : ""}`}><Newspaper size={14} className={unseenNewsCount > 0 ? "text-rose-400" : ""} /> Actualité{unseenNewsCount > 0 && <span className="ml-0.5 inline-flex h-4 min-w-[16px] items-center justify-center rounded-full bg-rose-500 px-1 text-[9px] font-bold text-white" data-testid="copilot-news-count">{unseenNewsCount}</span>}</button>
         </div>
       </div>
 

@@ -515,8 +515,8 @@ export default function Layout() {
           {!isMobile && <button
             type="button"
             onClick={() => setCopilotOpen((open) => !open)}
-            className={`hidden md:flex fixed bottom-6 z-[70] h-14 w-14 items-center justify-center rounded-full border border-[#DEC2A3]/60 text-[#0A1128] shadow-[0_10px_30px_rgba(10,17,40,.45)] transition-all duration-200 hover:scale-105 ${copilotOpen ? "right-[400px]" : "right-6"}`}
-            style={{ background: "linear-gradient(135deg,#F1E2CC,#DEC2A3)" }}
+            className={`hidden md:flex fixed bottom-6 z-[70] h-14 w-14 items-center justify-center rounded-full border border-[#DEC2A3]/60 text-[#F1E2CC] shadow-[0_10px_30px_rgba(10,17,40,.45)] transition-all duration-200 hover:scale-105 ${copilotOpen ? "right-[400px]" : "right-6"}`}
+            style={{ background: "linear-gradient(135deg,#1E3468 0%,#0B1F3A 70%)" }}
             aria-label={copilotOpen ? "Replier le Copilote" : "Déplier le Copilote"}
             title={copilotOpen ? "Replier le Copilote" : "Déplier le Copilote"}
             data-testid="copilot-fab"

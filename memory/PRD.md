@@ -38,13 +38,16 @@ Créer la nouvelle interface du cockpit SaaS :
 - Tests : 9/9 scénarios PASS (testing agent, iteration_1.json), dont check-in réel + courbe qui apparaît avec 2 points, Mode Foi persistant, login sans noir, mobile sans débordement
 
 ### 2026-09-19 (maquettes structure)
-- 4 modèles de structure pour « Aujourd'hui » (même bleu exact, mêmes contenus) — CHOIX UTILISATEUR EN ATTENTE :
-  - A · inspiration Emergent (conversation Copilote au centre) : /design-preview/m1-emergent.html
-  - B · inspiration Notion (document vivant + arborescence) : /design-preview/m2-notion.html
-  - C · inspiration Linear (dense, clavier, ⌘K) : /design-preview/m3-linear.html
-  - D · Bento (tuiles flottantes + nav pilule basse) : /design-preview/m4-bento.html
-- Maquettes de placement de cartes : /design-preview/m5-vision-cartes.html (Ma Vision) et /design-preview/m6-refuge-cartes.html (Mon Refuge)
-- Règle : une fois le modèle choisi, l'appliquer aux 3 pages (Aujourd'hui, Ma Vision, Mon Refuge)
+- 4 modèles A/B/C/D créés puis ÉCARTÉS par l'utilisateur (« j'aime pas les maquettes ») → on GARDE la structure actuelle validée. Fichiers conservés dans /design-preview pour référence
+- 2 propositions de chat créées : /design-preview/c1-chat-pc.html (tiroir droit affiné, onglets Discussion/Actualité en pilules) et /design-preview/c2-chat-mobile.html (plein écran, onglet Actualité, Signal du jour) — COMPARAISON UTILISATEUR EN ATTENTE vs chat actuel
+- Boutons : `.gold-bg` redéfini en navy dégradé (#1E3468→#0B1F3A→#081734) + liseré/texte beige (choix utilisateur) — appliqué partout via la classe existante
+- BUG CORRIGÉ : double header du chat mobile (header Layout « Copilote » empilé sur celui de ChatPanel) → un seul header, bouton « Retour » via prop onBack ; header chat mobile densifié (sous-titre/contexte masqués <768px)
+- Tests : 7/7 PASS (testing agent, iteration_2.json) — tous les boutons des 3 pages vérifiés un par un, responsive 390px sans débordement, bulle Copilote OK
+
+### 2026-09-19 (style chat validé — proposition B)
+- Design chat « B » APPLIQUÉ au vrai Copilote : onglets Discussion/Actualité en pilules navy dégradé + contour beige-or, icône Actualité rouge quand non lu, bouton d'envoi rendu visible (était transparent + icône sombre = bug UI), suggestions et actions Actualité en navy/beige, bouton « Envoyer la demande » (Collaborer) harmonisé, bulle Copilote (FAB) passée en navy/beige assortie
+- `.gold-bg` global = navy dégradé noir + texte beige → tous les CTA du SaaS (3 pages refondues + pages cachées)
+- Maquettes m1-m4 écartées par l'utilisateur ; c1/c2 (chat) : B retenue et appliquée
 
 ## Backlog priorisé
 - P0 : (aucun bloquant connu)
