@@ -30,7 +30,7 @@ Créer la nouvelle interface du cockpit SaaS :
 
 ### 2026-09-19 (cette session)
 - BUG CORRIGÉ : sur mobile, l'accueil affichait encore l'ANCIEN chat plein écran (« Hub IA · Discussion/Actualité »). La branche mobile de `AppHome` dans `App.jsx` a été supprimée — l'accueil mobile affiche maintenant la nouvelle page « Aujourd'hui » avec nav basse ; le Copilote s'ouvre en surcouche plein écran depuis la nav basse
-- LOGIN : voile noir (`rgba(5,8,20,0.95)`) retiré de `.login-sky` — le login affiche maintenant le même bleu que l'app (`#2E4370→#44609A→#6483B4`), validé par l'utilisateur
+- LOGIN + APP : bleu EXACT du reprise-main d'origine restauré partout, vérifié contre le zip d'origine (`/tmp/r.zip`) : `linear-gradient(180deg, #172C5C 0%, #101F47 42%, #0B1F3A 76%, #081734 100%)` + halos bleus d'origine + voile d'assombrissement du bas sur login (formule exacte, identique à app.zayado.net). Le bleu clair (#2E4370→#6483B4) était une déviation introduite par la session précédente — corrigée. Variante clarté : `#172C5C → #101F47 55% → #0B1F3A`
 - HEADER mobile : devenu transparent (était dégradé navy opaque) ; desktop l'était déjà
 - GRAPHIQUES réels sur Aujourd'hui (recharts) : courbe « Ton énergie · 30 jours » (check-ins wellness) + histogramme « Ton rythme d'actions · 7 jours » (tâches created_at). États vides honnêtes avec CTA, aucune donnée fabriquée
 - BULLE COPILOTE flottante dorée en bas à droite sur desktop (remplace la languette verticale), ouvre/replie le panneau Copilote, badge actualité
